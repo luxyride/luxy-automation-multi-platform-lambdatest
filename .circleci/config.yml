@@ -1,0 +1,523 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.4.3
+  slack: circleci/slack@4.8.3
+jobs:
+  test:
+    docker:
+      - image: cimg/openjdk:20.0-browsers
+    steps:
+      - browser-tools/install-browser-tools
+      - checkout
+      - run: |
+            google-chrome --version
+            java --version
+            mkdir -p https:/testimages.luxyride.com/screenshots
+      - run:
+          name: Test
+          command: mvn clean install -Dsurefire.suiteXmlFiles=Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype".xml -Dbrowser="$browser"
+workflows:
+  DEV-Sanity: 
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - dev
+                - userportal
+          filters:
+            tags:
+              only: /^devchrome.20.*/
+            branches:
+              ignore: /.*/
+
+  dev-userportal-sanity-chrome:
+    when:
+      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - dev
+                - chrome
+  dev-userportal-sanity-safari:
+    when:
+      equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - dev
+                - safari
+  dev-userportal-regression-chrome:
+    when:
+      equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - dev
+                - chrome
+  dev-userportal-regression-safari:
+    when:
+      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - dev
+                - safari
+  uat-userportal-sanity-chrome:
+    when:
+      equal: [ uat-userportal-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - uat
+                - chrome
+  uat-userportal-sanity-safari:
+    when:
+      equal: [ uat-userportal-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - uat
+                - safari
+  uat-userportal-regression-chrome:
+    when:
+      equal: [ uat-userportal-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - uat
+                - chrome
+  uat-userportal-regression-safari:
+    when:
+      equal: [ uat-userportal-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - uat
+                - safari
+  prod-userportal-sanity-chrome:
+    when:
+      equal: [ prod-userportal-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - prod
+                - chrome
+  prod-userportal-sanity-safari:
+    when:
+      equal: [ prod-userportal-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - prod
+                - safari
+  prod-userportal-regression-chrome:
+    when:
+      equal: [ prod-userportal-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - prod
+                - chrome
+  prod-userportal-regression-safari:
+    when:
+      equal: [ prod-userportal-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - prod
+                - safari
+  dev-dispatch-sanity-chrome:
+    when:
+      equal: [ dev-dispatch-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - dispatch
+                - dev
+                - chrome
+  
+  dev-dispatch-regression-chrome:
+    when:
+      equal: [ dev-dispatch-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - dev
+                - chrome
+  dev-dispatch-regression-safari:
+    when:
+      equal: [ dev-dispatch-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - dev
+                - safari
+ 
+
+  uat-dispatch-regression-chrome:
+    when:
+      equal: [ uat-dispatch-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - uat
+                - chrome
+  uat-dispatch-regression-safari:
+    when:
+      equal: [ uat-dispatch-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - uat
+                - safari
+
+  prod-dispatch-regression-chrome:
+    when:
+      equal: [ prod-dispatch-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - prod
+                - chrome
+  prod-dispatch-regression-safari:
+    when:
+      equal: [ prod-dispatch-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - dispatch
+                - prod
+                - safari
+  dev-concierge-sanity-chrome:
+    when:
+      equal: [ dev-concierge-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - concierge
+                - dev
+                - chrome
+  
+  dev-concierge-regression-chrome:
+    when:
+      equal: [ dev-concierge-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - dev
+                - chrome
+  dev-concierge-regression-safari:
+    when:
+      equal: [ dev-concierge-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - dev
+                - safari
+  uat-concierge-regression-chrome:
+    when:
+      equal: [ uat-concierge-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - uat
+                - chrome
+  uat-concierge-regression-safari:
+    when:
+      equal: [ uat-concierge-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - uat
+                - safari
+  prod-concierge-regression-chrome:
+    when:
+      equal: [ prod-concierge-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - prod
+                - chrome
+  prod-concierge-regression-safari:
+    when:
+      equal: [ prod-concierge-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - concierge
+                - prod
+                - safari
+  dev-travelagent-sanity-chrome:
+    when:
+      equal: [ dev-travelagent-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - travelagent
+                - dev
+                - chrome
+  
+  dev-travelagent-regression-chrome:
+    when:
+      equal: [ dev-travelagent-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - dev
+                - chrome
+  dev-travelagent-regression-safari:
+    when:
+      equal: [ dev-travelagent-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - dev
+                - safari
+  uat-travelagent-regression-chrome:
+    when:
+      equal: [ uat-travelagent-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - uat
+                - chrome
+  uat-travelagent-regression-safari:
+    when:
+      equal: [ uat-travelagent-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - uat
+                - safari
+  prod-travelagent-regression-chrome:
+    when:
+      equal: [ prod-travelagent-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - prod
+                - chrome
+  prod-travelagent-regression-safari:
+    when:
+      equal: [ prod-travelagent-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - travelagent
+                - prod
+                - safari
+  uat-affiliate-regression-chrome:
+    when:
+      equal: [ uat-affiliate-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - uat
+                - chrome
+  uat-affiliate-regression-safari:
+    when:
+      equal: [ uat-affiliate-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - uat
+                - safari
+  dev-affiliate-sanity-chrome:
+    when:
+      equal: [ dev-affiliate-sanity-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - affiliate
+                - dev
+                - chrome
+  dev-affiliate-regression-chrome:
+    when:
+      equal: [ dev-affiliate-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - dev
+                - chrome
+  dev-affiliate-regression-safari:
+    when:
+      equal: [ dev-affiliate-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - dev
+                - safari
+  prod-affiliate-regression-chrome:
+    when:
+      equal: [ prod-affiliate-regression-chrome, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - prod
+                - chrome
+  prod-affiliate-regression-safari:
+    when:
+      equal: [ prod-affiliate-regression-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - affiliate
+                - prod
+                - safari
+

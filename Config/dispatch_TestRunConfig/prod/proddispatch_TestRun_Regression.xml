@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyDispatch_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="proddispatch" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyDispatchAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="Dispatch.Signout" />
+				<include name="Dispatch.NewBooking" />
+				<include name="Dispatch.Affiliate" />
+				<include name="Dispatch.EmailNotifications" />
+				<include name="Dispatch.Cancelled" />
+				<include name="Dispatch.Login" />
+			</run>
+		</groups>
+		<classes>
+			<!-- ######################################## Login ############################################## -->
+			<class name="Dispatch.Login.DEV_TC_13_VerifyDisplayingOnDispatchSiteSigninPage_Test" />
+			<class name="Dispatch.Login.DEV_TC_25_VerifySigninWithValidCredentials_Test" />
+			<class name="Dispatch.Login.DEV_TC_27_VerifyAvailablityOfButtons_NavigationLinksInHomePage_Test" />
+			<class name="Dispatch.Login.DEV_TC_649_VerifyUserShouldNotLogoutAutomaticallyWhenReloadsTheDispatchPage_Test" />
+			<class name="Dispatch.Login.DEV_TC_1132_VerifyTheAvailabilityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
+			<class name="Dispatch.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
+			<class name="Dispatch.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInDispatch_Test" />
+			<!-- ############################################################################################# -->
+
+			<!-- ##################################### Dispatch.Signout ###################################### -->
+			<class name="Dispatch.Signout.DEV_TC_23_VerifytheAvailablityOfLogoutOption_Test" />
+			<class name="Dispatch.Signout.DEV_TC_24_VerifytheLogoutFunctionality_Test" />
+			<!-- ############################################################################################# -->
+
+			<!-- ######################################## New Booking ######################################## -->
+			<class name="Dispatch.NewBooking.DEV_TC_88_VerifyTheGetQouteFunctionality_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1334_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalsefromDispatchPortal_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1348_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromDispatchPortal_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1644_VerifyTheAvailabilityOfSpecialEventsTabInDispatchPortal_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1764_VerifyTheAvailabilityOfFarmOutToAllEligiblePartnerToggleInNewBookingTab_Test" />
+			<!-- ############################################################################################# -->
+
+			<!-- ##################################### Dispatch.Affiliate ################################# -->
+			<class name="Dispatch.Affiliate.DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsInAffiliatesTabOfDispatch_Test" />
+			<class name="Dispatch.Affiliate.DEV_TC_1601_VerifyTheAvailabilityOfActiveAffiliatesAndInactiveAffiliatesTabsInManageAffiliatesPage_Test" />
+			<class name="Dispatch.Affiliate.DEV_TC_1603_VerifyTheActiveAffiliateTabInManageAffiliatesPageInDispatchPortal_Test" />
+			<class name="Dispatch.Affiliate.DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffiliatesInDispatchPortal_Test" />
+			<class name="Dispatch.Affiliate.DEV_TC_1949_VerifyAvailabilityLevelOfInsuranceOptionsForPartnersInDispatch_Test" />
+			<!-- ############################################################################################# -->
+
+			<!-- ############################################ Driver ######################################### -->
+			<class name="Dispatch.Driver.DEV_TC_1655_VerifyTheFunctionalityOfSearchingDriverWithDriverIDInDispatchPortal_Test" />
+			<!-- ############################################################################################# -->
+
+		</classes>
+	</test>
+</suite> <!--
+Suite -->

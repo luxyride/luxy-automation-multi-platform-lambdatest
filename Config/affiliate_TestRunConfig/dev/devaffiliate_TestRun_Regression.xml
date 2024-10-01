@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyAffiliate_Regression" thread-count="4">
+	<parameter name="environment" value="devaffiliate" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyAffiliateAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="Affiliate.Signout" />
+				<include name="Affiliate.Profiles" />
+				<include name="Affiliate.Login" />
+				<include name="Affiliate.Drivers" />
+				<include name="Affiliate.NewBookings" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- ####################################### Signout ############################################## -->
+			<class name="Affiliate.Signout.DEV_TC_30_VerifyTheLogoutFunctionality_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ####################################### Profiles ############################################# -->
+			<class name="Affiliate.Profiles.DEV_TC_1490_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliatePortalForTheNewAffiliatesCreatedThroughWebUserPortalOrDispatch_Test" />
+			<class name="Affiliate.Profiles.DEV_TC_1493_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkForTheExistingAffiliateInAffiliateDetailsPageInAffiliatePortal_Test" />
+			<class name="Affiliate.Profiles.DEV_TC_1950_VerifyTheAvailabilityLevelOfInsuranceOptionsForPartnersInAffiliatePortal_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ######################################## Login ############################################### -->
+			<class name="Affiliate.Login.DEV_TC_52_VerifySignInWithValidCredentials_Test" />
+			<class name="Affiliate.Login.DEV_TC_650_VerifyUserLoggingoutAutomaticallyWhenReloadsthePageAffiliate_Test" />
+			<class name="Affiliate.Login.DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test" />
+			<class name="Affiliate.Login.DEV_TC_1976_VerifyTheFieldValidationInAssignedriverAndVehiclePopUpForOnatripsInUpcomingRidesInAffiliatePortal_Test" />
+			<class name="Affiliate.Login.DEV_TC_1822_VerifyTheAvailabilityOfActiveAndInactiveCoverageZonesInAffiliatePortal_Test" />
+			<class name="Affiliate.Login.DEV_TC_1882_VerifyTheAvailabilityOfEditIconForVehiclesInAffiliatePortal_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ######################################## Drivers ############################################# -->
+			<class name="Affiliate.Drivers.DEV_TC_121_VerifyDriverRegistrationFromAffiliatePortal_Test" />
+			<class name="Affiliate.Drivers.DEV_TC_1932_VerifyDriverMobilenumberFieldValidationInAffiliatePortal_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ##################################### NewBookings ############################################ -->
+			<class name="Affiliate.NewBookings.DEV_TC_1955_VerifyTheAvailabilityOfAddingDriverManuallyForOnaTripsInUpcomingRidesInAffiliatePortal_Test" />
+			<class name="Affiliate.NewBookings.DEV_TC_1956_VerifyTheFunctionalityOfAddingDriverManuallyForONATripsInUPCOMINGRides_AffiliatePortal_Test" />
+			<!-- ############################################################################################## -->
+ 		</classes>
+	</test>
+</suite> <!-- Suite -->

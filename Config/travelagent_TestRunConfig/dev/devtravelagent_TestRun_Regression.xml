@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyTravelAgent_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="devtravelagent" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyTravelAgentAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="TravelAgent.Logout" />
+				<include name="TravelAgent.AccountCreation" />
+				<include name="TravelAgent.DispatchTravelAgent" />
+				<include name="TravelAgent.DispatchTravelArranger" />
+				<include name="TravelAgent.Passengers" />
+				<include name="TravelAgent.NewBooking" />
+				<include name="TravelAgent.Login" />
+				<include name="TravelAgent.ChangePassword" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- ################################### TravelAgent.Logout
+			####################################### -->
+			<class
+				name="TravelAgent.Logout.DEV_TC_1158_VerifyFunctionalityOfLogoutOption_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ############################### TravelAgent.AccountCreation
+			################################## -->
+			<class
+				name="TravelAgent.AccountCreation.DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Test" />
+			<!-- <class
+			name="TravelAgent.AccountCreation.DEV_TC_1196_VerifyFunctionalityOfTravelAgentRegistrationThroughWebPortal_Test"
+			/>
+			<class
+			name="TravelAgent.AccountCreation.DEV_TC_1197_VerifyFieldValidationsOfTravelAgentRegistrationFormInWebPortal_Test"
+			/>  
+			<class
+			name="TravelAgent.AccountCreation.DEV_TC_1208_VerifyTravelAgentAccountDetailsCreatedThroughWebPortalIsListedUnderManageTravelAgentInDispatch_Test"
+			/> 
+			<class
+			name="TravelAgent.AccountCreation.DEV_TC_1210_VerifyActivationOfTravelAgentCreatedThroughWebPortal_Test"
+			/> 
+			<class
+			name="TravelAgent.AccountCreation.DEV_TC_1231_VerifyLoginFunctionalityOfTravelAgentAccountCreatedThroughProgramsInWebPortal_Test"
+			/> -->
+			<class
+				name="TravelAgent.AccountCreation.DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughDispatch_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ############################# TravelAgent.DispatchTravelAgent
+			################################ -->
+			<class
+				name="TravelAgent.DispatchTravelAgent.DEV_TC_1226_VerifyTheAvailabilityOfTravelAgentTabInDispatchPortal_Test" />
+			<class
+				name="TravelAgent.DispatchTravelAgent.DEV_TC_1277_VerifyTheEditTravelAgentFunctionalityInManageTravelAgentPage_Test" />
+			<!-- <class
+			name="TravelAgent.DispatchTravelAgent.DEV_TC_1278_VerifyResetPasswordFunctionalityInManageTravelAgentPage_Test"
+			/> 	
+			<class
+			name="TravelAgent.DispatchTravelAgent.DEV_TC_1279_VerifyTheActivateDeactivateTravelAgentFunctionalityInManageTravelAgentPage_Test"
+			/> 
+			<class
+			name="TravelAgent.DispatchTravelAgent.DEV_TC_1275_VerifyDeleteTravelAgentFunctionalityInManageTravelAgentPage_Test"
+			/> -->
+			<!--
+			############################################################################################## -->
+
+			<!-- ############################ TravelAgent.DispatchTravelArranger
+			############################## -->
+			<!-- <class
+			name="TravelAgent.DispatchTravelArranger.DEV_TC_1265_VerifyFunctionalityOfAddTravelArrangerInManageTravelArrangerPage_Test"
+			/> -->
+			<class
+				name="TravelAgent.DispatchTravelArranger.DEV_TC_1268_VerifyEditTravelArrangerFunctionalityInManageTravelArrangerPage_Test" />
+			<!-- <class
+			name="TravelAgent.DispatchTravelArranger.DEV_TC_1270_VerifyTheFunctionalityOfTravelArrangerProfileUnderActionsInManageTravelArrangerPage_Test"
+			/>
+			<class
+			name="TravelAgent.DispatchTravelArranger.DEV_TC_1272_VerifyFunctionalityOfTravelArrangerRegistrationInDispatchPortalAndLginIntoTravelAgentPortal_Test"
+			/> 
+			<class
+			name="TravelAgent.DispatchTravelArranger.DEV_TC_1271_VerifyDeleteTravelArrangerButtonFunctionalityInManageTravelArrangerPage_Test"
+			/> -->
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################### TravelAgent.Passengers
+			################################### -->
+			<class
+				name="TravelAgent.Passengers.DEV_TC_1193_VerifyUIOfPassengerRegistrationFormInTravelAgentSite_Test" />
+			<class
+				name="TravelAgent.Passengers.DEV_TC_1253_VerifyAbilityToUpdatePassengerInformation_Test" />
+			<class
+				name="TravelAgent.Passengers.DEV_TC_1255_VerifyAbilityToViewProfileFeaturesUnderActionsInManagePassengerPage_Test" />
+			<class
+				name="TravelAgent.Passengers.DEV_TC_1256_VerifyActivateAccountButtonToSendActivationLinkTotheRegisteredEmail_Test" />
+			<class
+				name="TravelAgent.Passengers.DEV_TC_1257_VerifyTheFunctionalityOfMoveToCorporateAccountActionInMANAGEPASSENGERPage_Test" />
+			<!-- have to add logic to activate Created Account: -->
+			<!-- <class
+			name="TravelAgent.Passengers.DEV_TC_1290_VerifyTheAvailabilityOfPassengersWhenACorporateEnrolledtoTravelAgentFromConciergePortal_Test"
+			/> -->
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################## TravelAgent.NewBooking
+			#################################### -->
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1228_VerifyRideBookedThroughTravelAgentIsListedInTravelAgentSiteUnderRIDEAllTab_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRidesALLTab_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1239_VerifyTheAvailabilityOfCorporateSelectionSectionInNewBookingFlow_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1311_VerifyRideBookedForCorporateThroughTravelAgentIsListedInConciergeSiteUnderRidesAllTab_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1316_VerifyRideBookingWhenZoneTypeAsAirport_TravelAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1318_VerifyRideBookingWhenZoneTypeAsCity_TravelAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1319_VerifyRideBookingWhenZoneTypeAsState_TravelAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1321_VerifyRideBookingWhenZoneTypeAsZipcode_TravelAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravelAgentPortal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1445_VerifyAllowedVehiclesForTravelArrangersWhenEnrolledAsNewTravelAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1510_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAddedThroughRideSummarySectionExpandedViewInTravelAgentPortal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1511_VerifyTheDisplayingOfInternalNotesInEditRideModeAfterBookingARideInTravelAgentPortal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1529_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressInTravelAgentportal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1531_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressLaterEDITRideInTravelAgentportal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsTraveAgent_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1694_VerifyThePhoneNumberValidationWhileBookingARideInTravelAgentPortals_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1776_HourlyVerifyTheAvailabilityOfHourlyTabInTAUnderNEWBOOKING_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1779_HourlyVerifyBookingARideInHourlyTabTAByEnablingSameAsPickUpAddressCheckBox_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1782_HourlyVerifyBookingARideinHourlyTabTAPortalByDisablingSameAsPickupAddressCheckBox_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1812_VerifyRemoveOrderIdFromTAPortal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1980_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardTravelAgentPortal_Test" />
+			<class
+				name="TravelAgent.NewBooking.DEV_TC_1946_VerifyRemoveSortingFunctionsColumnsFromAllPagesInTravelAgentPortal_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################### TravelAgent.Login
+			######################################## -->
+			<class
+				name="TravelAgent.Login.DEV_TC_1142_VerifyTheAvailableFieldsInLoginPageOfTravelAgentSite_Test" />
+			<class
+				name="TravelAgent.Login.DEV_TC_1145_VerifyfieldValidationForTravelAgentSite_Test" />
+			<class
+				name="TravelAgent.Login.DEV_TC_1146_VerifyTheLoginPageOfTravelAgentWithValidCredentials_Test" />
+			<class
+				name="TravelAgent.Login.DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test" />
+			<class
+				name="TravelAgent.Login.DEV_TC_1157_VerifyTheFieldValidationForForgotPasswordInTravelAgentSite_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################ TravelAgent.ChangePassword
+			################################## -->
+			<class
+				name="TravelAgent.ChangePassword.DEV_TC_1156_VerifyTheFunctionalityOfChangePassword_Test" />
+			<class
+				name="TravelAgent.ChangePassword.DEV_TC_1201_VerifyUIOfChangePassword_Test" />
+			<class
+				name="TravelAgent.ChangePassword.DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test" />
+			<!--
+			############################################################################################## -->
+		</classes>
+	</test>
+</suite> <!--
+Suite -->

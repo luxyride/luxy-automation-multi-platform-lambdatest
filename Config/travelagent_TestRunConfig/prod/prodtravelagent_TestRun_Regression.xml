@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyTravelAgent_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="prodtravelagent" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyTravelAgentAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="TravelAgent.Logout" />
+				<include name="TravelAgent.AccountCreation" />
+				<include name="TravelAgent.DispatchTravelAgent" />
+				<include name="TravelAgent.DispatchTravelArranger" />
+				<include name="TravelAgent.Passengers" />
+				<include name="TravelAgent.Login" />
+				<include name="TravelAgent.ChangePassword" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- ################################### TravelAgent.Logout ####################################### -->
+			<class name="TravelAgent.Logout.DEV_TC_1158_VerifyFunctionalityOfLogoutOption_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ############################### TravelAgent.AccountCreation ################################## -->
+			<class name="TravelAgent.AccountCreation.DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ############################# TravelAgent.DispatchTravelAgent ################################ -->
+			<class name="TravelAgent.DispatchTravelAgent.DEV_TC_1226_VerifyTheAvailabilityOfTravelAgentTabInDispatchPortal_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ############################ TravelAgent.DispatchTravelArranger ############################## -->
+			<class name="TravelAgent.DispatchTravelArranger.DEV_TC_1268_VerifyEditTravelArrangerFunctionalityInManageTravelArrangerPage_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ################################### TravelAgent.Passengers ################################### -->
+			<class name="TravelAgent.Passengers.DEV_TC_1193_VerifyUIOfPassengerRegistrationFormInTravelAgentSite_Test" />
+			<class name="TravelAgent.Passengers.DEV_TC_1253_VerifyAbilityToUpdatePassengerInformation_Test" />
+			<class name="TravelAgent.Passengers.DEV_TC_1255_VerifyAbilityToViewProfileFeaturesUnderActionsInManagePassengerPage_Test" />
+			<class name="TravelAgent.Passengers.DEV_TC_1256_VerifyActivateAccountButtonToSendActivationLinkTotheRegisteredEmail_Test" />
+			<class name="TravelAgent.Passengers.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsTraveAgent_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ################################### TravelAgent.Login ######################################## -->
+			<class name="TravelAgent.Login.DEV_TC_1142_VerifyTheAvailableFieldsInLoginPageOfTravelAgentSite_Test" />
+			<class name="TravelAgent.Login.DEV_TC_1145_VerifyfieldValidationForTravelAgentSite_Test" />
+			<class name="TravelAgent.Login.DEV_TC_1146_VerifyTheLoginPageOfTravelAgentWithValidCredentials_Test" />
+			<class name="TravelAgent.Login.DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test" />
+			<class name="TravelAgent.Login.DEV_TC_1157_VerifyTheFieldValidationForForgotPasswordInTravelAgentSite_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ################################ TravelAgent.ChangePassword ################################## -->
+			<class name="TravelAgent.ChangePassword.DEV_TC_1156_VerifyTheFunctionalityOfChangePassword_Test" />
+			<class name="TravelAgent.ChangePassword.DEV_TC_1201_VerifyUIOfChangePassword_Test" />
+			<class name="TravelAgent.ChangePassword.DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test" />
+			<!-- ############################################################################################## -->
+		</classes>
+	</test>
+</suite> <!--
+Suite -->

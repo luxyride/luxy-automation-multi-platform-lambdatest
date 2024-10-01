@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyNewUserPortal_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="produserportal" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyNewUserPortalAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="UserPortal.CorporateTransport" />
+				<include name="UserPortal.TravelAgentProgram" />
+				<include name="UserPortal.DriversAndPartners" />  
+				<include name="UserPortal.NewBookings" /> 
+				<include name="UserPortal.SignUp" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- ############################# UserPortal.CorporateTransport ########################### -->
+			<class name="UserPortal.CorporateTransport.DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateRegistrationPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ############################## UserPortal.TravelAgentProgram ########################## -->
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTravelAgentProgram_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionInTravelAgentRegistrationFormOfUserPortal_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ############################## UserPortal.DriversAndPartners ########################## -->
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ################################### UserPortal.NewBookings ############################ -->
+			<class name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
+			<!-- ############################################################################################## -->	
+		
+			<!-- ################################### UserPortal.SignUp ################################## -->
+			<class name="UserPortal.SignUp.DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test" />
+			<!-- ############################################################################################## -->
+		</classes>
+	</test>
+</suite> <!-- Suite -->

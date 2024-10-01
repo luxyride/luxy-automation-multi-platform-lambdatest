@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="WorkforceTechnologyServices">
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="WorkforceTechnologyServices">
+		<classes>
+			<class name="workforceTechnologyAndServices.WTSCaptureHyperlinks_Test" />
+		</classes>
+	</test>
+</suite> <!-- Suite -->

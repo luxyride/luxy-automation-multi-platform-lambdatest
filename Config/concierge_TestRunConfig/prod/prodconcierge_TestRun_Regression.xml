@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyConcierge_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="prodconcierge" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyConciergeAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="Concierge.Profile" />
+				<include name="Concierge.NewBookings" />
+				<include name="Concierge.Login" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- #################################### Concierge.Profile ####################################### -->
+			<class name="Concierge.Profile.DEV_TC_362_VerifyValidationFieldForPhoneNumber_Test" />
+			<class name="Concierge.Profile.DEV_TC_363_VerifyFieldValidationForEmail_Test" />
+			<class name="Concierge.Profile.DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Test" />
+			<class name="Concierge.Profile.DEV_TC_1128_VerifySelectDeselectofOptInVerificationSecurityCheckboxin_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ################################# Concierge.NewBookings ###################################### -->
+			<class name="Concierge.NewBookings.DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuration_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1351_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressfromConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsConcierge_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1643_VerifyTheAvailabilityOfSpecialEventsTabInConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1646_VerifyTheAvailabilityOfCreateQuoteButtonInManageSpecialEventQoutesPageInConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
+			<class name="Concierge.NewBookings.DEV_TC_1902_VerifyNewBookingFunctionalityWithPayPalUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
+			<!-- ############################################################################################## -->
+
+			<!-- ###################################### Concierge.Login ####################################### -->
+			<class name="Concierge.Login.DEV_TC_651_VerifyUserShouldNotLogoutAutomaticallyWhenReloadsthePageConcierge_Test" />
+			<class name="Concierge.Login.DEV_TC_1132_VerifyTheAvailabilityOfDownloadButtonInMonthlyInvoiceInConcierge_Test" />
+			<class name="Concierge.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInConcierge_Test" />
+			<class name="Concierge.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInConcierge_Test" />
+			<!-- ############################################################################################## -->
+	</classes>
+	</test>
+</suite> <!--
+Suite -->

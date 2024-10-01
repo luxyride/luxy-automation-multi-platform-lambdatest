@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LuxyConcierge_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="devconcierge" />
+	<parameter name="browser" value="chromeLocal" />
+	<listeners>
+		<listener class-name="Common.LuxyAuto_ITestListener" />
+	</listeners>
+	<test name="LuxyConciergeAutoTest" preserve-order="true">
+		<groups>
+			<run>
+				<include name="Concierge.Signup_Signin" />
+				<include name="Concierge.Deletion" />
+				<include name="Concierge.Profile" />
+				<include name="Concierge.NewBookings" />
+				<include name="Concierge.EditRideFunctionality" />
+				<include name="Concierge.EmailNotifications" />
+				<include name="Concierge.Login" />
+				<include name="Concierge.Cancelled" />
+			</run>
+		</groups>
+
+		<classes>
+			<!-- ################################ Concierge.Signup_Signin
+			##################################### -->
+			<class
+				name="Concierge.Signup_Signin.DEV_TC_700_VerifyGenerateConciergeAccountByRegisteringCorporateInWebPortal_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################### Concierge.Deletion
+			###################################### -->
+			<class
+				name="Concierge.Deletion.DEV_TC_1110_VerifyDeletionOfConciergeAccountInDispatchPortal_Test" />
+			<class
+				name="Concierge.Deletion.DEV_TC_1111_VerifyDeletionOfCorporateAccountInDispatchPortal_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- #################################### Concierge.Profile
+			####################################### -->
+			<class
+				name="Concierge.Profile.DEV_TC_362_VerifyValidationFieldForPhoneNumber_Test" />
+			<class
+				name="Concierge.Profile.DEV_TC_363_VerifyFieldValidationForEmail_Test" />
+			<class
+				name="Concierge.Profile.DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Test" />
+			<class
+				name="Concierge.Profile.DEV_TC_1128_VerifySelectDeselectofOptInVerificationSecurityCheckboxin_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################# Concierge.NewBookings
+			###################################### -->
+			<class
+				name="Concierge.NewBookings.DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuration_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1351_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressfromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1314_VerifyAvailabilityFunctionalityOfNotificationsSettingsWhenPassengerCreatedThroughConciergeWhileCreatingRide_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1362_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1375_VerifyRideBookingWhenZoneTypeAsAirportConcierge_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1362_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1376_VerifyRideBookingWhenZoneTypeAsCityConcierge_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1377_VerifyRideBookingWhenZoneTypeAsZipcodeConcierge_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1378_VerifyRideBookingWhenZoneTypeAsStateConcierge_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1498_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAddedThroughRideSummarySectionExpandedViewInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1499_VerifyTheDisplayingOfInternalNotesInEditRideModeAfterBookingARideInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1410_VerifyTheFilteringOfDispatchRidesinConciergePortalUsingOriginatorType_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1416_VerifyTheFilteringOfConciergeRidesinConciergePortalUsingOriginatorType_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1417_VerifyTheFilteringOfTravekAgentRidesinConciergePortalUsingOriginatorType_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1519_VerifyTheFilteringOfExternalSourceRidesinConciergePortalUsingOriginatorType_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1522_VerifyFilteringOfConciergeRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1523_VerifyFilteringOfTravelAgentRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1524_VerifyFilteringOfDispatchRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1426_VerifyFilteringOfExternalSourceInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1528_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressInConciergeportal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1530_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressLaterEDITRideInConciergeportal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsConcierge_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1643_VerifyTheAvailabilityOfSpecialEventsTabInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1645_VerifyFunctionalityOfCreatingQuoteInSpecialEventsInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1646_VerifyTheAvailabilityOfCreateQuoteButtonInManageSpecialEventQoutesPageInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1649_VerifyTheFunctionalityOfHomeRequestNewQuoteCancelQuoteInEventAndSpecialServiceQuoteRequestPageInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1680_VerifyDisplayingOfCorporateNameInDispatchPortalRideExpandViewWhenRideBookedFromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1693_VerifyThePhoneNumberValidationWhileBookingARideInConciergePortals_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1727_VerifyTheAvailabilityOfEmployeeIdInConciergePortalWhenIsEmployeeIdRequiredInDBIsTrue_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1729_VerifyTheFunctionalityOfEmployeeIdInConciergePortalWhenIsEmployeeIdRequiredInDBIsTrue_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1730_VerifyTheAvailabilityOfClientMatterNumberInConciergePortalWhenIsClientMatterRequiredInDBIsTrueorFalse_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePortalWhenIsClientMatterRequiredInDBIsTrue_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1775_HourlyVerifyTheAvailabilityOfHourlyTabInConciergeUnderNEWBOOKING_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1778_HourlyVerifyBookingARideInHourlyTabConciergeByEnablingSameAsPickUpAddressCheckBox_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1781_HourlyVerifyBookingARideinHourlyTabConciergeByDisablingSameAsPickupAddressCheckBox_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1811_VerifyRemoveOrderIdFromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1902_VerifyNewBookingFunctionalityWithPayPalUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1982_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardConciergePortal_Test " />
+			<class
+				name="Concierge.NewBookings.DEV_TC_1945_VerifyRemoveSortingFunctionsColumnsFromAllPagesInConciergePortal_Test" />
+
+			<!--
+			############################################################################################## -->
+
+			<!-- ############################# Concierge.EditRideFunctionality
+			################################ -->
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_1249_VerifyEDITRideRunctionalityFromConciergePortal_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_1250_VerifyEDITRideFunctionalityFromDispatchWhenRidehasBookedFromConciergePortal_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_808_VerifyRideEditWhenZoneTypeAsZipcode_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_809_VerifyRideEditWhenZoneTypeAsCity_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_810_VerifyRideEditWhenZoneTypeAsState_Test" />
+			<class
+				name="Concierge.EditRideFunctionality.DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowBufferTime_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ############################## Concierge.EmailNotifications
+			################################## -->
+			<class
+				name="Concierge.EmailNotifications.DEV_TC_1058_VerifySendingPINConfirmationForPrimaryAndSecondaryPassengerInBookingConfirmationEmailConcierge_Test" />
+			<class
+				name="Concierge.EmailNotifications.DEV_TC_1059_VerifyPINConfirmationEmailCustomerResendBookingConfEmailButtonDispatchWhenRideBookedConcierge_Test" />
+			<class
+				name="Concierge.EmailNotifications.DEV_TC_1061_VerifyPINConfirmationForInProgressAvailableUpcomingCompletedCancelledRidesForRidesBookedConcierge_Test" />
+			<class
+				name="Concierge.EmailNotifications.DEV_TC_1062_VerifyPINConfirmationEmailNotSentToCustomerWhenRidesEditedWhileBookedConcierge_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ###################################### Concierge.Login
+			####################################### -->
+			<class
+				name="Concierge.Login.DEV_TC_651_VerifyUserShouldNotLogoutAutomaticallyWhenReloadsthePageConcierge_Test" />
+			<class
+				name="Concierge.Login.DEV_TC_817_VerifyLinkToViewVideosAboutCorporateProgramInNewLUXYConciergeAccountEmailTemplate_Test" />
+			<class
+				name="Concierge.Login.DEV_TC_1132_VerifyTheAvailabilityOfDownloadButtonInMonthlyInvoiceInConcierge_Test" />
+			<class
+				name="Concierge.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInConcierge_Test" />
+			<class
+				name="Concierge.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInConcierge_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- ################################## Concierge.Cancelled
+			####################################### -->
+			<class
+				name="Concierge.Cancelled.DEV_TC_1247_VerifyCancelRideByConcierge_Test" />
+			<!--
+			############################################################################################## -->
+		</classes>
+	</test>
+</suite> <!--
+Suite -->
