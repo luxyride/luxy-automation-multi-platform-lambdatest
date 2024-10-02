@@ -1,0 +1,37 @@
+
+version: 0.2
+runson: win
+
+autosplit: true
+concurrency: 1
+
+pre:
+  # Skip execution of the tests in the pre step
+  - mvn dependency:resolve
+
+framework:
+  name: maven/testng
+  flags:
+    ## - "-Dgroups=selenium-test"
+    - "-Dsurefire.suiteXmlFiles=../luxy-automation-multi-platform-lambdatest/Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Sanity.xml"
+    ## - "-Dbrowser=safari"
+    - if(labels = "safari")
+     - "-Dbrowser=safari"
+    - else
+     - "-Dbrowser=chrome"
+ 
+  discoveryType: class
+  defaultReports: false
+
+retryOnFailure: true
+maxRetries: 1
+
+runtime:
+  language: java
+  version: 20
+  
+project:
+  name: DEV_Userportal_TestRun_Sanity
+differentialUpload:
+  enabled: true
+  ttlHours: 2

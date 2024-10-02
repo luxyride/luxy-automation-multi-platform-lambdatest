@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- ########### Browserstack Cloud Configuration ############## -->
+<!-- ########### LambdaTest Cloud Configuration ############## -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -7,8 +7,8 @@
 	<groupId>LuxyAutomation</groupId>
 	<artifactId>LuxyAutomation</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>testng-browserstack</name>
-	<url>https://www.github.com/browserstack/testng-browserstack</url>
+	<name>testng-LambdaTest</name>
+	<url>https://www.github.com/LambdaTest/testng-LambdaTest</url>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -31,12 +31,6 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.browserstack</groupId>
-			<artifactId>browserstack-java-sdk</artifactId>
-			<version>LATEST</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -116,8 +110,6 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
-					<argLine>
-						-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -135,8 +127,6 @@
 							<suiteXmlFiles>
 								<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 							</suiteXmlFiles>
-							<argLine>
-								-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -144,4 +134,4 @@
 		</profile>
 	</profiles>
 </project>
-<!-- ########### Browserstack Cloud Configuration ############## -->
+<!-- ########### LambdaTest Cloud Configuration ############## -->

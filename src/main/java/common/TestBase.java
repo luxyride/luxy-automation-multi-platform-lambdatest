@@ -170,7 +170,7 @@ public class TestBase {
 			robot = new Robot();
 			System.out.println("Environment = " + environment);
 			System.out.println("Browser = " + browserName);
-			System.out.println("Browserstack HUB URL = " + URL);
+			System.out.println("LambdaTest HUB URL = " + URL);
 
 			// User Portal Configuration:
 			if (environment.equalsIgnoreCase("devuserportal")) {
@@ -256,7 +256,7 @@ public class TestBase {
 					+ environmentCode.toUpperCase() + "_" + browserName.toUpperCase() + ".html");
 
 			// --------------------------------------------------------------------------
-			// ## Browserstack Configuration:
+			// ## LambdaTest Configuration:
 			buildName = context.getCurrentXmlTest().getSuite().getName() + "_" + environmentCode.toUpperCase() + "_"
 					+ browserName.toUpperCase();
 			Date date = new Date();
@@ -349,7 +349,7 @@ public class TestBase {
 	public WebDriver launchBrowser(String browser, WebDriver driver, String testCaseName) {
 		try {
 			browserType = browser;
-			// #################### Browserstack Cloud Execution #################### //
+			// #################### LambdaTest Cloud Execution #################### //
 			if (browser.equalsIgnoreCase("chrome")) {
 				DesiredCapabilities chromeCapability = new DesiredCapabilities();
 				chromeCapability.setCapability("platform", "Windows 11");
@@ -362,8 +362,8 @@ public class TestBase {
 				chromeCapability.setCapability("browserVersion", "latest");
 				chromeCapability.setCapability("percyCaptureMode", "auto");
 				chromeCapability.setCapability("projectName", dateTimeStamp);
-				chromeCapability.setCapability("browserstack.idleTimeout", 300);
-				chromeCapability.setCapability("browserstack.chrome.enablePopups", "false");
+				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
 				chromeCapability.setCapability("autoGrantPermissions", "true");
 				chromeCapability.setCapability("visual", "true");
 
@@ -409,7 +409,7 @@ public class TestBase {
 				safariCapability.setCapability("browserVersion", "17.3");
 				safariCapability.setCapability("percyCaptureMode", "auto");
 				safariCapability.setCapability("projectName", dateTimeStamp);
-				safariCapability.setCapability("browserstack.idleTimeout", 300);
+				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
 				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
 				safariCapability.setCapability("--disable-infobars", true);
 				safariCapability.setCapability("--disable-notifications", true);
@@ -420,7 +420,7 @@ public class TestBase {
 
 				// Handling pop-ups and permissions
 				safariCapability.setCapability("safariAllowPopups", false);
-				safariCapability.setCapability("browserstack.safari.enablePopups", true); // BrowserStack specific
+				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
 
 				// Set additional options for Safari
 				safariCapability.setCapability("safari:automaticProfiling", false);
@@ -463,7 +463,7 @@ public class TestBase {
 				// SET CAPABILITY
 				safariCapability.setCapability("prefs", prefs);
 
-				// Initialize RemoteWebDriver with BrowserStack URL
+				// Initialize RemoteWebDriver with LambdaTest URL
 				driver = new RemoteWebDriver(new URL(URL), safariCapability);
 				Thread.sleep(1000);
 				driver.manage().window().maximize();

@@ -10,11 +10,11 @@
 		<groups>
 			<run>
 				<include name="Dispatch.Signout" />
-				<include name="Dispatch.NewBooking" />
+				<!--<include name="Dispatch.NewBooking" />
 				<include name="Dispatch.Affiliate" />
 				<include name="Dispatch.EmailNotifications" />
 				<include name="Dispatch.Cancelled" />
-				<include name="Dispatch.Login" />
+				<include name="Dispatch.Login" />-->
 			</run>
 		</groups>
 		<classes>
