@@ -11,6 +11,8 @@
 		<groups>
 			<run>
 				<include name="UserPortal.Login" />
+				<include name="UserPortal.DriversAndPartners" />
+				<include name="UserPortal.NewBookings" />
 			</run>
 		</groups>
 
