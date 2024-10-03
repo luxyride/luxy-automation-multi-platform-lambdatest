@@ -708,9 +708,18 @@ public class TestBase {
 
 	public void lambdaTestStatusUpdate(String status, String testStep) {
 		try {
-			jseLambdaTest.executeScript("lambdatest_executor: {\"status\": \"" + status
-					+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-					+ "\", \"level\": \"<info/warn/debug/error>\"}}");
+			if (status == "passed")
+				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+						+ "\", \"level\": \"info\"}}");
+			else if (status == "failed")
+				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+						+ "\", \"level\": \"error\"}}");
+			else
+				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+						+ "\", \"level\": \"warn\"}}");
 			jseLambdaTest.executeScript("lambda-status=" + status);
 		} catch (Exception e) {
 			e.printStackTrace();
