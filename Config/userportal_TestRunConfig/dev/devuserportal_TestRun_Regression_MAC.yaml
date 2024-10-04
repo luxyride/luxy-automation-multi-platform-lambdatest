@@ -33,6 +33,6 @@ differentialUpload:
 
 report: true
 partialReports:
-   location: test-output
-   type: html
-   frameworkName: extent
+  location: test-output/
+  frameworkName: extent
+  type: html

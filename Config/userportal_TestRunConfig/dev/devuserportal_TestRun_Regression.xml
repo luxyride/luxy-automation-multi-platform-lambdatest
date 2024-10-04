@@ -9,11 +9,11 @@
 	<test name="LuxyNewUserPortalAutoTest" preserve-order="true">
 		<groups>
 			<run>
-				<!--<include name="UserPortal.CorporateTransport" />
+				<include name="UserPortal.CorporateTransport" />
 				<include name="UserPortal.TravelAgentProgram" />
-				<include name="UserPortal.DriversAndPartners" />-->  
+				<include name="UserPortal.DriversAndPartners" />  
 				<include name="UserPortal.NewBookings" /> 
-				<!--<include name="UserPortal.SignUp" />-->
+				<include name="UserPortal.SignUp" />
 			</run>
 		</groups>
 
