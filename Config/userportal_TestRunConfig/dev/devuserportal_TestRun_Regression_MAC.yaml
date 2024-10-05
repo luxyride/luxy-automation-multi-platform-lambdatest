@@ -26,7 +26,7 @@ runtime:
    version: 20
 
 project:
-   name: DEV_Userportal_TestRun_Regression
+   name: DEV_Userportal_TestRun_Regression_${browser}
 differentialUpload:
    enabled: true
    ttlHours: 2
