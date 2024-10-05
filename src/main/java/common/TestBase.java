@@ -384,7 +384,7 @@ public class TestBase {
 				prefs.put("autofill.credit_card_enabled", false);
 				prefs.put("profile.password_manager_enabled", false);
 				prefs.put("profile", profile);
-				
+
 				// Chrome options to handle popups
 				chromeOptions.addArguments("--incognito");
 				chromeOptions.addArguments("--disable-infobars");
@@ -445,7 +445,7 @@ public class TestBase {
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
 				profile.put("managed_default_content_settings", contentSettings);
-		        // Add capabilities to handle popups
+				// Add capabilities to handle popups
 				profile.put("disable-popup-blocking", true);
 				profile.put("disable-notifications", true);
 				profile.put("ignoreFraudWarning", true);
@@ -465,11 +465,11 @@ public class TestBase {
 				safariOptions.setCapability("--disable-notifications", true);
 				safariOptions.setCapability("--remote-allow-origins=*", true);
 				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				
+
 				// SET CAPABILITY
 				safariCapability.setCapability("lt:options", safariOptions);
 				safariCapability.setCapability("prefs", prefs);
-				
+
 				// Initialize RemoteWebDriver with LambdaTest URL
 				driver = new RemoteWebDriver(new URL(URL), safariCapability);
 				Thread.sleep(1000);
