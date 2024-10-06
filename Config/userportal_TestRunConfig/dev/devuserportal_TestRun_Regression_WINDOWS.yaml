@@ -1,6 +1,6 @@
 
 version: 0.2
-runson: win
+runson: win11
 
 autosplit: true
 concurrency: 1
