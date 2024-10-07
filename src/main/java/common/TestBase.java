@@ -42,6 +42,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -58,6 +60,7 @@ public class TestBase {
 	public static String tripID;
 	public static FileHandler fh;
 	public static Actions action;
+	public static String exception;
 	public static WebDriver driver;
 	public static String buildName;
 	public static ExtentTest logger;
@@ -68,6 +71,7 @@ public class TestBase {
 	public static String dateTimeStamp;
 	public static ExtentReports extent;
 	public static Rectangle screenRect;
+	public static String screenshotPath;
 	public static JavascriptExecutor js;
 	public static String environmentCode;
 	public static String filePathExtension;
@@ -136,6 +140,7 @@ public class TestBase {
 	// For Capturing the TripIDs from Concierge.NewBookings: [DEV_TC_1519]:
 	public static Map<String, String> externalSourceTripIDsOriginator;
 
+	public static UpdateExtentReportResults objupdateResults;
 	// ---------------------------------------------------------------
 	// Dispatch Delete Account:
 	@FindBy(xpath = "//input[@type='text']")
@@ -168,6 +173,7 @@ public class TestBase {
 	public void beforeTest(ITestContext context, String environment, String browserName) {
 		try {
 			robot = new Robot();
+			objupdateResults = new UpdateExtentReportResults(driver);
 			System.out.println("Environment = " + environment);
 			System.out.println("Browser = " + browserName);
 			System.out.println("LambdaTest HUB URL = " + URL);
@@ -445,29 +451,23 @@ public class TestBase {
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
 				profile.put("managed_default_content_settings", contentSettings);
-				// Add capabilities to handle popups
-				profile.put("disable-popup-blocking", true);
-				profile.put("disable-notifications", true);
-				profile.put("ignoreFraudWarning", true);
-
 				prefs.put("profile.default_content_setting_values.notifications", 2);
 				prefs.put("autofill.profile_enabled", false);
 				prefs.put("credentials_enable_service", false);
 				prefs.put("autofill.credit_card_enabled", false);
 				prefs.put("profile.password_manager_enabled", false);
 				prefs.put("--disable-infobars", true);
-				prefs.put("--disable-notifications", true);
 				prefs.put("--remote-allow-origins=*", true);
 				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				prefs.put("profile", profile);
-
+				
+				safariOptions.setCapability("prefs", prefs);
 				safariOptions.setCapability("--disable-infobars", true);
 				safariOptions.setCapability("--disable-notifications", true);
 				safariOptions.setCapability("--remote-allow-origins=*", true);
 				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 
 				// SET CAPABILITY
-				safariCapability.setCapability("lt:options", safariOptions);
 				safariCapability.setCapability("prefs", prefs);
 
 				// Initialize RemoteWebDriver with LambdaTest URL
@@ -728,6 +728,10 @@ public class TestBase {
 						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
 						+ "\", \"level\": \"warn\"}}");
 			jseLambdaTest.executeScript("lambda-status=" + status);
+			
+			// Result Report - Local Path Configuration:
+			objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

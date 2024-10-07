@@ -32,6 +32,9 @@ differentialUpload:
    ttlHours: 2
 
 report: true
+
+jobLabel: ['DEV_Userportal_TestRun_Regression_Windows11_${browser}']
+
 partialReports:
   location: test-output/
   frameworkName: extent
