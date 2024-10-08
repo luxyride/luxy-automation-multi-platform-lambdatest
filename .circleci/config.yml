@@ -49,6 +49,8 @@ workflows:
                 - userportal
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-userportal-sanity-safari:
     when:
       equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -61,6 +63,8 @@ workflows:
                 - userportal
                 - dev
                 - safari
+                - windows
+                - mac
   dev-userportal-regression-chrome:
     when:
       equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -73,6 +77,8 @@ workflows:
                 - userportal
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-userportal-regression-safari:
     when:
       equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
