@@ -37,9 +37,9 @@ workflows:
             branches:
               ignore: /.*/
 
-  dev-userportal-sanity-chrome:
+  dev-userportal-sanity-chrome1:
     when:
-      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-chrome1, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
