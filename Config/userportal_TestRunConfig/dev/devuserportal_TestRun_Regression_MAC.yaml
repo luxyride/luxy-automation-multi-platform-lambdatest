@@ -12,7 +12,7 @@ framework:
    name: maven/testng
 # Skip execution of the tests in the pre step
    flags:
-   - -Dsurefire.suiteXmlFiles=../luxy-automation-multi-platform-lambdatest/Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
+   - -Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
    - -Dbrowser=${browser}
    discoveryType: class
    defaultReports: false
