@@ -73,7 +73,7 @@ workflows:
                 - windows
   dev-userportal-regression-safari_hyper:
     when:
-      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-safari_hyper, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
