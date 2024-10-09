@@ -29,8 +29,8 @@ workflows:
                 - sanity
                 - dev
                 - userportal
+                - chrome
                 - windows
-                - mac
           filters:
             tags:
               only: /^devchrome.20.*/
@@ -50,7 +50,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-userportal-sanity-safari_hyper:
     when:
       equal: [ dev-userportal-sanity-safari_hyper, << pipeline.schedule.name >> ]
@@ -63,7 +62,6 @@ workflows:
                 - userportal
                 - dev
                 - safari
-                - windows
                 - mac
   dev-userportal-regression-chrome_hyper:
     when:
@@ -78,7 +76,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-userportal-regression-safari_hyper:
     when:
       equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -91,7 +88,6 @@ workflows:
                 - userportal
                 - dev
                 - safari
-                - windows
                 - mac
   uat-userportal-sanity-chrome:
     when:
