@@ -9,14 +9,10 @@ jobs:
     docker:
       - image: cimg/openjdk:20.0-browsers
     steps:
-      - browser-tools/install-browser-tools
       - checkout
-      - run: |
-            google-chrome --version
-            java --version
-            mkdir -p https:/testimages.luxyride.com/screenshots
       - run:
           name: Test
+          command: chmod +x hyperexecute
           command: ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config "$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml "browser="$browser""
 
 workflows:
