@@ -460,7 +460,7 @@ public class TestBase {
 				prefs.put("--remote-allow-origins=*", true);
 				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				prefs.put("profile", profile);
-				
+
 				safariOptions.setCapability("prefs", prefs);
 				safariOptions.setCapability("--disable-infobars", true);
 				safariOptions.setCapability("--disable-notifications", true);
@@ -717,21 +717,24 @@ public class TestBase {
 		try {
 			if (status == "passed")
 				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
 						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
 						+ "\", \"level\": \"info\"}}");
 			else if (status == "failed")
 				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
 						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
 						+ "\", \"level\": \"error\"}}");
 			else
 				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
+						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
 						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
 						+ "\", \"level\": \"warn\"}}");
 			jseLambdaTest.executeScript("lambda-status=" + status);
-			
+
 			// Result Report - Local Path Configuration:
 			objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
