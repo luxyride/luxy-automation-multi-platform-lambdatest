@@ -1,22 +1,18 @@
-
 version: 0.2
 runson: win11
-
 autosplit: true
+
 concurrency: 1
-
 pre:
-- mvn dependency:resolve
-framework:
 
-   name: maven/testng
-# Skip execution of the tests in the pre step
-   flags:
-   - -Dsurefire.suiteXmlFiles=../luxy-automation-multi-platform-lambdatest/Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml
-   - -Dbrowser=${browser}
-   discoveryType: class
-   defaultReports: false
-## - "-Dgroups=selenium-test"
+- mvn dependency:resolve -Dmaven.repo.local=./.m2
+- npm install fs xml2js
+testDiscovery:
+
+   type: raw
+   mode: dynamic
+   command: node discovery.js Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
+   testRunnerCommand: mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
 
 retryOnFailure: true
 maxRetries: 1
@@ -26,16 +22,16 @@ runtime:
    version: 20
 
 project:
-   name: Dispatch_TestRun_Regression_Windows11_Chrome
+   name: DEV_Dispatch_TestRun_Regression_Windows11_Chrome
 differentialUpload:
    enabled: true
-   ttlHours: 2
+   ttlHours: 25
 
 report: true
-
-jobLabel: ['LuxyDispatch_Regression_DEV_Windows11_${browser}']
-
 partialReports:
-  location: test-output/
-  frameworkName: extent
-  type: html
+   location: test-output/
+   frameworkName: extent
+   type: html
+
+jobLabel:
+- DEV_Dispatch_TestRun_Regression_Windows11_${browser}

@@ -716,20 +716,22 @@ public class TestBase {
 	public void lambdaTestStatusUpdate(String status, String testStep) {
 		try {
 			if (status == "passed")
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
-						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
-						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"info\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lamda-status\": \"" + status + "\", \"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"info\"}}");
 			else if (status == "failed")
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
-						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
-						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"error\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lamda-status\": \"" + status + "\", \"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"error\"}}");
 			else
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lamda-status\": \"" + status
-						+ "\", \"lambda-screenshot\": \"true\", \"lambdaUpdateName\": \"" + testStep
-						+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"warn\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lamda-status\": \"" + status + "\", \"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"warn\"}}");
+
+			jseLambdaTest.executeScript("lambda-screenshot=true");
 			jseLambdaTest.executeScript("lambda-status=" + status);
 
 			// Result Report - Local Path Configuration:

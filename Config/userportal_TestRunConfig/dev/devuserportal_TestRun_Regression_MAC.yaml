@@ -1,4 +1,4 @@
-
+---
 version: 0.2
 runson: mac13
 
@@ -6,17 +6,15 @@ autosplit: true
 concurrency: 1
 
 pre:
-- mvn dependency:resolve
-framework:
-
-   name: maven/testng
-# Skip execution of the tests in the pre step
-   flags:
-   - -Dsurefire.suiteXmlFiles=../luxy-automation-multi-platform-lambdatest/Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
-   - -Dbrowser=${browser}
-   discoveryType: class
-   defaultReports: false
-## - "-Dgroups=selenium-test"
+  - mvn dependency:resolve -Dmaven.repo.local=./.m2
+  - npm install fs xml2js
+  
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: node discovery.js Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
+  
+testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
 
 retryOnFailure: true
 maxRetries: 1
@@ -26,16 +24,15 @@ runtime:
    version: 20
 
 project:
-   name: DEV_Userportal_TestRun_Regression_macOS_Safari
+   name: DEV_Userportal_TestRun_Regression_MacOS13_Safari
 differentialUpload:
    enabled: true
-   ttlHours: 2
-
+   ttlHours: 25
+   
 report: true
-
-jobLabel: ['DEV_Userportal_TestRun_Regression_macOS_${browser}']
-
 partialReports:
   location: test-output/
   frameworkName: extent
   type: html
+
+jobLabel: ['DEV_Userportal_TestRun_Regression_Windows11_${browser}']
