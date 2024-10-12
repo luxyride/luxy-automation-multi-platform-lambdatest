@@ -24,7 +24,7 @@ runtime:
    version: 20
 
 project:
-   name: DEV_Userportal_TestRun_Sanity_MacOS13_Safari
+   name: DEV_Userportal_TestRun_Sanity_MacOS_Safari
 differentialUpload:
    enabled: true
    ttlHours: 25
@@ -35,4 +35,4 @@ partialReports:
   frameworkName: extent
   type: html
 
-jobLabel: ['DEV_Userportal_TestRun_Sanity_Windows11_${browser}']
+jobLabel: ['DEV_Userportal_TestRun_Sanity_MacOS_${browser}']

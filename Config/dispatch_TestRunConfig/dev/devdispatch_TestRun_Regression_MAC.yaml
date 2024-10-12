@@ -1,18 +1,20 @@
+---
 version: 0.1
 runson: mac13
+
 autosplit: true
-
 concurrency: 1
+
 pre:
-
-- mvn dependency:resolve -Dmaven.repo.local=./.m2
-- npm install fs xml2js
+  - mvn dependency:resolve -Dmaven.repo.local=./.m2
+  - npm install fs xml2js
+  
 testDiscovery:
-
-   type: raw
-   mode: dynamic
-   command: node discovery.js Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml
-   testRunnerCommand: mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
+  type: raw
+  mode: dynamic
+  command: node discovery.js Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml
+  
+testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
 
 retryOnFailure: true
 maxRetries: 1
@@ -26,12 +28,11 @@ project:
 differentialUpload:
    enabled: true
    ttlHours: 25
-
+   
 report: true
 partialReports:
-   location: test-output/
-   frameworkName: extent
-   type: html
+  location: test-output/
+  frameworkName: extent
+  type: html
 
-jobLabel:
-- DEV_Dispatch_TestRun_Regression_macOS13_${browser}
+jobLabel: ['DEV_Dispatch_TestRun_Regression_MacOS_${browser}']
