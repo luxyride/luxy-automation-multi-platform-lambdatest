@@ -14,7 +14,7 @@ testDiscovery:
   mode: dynamic
   command: node discovery.js Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml
   
-testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
+testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devdispatch
 
 retryOnFailure: true
 maxRetries: 1

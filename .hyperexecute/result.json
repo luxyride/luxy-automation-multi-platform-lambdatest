@@ -1,0 +1,105 @@
+{
+    "id": "174691fd-ce02-410e-a6da-46fa5cf0c089",
+    "created_at": "2024-10-12T17:01:32Z",
+    "update_at": "2024-10-12T17:05:56Z",
+    "global_timeout": 90,
+    "tunnel_name": "",
+    "start_time": "2024-10-12T17:01:50Z",
+    "end_time": "2024-10-12T17:05:56Z",
+    "summary": {
+        "total_time": 246000000000,
+        "execution_time": 246000000000,
+        "total_tasks": 1,
+        "build_time_consumed": 246000000000,
+        "jobTestExecutionTime": "2m27s",
+        "failed_tasks": 0,
+        "total_stage_info": {
+            "prerun": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 1
+            },
+            "scenario": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 2
+            },
+            "test_discovery": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 1
+            }
+        },
+        "status": "completed",
+        "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=174691fd-ce02-410e-a6da-46fa5cf0c089"
+    },
+    "tasks": [
+        {
+            "id": "ca4a61cd-9418-44e7-a9c3-b274cb8021f9",
+            "os": "win",
+            "status": "completed",
+            "remark": "completed",
+            "debug": false,
+            "created_at": "2024-10-12T17:01:49Z",
+            "update_at": "2024-10-12T17:05:56Z",
+            "start_time": "2024-10-12T17:01:50Z",
+            "end_time": "2024-10-12T17:05:56Z",
+            "group_number": 1,
+            "stages": [
+                {
+                    "id": "015ee512-1264-4b56-bd69-3660816f5fe3",
+                    "type": "prerun",
+                    "status": "completed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2024-10-12T17:02:00Z",
+                    "started_at": "2024-10-12T17:02:01Z",
+                    "updated_at": "2024-10-12T17:02:17Z",
+                    "order": 2,
+                    "task_number": 1
+                },
+                {
+                    "id": "fb7c7d86-b246-4ed3-a8a3-822d42c6340f",
+                    "type": "test_discovery",
+                    "status": "completed",
+                    "name": "discovery",
+                    "iteration": 0,
+                    "link": "discovery.log",
+                    "created_at": "2024-10-12T17:02:17Z",
+                    "started_at": "2024-10-12T17:02:17Z",
+                    "updated_at": "2024-10-12T17:02:18Z",
+                    "order": 3,
+                    "task_number": 1
+                },
+                {
+                    "id": "a05a7c6d-c8da-4944-83fc-6b06bfd29e73",
+                    "type": "scenario",
+                    "status": "completed",
+                    "name": "Dispatch.Signout.DEV_TC_23_VerifytheAvailablityOfLogoutOption_Test",
+                    "iteration": 0,
+                    "link": "command.1.0.log",
+                    "created_at": "2024-10-12T17:02:18Z",
+                    "started_at": "2024-10-12T17:02:20Z",
+                    "updated_at": "2024-10-12T17:04:07Z",
+                    "order": 4,
+                    "task_number": 1
+                },
+                {
+                    "id": "434b4b12-c4e7-4e49-8d49-0c4e459695ba",
+                    "type": "scenario",
+                    "status": "completed",
+                    "name": "Dispatch.Signout.DEV_TC_24_VerifytheLogoutFunctionality_Test",
+                    "iteration": 0,
+                    "link": "command.2.0.log",
+                    "created_at": "2024-10-12T17:02:18Z",
+                    "started_at": "2024-10-12T17:04:03Z",
+                    "updated_at": "2024-10-12T17:05:53Z",
+                    "order": 5,
+                    "task_number": 1
+                }
+            ]
+        }
+    ],
+    "test_ids": null
+}
