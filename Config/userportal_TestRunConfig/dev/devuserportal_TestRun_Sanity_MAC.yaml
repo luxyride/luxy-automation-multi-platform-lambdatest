@@ -1,6 +1,11 @@
----
+
 version: 0.1
 runson: mac13
+
+##Minutes
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
 
 autosplit: true
 concurrency: 1
@@ -14,7 +19,7 @@ testDiscovery:
   mode: dynamic
   command: node discovery.js Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Sanity.xml
   
-testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Sanity.xml `-Dbrowser=${browser} `-Denvironment=devuserportal
+testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Sanity.xml -Dbrowser=${browser} -Denvironment=devuserportal
 
 retryOnFailure: true
 maxRetries: 1
