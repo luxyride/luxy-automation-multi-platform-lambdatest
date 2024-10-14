@@ -713,7 +713,7 @@ public class TestBase {
 		}
 	}
 
-	public void lambdaTestStatusUpdate(String status, String testStep) {
+	public void lambdaTestStatusUpdate(String status, String testStep) throws Exception {
 		try {
 			if (status == "passed") {
 				jseLambdaTest.executeScript(
@@ -743,6 +743,15 @@ public class TestBase {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			jseLambdaTest.executeScript(
+					"lambdatest_executor: {\"lambda-status\": \"" + status + "\" ,\"lambdaUpdateName\": \"" + testStep
+							+ "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+							+ "\", \"level\": \"warn\"}}");
+			// Result Report Configuration:
+			objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+
+			jseLambdaTest.executeScript("lambda-screenshot=true");
+			jseLambdaTest.executeScript("lambda-status=" + status);
 		}
 	}
 

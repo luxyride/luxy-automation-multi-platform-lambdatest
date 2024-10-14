@@ -1,6 +1,10 @@
----
+
 version: 0.1
 runson: win11
+
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
 
 autosplit: true
 concurrency: 1
@@ -8,6 +12,10 @@ concurrency: 1
 pre:
   - mvn dependency:resolve -Dmaven.repo.local=./.m2
   - npm install fs xml2js
+  
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
   
 testDiscovery:
   type: raw

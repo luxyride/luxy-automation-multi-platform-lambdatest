@@ -1,6 +1,10 @@
----
+
 version: 0.1
 runson: mac13
+
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
 
 autosplit: true
 concurrency: 1
@@ -9,12 +13,16 @@ pre:
   - mvn dependency:resolve -Dmaven.repo.local=./.m2
   - npm install fs xml2js
   
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+  
 testDiscovery:
   type: raw
   mode: dynamic
   command: node discovery.js Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml
   
-testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=devdispatch
+testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/dev/devdispatch_TestRun_Regression.xml -Dbrowser=${browser} -Denvironment=devdispatch
 
 retryOnFailure: true
 maxRetries: 1
@@ -24,7 +32,7 @@ runtime:
    version: 20
 
 project:
-   name: DEV_Dispatch_TestRun_Regression_MacOS_Safari
+   name: DEV_Dispatch_TestRun_Regression_MacOS_Chrome
 differentialUpload:
    enabled: true
    ttlHours: 25
