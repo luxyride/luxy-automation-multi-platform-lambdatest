@@ -716,21 +716,24 @@ public class TestBase {
 	public void lambdaTestStatusUpdate(String status, String testStep) {
 		try {
 			if (status == "passed") {
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lambda-status=passed\", \"lambdaUpdateName\": \""
-						+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"info\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lambda-status\": \"" + status + "\" ,\"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"info\"}}");
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 			} else if (status == "failed") {
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lambda-status=failed\", \"lambdaUpdateName\": \""
-						+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"error\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lambda-status\": \"" + status + "\" ,\"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"error\"}}");
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			} else {
-				jseLambdaTest.executeScript("lambdatest_executor: {\"lambda-status=failed\", \"lambdaUpdateName\": \""
-						+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
-						+ "\", \"level\": \"warn\"}}");
+				jseLambdaTest.executeScript(
+						"lambdatest_executor: {\"lambda-status\": \"" + status + "\" ,\"lambdaUpdateName\": \""
+								+ testStep + "\", \"action\": \"stepcontext\", \"arguments\": {\"data\": \"" + testStep
+								+ "\", \"level\": \"warn\"}}");
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			}
