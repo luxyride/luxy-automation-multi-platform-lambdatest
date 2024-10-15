@@ -18,6 +18,66 @@ jobs:
       - run:
           name: Test
           command: mvn clean install -Dsurefire.suiteXmlFiles=Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype".xml -Dbrowser="$browser"
+      - run: |
+          mkdir -p tmp/artifacts
+          ls -la
+          cp -R https:/testimages.luxyride.com/screenshots tmp/artifacts/screenshots || true
+          cp -R test-output tmp/artifacts/test-output || true
+          cp test-output/Luxy*.html index.html || true
+      - run:
+          name: installing AWS Cli
+          working_directory: /
+          command: |
+            sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
+            sudo unzip awscliv2.zip
+            sudo ./aws/install
+      - run:
+          name: Deploy to s3
+          command: |
+            aws --region us-east-1 s3 cp index.html s3://luxy-test-automation
+            aws --region us-east-1 s3 sync https:/testimages.luxyride.com/screenshots s3://luxy-test-automation/screenshots || true
+            aws --region us-east-1 s3 sync test-output s3://luxy-test-automation/test-output || true
+      - run:
+          name: Invalidate cloudfront cache
+          command: |
+            AWS_PAGER="" aws cloudfront create-invalidation --distribution-id E3P66F0AYP3GJZ --paths /\*
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1
+      - slack/notify:
+          event: pass
+          custom: |
+            {
+                        	"text": "",
+                        	"blocks": [
+                        		{
+                        			"type": "header",
+                        			"text": {
+                        				"type": "plain_text",
+                        				"text": "${ENV} ${testtype} Automation Successful! :tada:",
+                        				"emoji": true
+                        			}
+                        		},
+                        		{
+                        			"type": "actions",
+                        			"elements": [
+                        				{
+                        					"type": "button",
+                        					"text": {
+                        						"type": "plain_text",
+                        						"text": "View Report"
+                        					},
+                        					"url": "https://testreport.luxyride.com/"
+                        				}
+                        			]
+                        		}
+                        	]
+                        }
+
+
 workflows:
   DEV-Sanity: 
     jobs:
