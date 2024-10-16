@@ -1,4 +1,3 @@
----
 version: 0.1
 runson: mac13
 
@@ -14,6 +13,10 @@ pre:
   - mvn dependency:resolve -Dmaven.repo.local=./.m2
   - npm install fs xml2js
   
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+      
 testDiscovery:
   type: raw
   mode: dynamic
@@ -29,7 +32,7 @@ runtime:
    version: 20
 
 project:
-   name: DEV_Userportal_TestRun_Regression_MacOS_Safari
+   name: DEV_Dispatch_TestRun_Regression_MacOS_Safari
 differentialUpload:
    enabled: true
    ttlHours: 25
@@ -40,4 +43,4 @@ partialReports:
   frameworkName: extent
   type: html
 
-jobLabel: ['DEV_Userportal_TestRun_Regression_MacOS_${browser}']
+jobLabel: ['DEV_Dispatch_TestRun_Regression_MacOS_${browser}']
