@@ -719,35 +719,32 @@ public class TestBase {
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"info\"}}");
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 			} else if (status == "failed") {
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"error\"}}");
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			} else {
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"warn\"}}");
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			}
-
-			jseLambdaTest.executeScript("lambda-screenshot=true");
-			jseLambdaTest.executeScript("lambda-status=" + status);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			jseLambdaTest
 					.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 							+ testStep + "\", \"level\": \"warn\"}}");
+			jseLambdaTest.executeScript("lambda-status=" + status);
 			// Result Report Configuration:
 			objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-
-			jseLambdaTest.executeScript("lambda-screenshot=true");
-			jseLambdaTest.executeScript("lambda-status=" + status);
 		}
 	}
 
