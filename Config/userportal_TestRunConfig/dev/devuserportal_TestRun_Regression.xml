@@ -1,112 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="LuxyDispatch_Regression" thread-count="4" preserve-order="true">
-	<parameter name="environment" value="devdispatch" />
+<suite name="LuxyNewUserPortal_Regression" thread-count="4" preserve-order="true">
+	<parameter name="environment" value="devuserportal" />
 	<parameter name="browser" value="chromeLocal" />
 	<listeners>
 		<listener class-name="Common.LuxyAuto_ITestListener" />
 	</listeners>
-	<test name="LuxyDispatchAutoTest" preserve-order="true">
+	<test name="LuxyNewUserPortalAutoTest" preserve-order="true">
 		<groups>
 			<run>
-				<include name="Dispatch.Signout" />
-				<include name="Dispatch.NewBooking" />
-				<include name="Dispatch.Affiliate" />
-				<include name="Dispatch.EmailNotifications" />
-				<include name="Dispatch.Driver" />
-				<include name="Dispatch.Cancelled" />
-				<include name="Dispatch.Login" />
+				<include name="UserPortal.CorporateTransport" />
+				<include name="UserPortal.TravelAgentProgram" />
+				<include name="UserPortal.DriversAndPartners" />  
+				<include name="UserPortal.NewBookings" /> 
+				<include name="UserPortal.SignUp" />
 			</run>
 		</groups>
+
 		<classes>
-			<!-- ######################################## Login ############################################## -->
-			<class name="Dispatch.Login.DEV_TC_13_VerifyDisplayingOnDispatchSiteSigninPage_Test" />
-			<class name="Dispatch.Login.DEV_TC_18_VerifyTheFunctionalityForgotPassword_Test" />
-			<class name="Dispatch.Login.DEV_TC_25_VerifySigninWithValidCredentials_Test" />
-			<class name="Dispatch.Login.DEV_TC_27_VerifyAvailablityOfButtons_NavigationLinksInHomePage_Test" />
-			<class name="Dispatch.Login.DEV_TC_649_VerifyUserShouldNotLogoutAutomaticallyWhenReloadsTheDispatchPage_Test" />
-			<class name="Dispatch.Login.DEV_TC_1132_VerifyTheAvailabilityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
-			<class name="Dispatch.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
-			<class name="Dispatch.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInDispatch_Test" />
-			<!-- ############################################################################################# -->
+			<!-- ############################# UserPortal.CorporateTransport ########################### -->
+			<class name="UserPortal.CorporateTransport.DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateRegistrationPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ############################## UserPortal.TravelAgentProgram ########################## -->
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTravelAgentProgram_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionInTravelAgentRegistrationFormOfUserPortal_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test" />
+			<!-- ############################################################################################## -->
+			
+			<!-- ############################## UserPortal.DriversAndPartners ########################## -->
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<!-- ############################################################################################## -->
 
-			<!-- ##################################### Dispatch.Signout ###################################### -->
-			<class name="Dispatch.Signout.DEV_TC_23_VerifytheAvailablityOfLogoutOption_Test" />
-			<class name="Dispatch.Signout.DEV_TC_24_VerifytheLogoutFunctionality_Test" />
-			<!-- ############################################################################################# -->
-
-			<!-- ######################################## New Booking ######################################## -->
-			<class name="Dispatch.NewBooking.DEV_TC_88_VerifyTheGetQouteFunctionality_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1032_VerificationOfNewBookingAndEditRideDetailsFromDispatchSite_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1334_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalsefromDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1348_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1371_VerifyRideBookingWhenZoneTypeAsAirportDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1373_VerifyRideBookingWhenZoneTypeAsZipcodeDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1374_VerifyRideBookingWhenZoneTypeAsStateDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1408_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAddedThroughRideSummarySectionExpandedViewInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1409_VerifyTheDisplayingOfInternalNotesInEditRideModeAfterBookingARideInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1500_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressInDispatchportal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1502_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressLaterEDITRideInDispatchportal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1434_verifyThePopupWhenClickedOnDeactivateAffiliateInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1644_VerifyTheAvailabilityOfSpecialEventsTabInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1681_VerifyTheRideInRedColorRowWhenTheRideIsBookedUnder10hrs_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10Hours_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1688_VerifyTheAvailabilityOfColumnsInDispatchPortalForSpecialEvents_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1695_VerifyThePhoneNumberValidationWhileBookingARideInDispatchPortals_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1764_VerifyTheAvailabilityOfFarmOutToAllEligiblePartnerToggleInNewBookingTab_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1765_VerifyTheFunctionalityOfFarmOutToAllEligiblePartnerToggleInNewBookingTab_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersToggleinEDITModeinDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1774_HourlyVerifyTheAvailabilityOfHourlyTabInDispatchUnderNEWBOOKING_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1777_HourlyVerifyBookingARideInHourlyTabDispatchByEnablingSameAsPickUpAddressCheckbox_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1780_HourlyVerifyBookingARideinHourlyTabDispatchByDisablingSameAsPickupAddressCheckBox_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1767_VerifyRemovalOfActionColumnUnderSettingsCoverageZonesInDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1768_VerifyTheRemovalOfActionColumnInAffiliatesTabInDispatch_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1769_VerifyTheRemovalOfRideRewardsEnrollButtonUnderActionsInPassengerListAndConciergeList_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1937_VerifyRemoveSortingFunctionsColumnsFromAllPagesInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" />
-			<!-- ############################################################################################# -->
-
-			<!-- ##################################### Dispatch.Affiliate ################################# -->
-			<class name="Dispatch.Affiliate.DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsInAffiliatesTabOfDispatch_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1554_VerifyFunctionalityOfAddingAdditionalAmountInAffiliatePaymentOfAffiliateTabInDispatch_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1555_VerifyFunctionalityOfDeductingAmountInAffiliatePaymentOfAffiliateTabInDispatch_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1557_VerifyTotalAffiliatePayoutInAffiliatePaymentsTabAfterAdditionalAmountAddingToAffiliateInDispatchPortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1558_VerifyTotalAffiliatePayoutInAffiliatePaymentsTabAfterAmountDeductedToAffiliateInDispatchPortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1601_VerifyTheAvailabilityOfActiveAffiliatesAndInactiveAffiliatesTabsInManageAffiliatesPage_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1603_VerifyTheActiveAffiliateTabInManageAffiliatesPageInDispatchPortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1605_VerifyTheInActiveAffiliateTabInManageAffiliatesPageInDispatchPortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffiliatesInDispatchPortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1614_VerifyThePaymentsTabInAffiliatePortalAfterCreatingAndProcessingAdditionalPayment_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1615_VerifyThePaymentsTabInAffiliatePortalAfterCreatingAndProcessingDeductionPayment_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1820_VerifyTheAvailabilityOfActiveAndInactiveCoverageZonesInDispatchPortalUnderSettings_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1821_VerifyTheAvailabilityOfActiveAndInactiveCoverageZonesInDispatchPortalUnderAffiliate_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1823_VerifyTheFunctionalityOfActiveAInactiveCoverageZonesInDispatchPortalUnderAffiliate_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1824_VerifyTheFunctionalityOfActiveAndInactiveCoverageZonesInAffiliatePortal_Test" />
-			<class name="Dispatch.Affiliate.DEV_TC_1949_VerifyAvailabilityLevelOfInsuranceOptionsForPartnersInDispatch_Test" />
-			<!-- ############################################################################################# -->
-
-			<!-- ##################################### EmailNotifications ################################# -->
-			<class name="Dispatch.EmailNotifications.DEV_TC_1045_VerifySendingPINConfirmationForPrimaryAndSecondaryPassenger_Test" />
-			<class name="Dispatch.EmailNotifications.DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmationEmail_Test" />
-			<class name="Dispatch.EmailNotifications.DEV_TC_1050_VerifyPINConfirmationInProgressAvailableUpcomingCompletedCancelledRidesDispatch_Test" />
-			<class name="Dispatch.EmailNotifications.DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRidesEdited_Test" />
-			<!-- ############################################################################################# -->
-
-			<!-- ############################################ Driver ######################################### -->
-			<class name="Dispatch.Driver.DEV_TC_1655_VerifyTheFunctionalityOfSearchingDriverWithDriverIDInDispatchPortal_Test" />
-			<class name="Dispatch.Driver.DEV_TC_1938_VerifyTheAvailabilityOfDriverLicenseImageAsMandatoryFieldUnderDriversMenuInDispatch_Test" />
-			<!-- ############################################################################################# -->
-
-			<!-- ######################################## Cancelled ########################################## -->
-			<class name="Dispatch.Cancelled.DEV_TC_304_VerifyCancelRideByDispatch_Test" />
-			<!-- ############################################################################################# -->
+			<!-- ################################### UserPortal.NewBookings ############################ -->
+			<class name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<!-- ############################################################################################## -->	
+		
+			<!-- ################################### UserPortal.SignUp ################################## -->
+			<class name="UserPortal.SignUp.DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test" />
+			<!-- ############################################################################################## -->
 		</classes>
 	</test>
-</suite> <!--
-Suite -->
+</suite> <!-- Suite -->
