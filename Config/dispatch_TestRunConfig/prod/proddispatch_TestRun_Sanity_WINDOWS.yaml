@@ -1,0 +1,47 @@
+
+version: 0.1
+runson: win11
+
+##Minutes
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+autosplit: true
+concurrency: 1
+
+pre:
+  - mvn dependency:resolve -Dmaven.repo.local=./.m2
+  - npm install fs xml2js
+  
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+  
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: node discovery.js Config/dispatch_TestRunConfig/prod/proddispatch_TestRun_Sanity.xml
+  
+testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/prod/proddispatch_TestRun_Sanity.xml `-Dbrowser=${browser} `-Denvironment=proddispatch
+
+retryOnFailure: true
+maxRetries: 1
+
+runtime:
+   language: java
+   version: 20
+
+project:
+   name: PROD_Dispatch_TestRun_Sanity_Windows11_Chrome
+differentialUpload:
+   enabled: true
+   ttlHours: 25
+   
+report: true
+partialReports:
+  location: test-output/
+  frameworkName: extent
+  type: html
+
+jobLabel: ['PROD_Dispatch_TestRun_Sanity_Windows11_${browser}']
