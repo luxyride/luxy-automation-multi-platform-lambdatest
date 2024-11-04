@@ -1,0 +1,47 @@
+
+version: 0.1
+runson: mac13
+
+##Minutes
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
+
+autosplit: true
+concurrency: 1
+
+pre:
+  - mvn dependency:resolve -Dmaven.repo.local=./.m2
+  - npm install fs xml2js
+  
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+  
+testDiscovery:
+  type: raw
+  mode: dynamic
+  command: node discovery.js Config/travelagent_TestRunConfig/prod/prodtravelagent_TestRun_Sanity.xml
+  
+testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/travelagent_TestRunConfig/prod/prodtravelagent_TestRun_Sanity.xml -Dbrowser=${browser} -Denvironment=prodtravelagent
+
+retryOnFailure: true
+maxRetries: 1
+
+runtime:
+   language: java
+   version: 20
+
+project:
+   name: PROD_TravelAgent_TestRun_Sanity_MacOS_Safari
+differentialUpload:
+   enabled: true
+   ttlHours: 25
+   
+report: true
+partialReports:
+  location: test-output/
+  frameworkName: extent
+  type: html
+
+jobLabel: ['PROD_TravelAgent_TestRun_Sanity_MacOS_${browser}']
