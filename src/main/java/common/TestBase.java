@@ -81,12 +81,11 @@ public class TestBase {
 	public static BufferedImage screenFullImage;
 	public static List<WebElement> popupCloseBtn;
 	public static String conciergehourlyRideTripID;
-	public static String travelAgenthourlyRideTripID;
 	public static Properties prop = new Properties();
+	public static String travelAgenthourlyRideTripID;
 	public static Logger utillLogger = Logger.getLogger("LuxyQAAutoTest");
 	public static String dockerScreenshotsPath = "https://testimages.luxyride.com/screenshots/";
 	public static String localScreenshotsPath = System.getProperty("user.dir") + "\\screenshots\\";
-
 	// --------------------------------------------------------------------------------------------------
 	// ## Browser Stack Configuration:
 	public static Boolean localExecutionFlag = false;
@@ -461,6 +460,138 @@ public class TestBase {
 				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				prefs.put("profile", profile);
 
+				safariOptions.setCapability("prefs", prefs);
+				safariOptions.setCapability("--disable-infobars", true);
+				safariOptions.setCapability("--disable-notifications", true);
+				safariOptions.setCapability("--remote-allow-origins=*", true);
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+
+				// SET CAPABILITY
+				safariCapability.setCapability("prefs", prefs);
+
+				// Initialize RemoteWebDriver with LambdaTest URL
+				driver = new RemoteWebDriver(new URL(URL), safariCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
+			} else if (browser.equalsIgnoreCase("androidChromeMobileView")) {
+				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+				chromeCapability.setCapability("platform", "Windows 11");
+				chromeCapability.setCapability("version", "latest");
+				chromeCapability.setCapability("name", testCaseName);
+				chromeCapability.setCapability("framework", "testng");
+				chromeCapability.setCapability("status", "COMPLETED");
+				chromeCapability.setCapability("buildName", buildName);
+				chromeCapability.setCapability("browserName", "Chrome");
+				chromeCapability.setCapability("browserVersion", "latest");
+				chromeCapability.setCapability("percyCaptureMode", "auto");
+				chromeCapability.setCapability("projectName", dateTimeStamp);
+				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+				chromeCapability.setCapability("autoGrantPermissions", "true");
+				chromeCapability.setCapability("visual", "true");
+
+				// INIT CHROME OPTIONS
+				ChromeOptions chromeOptions = new ChromeOptions();
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>();	//For MobileView:
+				
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("profile", profile);
+
+				// Chrome options to handle popups
+				chromeOptions.addArguments("--incognito");
+				chromeOptions.addArguments("--disable-infobars");
+				chromeOptions.addArguments("--disable-notifications");
+				chromeOptions.addArguments("--remote-allow-origins=*");
+				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				chromeOptions.setExperimentalOption("prefs", prefs);
+				
+				// Mobile View Configuration:
+				mobileEmulationAndroidChrome.put("deviceName", "Samsung Galaxy S20 Ultra");
+				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulationAndroidChrome);
+
+				// SET CAPABILITY
+				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
+			} else if (browser.equalsIgnoreCase("iosSafariMobileView")) {
+				DesiredCapabilities safariCapability = new DesiredCapabilities();
+				safariCapability.setCapability("platform", "macos");
+				safariCapability.setCapability("version", "latest");
+				safariCapability.setCapability("name", testCaseName);
+				safariCapability.setCapability("framework", "testng");
+				safariCapability.setCapability("status", "COMPLETED");
+				safariCapability.setCapability("buildName", buildName);
+				safariCapability.setCapability("browserName", "Safari");
+				safariCapability.setCapability("browserVersion", "17.3");
+				safariCapability.setCapability("percyCaptureMode", "auto");
+				safariCapability.setCapability("projectName", dateTimeStamp);
+				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
+				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
+				safariCapability.setCapability("--disable-infobars", true);
+				safariCapability.setCapability("--disable-notifications", true);
+				safariCapability.setCapability("--remote-allow-origins=*", true);
+				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariCapability.setCapability("autoGrantPermissions", true);
+				safariCapability.setCapability("javascriptEnabled", false);
+
+				// Handling pop-ups and permissions
+				safariCapability.setCapability("safariAllowPopups", false);
+				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
+
+				// Set additional options for Safari
+				safariCapability.setCapability("safari:automaticProfiling", false);
+				safariCapability.setCapability("safari:automaticInspection", false);
+
+				// Set capabilities specific to Safari
+				safariCapability.setCapability("safari:useSingleSession", true);
+
+				// Initialize SafariOptions
+				SafariOptions safariOptions = new SafariOptions();
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
+
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("--disable-infobars", true);
+				prefs.put("--remote-allow-origins=*", true);
+				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				
+				// Mobile View Configuration:
+				Map<String, Object> mobileEmulationiOSSafari = new HashMap<String, Object>();	//For MobileView:
+				mobileEmulationiOSSafari.put("deviceName", "iPhone SE");
+				prefs.put("deviceName", "iPhone SE");
+				prefs.put("mobileEmulation", mobileEmulationiOSSafari);
+				
+				prefs.put("profile", profile);
+				
 				safariOptions.setCapability("prefs", prefs);
 				safariOptions.setCapability("--disable-infobars", true);
 				safariOptions.setCapability("--disable-notifications", true);
