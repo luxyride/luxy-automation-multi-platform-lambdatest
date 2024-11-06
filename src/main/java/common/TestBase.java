@@ -497,8 +497,8 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
-				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>();	//For MobileView:
-				
+				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>(); // For MobileView:
+
 				// SET CHROME OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
@@ -518,7 +518,7 @@ public class TestBase {
 				chromeOptions.addArguments("--remote-allow-origins=*");
 				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				chromeOptions.setExperimentalOption("prefs", prefs);
-				
+
 				// Mobile View Configuration:
 				mobileEmulationAndroidChrome.put("deviceName", "Samsung Galaxy S20 Ultra");
 				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulationAndroidChrome);
@@ -583,15 +583,15 @@ public class TestBase {
 				prefs.put("--disable-infobars", true);
 				prefs.put("--remote-allow-origins=*", true);
 				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				
+
 				// Mobile View Configuration:
-				Map<String, Object> mobileEmulationiOSSafari = new HashMap<String, Object>();	//For MobileView:
+				Map<String, Object> mobileEmulationiOSSafari = new HashMap<String, Object>(); // For MobileView:
 				mobileEmulationiOSSafari.put("deviceName", "iPhone SE");
 				prefs.put("deviceName", "iPhone SE");
 				prefs.put("mobileEmulation", mobileEmulationiOSSafari);
-				
+
 				prefs.put("profile", profile);
-				
+
 				safariOptions.setCapability("prefs", prefs);
 				safariOptions.setCapability("--disable-infobars", true);
 				safariOptions.setCapability("--disable-notifications", true);
@@ -847,33 +847,33 @@ public class TestBase {
 	public void lambdaTestStatusUpdate(String status, String testStep) throws Exception {
 		try {
 			if (status == "passed") {
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"info\"}}");
-				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 			} else if (status == "failed") {
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"error\"}}");
-				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			} else {
+				jseLambdaTest.executeScript("lambda-status=" + status);
 				jseLambdaTest
 						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 								+ testStep + "\", \"level\": \"warn\"}}");
-				jseLambdaTest.executeScript("lambda-status=" + status);
 				// Result Report Configuration:
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			jseLambdaTest.executeScript("lambda-status=" + status);
 			jseLambdaTest
 					.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
 							+ testStep + "\", \"level\": \"warn\"}}");
-			jseLambdaTest.executeScript("lambda-status=" + status);
 			// Result Report Configuration:
 			objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 		}
