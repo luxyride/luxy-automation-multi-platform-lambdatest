@@ -61,11 +61,11 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 			testStep = "Verify Luxy Portal Launch Homepage";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 				utillLogger.info(testStep + " - " + testStatus);
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 				utillLogger.info(testStep + " - " + testStatus);
 			}
@@ -81,11 +81,11 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 				objVerifyAffiliateRegisMain.clickOnPrograms();
 				objTestBase.defaultWaitTime(1000);
 				screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 				utillLogger.info(testStep + " - " + testStatus);
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 				utillLogger.info(testStep + " - " + testStatus);
 			}
@@ -103,16 +103,16 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 					visibilityStatus = objVerifyAffiliateRegisMain.verifyAffiliatePage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
 						screenshotPath = getScreenshot(driver, "VerifyAffiliate");
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 						utillLogger.info(testStep + " - " + testStatus);
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 						utillLogger.info(testStep + " - " + testStatus);
 					}
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 					utillLogger.info(testStep + " - " + testStatus);
 				}
@@ -139,12 +139,12 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 
 				} else {
 					screenshotPath = getScreenshot(driver, "VerifySignup");
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			} else {
 				screenshotPath = getScreenshot(driver, "VerifySignup");
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			// Prod Restriction:
@@ -153,20 +153,20 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 				if (testStatus == "PASSED") {
 					visibilityStatus = objVerifyAffiliateRegisMain.verifyVisibilityOfSignupCreateBtn(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 
 						objVerifyAffiliateRegisMain.clickOnSignupCreateBtn();
 						objTestBase.defaultWaitTime(3000);
 						testStatus = "PASSED";
 						utillLogger.info(testStep + " - " + testStatus);
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 						utillLogger.info(testStep + " - " + testStatus);
 					}
 				} else {
 					screenshotPath = getScreenshot(driver, "VerifySignup");
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 					utillLogger.info(testStep + " - " + testStatus);
 				}
@@ -176,17 +176,17 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 					visibilityStatus = objVerifyAffiliateRegisMain.visibilityOfSignupConfirmationMsg(visibilityStatus);
 
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 						utillLogger.info(testStep + " - " + testStatus);
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 						utillLogger.info(testStep + " - " + testStatus);
 					}
 				} else {
 					screenshotPath = getScreenshot(driver, "VerifySignup");
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 					utillLogger.info(testStep + " - " + testStatus);
 				}
@@ -211,10 +211,10 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 				testStep = "Verify New User Luxy Account - EMail Confirmation";
 				visibilityStatus = objVerifyAffiliateRegisMain.verifyyopeMail(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -239,7 +239,7 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 						objTestBase.defaultWaitTime(2000);
 						objVerifyAffiliateRegisMain.clickOnTermsAndConditionsCheckbox();
 						objTestBase.defaultWaitTime(3000);
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 
 						js.executeScript("window.scrollBy(0,200)", "");
 						objTestBase.defaultWaitTime(2000);
@@ -250,15 +250,15 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 								.visibilityOfActivateAccountConfirmationMsg(visibilityStatus);
 						objTestBase.defaultWaitTime(1000);
 						if (visibilityStatus.booleanValue() == true) {
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 						objTestBase.closePopupWindow();
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				}
@@ -270,9 +270,9 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 				visibilityStatus = objVerifyAffiliateRegisMain.verifyAffiliatePageLoad(visibilityStatus);
 				objTestBase.defaultWaitTime(1000);
 				if (visibilityStatus.booleanValue() == true)
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				testStep = "Verification of Login with the above registered Email account after Account Activated - "
 						+ eMail;
@@ -287,11 +287,11 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 
 					visibilityStatus = objVerifyAffiliateRegisMain.visibilityOfSigninButtonAffiliate(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objVerifyAffiliateRegisMain.clickSigninButtonAffiliate();
 						objTestBase.defaultWaitTime(3000);
 					} else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 					objVerifyAffiliateRegisMain.clickOnRidesAffiliate();
 					objTestBase.defaultWaitTime(3000);
@@ -301,9 +301,9 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 					testStep = "Verification of affiliate Portal Login With Valid Credentials";
 					visibilityStatus = objVerifyAffiliateRegisMain.visibilityOfLoggedinUserAffiliate(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 					utillLogger.info(testStep + " - " + testStatus);
 				} else

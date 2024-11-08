@@ -61,10 +61,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 			testStep = "Verification of Dispatch Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("dispatchenv"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -79,22 +79,22 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 
 				visibilityStatus = objVerifyNavigationsMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNavigationsMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
 				testStep = "Verification of Dispatch Portal Login With Valid Credentials";
 				visibilityStatus = objVerifyNavigationsMain.visibilityOfLoggedinUser(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -105,10 +105,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 				testStep = "Verification of Manage Vehicle Page is loaded";
 				visibilityStatus = objVerifyNavigationsMain.visibilityOfManagevehicleTabPage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				
@@ -120,10 +120,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 				testStep = "Verification of page navigation Manage Vehicle Page";
 				visibilityStatus = objVerifyNavigationsMain.visibilityOfPageNavigation(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -131,10 +131,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 				testStep = "Verification of page navigation when click on Page 2 ";
 				visibilityStatus = objVerifyNavigationsMain.verifyPageNaviagtion(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				
@@ -142,10 +142,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 				testStep = "Verification of records per page from 10 to 50. ";
 				visibilityStatus = objVerifyNavigationsMain.verifyPageRecords(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				
@@ -157,10 +157,10 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 				testStep = "Verification of page navigation Manage Vehicle Page when records changes to 50";
 				visibilityStatus = objVerifyNavigationsMain.verifyPageNavigationWhenRecordsChangesTo50(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				
@@ -170,7 +170,7 @@ public class DEV_TC_1895_VerifyAvailabilityAndFunctionalityOfPaginationForVehicl
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

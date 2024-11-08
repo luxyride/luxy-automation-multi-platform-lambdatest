@@ -64,10 +64,10 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 
 			testStep = "Verify Dispatch Portal Launch Homepage";
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -78,12 +78,12 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 				objTestBase.defaultWaitTime(2000);
 				visibilityStatus = objVerifyForgotPwdMain.visibilityOfForgotPwdLink(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 					objVerifyForgotPwdMain.forgotPwdlinkClick();
 					objTestBase.defaultWaitTime(3000);
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -95,12 +95,12 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 					objTestBase.defaultWaitTime(3000);
 					objVerifyForgotPwdMain.eMailInput();
 					objTestBase.defaultWaitTime(1000);
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(1000);
 					objVerifyForgotPwdMain.GetResetLinkClick();
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -109,10 +109,10 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 
 				testStep = "Verify Forgot Password pop-up Message";
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -129,10 +129,10 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 				visibilityStatus = objVerifyForgotPwdMain.visibilityOfyopMailForgotPwdLink(visibilityStatus);
 				testStep = "Verify Forgot Password Email Link";
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -155,12 +155,12 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 					visibilityStatus = objVerifyForgotPwdMain
 							.visibilityOfConfirmPwdConfirmationMessage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objTestBase.defaultWaitTime(3000);
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				}
@@ -182,10 +182,10 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 					testStep = "Verification of Dispatch Portal Login with New Password";
 					visibilityStatus = objVerifyForgotPwdMain.visibilityOfLoggedInUserName(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				} else {
@@ -194,7 +194,7 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 				}
 				utillLogger.info(testStep + " - " + testStatus);
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			// -------------------------------------------------------
@@ -206,10 +206,10 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 			visibilityStatus = objVerifyForgotPwdMain.visibilityOfLoginDropdown(visibilityStatus);
 			testStep = "Verify Signout button from UserLogin Dropdown";
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			visibilityStatus = false;// Reset
@@ -228,7 +228,7 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 			utillLogger.info(testStep + " - " + testStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			// Reset Back to Main Password:
 			testStatus = resetBacktoMainPassword(testStatus);
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
@@ -248,7 +248,7 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 
 				objTestBase.defaultWaitTime(1000);
 				testStep = "Verify Travel Agent Homepage navigation after Clicking on Signout";
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 
 				visibilityStatus = objVerifyForgotPwdMain.entereMail(visibilityStatus);
@@ -278,7 +278,7 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Test
 				objTestBase.defaultWaitTime(1000);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 

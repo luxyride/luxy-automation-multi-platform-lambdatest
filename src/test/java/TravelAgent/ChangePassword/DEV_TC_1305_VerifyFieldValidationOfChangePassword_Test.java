@@ -62,10 +62,10 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 			testStep = "Verification of TravelAgent Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -83,14 +83,14 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 
 					visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objVerifySighninMain.clickSigninButton();
 						objTestBase.defaultWaitTime(3000);
 						driver.navigate().refresh();
 						objTestBase.defaultWaitTime(1000);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 
@@ -99,10 +99,10 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 					visibilityStatus = objVerifySighninMain.visibilityOfLoginDropdown(visibilityStatus);
 					testStep = "Verify UserLogin Dropdown";
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 
@@ -111,20 +111,20 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 					testStep = "Verify change password page ";
 					visibilityStatus = objVerifySighninMain.visibilityOfChangePasswordPage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 					testStep = "Verify alert message as old password and new password cannot be same ";
 					scenario = "oldNewSamePwd";
 					visibilityStatus = objVerifySighninMain.validatePwdErrorMessages(visibilityStatus, scenario);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 
@@ -135,10 +135,10 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 					scenario = "wrongCurrPwd";
 					visibilityStatus = objVerifySighninMain.validatePwdErrorMessages(visibilityStatus, scenario);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 					objVerifySighninMain.clickChangePwdSubmitBtn();
@@ -149,10 +149,10 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 					scenario = "confPwdDiff";
 					visibilityStatus = objVerifySighninMain.validatePwdErrorMessages(visibilityStatus, scenario);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 					objVerifySighninMain.clickChangePwdSubmitBtn();
@@ -160,10 +160,10 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 					testStep = "Verify alert messages";
 					visibilityStatus = objVerifySighninMain.visibilityOfErrorMsgDisplay(visibilityStatus, scenario);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 					utillLogger.info(testStep + " - " + testStatus);
@@ -175,7 +175,7 @@ public class DEV_TC_1305_VerifyFieldValidationOfChangePassword_Test extends Test
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

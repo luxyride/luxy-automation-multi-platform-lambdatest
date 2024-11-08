@@ -63,10 +63,10 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 			testStep = "Verification of Dispatch Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -80,24 +80,24 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					objVerifySighninMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
 				testStep = "Verification of logged in user";
 				visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 
 				}
@@ -109,10 +109,10 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 				testStep = "Verification Manage travel agent page";
 				visibilityStatus = objVerifySighninMain.visibilityOfManageTravelAgentPage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				objVerifySighninMain.clickAddTravelAgent();
 				objTestBase.defaultWaitTime(3000);
@@ -120,10 +120,10 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 				testStep = "Verification of Travel Agent Registration Page";
 				visibilityStatus = objVerifySighninMain.visibilityOfTARegistrationPage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				objTestBase.defaultWaitTime(2000);
 				utillLogger.info(testStep + " - " + testStatus);
@@ -132,7 +132,7 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 					testStep = "Verify creation of Travel Arranger by filing all the required details";
 					eMail = objVerifySighninMain.verifyFillingAllDetailsInTraveArrangerPage(eMail);
 					if (eMail != null) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						js = (JavascriptExecutor) driver;
 						js.executeScript("window.scrollBy(0,200)", "");
 						objTestBase.defaultWaitTime(2000);
@@ -148,10 +148,10 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 						testStep = "Verification of Email to confirm account - EMail = " + eMail;
 						visibilityStatus = objVerifySighninMain.verifyyopeMail(visibilityStatus);
 						if (visibilityStatus.booleanValue() == true) {
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						utillLogger.info(testStep + " - " + testStatus);
 						objVerifySighninMain.searchInput();
 						objTestBase.defaultWaitTime(3000);
@@ -188,9 +188,9 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 						testStep = "Verification of Registered Email to confirm account";
 						visibilityStatus = objVerifySighninMain.verifyActivatePage(visibilityStatus);
 						if (visibilityStatus.booleanValue() == true)
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						else
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 
 						utillLogger.info(testStep + " - " + testStatus);
 						objTestBase.defaultWaitTime(3000);
@@ -199,9 +199,9 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 						testStep = "Verification Success Message";
 						visibilityStatus = objVerifySighninMain.visibilityOfAlertMessage(visibilityStatus);
 						if (visibilityStatus.booleanValue() == true)
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						else
-							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+							if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 
 						utillLogger.info(testStep + " - " + testStatus);
 						objTestBase.defaultWaitTime(3000);
@@ -244,7 +244,7 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 							utillLogger.info(testStep + " - " + testStatus);
 						}
 					} else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 					utillLogger.info(testStep + " - " + testStatus);
 				}
@@ -254,7 +254,7 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

@@ -732,7 +732,7 @@ public class DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaib
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

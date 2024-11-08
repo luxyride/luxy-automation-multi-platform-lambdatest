@@ -78,13 +78,13 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			// ----------------------------------------------------------------------
@@ -103,7 +103,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingDispatchMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -113,7 +113,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -123,13 +123,13 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -147,7 +147,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(2000);
@@ -162,7 +162,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				objTestBase.defaultWaitTime(1000);
 				driver.navigate().refresh();
 				objTestBase.defaultWaitTime(3000);
@@ -171,7 +171,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -196,13 +196,13 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				visibilityStatus = true;
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				visibilityStatus = false;
 			}
 
@@ -251,13 +251,13 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				visibilityStatus = true;
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				visibilityStatus = false;
 			}
 
@@ -275,12 +275,12 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 			}
 
 			// Prod Restriction:
@@ -295,13 +295,13 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			}
@@ -316,7 +316,7 @@ public class DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDisp
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(2000);

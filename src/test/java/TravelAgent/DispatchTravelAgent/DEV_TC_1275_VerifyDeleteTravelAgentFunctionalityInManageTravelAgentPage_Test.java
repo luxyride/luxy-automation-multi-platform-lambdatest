@@ -63,9 +63,9 @@ public class DEV_TC_1275_VerifyDeleteTravelAgentFunctionalityInManageTravelAgent
 						+ "#Note: This step is only for Automation Suite runs to avoid unnecessary account creation on daily test runs.";
 				visibilityStatus = objVerifyTADeletionMain.deleteCreatedUserfromDispatch(visibilityStatus, eMail);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
@@ -74,7 +74,7 @@ public class DEV_TC_1275_VerifyDeleteTravelAgentFunctionalityInManageTravelAgent
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			testStep = "Activation of New User after Registration";
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 		}
 	}
 

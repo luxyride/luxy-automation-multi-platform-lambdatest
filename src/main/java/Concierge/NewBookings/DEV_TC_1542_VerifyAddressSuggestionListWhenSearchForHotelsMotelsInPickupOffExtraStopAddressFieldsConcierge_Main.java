@@ -696,7 +696,7 @@ public class DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInP
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

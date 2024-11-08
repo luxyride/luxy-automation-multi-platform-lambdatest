@@ -900,7 +900,7 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

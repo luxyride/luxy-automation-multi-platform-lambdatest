@@ -73,13 +73,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -97,7 +97,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyResendEmailMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -107,7 +107,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -120,13 +120,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 
 				}
@@ -145,13 +145,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -173,12 +173,12 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 					} else {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 					}
 					// -----------------------------------------------------------------------------------
 
@@ -195,14 +195,14 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 							testStatus = "FAILED";
 						}
 						objTestBase.defaultWaitTime(2000);
@@ -349,7 +349,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							objTestBase.defaultWaitTime(1000);
 
 							// Prod Restriction:
@@ -490,14 +490,14 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 							testStatus = "FAILED";
 						}
 
@@ -517,14 +517,14 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 							testStatus = "FAILED";
 						}
 
@@ -550,7 +550,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}
@@ -566,13 +566,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -585,13 +585,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -630,13 +630,13 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "FAILED";
 				}
 

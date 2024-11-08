@@ -64,10 +64,10 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 			testStep = "Verification of Dispatch Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("dispatchenv"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -82,13 +82,13 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					objVerifySighninMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
 				} else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				utillLogger.info(testStep + " - " + testStatus);
 				objVerifySighninMain.clickNewBooking();
@@ -98,10 +98,10 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 				testStep = "Verification of Dispatch Portal Login With Valid Credentials";
 				visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 
 				}
@@ -115,9 +115,9 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 				testStep = "Verify the availability of search bar in manage affiliate page";
 				visibilityStatus = objVerifySighninMain.visibilityOfSearchBar(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true)
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				utillLogger.info(testStep + " - " + testStatus);
 
 				objTestBase.defaultWaitTime(3000);
@@ -128,27 +128,27 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 				testStep = "Verify the availability of Affiliate Activate Status in Manage " + scenarioPage
 						+ " Affiliate Page";
 				if (visibilityStatus.booleanValue() == true)
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				utillLogger.info(testStep + " - " + testStatus);
 
 				testStep = "Verify the visibility of pop-up alert to activate affiliate with yes or no options from "
 						+ scenarioPage + " Affilate Page";
 				visibilityStatus = objVerifySighninMain.visibilityOfpopup(visibilityStatus, scenarioPage);
 				if (visibilityStatus.booleanValue() == true)
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				utillLogger.info(testStep + " - " + testStatus);
 				objTestBase.defaultWaitTime(1000);
 
 				testStep = "Verify the visibility of success message alert after Activating/Deactivating Affiliate ";
 				visibilityStatus = objVerifySighninMain.visibilityOfAlertSuccessMessage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true)
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				else
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				utillLogger.info(testStep + " - " + testStatus);
 
 				objTestBase.defaultWaitTime(3000);
@@ -165,25 +165,25 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 					testStep = "Verify only ACTIVE affiliates in manage affiliate Page";
 					visibilityStatus = objVerifySighninMain.visibilityOfActiveAffiliate(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(testStep + " - " + testStatus);
 
 					testStep = "Verify the availability of DeActivate button in Manage affiliate page";
 					visibilityStatus = objVerifySighninMain.visibilityOfDeActivateBtn(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(testStep + " - " + testStatus);
 
 					testStep = "Verify the visibility of pop-up alert to activate affiliate with yes or no options";
 					visibilityStatus = objVerifySighninMain.visibilityOfDeActivatepopup(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(testStep + " - " + testStatus);
 
 					objTestBase.defaultWaitTime(1000);
@@ -195,9 +195,9 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 					testStep = "Verify the visibility of success message alert after Deactitvating affiliate ";
 					visibilityStatus = objVerifySighninMain.visibilityOfAlertSuccessMessage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -213,17 +213,17 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 					testStep = "Verify only Inactive affiliates in manage affiliate Page";
 					visibilityStatus = objVerifySighninMain.visibilityOfActivateBtn(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(testStep + " - " + testStatus);
 
 					testStep = "Verify the visibility of pop-up alert to activate affiliate with yes or no options";
 					visibilityStatus = objVerifySighninMain.visibilityOfActivatepopup(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(testStep + " - " + testStatus);
 
 					objTestBase.defaultWaitTime(1000);
@@ -234,9 +234,9 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 					testStep = "Verify the visibility of success message alert after Deactitvating affiliate ";
 					visibilityStatus = objVerifySighninMain.visibilityOfAlertSuccessMessage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true)
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 					else
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -249,7 +249,7 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

@@ -70,13 +70,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -93,7 +93,7 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyResendEmailMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					testStatus = "PASSED";
@@ -101,7 +101,7 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -111,13 +111,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -131,13 +131,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -150,13 +150,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -178,14 +178,14 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 							testStatus = "FAILED";
 						}
 
@@ -214,7 +214,7 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}
@@ -230,13 +230,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -249,13 +249,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -294,13 +294,13 @@ public class DEV_TC_1048_VerifyPINConfirmationEmailToUsingResendBookingConfirmat
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "FAILED";
 				}
 

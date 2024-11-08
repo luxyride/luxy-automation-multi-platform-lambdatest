@@ -71,13 +71,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			// ----------------------------------------------------------------------
@@ -96,13 +96,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -120,7 +120,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -129,7 +129,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -139,13 +139,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -164,13 +164,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
@@ -185,13 +185,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);

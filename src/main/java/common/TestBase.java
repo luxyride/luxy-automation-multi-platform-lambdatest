@@ -861,18 +861,6 @@ public class TestBase {
 		}
 	}
 
-	public void browserStackTestStatusUpdate(String status, String testStep) {
-		try {
-			argumentsObject.put("status", status);
-			argumentsObject.put("reason", testStep);
-			executorObject.put("action", "setSessionStatus");
-			executorObject.put("arguments", argumentsObject);
-			jseBrowserStack.executeScript(String.format("browserstack_executor: %s", executorObject));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	// Delete Created user from Dispatch Site:
 	public Boolean deleteCreatedUserfromDispatch(Boolean visibilityStatus, String eMail) {
 		try {

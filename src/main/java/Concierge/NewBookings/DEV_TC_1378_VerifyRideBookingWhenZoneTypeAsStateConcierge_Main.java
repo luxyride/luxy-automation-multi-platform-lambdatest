@@ -767,7 +767,7 @@ public class DEV_TC_1378_VerifyRideBookingWhenZoneTypeAsStateConcierge_Main exte
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

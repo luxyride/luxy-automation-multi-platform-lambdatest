@@ -70,13 +70,13 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -94,7 +94,7 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyEditDetails_Main.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -104,7 +104,7 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -117,13 +117,13 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 
 				}
@@ -142,13 +142,13 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -168,14 +168,14 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 							testStatus = "PASSED";
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 							testStatus = "FAILED";
 						}
 
@@ -195,13 +195,13 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("passed", testStep);
+								lambdaTestStatusUpdate("passed", testStep);
 						} else {
 							if (localExecutionFlag == true)
 								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 										exception);
 							else
-								browserStackTestStatusUpdate("failed", testStep);
+								lambdaTestStatusUpdate("failed", testStep);
 						}
 
 						testStep = "Validate EDIT Ride for " + entry.getKey().toUpperCase() + " - Trip ID: " + tripID;
@@ -240,14 +240,14 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 									objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
 											exception);
 								else
-									browserStackTestStatusUpdate("passed", testStep);
+									lambdaTestStatusUpdate("passed", testStep);
 								testStatus = "PASSED";
 							} else {
 								if (localExecutionFlag == true)
 									objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
 											exception);
 								else
-									browserStackTestStatusUpdate("failed", testStep);
+									lambdaTestStatusUpdate("failed", testStep);
 								testStatus = "FAILED";
 
 							}

@@ -79,13 +79,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -107,7 +107,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyZoneTypeStateMain.clickSigninButton();
 					objTestBase.defaultWaitTime(5000);
 					testStatus = "PASSED";
@@ -115,7 +115,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -125,7 +125,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 
 					donotServeStatus = "beforeDONOTSERVEEnabled";
@@ -164,14 +164,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -184,7 +184,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
 			objTestBase.closePopupWindow();
@@ -225,7 +225,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
 					objVerifyZoneTypeStateMain.clickOnCancel();
 					objTestBase.defaultWaitTime(1000);
@@ -233,7 +233,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					visibilityStatus = false;
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
@@ -265,7 +265,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
 					objVerifyZoneTypeStateMain.clickOnCancel();
 					objTestBase.defaultWaitTime(1000);
@@ -273,7 +273,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					visibilityStatus = false;
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
@@ -305,7 +305,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
 					objVerifyZoneTypeStateMain.clickOnCancel();
 					objTestBase.defaultWaitTime(1000);
@@ -313,7 +313,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					visibilityStatus = false;
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
@@ -349,7 +349,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			testStatus = "FALIED";
 			driver.navigate().refresh();
@@ -379,7 +379,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyZoneTypeStateMain.clickdispatchSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -389,7 +389,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -399,13 +399,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				objVerifyZoneTypeStateMain.addDispatchFromAddress();
@@ -424,7 +424,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					visibilityStatus = true;
 
 					objVerifyZoneTypeStateMain.dispatchclickonEDITVehicle();
@@ -441,7 +441,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 						utillLogger.info(objVerifyZoneTypeStateTest.getClass().getSimpleName() + " - " + testStep
 								+ " - SKU NUMBER = " + captureSKUNumber);
 						enableStatus = true;
@@ -449,7 +449,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						utillLogger.info(objVerifyZoneTypeStateTest.getClass().getSimpleName() + " - " + testStep
 								+ " - SKU NUMBER = " + captureSKUNumber);
 						enableStatus = false;
@@ -458,7 +458,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					enableStatus = false;
 					visibilityStatus = false;
 					driver.navigate().refresh();
@@ -480,13 +480,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -497,14 +497,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					utillLogger.info(objVerifyZoneTypeStateTest.getClass().getSimpleName() + " - " + testStep
 							+ " - SKU NUMBER = " + captureSKUNumber);
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					utillLogger.info(objVerifyZoneTypeStateTest.getClass().getSimpleName() + " - " + testStep
 							+ " - SKU NUMBER = " + captureSKUNumber);
 				}
@@ -515,13 +515,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			}
@@ -541,13 +541,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				visibilityStatus = true;
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				visibilityStatus = false;
 			}
 
@@ -556,7 +556,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			testStatus = "FALIED";
 			driver.navigate().refresh();
@@ -598,7 +598,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(1000);
 					js = (JavascriptExecutor) driver;
 					js.executeScript("window.scrollBy(0,350)", "");
@@ -607,7 +607,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					visibilityStatus = false;
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
@@ -621,14 +621,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					visibilityStatus = true;
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					visibilityStatus = false;
 					driver.navigate().refresh();
 					objTestBase.defaultWaitTime(1000);
@@ -646,7 +646,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			testStatus = "FALIED";
 			driver.navigate().refresh();
@@ -666,13 +666,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
@@ -712,13 +712,13 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -735,7 +735,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					driver.navigate().refresh();
 					objTestBase.closePopupWindow();
 					objVerifyZoneTypeStateMain.clickonBookNextRide();
@@ -745,7 +745,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			} else {

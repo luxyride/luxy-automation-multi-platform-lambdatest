@@ -945,7 +945,7 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 					utillLogger.info(testStep + " - Capture the Updated Ride Details based on the Trip ID = " + tripID);
 				} else {
 					visibilityStatus = false;
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

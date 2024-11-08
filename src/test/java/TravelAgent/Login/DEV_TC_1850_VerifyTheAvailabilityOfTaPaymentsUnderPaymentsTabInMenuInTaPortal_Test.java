@@ -61,10 +61,10 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 			testStep = "Verification of TravelAgent Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -81,14 +81,14 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 
 					visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objVerifySighninMain.clickSigninButton();
 						objTestBase.defaultWaitTime(3000);
 						driver.navigate().refresh();
 						objTestBase.defaultWaitTime(1000);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 
@@ -98,10 +98,10 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 					testStep = "Verification of TravelAgent Portal Login With Valid Credentials";
 					visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
-						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
+						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 
 					}
@@ -119,13 +119,13 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 
 					}
@@ -139,7 +139,7 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+			if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

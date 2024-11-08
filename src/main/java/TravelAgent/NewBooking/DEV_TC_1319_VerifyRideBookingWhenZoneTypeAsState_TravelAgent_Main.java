@@ -795,7 +795,7 @@ public class DEV_TC_1319_VerifyRideBookingWhenZoneTypeAsState_TravelAgent_Main e
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

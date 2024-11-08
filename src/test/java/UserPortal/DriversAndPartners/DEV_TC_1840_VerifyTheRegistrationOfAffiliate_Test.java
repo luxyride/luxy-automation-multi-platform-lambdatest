@@ -65,13 +65,13 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
@@ -86,13 +86,13 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					browserStackTestStatusUpdate("passed", testStep);
+					lambdaTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
@@ -115,20 +115,20 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			}
@@ -144,20 +144,20 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						browserStackTestStatusUpdate("passed", testStep);
+						lambdaTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					browserStackTestStatusUpdate("failed", testStep);
+					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 		
@@ -176,7 +176,7 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 
 						objVerifyRegisCorpMain.clickOnSignupCreateBtn();
 						objTestBase.defaultWaitTime(3000);
@@ -185,7 +185,7 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				} else {
@@ -193,7 +193,7 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -205,13 +205,13 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							browserStackTestStatusUpdate("passed", testStep);
+							lambdaTestStatusUpdate("passed", testStep);
 						testStatus = "PASSED";
 					} else {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
-							browserStackTestStatusUpdate("failed", testStep);
+							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
 				} else {
@@ -219,7 +219,7 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);

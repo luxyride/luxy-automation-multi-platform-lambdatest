@@ -868,7 +868,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

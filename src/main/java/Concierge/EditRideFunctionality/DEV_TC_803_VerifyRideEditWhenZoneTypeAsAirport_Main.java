@@ -767,7 +767,7 @@ public class DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Main extends TestBas
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						browserStackTestStatusUpdate("failed", testStep);
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;
