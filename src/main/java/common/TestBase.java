@@ -14,13 +14,12 @@ import java.awt.Rectangle;
 import org.json.JSONObject;
 import java.util.Properties;
 import javax.imageio.ImageIO;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.testng.ITestContext;
 import java.io.FileInputStream;
 import org.openqa.selenium.Keys;
 import java.util.logging.Logger;
+import org.openqa.selenium.Alert;
 import java.text.SimpleDateFormat;
 import java.util.function.Function;
 import java.awt.image.BufferedImage;
@@ -41,8 +40,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.ui.FluentWait;
-import com.relevantcodes.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -58,6 +58,7 @@ public class TestBase {
 	public static String tripID;
 	public static FileHandler fh;
 	public static Actions action;
+	public static String exception;
 	public static WebDriver driver;
 	public static String buildName;
 	public static ExtentTest logger;
@@ -68,6 +69,7 @@ public class TestBase {
 	public static String dateTimeStamp;
 	public static ExtentReports extent;
 	public static Rectangle screenRect;
+	public static String screenshotPath;
 	public static JavascriptExecutor js;
 	public static String environmentCode;
 	public static String filePathExtension;
@@ -79,19 +81,20 @@ public class TestBase {
 	public static String conciergehourlyRideTripID;
 	public static String travelAgenthourlyRideTripID;
 	public static Properties prop = new Properties();
+	public static UpdateExtentReportResults objupdateResults;
 	public static Logger utillLogger = Logger.getLogger("LuxyQAAutoTest");
 	public static String dockerScreenshotsPath = "https://testimages.luxyride.com/screenshots/";
 	public static String localScreenshotsPath = System.getProperty("user.dir") + "\\screenshots\\";
 
 	// --------------------------------------------------------------------------------------------------
-	// ## Browser Stack Configuration:
+	// ## LambdaTest Configuration:
 	public static Boolean localExecutionFlag = false;
-	public static JavascriptExecutor jseBrowserStack;
-	public static String userName = "harivudutala_K4YCle";
-	public static String automationKey = "oKK8CEE9pzdo2msHU1UJ";
+	public static JavascriptExecutor jseLambdaTest;
+	public static String userName = "hvudutala";
+	public static String automationKey = "Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f";
 	public static JSONObject executorObject = new JSONObject();
 	public static JSONObject argumentsObject = new JSONObject();
-	public static final String URL = "https://" + userName + ":" + automationKey + "@hub-cloud.browserstack.com/wd/hub";
+	public static final String URL = "https://" + userName + ":" + automationKey + "@hub.lambdatest.com/wd/hub";
 	// --------------------------------------------------------------------------------------------------
 
 	// Vehicle Images Path for Dispatch TC:
@@ -168,9 +171,10 @@ public class TestBase {
 	public void beforeTest(ITestContext context, String environment, String browserName) {
 		try {
 			robot = new Robot();
+			objupdateResults = new UpdateExtentReportResults(driver);
 			System.out.println("Environment = " + environment);
 			System.out.println("Browser = " + browserName);
-			System.out.println("Browserstack HUB URL = " + URL);
+			System.out.println("LambdaTest HUB URL = " + URL);
 
 			// User Portal Configuration:
 			if (environment.equalsIgnoreCase("devuserportal")) {
@@ -256,7 +260,7 @@ public class TestBase {
 					+ environmentCode.toUpperCase() + "_" + browserName.toUpperCase() + ".html");
 
 			// --------------------------------------------------------------------------
-			// ## Browserstack Configuration:
+			// ## LamdaTest Configuration:
 			buildName = context.getCurrentXmlTest().getSuite().getName() + "_" + environmentCode.toUpperCase() + "_"
 					+ browserName.toUpperCase();
 			Date date = new Date();
@@ -349,149 +353,283 @@ public class TestBase {
 	public WebDriver launchBrowser(String browser, WebDriver driver, String testCaseName) {
 		try {
 			browserType = browser;
-			// #################### Browserstack Cloud Execution #################### //
-//			if (browser.equalsIgnoreCase("chrome")) {
-//				DesiredCapabilities chromeCapability = new DesiredCapabilities();
-//				chromeCapability.setCapability("os", "Windows");
-//				chromeCapability.setCapability("osVersion", "11");
-//				chromeCapability.setCapability("name", testCaseName);
-//				chromeCapability.setCapability("framework", "testng");
-//				chromeCapability.setCapability("status", "COMPLETED");
-//				chromeCapability.setCapability("buildName", buildName);
-//				chromeCapability.setCapability("browserName", "Chrome");
-//				chromeCapability.setCapability("browserVersion", "latest");
-//				chromeCapability.setCapability("percyCaptureMode", "auto");
-//				chromeCapability.setCapability("projectName", dateTimeStamp);
-//				chromeCapability.setCapability("browserstack.idleTimeout", 300);
-//				chromeCapability.setCapability("browserstack.chrome.enablePopups", "false");
-//				chromeCapability.setCapability("autoGrantPermissions", "true");
-//
-//				// INIT CHROME OPTIONS
-//				ChromeOptions chromeOptions = new ChromeOptions();
-//				Map<String, Object> prefs = new HashMap<String, Object>();
-//				Map<String, Object> profile = new HashMap<String, Object>();
-//				Map<String, Object> contentSettings = new HashMap<String, Object>();
-//
-//				// SET CHROME OPTIONS
-//				// 0 - Default, 1 - Allow, 2 - Block
-//				contentSettings.put("geolocation", 1);
-//				profile.put("managed_default_content_settings", contentSettings);
-//
-//				prefs.put("profile.default_content_setting_values.notifications", 2);
-//				prefs.put("autofill.profile_enabled", false);
-//				prefs.put("credentials_enable_service", false);
-//				prefs.put("autofill.credit_card_enabled", false);
-//				prefs.put("profile.password_manager_enabled", false);
-//				prefs.put("profile", profile);
-//				chromeOptions.addArguments("--disable-infobars");
-//				chromeOptions.addArguments("--disable-notifications");
-//				chromeOptions.addArguments("--remote-allow-origins=*");
-//				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//				chromeOptions.setExperimentalOption("prefs", prefs);
-//
-//				// SET CAPABILITY
-//				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-//				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
-//				Thread.sleep(1000);
-//				driver.manage().window().maximize();
-//				Thread.sleep(2000);
-//				jseBrowserStack = (JavascriptExecutor) driver;
-//			} else if (browser.equalsIgnoreCase("safari")) {
-//				DesiredCapabilities safariCapability = new DesiredCapabilities();
-//				safariCapability.setCapability("os", "OS X");
-//				safariCapability.setCapability("name", testCaseName);
-//				safariCapability.setCapability("framework", "testng");
-//				safariCapability.setCapability("status", "COMPLETED");
-//				safariCapability.setCapability("buildName", buildName);
-//				safariCapability.setCapability("browserName", "Safari");
-//				safariCapability.setCapability("osVersion", "Sonoma");
-//				safariCapability.setCapability("browserVersion", "17.3");
-//				safariCapability.setCapability("percyCaptureMode", "auto");
-//				safariCapability.setCapability("projectName", dateTimeStamp);
-//				safariCapability.setCapability("browserstack.idleTimeout", 300);
-//				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
-//				safariCapability.setCapability("--disable-infobars", true);
-//				safariCapability.setCapability("--disable-notifications", true);
-//				safariCapability.setCapability("--remote-allow-origins=*", true);
-//				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//				safariCapability.setCapability("autoGrantPermissions", true);
-//				safariCapability.setCapability("javascriptEnabled", false);
-//
-//				// Handling pop-ups and permissions
-//				safariCapability.setCapability("safariAllowPopups", false);
-//				safariCapability.setCapability("browserstack.safari.enablePopups", true); // BrowserStack specific
-//
-//				// Set additional options for Safari
-//				safariCapability.setCapability("safari:automaticProfiling", false);
-//				safariCapability.setCapability("safari:automaticInspection", false);
-//
-//				// Set capabilities specific to Safari
-//				safariCapability.setCapability("safari:useSingleSession", true);
-//
-//				// Initialize SafariOptions
-//				SafariOptions safariOptions = new SafariOptions();
-//				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
-//
-//				Map<String, Object> prefs = new HashMap<String, Object>();
-//				Map<String, Object> profile = new HashMap<String, Object>();
-//				Map<String, Object> contentSettings = new HashMap<String, Object>();
-//
-//				// SET CHROME OPTIONS
-//				// 0 - Default, 1 - Allow, 2 - Block
-//				contentSettings.put("geolocation", 1);
-//				profile.put("managed_default_content_settings", contentSettings);
-//
-//				prefs.put("profile.default_content_setting_values.notifications", 2);
-//				prefs.put("autofill.profile_enabled", false);
-//				prefs.put("credentials_enable_service", false);
-//				prefs.put("autofill.credit_card_enabled", false);
-//				prefs.put("profile.password_manager_enabled", false);
-//				prefs.put("--disable-infobars", true);
-//				prefs.put("--disable-notifications", true);
-//				prefs.put("--remote-allow-origins=*", true);
-//				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//				prefs.put("profile", profile);
-//
-//				safariOptions.setCapability("--disable-infobars", true);
-//				safariOptions.setCapability("--disable-notifications", true);
-//				safariOptions.setCapability("--remote-allow-origins=*", true);
-//				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//				safariOptions.setCapability("prefs", prefs);
-//
-//				// SET CAPABILITY
-//				safariCapability.setCapability("prefs", prefs);
-//
-//				// Initialize RemoteWebDriver with BrowserStack URL
-//				driver = new RemoteWebDriver(new URL(URL), safariCapability);
-//				Thread.sleep(1000);
-//				driver.manage().window().maximize();
-//				Thread.sleep(2000);
-//				jseBrowserStack = (JavascriptExecutor) driver;
-//			}
-			// ######################################################################## //
+			// #################### LambdaTest Cloud Execution #################### //
+			if (browser.equalsIgnoreCase("chrome")) {
+				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+				chromeCapability.setCapability("platform", "Windows 11");
+				chromeCapability.setCapability("version", "latest");
+				chromeCapability.setCapability("name", testCaseName);
+				chromeCapability.setCapability("framework", "testng");
+				chromeCapability.setCapability("status", "COMPLETED");
+				chromeCapability.setCapability("buildName", buildName);
+				chromeCapability.setCapability("browserName", "Chrome");
+				chromeCapability.setCapability("browserVersion", "latest");
+				chromeCapability.setCapability("percyCaptureMode", "auto");
+				chromeCapability.setCapability("projectName", dateTimeStamp);
+				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+				chromeCapability.setCapability("autoGrantPermissions", "true");
+				chromeCapability.setCapability("visual", "true");
 
-			// ########################## Local Execution ############################# //
-			if (browser.equalsIgnoreCase("chromeLocal")) {
-				localExecutionFlag = true;
-				System.setProperty("webdriver.http.factory", "jdk-http-client");
-				WebDriverManager.chromedriver().clearDriverCache().setup();
-				// Chrome Popups Disable Configurations:
+				// INIT CHROME OPTIONS
+				ChromeOptions chromeOptions = new ChromeOptions();
 				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+
 				prefs.put("profile.default_content_setting_values.notifications", 2);
 				prefs.put("autofill.profile_enabled", false);
 				prefs.put("credentials_enable_service", false);
 				prefs.put("autofill.credit_card_enabled", false);
 				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("profile", profile);
 
-				ChromeOptions chromeOptions = new ChromeOptions();
+				// Chrome options to handle popups
+				chromeOptions.addArguments("--incognito");
 				chromeOptions.addArguments("--disable-infobars");
 				chromeOptions.addArguments("--disable-notifications");
 				chromeOptions.addArguments("--remote-allow-origins=*");
 				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				chromeOptions.setExperimentalOption("prefs", prefs);
-				driver = new ChromeDriver(chromeOptions);
+
+				// SET CAPABILITY
+				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
+			} else if (browser.equalsIgnoreCase("safari")) {
+				DesiredCapabilities safariCapability = new DesiredCapabilities();
+				safariCapability.setCapability("platform", "macos");
+				safariCapability.setCapability("version", "latest");
+				safariCapability.setCapability("name", testCaseName);
+				safariCapability.setCapability("framework", "testng");
+				safariCapability.setCapability("status", "COMPLETED");
+				safariCapability.setCapability("buildName", buildName);
+				safariCapability.setCapability("browserName", "Safari");
+				safariCapability.setCapability("browserVersion", "17.3");
+				safariCapability.setCapability("percyCaptureMode", "auto");
+				safariCapability.setCapability("projectName", dateTimeStamp);
+				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
+				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
+				safariCapability.setCapability("--disable-infobars", true);
+				safariCapability.setCapability("--disable-notifications", true);
+				safariCapability.setCapability("--remote-allow-origins=*", true);
+				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariCapability.setCapability("autoGrantPermissions", true);
+				safariCapability.setCapability("javascriptEnabled", false);
+
+				// Handling pop-ups and permissions
+				safariCapability.setCapability("safariAllowPopups", false);
+				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
+
+				// Set additional options for Safari
+				safariCapability.setCapability("safari:automaticProfiling", false);
+				safariCapability.setCapability("safari:automaticInspection", false);
+
+				// Set capabilities specific to Safari
+				safariCapability.setCapability("safari:useSingleSession", true);
+
+				// Initialize SafariOptions
+				SafariOptions safariOptions = new SafariOptions();
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
+
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("--disable-infobars", true);
+				prefs.put("--remote-allow-origins=*", true);
+				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				prefs.put("profile", profile);
+
+				safariOptions.setCapability("prefs", prefs);
+				safariOptions.setCapability("--disable-infobars", true);
+				safariOptions.setCapability("--disable-notifications", true);
+				safariOptions.setCapability("--remote-allow-origins=*", true);
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+
+				// SET CAPABILITY
+				safariCapability.setCapability("prefs", prefs);
+
+				// Initialize RemoteWebDriver with LambdaTest URL
+				driver = new RemoteWebDriver(new URL(URL), safariCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
+			} else if (browser.equalsIgnoreCase("androidChromeMobileView")) {
+				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+				chromeCapability.setCapability("platform", "Windows 11");
+				chromeCapability.setCapability("version", "latest");
+				chromeCapability.setCapability("name", testCaseName);
+				chromeCapability.setCapability("framework", "testng");
+				chromeCapability.setCapability("status", "COMPLETED");
+				chromeCapability.setCapability("buildName", buildName);
+				chromeCapability.setCapability("browserName", "Chrome");
+				chromeCapability.setCapability("browserVersion", "latest");
+				chromeCapability.setCapability("percyCaptureMode", "auto");
+				chromeCapability.setCapability("projectName", dateTimeStamp);
+				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+				chromeCapability.setCapability("autoGrantPermissions", "true");
+				chromeCapability.setCapability("visual", "true");
+
+				// INIT CHROME OPTIONS
+				ChromeOptions chromeOptions = new ChromeOptions();
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>(); // For MobileView:
+
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("profile", profile);
+
+				// Chrome options to handle popups
+				chromeOptions.addArguments("--incognito");
+				chromeOptions.addArguments("--disable-infobars");
+				chromeOptions.addArguments("--disable-notifications");
+				chromeOptions.addArguments("--remote-allow-origins=*");
+				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				chromeOptions.setExperimentalOption("prefs", prefs);
+
+				// Mobile View Configuration:
+				mobileEmulationAndroidChrome.put("deviceName", "Samsung Galaxy S20 Ultra");
+				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulationAndroidChrome);
+
+				// SET CAPABILITY
+				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
+			} else if (browser.equalsIgnoreCase("iosSafariMobileView")) {
+				DesiredCapabilities safariCapability = new DesiredCapabilities();
+				safariCapability.setCapability("platform", "macos");
+				safariCapability.setCapability("version", "latest");
+				safariCapability.setCapability("name", testCaseName);
+				safariCapability.setCapability("framework", "testng");
+				safariCapability.setCapability("status", "COMPLETED");
+				safariCapability.setCapability("buildName", buildName);
+				safariCapability.setCapability("browserName", "Safari");
+				safariCapability.setCapability("browserVersion", "17.3");
+				safariCapability.setCapability("percyCaptureMode", "auto");
+				safariCapability.setCapability("projectName", dateTimeStamp);
+				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
+				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
+				safariCapability.setCapability("--disable-infobars", true);
+				safariCapability.setCapability("--disable-notifications", true);
+				safariCapability.setCapability("--remote-allow-origins=*", true);
+				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariCapability.setCapability("autoGrantPermissions", true);
+				safariCapability.setCapability("javascriptEnabled", false);
+
+				// Handling pop-ups and permissions
+				safariCapability.setCapability("safariAllowPopups", false);
+				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
+
+				// Set additional options for Safari
+				safariCapability.setCapability("safari:automaticProfiling", false);
+				safariCapability.setCapability("safari:automaticInspection", false);
+
+				// Set capabilities specific to Safari
+				safariCapability.setCapability("safari:useSingleSession", true);
+
+				// Initialize SafariOptions
+				SafariOptions safariOptions = new SafariOptions();
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
+
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				Map<String, Object> profile = new HashMap<String, Object>();
+				Map<String, Object> contentSettings = new HashMap<String, Object>();
+
+				// SET CHROME OPTIONS
+				// 0 - Default, 1 - Allow, 2 - Block
+				contentSettings.put("geolocation", 1);
+				profile.put("managed_default_content_settings", contentSettings);
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+				prefs.put("--disable-infobars", true);
+				prefs.put("--remote-allow-origins=*", true);
+				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+
+				// Mobile View Configuration:
+				Map<String, Object> mobileEmulationiOSSafari = new HashMap<String, Object>(); // For MobileView:
+				mobileEmulationiOSSafari.put("deviceName", "iPhone SE");
+				prefs.put("deviceName", "iPhone SE");
+				prefs.put("mobileEmulation", mobileEmulationiOSSafari);
+
+				prefs.put("profile", profile);
+
+				safariOptions.setCapability("prefs", prefs);
+				safariOptions.setCapability("--disable-infobars", true);
+				safariOptions.setCapability("--disable-notifications", true);
+				safariOptions.setCapability("--remote-allow-origins=*", true);
+				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+
+				// SET CAPABILITY
+				safariCapability.setCapability("prefs", prefs);
+
+				// Initialize RemoteWebDriver with LambdaTest URL
+				driver = new RemoteWebDriver(new URL(URL), safariCapability);
+				Thread.sleep(1000);
+				driver.manage().window().maximize();
+				Thread.sleep(2000);
+				jseLambdaTest = (JavascriptExecutor) driver;
 			}
+			// ######################################################################## //
+
+			// ########################## Local Execution ############################# //
+//						if (browser.equalsIgnoreCase("chromeLocal")) {
+//							localExecutionFlag = true;
+//							System.setProperty("webdriver.http.factory", "jdk-http-client");
+//							WebDriverManager.chromedriver().clearDriverCache().setup();
+//							// Chrome Popups Disable Configurations:
+//							Map<String, Object> prefs = new HashMap<String, Object>();
+//							prefs.put("profile.default_content_setting_values.notifications", 2);
+//							prefs.put("autofill.profile_enabled", false);
+//							prefs.put("credentials_enable_service", false);
+//							prefs.put("autofill.credit_card_enabled", false);
+//							prefs.put("profile.password_manager_enabled", false);
+			//
+//							ChromeOptions chromeOptions = new ChromeOptions();
+//							chromeOptions.addArguments("--disable-infobars");
+//							chromeOptions.addArguments("--disable-notifications");
+//							chromeOptions.addArguments("--remote-allow-origins=*");
+//							chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//							chromeOptions.setExperimentalOption("prefs", prefs);
+//							driver = new ChromeDriver(chromeOptions);
+//						}
 			// ######################################################################## //
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -649,8 +787,8 @@ public class TestBase {
 
 			String expected = driver.getCurrentUrl();
 			if (expected.contains("duosecurity")) {
-				wait.until(ExpectedConditions
-						.visibilityOfAllElementsLocatedBy(By.xpath("//input[@id='passcode-input']")));
+				wait.until(
+						ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[@id='passcode-input']")));
 				WebElement bypassCode = driver.findElement(By.xpath("//input[@id='passcode-input']"));
 				bypassCode.click();
 				defaultWaitTime(500);
@@ -658,8 +796,7 @@ public class TestBase {
 				System.out.println("By Pass Code = " + prop.getProperty("bypassCode"));
 				action.moveToElement(bypassCode).sendKeys(prop.getProperty("bypassCode")).build().perform();
 
-				wait.until(ExpectedConditions
-						.visibilityOfAllElementsLocatedBy(By.xpath("//button[@type='submit']")));
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@type='submit']")));
 				WebElement verifyBtn = driver.findElement(By.xpath("//button[@type='submit']"));
 				defaultWaitTime(1000);
 
@@ -780,6 +917,41 @@ public class TestBase {
 			ex.printStackTrace();
 		}
 		return visibilityStatus;
+	}
+
+	public void lambdaTestStatusUpdate(String status, String testStep) throws Exception {
+		try {
+			if (status == "passed") {
+				jseLambdaTest.executeScript("lambda-status=" + status);
+				jseLambdaTest
+						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
+								+ testStep + "\", \"level\": \"info\"}}");
+				// Result Report Configuration:
+				objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+			} else if (status == "failed") {
+				jseLambdaTest.executeScript("lambda-status=" + status);
+				jseLambdaTest
+						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
+								+ testStep + "\", \"level\": \"error\"}}");
+				// Result Report Configuration:
+				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+			} else {
+				jseLambdaTest.executeScript("lambda-status=" + status);
+				jseLambdaTest
+						.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
+								+ testStep + "\", \"level\": \"warn\"}}");
+				// Result Report Configuration:
+				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			jseLambdaTest.executeScript("lambda-status=" + status);
+			jseLambdaTest
+					.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \""
+							+ testStep + "\", \"level\": \"warn\"}}");
+			// Result Report Configuration:
+			objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+		}
 	}
 
 	@AfterTest(alwaysRun = true)
