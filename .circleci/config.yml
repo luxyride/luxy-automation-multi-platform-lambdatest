@@ -504,6 +504,20 @@ workflows:
                 - chrome
                 - windows
                 - mac
+  dev-travelagent-sanity-safari:
+    when:
+      equal: [ dev-travelagent-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - travelagent
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-travelagent-regression-chrome:
     when:
