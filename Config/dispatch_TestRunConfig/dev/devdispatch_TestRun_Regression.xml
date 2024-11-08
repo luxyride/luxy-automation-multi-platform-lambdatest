@@ -69,7 +69,9 @@
 			<class name="Dispatch.NewBooking.DEV_TC_1769_VerifyTheRemovalOfRideRewardsEnrollButtonUnderActionsInPassengerListAndConciergeList_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1937_VerifyRemoveSortingFunctionsColumnsFromAllPagesInDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" />
+ 			<class name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" />
+ 			<class name="Dispatch.NewBooking.DEV_TC_2026_VerifyUpdatedRideSearchFunctionalityForDispatchPortalWithVehicleType_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_2030_VerifyUpdatedRideSearchFunctionalityForDispatchPortalWithSubstatus_Test" />
 			<!-- ############################################################################################# -->
 
 			<!-- ##################################### Dispatch.Affiliate ################################# -->
@@ -108,4 +110,5 @@
 			<!-- ############################################################################################# -->
 		</classes>
 	</test>
-</suite> <!-- Suite -->
+</suite> <!--
+Suite -->

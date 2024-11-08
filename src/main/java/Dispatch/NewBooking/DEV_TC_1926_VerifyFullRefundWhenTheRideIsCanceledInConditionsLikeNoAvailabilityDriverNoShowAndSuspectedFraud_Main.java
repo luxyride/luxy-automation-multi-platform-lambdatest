@@ -895,7 +895,7 @@ public class DEV_TC_1926_VerifyFullRefundWhenTheRideIsCanceledInConditionsLikeNo
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

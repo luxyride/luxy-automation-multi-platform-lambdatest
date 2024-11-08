@@ -134,7 +134,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 
 	public Boolean verifyVisibilityOfAPSACheckBoxRegistrationForm(Boolean visibilityStatus) {
 		try {
-			if (companyName.isDisplayed())
+			if (apsaCheckBox.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;

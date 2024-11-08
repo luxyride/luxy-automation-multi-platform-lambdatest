@@ -65,13 +65,13 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -89,7 +89,7 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					objVerifySighninMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -99,7 +99,7 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -109,13 +109,13 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 
 				}
@@ -137,13 +137,13 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 
 			}
@@ -154,7 +154,7 @@ public class DEV_TC_1850_VerifyTheAvailabilityOfTaPaymentsUnderPaymentsTabInMenu
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

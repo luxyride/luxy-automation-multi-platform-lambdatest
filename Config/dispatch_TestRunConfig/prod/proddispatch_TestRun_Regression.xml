@@ -40,6 +40,8 @@
 			<class name="Dispatch.NewBooking.DEV_TC_1348_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromDispatchPortal_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1644_VerifyTheAvailabilityOfSpecialEventsTabInDispatchPortal_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1764_VerifyTheAvailabilityOfFarmOutToAllEligiblePartnerToggleInNewBookingTab_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_2026_VerifyUpdatedRideSearchFunctionalityForDispatchPortalWithVehicleType_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_2030_VerifyUpdatedRideSearchFunctionalityForDispatchPortalWithSubstatus_Test" />
 			<!-- ############################################################################################# -->
 
 			<!-- ##################################### Dispatch.Affiliate ################################# -->

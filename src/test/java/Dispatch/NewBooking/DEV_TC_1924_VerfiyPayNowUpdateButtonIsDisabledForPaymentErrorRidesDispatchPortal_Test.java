@@ -78,13 +78,13 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			// ----------------------------------------------------------------------
@@ -103,7 +103,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingDispatchMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
@@ -113,7 +113,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -123,13 +123,13 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -147,7 +147,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(2000);
@@ -162,7 +162,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				objTestBase.defaultWaitTime(1000);
 				driver.navigate().refresh();
 				objTestBase.defaultWaitTime(3000);
@@ -171,7 +171,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
@@ -192,13 +192,13 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				visibilityStatus = true;
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				visibilityStatus = false;
 			}
 
@@ -237,12 +237,12 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 			}
 
 			// Prod Restriction:
@@ -257,13 +257,13 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -275,10 +275,10 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 				testStep = "Verification of Rides All Page loaded.?";
 				visibilityStatus = objVerifyNewBookingDispatchMain.visibilityOfRidesAllPage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				
@@ -291,15 +291,15 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
-							lambdaTestStatusUpdate("passed", testStep);
+							browserStackTestStatusUpdate("passed", testStep);
 					else if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 				} else if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 			}
 			
 			objTestBase.defaultWaitTime(1000);
@@ -309,10 +309,10 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			testStep = "Verification of Rides All Page loaded.?";
 			visibilityStatus = objVerifyNewBookingDispatchMain.visibilityOfRidesAllPage(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			
@@ -328,10 +328,10 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			testStep = "Verify visibility of update ride button should be disabled?";
 			visibilityStatus = objVerifyNewBookingDispatchMain.visibilityOfUpdateRideButtonDisabled(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			objTestBase.defaultWaitTime(1000);
@@ -351,10 +351,10 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			testStep = "Verify visibility of pay Now button should be disabledafter updating ride";
 			visibilityStatus = objVerifyNewBookingDispatchMain.visibilityOfPayNowButtonDisabled(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 			
@@ -369,7 +369,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(2000);

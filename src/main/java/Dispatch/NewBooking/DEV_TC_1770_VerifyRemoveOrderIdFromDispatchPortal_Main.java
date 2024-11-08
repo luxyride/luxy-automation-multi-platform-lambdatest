@@ -877,7 +877,7 @@ public class DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Main extends Test
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 			}
 
 		} catch (Exception e) {

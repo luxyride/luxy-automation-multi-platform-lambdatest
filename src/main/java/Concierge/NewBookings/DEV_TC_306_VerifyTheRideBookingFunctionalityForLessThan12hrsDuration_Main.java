@@ -729,7 +729,7 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

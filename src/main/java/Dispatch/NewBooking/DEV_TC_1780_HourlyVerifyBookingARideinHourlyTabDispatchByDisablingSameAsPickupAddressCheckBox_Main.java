@@ -842,7 +842,7 @@ public class DEV_TC_1780_HourlyVerifyBookingARideinHourlyTabDispatchByDisablingS
 					utillLogger.info(testStep + " - Capture the Trip ID = " + tripID);
 				} else {
 					visibilityStatus = false;
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	browserStackTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

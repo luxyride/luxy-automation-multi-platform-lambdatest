@@ -58,30 +58,30 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 			objTestBase.defaultWaitTime(2000);
 
 			currURL = driver.getCurrentUrl();
-			testStep = "Verify user able to launched User portal page.?";
+			testStep = "visibility of sign in Button ";
+
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 				else
-					lambdaTestStatusUpdate("passed", testStep);
+					browserStackTestStatusUpdate("passed", testStep);
 				testStatus = "PASSED";
 			} else {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 				else
-					lambdaTestStatusUpdate("failed", testStep);
+					browserStackTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
 
 			if (testStatus == "PASSED") {
 				testStatus = " ";
-				testStep = "visibility of sign in Button from User portal home page";
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
-						lambdaTestStatusUpdate("passed", testStep);
+						browserStackTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
 					objTestBase.closePopupWindow();
@@ -90,7 +90,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
-						lambdaTestStatusUpdate("failed", testStep);
+						browserStackTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
@@ -100,7 +100,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 			if (localExecutionFlag == true)
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 			else
-				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
+				browserStackTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 		}
 	}

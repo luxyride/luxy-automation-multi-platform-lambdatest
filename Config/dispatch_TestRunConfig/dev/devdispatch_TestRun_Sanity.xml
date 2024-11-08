@@ -59,10 +59,10 @@
 			<class name="Dispatch.NewBooking.DEV_TC_1768_VerifyTheRemovalOfActionColumnInAffiliatesTabInDispatch_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1769_VerifyTheRemovalOfRideRewardsEnrollButtonUnderActionsInPassengerListAndConciergeList_Test" />
 			<class name="Dispatch.NewBooking.DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Test" />
-			<class name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" />
+			<class name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" /> 
 			<!-- ############################################################################################# -->
 
-			<!-- ##################################### Dispatch.Affiliate ################################# -->
+			<!-- ###################################### Dispatch.Affiliate ################################### -->
 			<class name="Dispatch.Affiliate.DEV_TC_1554_VerifyFunctionalityOfAddingAdditionalAmountInAffiliatePaymentOfAffiliateTabInDispatch_Test" />
 			<class name="Dispatch.Affiliate.DEV_TC_1555_VerifyFunctionalityOfDeductingAmountInAffiliatePaymentOfAffiliateTabInDispatch_Test" />
 			<class name="Dispatch.Affiliate.DEV_TC_1557_VerifyTotalAffiliatePayoutInAffiliatePaymentsTabAfterAdditionalAmountAddingToAffiliateInDispatchPortal_Test" />
@@ -84,4 +84,5 @@
 			<!-- ############################################################################################# -->
 		</classes>
 	</test>
-</suite> <!-- Suite -->
+</suite> <!--
+Suite -->
