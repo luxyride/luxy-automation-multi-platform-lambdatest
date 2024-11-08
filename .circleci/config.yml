@@ -275,6 +275,20 @@ workflows:
                 - chrome
                 - windows
                 - mac
+  dev-dispatch-sanity-safari:
+    when:
+      equal: [ dev-dispatch-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - dispatch
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-dispatch-regression-chrome:
     when:
