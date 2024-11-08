@@ -716,6 +716,21 @@ public class TestBase {
 			defaultWaitTime(5000);
 			action = new Actions(driver);
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+			try {
+				wait.until(ExpectedConditions
+						.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Skip for now']")));
+				defaultWaitTime(1000);
+				List<WebElement> skipChromeUpdateScreen = driver
+						.findElements(By.xpath("//button[normalize-space()='Skip for now']"));
+				if (skipChromeUpdateScreen.size() != 0) {
+					skipChromeUpdateScreen.get(0).click();
+					defaultWaitTime(3000);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+
 			wait.until(ExpectedConditions
 					.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Get started']")));
 			List<WebElement> getStartedBtn = driver.findElements(By.xpath("//button[normalize-space()='Get started']"));
@@ -737,24 +752,7 @@ public class TestBase {
 
 //-----------------------------------------------------------------------------------------			
 //## 8th Nov'24:
-//## Disabled based on updated behavior with new EmailID: luxy-qa@luxyride.com
-//			
-//			try {
-//				if (browserType.equalsIgnoreCase("chrome") || browserType.equalsIgnoreCase("chromeLocal")) {
-//					wait.until(ExpectedConditions
-//							.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Skip for now']")));
-//					defaultWaitTime(1000);
-//					List<WebElement> skipChromeUpdateScreen = driver
-//							.findElements(By.xpath("//button[normalize-space()='Skip for now']"));
-//					if (skipChromeUpdateScreen.size() != 0) {
-//						skipChromeUpdateScreen.get(0).click();
-//						defaultWaitTime(3000);
-//					}
-//				}
-//			} catch (Exception ex) {
-//				ex.printStackTrace();
-//			}
-//			
+//## Disabled based on updated behavior with new EmailID: luxy-qa@luxyride.com	
 //			try {
 //				defaultWaitTime(1000);
 //				wait.until(ExpectedConditions
