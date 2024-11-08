@@ -391,6 +391,20 @@ workflows:
                 - chrome
                 - windows
                 - mac
+  dev-concierge-sanity-safari:
+    when:
+      equal: [ dev-concierge-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - concierge
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-concierge-regression-chrome:
     when:
