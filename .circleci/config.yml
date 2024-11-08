@@ -645,6 +645,20 @@ workflows:
                 - chrome
                 - windows
                 - mac
+  dev-affiliate-sanity-safari:
+    when:
+      equal: [ dev-affiliate-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - affiliate
+                - dev
+                - chrome
+                - windows
+                - mac
   dev-affiliate-regression-chrome:
     when:
       equal: [ dev-affiliate-regression-chrome, << pipeline.schedule.name >> ]
