@@ -25,7 +25,7 @@ testDiscovery:
   
 testRunnerCommand:  mvn test `-Dmaven.repo.local=./.m2 `-Dtest=$test `-Dsurefire.suiteXmlFiles=Config/affiliate_TestRunConfig/prod/prodaffiliate_TestRun_Regression.xml `-Dbrowser=${browser} `-Denvironment=prodaffiliate
 
-retryOnFailure: true
+retryOnFailure: false
 maxRetries: 1
 
 runtime:

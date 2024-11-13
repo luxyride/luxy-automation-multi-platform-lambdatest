@@ -25,7 +25,7 @@ testDiscovery:
   
 testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/travelagent_TestRunConfig/uat/uattravelagent_TestRun_Sanity.xml -Dbrowser=${browser} -Denvironment=uattravelagent
 
-retryOnFailure: true
+retryOnFailure: false
 maxRetries: 1
 
 runtime:

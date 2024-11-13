@@ -25,7 +25,7 @@ testDiscovery:
   
 testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/dispatch_TestRunConfig/uat/uatdispatch_TestRun_Sanity.xml -Dbrowser=${browser} -Denvironment=uatdispatch
 
-retryOnFailure: true
+retryOnFailure: false
 maxRetries: 1
 
 runtime:

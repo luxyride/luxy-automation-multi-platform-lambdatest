@@ -12,7 +12,7 @@ concurrency: 1
 pre:
   - mvn dependency:resolve -Dmaven.repo.local=./.m2
   - npm install fs xml2js
-  
+
 cacheKey: '{{ checksum "pom.xml" }}'
 cacheDirectories:
   - .m2
@@ -24,7 +24,7 @@ testDiscovery:
   
 testRunnerCommand:  mvn test -Dmaven.repo.local=./.m2 -Dtest=$test -Dsurefire.suiteXmlFiles=Config/userportal_TestRunConfig/dev/devuserportal_TestRun_Regression.xml -Dbrowser=${browser} -Denvironment=devuserportal
 
-retryOnFailure: true
+retryOnFailure: false
 maxRetries: 1
 
 runtime:
