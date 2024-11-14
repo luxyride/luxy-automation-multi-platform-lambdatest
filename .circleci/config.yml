@@ -8,6 +8,7 @@ jobs:
   test:
     docker:
       - image: cimg/openjdk:20.0-browsers
+    resource_class: xlarge
     steps:
       - browser-tools/install-browser-tools
       - checkout
@@ -15,9 +16,69 @@ jobs:
             google-chrome --version
             java --version
             mkdir -p https:/testimages.luxyride.com/screenshots
+      - run: |
+            chmod +x hyperexecute 
+            ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
+    #         +x = add and grant execute permissions        
+      - run: |
+          mkdir -p tmp/artifacts
+          ls -la
+          cp -R https:/testimages.luxyride.com/screenshots tmp/artifacts/screenshots || true
+          cp -R test-output tmp/artifacts/test-output || true
+          cp test-output/Luxy*.html index.html || true
+  #       zip -r artifacts-"$env"-"$testtype"-$(date +"%Y-%m-%d-%H:%M:%S").zip tmp
       - run:
-          name: Test
-          command: mvn clean install -Dsurefire.suiteXmlFiles=Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype".xml -Dbrowser="$browser"
+          name: installing AWS Cli
+          working_directory: /
+          command: |
+            sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
+            sudo unzip awscliv2.zip
+            sudo ./aws/install
+      - run:
+          name: Deploy to s3
+          command: |
+            aws --region us-east-1 s3 cp index.html s3://luxy-test-automation
+            aws --region us-east-1 s3 sync https:/testimages.luxyride.com/screenshots s3://luxy-test-automation/screenshots || true
+            aws --region us-east-1 s3 sync test-output s3://luxy-test-automation/test-output || true
+      - run:
+          name: Invalidate cloudfront cache
+          command: |
+            AWS_PAGER="" aws cloudfront create-invalidation --distribution-id E3P66F0AYP3GJZ --paths /\*
+      - slack/notify:
+          event: fail
+          template: basic_fail_1
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1
+      - slack/notify:
+          event: pass
+          custom: |
+            {
+                        	"text": "",
+                        	"blocks": [
+                        		{
+                        			"type": "header",
+                        			"text": {
+                        				"type": "plain_text",
+                        				"text": "${ENV} ${testtype} Automation Successful! :tada:",
+                        				"emoji": true
+                        			}
+                        		},
+                        		{
+                        			"type": "actions",
+                        			"elements": [
+                        				{
+                        					"type": "button",
+                        					"text": {
+                        						"type": "plain_text",
+                        						"text": "View Report"
+                        					},
+                        					"url": "https://testreport.luxyride.com/"
+                        				}
+                        			]
+                        		}
+                        	]
+                        }
 workflows:
   DEV-Sanity: 
     jobs:
@@ -28,15 +89,17 @@ workflows:
                 - sanity
                 - dev
                 - userportal
+                - chrome
+                - windows
           filters:
             tags:
               only: /^devchrome.20.*/
             branches:
               ignore: /.*/
 
-  dev-userportal-sanity-chrome:
+  dev-userportal-sanity-chrome_log:
     when:
-      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-chrome_log, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -46,9 +109,10 @@ workflows:
                 - userportal
                 - dev
                 - chrome
-  dev-userportal-sanity-safari:
+                - windows
+  dev-userportal-sanity-safari_log:
     when:
-      equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-safari_log, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -58,9 +122,10 @@ workflows:
                 - userportal
                 - dev
                 - safari
-  dev-userportal-regression-chrome:
+                - mac
+  dev-userportal-regression-chrome_log:
     when:
-      equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-chrome_log, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -70,9 +135,10 @@ workflows:
                 - userportal
                 - dev
                 - chrome
-  dev-userportal-regression-safari:
+                - windows
+  dev-userportal-regression-safari_log:
     when:
-      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-safari_log, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -82,6 +148,7 @@ workflows:
                 - userportal
                 - dev
                 - safari
+                - mac
   uat-userportal-sanity-chrome:
     when:
       equal: [ uat-userportal-sanity-chrome, << pipeline.schedule.name >> ]
@@ -94,6 +161,8 @@ workflows:
                 - userportal
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-userportal-sanity-safari:
     when:
       equal: [ uat-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -106,6 +175,8 @@ workflows:
                 - userportal
                 - uat
                 - safari
+                - windows
+                - mac
   uat-userportal-regression-chrome:
     when:
       equal: [ uat-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -118,6 +189,8 @@ workflows:
                 - userportal
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-userportal-regression-safari:
     when:
       equal: [ uat-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -130,6 +203,8 @@ workflows:
                 - userportal
                 - uat
                 - safari
+                - windows
+                - mac
   prod-userportal-sanity-chrome:
     when:
       equal: [ prod-userportal-sanity-chrome, << pipeline.schedule.name >> ]
@@ -142,6 +217,8 @@ workflows:
                 - userportal
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-userportal-sanity-safari:
     when:
       equal: [ prod-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -154,6 +231,8 @@ workflows:
                 - userportal
                 - prod
                 - safari
+                - windows
+                - mac
   prod-userportal-regression-chrome:
     when:
       equal: [ prod-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -166,6 +245,8 @@ workflows:
                 - userportal
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-userportal-regression-safari:
     when:
       equal: [ prod-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -178,6 +259,8 @@ workflows:
                 - userportal
                 - prod
                 - safari
+                - windows
+                - mac
   dev-dispatch-sanity-chrome:
     when:
       equal: [ dev-dispatch-sanity-chrome, << pipeline.schedule.name >> ]
@@ -190,6 +273,22 @@ workflows:
                 - dispatch
                 - dev
                 - chrome
+                - windows
+                - mac
+  dev-dispatch-sanity-safari:
+    when:
+      equal: [ dev-dispatch-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - dispatch
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-dispatch-regression-chrome:
     when:
@@ -203,6 +302,8 @@ workflows:
                 - dispatch
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-dispatch-regression-safari:
     when:
       equal: [ dev-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -215,6 +316,8 @@ workflows:
                 - dispatch
                 - dev
                 - safari
+                - windows
+                - mac
  
 
   uat-dispatch-regression-chrome:
@@ -229,6 +332,8 @@ workflows:
                 - dispatch
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-dispatch-regression-safari:
     when:
       equal: [ uat-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -241,6 +346,8 @@ workflows:
                 - dispatch
                 - uat
                 - safari
+                - windows
+                - mac
 
   prod-dispatch-regression-chrome:
     when:
@@ -254,6 +361,8 @@ workflows:
                 - dispatch
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-dispatch-regression-safari:
     when:
       equal: [ prod-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -266,6 +375,8 @@ workflows:
                 - dispatch
                 - prod
                 - safari
+                - windows
+                - mac
   dev-concierge-sanity-chrome:
     when:
       equal: [ dev-concierge-sanity-chrome, << pipeline.schedule.name >> ]
@@ -278,6 +389,22 @@ workflows:
                 - concierge
                 - dev
                 - chrome
+                - windows
+                - mac
+  dev-concierge-sanity-safari:
+    when:
+      equal: [ dev-concierge-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - concierge
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-concierge-regression-chrome:
     when:
@@ -291,6 +418,8 @@ workflows:
                 - concierge
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-concierge-regression-safari:
     when:
       equal: [ dev-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -303,6 +432,8 @@ workflows:
                 - concierge
                 - dev
                 - safari
+                - windows
+                - mac
   uat-concierge-regression-chrome:
     when:
       equal: [ uat-concierge-regression-chrome, << pipeline.schedule.name >> ]
@@ -315,6 +446,8 @@ workflows:
                 - concierge
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-concierge-regression-safari:
     when:
       equal: [ uat-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -327,6 +460,8 @@ workflows:
                 - concierge
                 - uat
                 - safari
+                - windows
+                - mac
   prod-concierge-regression-chrome:
     when:
       equal: [ prod-concierge-regression-chrome, << pipeline.schedule.name >> ]
@@ -339,6 +474,8 @@ workflows:
                 - concierge
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-concierge-regression-safari:
     when:
       equal: [ prod-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -351,6 +488,8 @@ workflows:
                 - concierge
                 - prod
                 - safari
+                - windows
+                - mac
   dev-travelagent-sanity-chrome:
     when:
       equal: [ dev-travelagent-sanity-chrome, << pipeline.schedule.name >> ]
@@ -363,6 +502,22 @@ workflows:
                 - travelagent
                 - dev
                 - chrome
+                - windows
+                - mac
+  dev-travelagent-sanity-safari:
+    when:
+      equal: [ dev-travelagent-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - travelagent
+                - dev
+                - chrome
+                - windows
+                - mac
   
   dev-travelagent-regression-chrome:
     when:
@@ -376,6 +531,8 @@ workflows:
                 - travelagent
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-travelagent-regression-safari:
     when:
       equal: [ dev-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -388,6 +545,8 @@ workflows:
                 - travelagent
                 - dev
                 - safari
+                - windows
+                - mac
   uat-travelagent-regression-chrome:
     when:
       equal: [ uat-travelagent-regression-chrome, << pipeline.schedule.name >> ]
@@ -400,6 +559,8 @@ workflows:
                 - travelagent
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-travelagent-regression-safari:
     when:
       equal: [ uat-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -412,6 +573,8 @@ workflows:
                 - travelagent
                 - uat
                 - safari
+                - windows
+                - mac
   prod-travelagent-regression-chrome:
     when:
       equal: [ prod-travelagent-regression-chrome, << pipeline.schedule.name >> ]
@@ -424,6 +587,8 @@ workflows:
                 - travelagent
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-travelagent-regression-safari:
     when:
       equal: [ prod-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -436,6 +601,8 @@ workflows:
                 - travelagent
                 - prod
                 - safari
+                - windows
+                - mac
   uat-affiliate-regression-chrome:
     when:
       equal: [ uat-affiliate-regression-chrome, << pipeline.schedule.name >> ]
@@ -448,6 +615,8 @@ workflows:
                 - affiliate
                 - uat
                 - chrome
+                - windows
+                - mac
   uat-affiliate-regression-safari:
     when:
       equal: [ uat-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -460,6 +629,8 @@ workflows:
                 - affiliate
                 - uat
                 - safari
+                - windows
+                - mac
   dev-affiliate-sanity-chrome:
     when:
       equal: [ dev-affiliate-sanity-chrome, << pipeline.schedule.name >> ]
@@ -472,6 +643,22 @@ workflows:
                 - affiliate
                 - dev
                 - chrome
+                - windows
+                - mac
+  dev-affiliate-sanity-safari:
+    when:
+      equal: [ dev-affiliate-sanity-safari, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - affiliate
+                - dev
+                - chrome
+                - windows
+                - mac
   dev-affiliate-regression-chrome:
     when:
       equal: [ dev-affiliate-regression-chrome, << pipeline.schedule.name >> ]
@@ -484,6 +671,8 @@ workflows:
                 - affiliate
                 - dev
                 - chrome
+                - windows
+                - mac
   dev-affiliate-regression-safari:
     when:
       equal: [ dev-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -496,6 +685,8 @@ workflows:
                 - affiliate
                 - dev
                 - safari
+                - windows
+                - mac
   prod-affiliate-regression-chrome:
     when:
       equal: [ prod-affiliate-regression-chrome, << pipeline.schedule.name >> ]
@@ -508,6 +699,8 @@ workflows:
                 - affiliate
                 - prod
                 - chrome
+                - windows
+                - mac
   prod-affiliate-regression-safari:
     when:
       equal: [ prod-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -520,4 +713,5 @@ workflows:
                 - affiliate
                 - prod
                 - safari
-
+                - windows
+                - mac
