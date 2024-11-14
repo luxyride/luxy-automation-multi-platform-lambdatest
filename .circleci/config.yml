@@ -18,7 +18,7 @@ jobs:
             mkdir -p https:/testimages.luxyride.com/screenshots
       - run: |
             chmod +x hyperexecute 
-            ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
+            ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config ../"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
     #         +x = add and grant execute permissions        
       - run: |
           mkdir -p tmp/artifacts
