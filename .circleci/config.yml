@@ -97,9 +97,9 @@ workflows:
             branches:
               ignore: /.*/
 
-  dev-userportal-sanity-chrome_log:
+  dev-userportal-sanity-chrome:
     when:
-      equal: [ dev-userportal-sanity-chrome_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -110,9 +110,9 @@ workflows:
                 - dev
                 - chrome
                 - windows
-  dev-userportal-sanity-safari_log:
+  dev-userportal-sanity-safari:
     when:
-      equal: [ dev-userportal-sanity-safari_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -123,9 +123,9 @@ workflows:
                 - dev
                 - safari
                 - mac
-  dev-userportal-regression-chrome_log:
+  dev-userportal-regression-chrome:
     when:
-      equal: [ dev-userportal-regression-chrome_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -136,9 +136,9 @@ workflows:
                 - dev
                 - chrome
                 - windows
-  dev-userportal-regression-safari_log:
+  dev-userportal-regression-safari:
     when:
-      equal: [ dev-userportal-regression-safari_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
