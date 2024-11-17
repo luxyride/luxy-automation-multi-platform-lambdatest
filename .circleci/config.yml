@@ -97,9 +97,9 @@ workflows:
             branches:
               ignore: /.*/
 
-  dev-userportal-sanity-chrome_log:
+  dev-userportal-sanity-chrome:
     when:
-      equal: [ dev-userportal-sanity-chrome_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -110,9 +110,9 @@ workflows:
                 - dev
                 - chrome
                 - windows
-  dev-userportal-sanity-safari_log:
+  dev-userportal-sanity-safari:
     when:
-      equal: [ dev-userportal-sanity-safari_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -123,9 +123,9 @@ workflows:
                 - dev
                 - safari
                 - mac
-  dev-userportal-regression-chrome_log:
+  dev-userportal-regression-chrome:
     when:
-      equal: [ dev-userportal-regression-chrome_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -136,9 +136,9 @@ workflows:
                 - dev
                 - chrome
                 - windows
-  dev-userportal-regression-safari_log:
+  dev-userportal-regression-safari:
     when:
-      equal: [ dev-userportal-regression-safari_log, << pipeline.schedule.name >> ]
+      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -162,7 +162,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-userportal-sanity-safari:
     when:
       equal: [ uat-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -175,7 +174,6 @@ workflows:
                 - userportal
                 - uat
                 - safari
-                - windows
                 - mac
   uat-userportal-regression-chrome:
     when:
@@ -190,7 +188,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-userportal-regression-safari:
     when:
       equal: [ uat-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -203,7 +200,6 @@ workflows:
                 - userportal
                 - uat
                 - safari
-                - windows
                 - mac
   prod-userportal-sanity-chrome:
     when:
@@ -218,7 +214,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-userportal-sanity-safari:
     when:
       equal: [ prod-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -231,7 +226,6 @@ workflows:
                 - userportal
                 - prod
                 - safari
-                - windows
                 - mac
   prod-userportal-regression-chrome:
     when:
@@ -246,7 +240,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-userportal-regression-safari:
     when:
       equal: [ prod-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -259,7 +252,6 @@ workflows:
                 - userportal
                 - prod
                 - safari
-                - windows
                 - mac
   dev-dispatch-sanity-chrome:
     when:
@@ -274,7 +266,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-dispatch-sanity-safari:
     when:
       equal: [ dev-dispatch-sanity-safari, << pipeline.schedule.name >> ]
@@ -286,8 +277,7 @@ workflows:
                 - sanity
                 - dispatch
                 - dev
-                - chrome
-                - windows
+                - safari
                 - mac
   
   dev-dispatch-regression-chrome:
@@ -303,7 +293,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-dispatch-regression-safari:
     when:
       equal: [ dev-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -316,7 +305,6 @@ workflows:
                 - dispatch
                 - dev
                 - safari
-                - windows
                 - mac
  
 
@@ -333,7 +321,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-dispatch-regression-safari:
     when:
       equal: [ uat-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -346,7 +333,6 @@ workflows:
                 - dispatch
                 - uat
                 - safari
-                - windows
                 - mac
 
   prod-dispatch-regression-chrome:
@@ -362,7 +348,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-dispatch-regression-safari:
     when:
       equal: [ prod-dispatch-regression-safari, << pipeline.schedule.name >> ]
@@ -375,7 +360,6 @@ workflows:
                 - dispatch
                 - prod
                 - safari
-                - windows
                 - mac
   dev-concierge-sanity-chrome:
     when:
@@ -390,7 +374,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-concierge-sanity-safari:
     when:
       equal: [ dev-concierge-sanity-safari, << pipeline.schedule.name >> ]
@@ -402,8 +385,7 @@ workflows:
                 - sanity
                 - concierge
                 - dev
-                - chrome
-                - windows
+                - safari
                 - mac
   
   dev-concierge-regression-chrome:
@@ -419,7 +401,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-concierge-regression-safari:
     when:
       equal: [ dev-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -432,7 +413,6 @@ workflows:
                 - concierge
                 - dev
                 - safari
-                - windows
                 - mac
   uat-concierge-regression-chrome:
     when:
@@ -447,7 +427,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-concierge-regression-safari:
     when:
       equal: [ uat-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -460,7 +439,6 @@ workflows:
                 - concierge
                 - uat
                 - safari
-                - windows
                 - mac
   prod-concierge-regression-chrome:
     when:
@@ -475,7 +453,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-concierge-regression-safari:
     when:
       equal: [ prod-concierge-regression-safari, << pipeline.schedule.name >> ]
@@ -488,7 +465,6 @@ workflows:
                 - concierge
                 - prod
                 - safari
-                - windows
                 - mac
   dev-travelagent-sanity-chrome:
     when:
@@ -503,7 +479,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-travelagent-sanity-safari:
     when:
       equal: [ dev-travelagent-sanity-safari, << pipeline.schedule.name >> ]
@@ -515,8 +490,7 @@ workflows:
                 - sanity
                 - travelagent
                 - dev
-                - chrome
-                - windows
+                - safari
                 - mac
   
   dev-travelagent-regression-chrome:
@@ -532,7 +506,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-travelagent-regression-safari:
     when:
       equal: [ dev-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -545,7 +518,6 @@ workflows:
                 - travelagent
                 - dev
                 - safari
-                - windows
                 - mac
   uat-travelagent-regression-chrome:
     when:
@@ -560,7 +532,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-travelagent-regression-safari:
     when:
       equal: [ uat-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -573,7 +544,6 @@ workflows:
                 - travelagent
                 - uat
                 - safari
-                - windows
                 - mac
   prod-travelagent-regression-chrome:
     when:
@@ -588,7 +558,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-travelagent-regression-safari:
     when:
       equal: [ prod-travelagent-regression-safari, << pipeline.schedule.name >> ]
@@ -601,7 +570,6 @@ workflows:
                 - travelagent
                 - prod
                 - safari
-                - windows
                 - mac
   uat-affiliate-regression-chrome:
     when:
@@ -616,7 +584,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - mac
   uat-affiliate-regression-safari:
     when:
       equal: [ uat-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -629,7 +596,6 @@ workflows:
                 - affiliate
                 - uat
                 - safari
-                - windows
                 - mac
   dev-affiliate-sanity-chrome:
     when:
@@ -644,7 +610,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-affiliate-sanity-safari:
     when:
       equal: [ dev-affiliate-sanity-safari, << pipeline.schedule.name >> ]
@@ -656,8 +621,7 @@ workflows:
                 - sanity
                 - affiliate
                 - dev
-                - chrome
-                - windows
+                - safari
                 - mac
   dev-affiliate-regression-chrome:
     when:
@@ -672,7 +636,6 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - mac
   dev-affiliate-regression-safari:
     when:
       equal: [ dev-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -685,7 +648,6 @@ workflows:
                 - affiliate
                 - dev
                 - safari
-                - windows
                 - mac
   prod-affiliate-regression-chrome:
     when:
@@ -700,7 +662,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - mac
   prod-affiliate-regression-safari:
     when:
       equal: [ prod-affiliate-regression-safari, << pipeline.schedule.name >> ]
@@ -713,5 +674,4 @@ workflows:
                 - affiliate
                 - prod
                 - safari
-                - windows
                 - mac
