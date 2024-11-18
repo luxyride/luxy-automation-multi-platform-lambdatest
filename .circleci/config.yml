@@ -16,7 +16,7 @@ jobs:
             google-chrome --version
             java --version
             ls -la
-    #        mkdir -p https:/testimages.luxyride.com/screenshots
+            mkdir -p https/testimages.luxyride.com/screenshots
       - run: |
             chmod +x hyperexecute 
             ls -la
