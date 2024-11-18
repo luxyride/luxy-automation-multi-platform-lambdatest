@@ -474,7 +474,7 @@ public class TestBase {
 				driver.manage().window().maximize();
 				Thread.sleep(2000);
 				jseLambdaTest = (JavascriptExecutor) driver;
-			} else if (browser.equalsIgnoreCase("androidChromeMobileView")) {
+			} else if (browser.equalsIgnoreCase("chromeAndroidMobileView")) {
 				DesiredCapabilities chromeCapability = new DesiredCapabilities();
 				chromeCapability.setCapability("platform", "Windows 11");
 				chromeCapability.setCapability("version", "latest");
@@ -529,7 +529,7 @@ public class TestBase {
 				driver.manage().window().maximize();
 				Thread.sleep(2000);
 				jseLambdaTest = (JavascriptExecutor) driver;
-			} else if (browser.equalsIgnoreCase("iosChromeMobileView")) {
+			} else if (browser.equalsIgnoreCase("chromeiOSMobileView")) {
 				DesiredCapabilities chromeCapability = new DesiredCapabilities();
 				chromeCapability.setCapability("platform", "Windows 11");
 				chromeCapability.setCapability("version", "latest");
