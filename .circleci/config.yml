@@ -15,9 +15,11 @@ jobs:
       - run: |
             google-chrome --version
             java --version
-            mkdir -p https:/testimages.luxyride.com/screenshots
+            ls -la
+            mkdir -p https/testimages.luxyride.com/screenshots
       - run: |
             chmod +x hyperexecute 
+            ls -la
             ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
     #         +x = add and grant execute permissions        
       - run: |

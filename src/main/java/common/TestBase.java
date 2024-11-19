@@ -396,7 +396,7 @@ public class TestBase {
 				chromeOptions.addArguments("--remote-allow-origins=*");
 				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				chromeOptions.setExperimentalOption("prefs", prefs);
-
+				
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
@@ -519,9 +519,8 @@ public class TestBase {
 				chromeOptions.setExperimentalOption("prefs", prefs);
 
 				// Mobile View Configuration:
-				mobileEmulationAndroidChrome.put("deviceName", "Samsung Galaxy S20 Ultra");
-				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulationAndroidChrome);
-
+				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+				
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
@@ -574,9 +573,8 @@ public class TestBase {
 				chromeOptions.setExperimentalOption("prefs", prefs);
 
 				// Mobile View Configuration:
-				mobileEmulationAndroidChrome.put("deviceName", "iPhone 14 Pro Max");
-				chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulationAndroidChrome);
-
+				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "iPhone 14 Pro Max"));
+				
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
