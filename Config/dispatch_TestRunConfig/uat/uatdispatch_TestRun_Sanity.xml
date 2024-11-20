@@ -116,6 +116,11 @@
 				name="Dispatch.NewBooking.DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_1979_VerifyTheCvvValidationWhenWeBookARideUsingSavedCardDispatchPortal_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_1942_VerifyFilteringOutDriversAssociatedWithInactiveDriversUnderSettingsInNotificationTab_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2091_verifyTheAvailabilityOfDriverRatingColumnInPassengerProfileOfDispatchPortal_Test" />
+
 
 			<!--
 			############################################################################################# -->
