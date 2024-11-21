@@ -23,7 +23,7 @@ jobs:
             ls -la
             ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
     #         +x = add and grant execute permissions        
-            rm -f ./hyperexecute
+    #        rm -f ./hyperexecute
       - run: |
           mkdir -p tmp/artifacts
           ls -la
