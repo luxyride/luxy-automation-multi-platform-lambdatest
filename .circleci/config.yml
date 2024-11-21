@@ -28,7 +28,7 @@ jobs:
           ls -la
           cp -R https:/testimages.luxyride.com/screenshots tmp/artifacts/screenshots || true
           cp -R test-output tmp/artifacts/test-output || true
-          cp test-output/Luxy*.html index.html || true
+  #        cp test-output/Luxy*.html index.html || true
   #       zip -r artifacts-"$env"-"$testtype"-$(date +"%Y-%m-%d-%H:%M:%S").zip tmp
       - run:
           name: installing AWS Cli
