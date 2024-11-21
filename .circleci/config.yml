@@ -40,7 +40,6 @@ jobs:
       - run:
           name: Deploy to s3
           command: |
-            aws --region us-east-1 s3 cp index.html s3://luxy-test-automation
             aws --region us-east-1 s3 sync https:/testimages.luxyride.com/screenshots s3://luxy-test-automation/screenshots || true
             aws --region us-east-1 s3 sync test-output s3://luxy-test-automation/test-output || true
       - run:
