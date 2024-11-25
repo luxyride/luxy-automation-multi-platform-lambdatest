@@ -8,7 +8,7 @@ jobs:
   test:
     docker:
       - image: cimg/openjdk:20.0-browsers
-    resource_class: xlarge
+    #resource_class: xlarge
     steps:
       - browser-tools/install-browser-tools
       - checkout
@@ -18,16 +18,18 @@ jobs:
             ls -la
             mkdir -p https/testimages.luxyride.com/screenshots
       - run: |
-            chmod +x hyperexecute 
+            curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+            chmod u+x ./hyperexecute 
             ls -la
             ./hyperexecute --user hvudutala --key Wz4cMuQW16k1ZB8Uqp0I3pRU4x3zKRD5WGhCRwZerNOOe2pZ8f --config Config/"$type"_TestRunConfig/"$ENV"/"$ENV""$type"_TestRun_"$testtype"_"$os".yaml --vars "browser="$browser"" -v
-    #         +x = add and grant execute permissions        
+     #         +x = add and grant execute permissions        
+     #        rm -f ./hyperexecute
       - run: |
           mkdir -p tmp/artifacts
           ls -la
           cp -R https:/testimages.luxyride.com/screenshots tmp/artifacts/screenshots || true
           cp -R test-output tmp/artifacts/test-output || true
-          cp test-output/Luxy*.html index.html || true
+  #        cp test-output/Luxy*.html index.html || true
   #       zip -r artifacts-"$env"-"$testtype"-$(date +"%Y-%m-%d-%H:%M:%S").zip tmp
       - run:
           name: installing AWS Cli
@@ -39,7 +41,6 @@ jobs:
       - run:
           name: Deploy to s3
           command: |
-            aws --region us-east-1 s3 cp index.html s3://luxy-test-automation
             aws --region us-east-1 s3 sync https:/testimages.luxyride.com/screenshots s3://luxy-test-automation/screenshots || true
             aws --region us-east-1 s3 sync test-output s3://luxy-test-automation/test-output || true
       - run:

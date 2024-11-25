@@ -496,8 +496,7 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
-				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>(); // For MobileView:
-
+				
 				// SET CHROME OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
@@ -550,8 +549,7 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
-				Map<String, Object> mobileEmulationAndroidChrome = new HashMap<String, Object>(); // For MobileView:
-
+				
 				// SET CHROME OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
