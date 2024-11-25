@@ -139,6 +139,13 @@
 			<class
 				name="Concierge.NewBookings.DEV_TC_1945_VerifyRemoveSortingFunctionsColumnsFromAllPagesInConciergePortal_Test" />
 
+			<class
+				name="Concierge.NewBookings.DEV_TC_2066_VerifyTheAvailabilityOfAddAnotherTripButtonInEventAndSpecialServiceQuoteRequestPage_Test" />
+
+			<class
+				name="Concierge.NewBookings.DEV_TC_2068_VerifyTheFunctionalityOfAddAnotherTripButtonInEventAndSpecialServiceQuoteRequestPage_Test" />
+
+
 			<!--
 			############################################################################################## -->
 
