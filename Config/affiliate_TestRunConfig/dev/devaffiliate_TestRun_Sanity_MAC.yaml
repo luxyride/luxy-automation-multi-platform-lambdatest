@@ -8,6 +8,7 @@ testSuiteStep: 150
 
 autosplit: true
 concurrency: 1
+scenarioCommandStatusOnly: true
 
 pre:
   - mvn dependency:resolve -Dmaven.repo.local=./.m2
