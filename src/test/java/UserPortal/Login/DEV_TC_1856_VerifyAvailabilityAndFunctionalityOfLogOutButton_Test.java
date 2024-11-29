@@ -107,6 +107,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 				objTestBase.defaultWaitTime(2000);
 				objVerifySighninMain.eyeIconClick();
 				objTestBase.defaultWaitTime(1000);
+				objTestBase.closePopupWindow();
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
@@ -167,6 +168,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 				
 				objVerifySighninMain.clickSignIn();
 				objTestBase.defaultWaitTime(1000);
+				objTestBase.closePopupWindow();
 				testStep = "Verify customer log-in opion under sign in dropdown ";
 				visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {

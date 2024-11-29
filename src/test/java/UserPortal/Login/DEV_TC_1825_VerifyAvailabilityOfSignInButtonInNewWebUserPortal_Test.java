@@ -76,6 +76,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 
 			if (testStatus == "PASSED") {
 				testStatus = " ";
+				objTestBase.closePopupWindow();
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
