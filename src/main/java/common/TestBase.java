@@ -396,7 +396,7 @@ public class TestBase {
 				chromeOptions.addArguments("--remote-allow-origins=*");
 				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 				chromeOptions.setExperimentalOption("prefs", prefs);
-				
+
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
@@ -496,7 +496,7 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
-				
+
 				// SET CHROME OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
@@ -518,8 +518,9 @@ public class TestBase {
 				chromeOptions.setExperimentalOption("prefs", prefs);
 
 				// Mobile View Configuration:
-				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
-				
+				chromeOptions.setExperimentalOption("mobileEmulation",
+						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
@@ -549,7 +550,7 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				Map<String, Object> profile = new HashMap<String, Object>();
 				Map<String, Object> contentSettings = new HashMap<String, Object>();
-				
+
 				// SET CHROME OPTIONS
 				// 0 - Default, 1 - Allow, 2 - Block
 				contentSettings.put("geolocation", 1);
@@ -572,7 +573,7 @@ public class TestBase {
 
 				// Mobile View Configuration:
 				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "iPhone 14 Pro Max"));
-				
+
 				// SET CAPABILITY
 				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
 				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
@@ -584,26 +585,31 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//						if (browser.equalsIgnoreCase("chromeLocal")) {
-//							localExecutionFlag = true;
-//							System.setProperty("webdriver.http.factory", "jdk-http-client");
-//							WebDriverManager.chromedriver().clearDriverCache().setup();
-//							// Chrome Popups Disable Configurations:
-//							Map<String, Object> prefs = new HashMap<String, Object>();
-//							prefs.put("profile.default_content_setting_values.notifications", 2);
-//							prefs.put("autofill.profile_enabled", false);
-//							prefs.put("credentials_enable_service", false);
-//							prefs.put("autofill.credit_card_enabled", false);
-//							prefs.put("profile.password_manager_enabled", false);
-			//
-//							ChromeOptions chromeOptions = new ChromeOptions();
-//							chromeOptions.addArguments("--disable-infobars");
-//							chromeOptions.addArguments("--disable-notifications");
-//							chromeOptions.addArguments("--remote-allow-origins=*");
-//							chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-//							chromeOptions.setExperimentalOption("prefs", prefs);
-//							driver = new ChromeDriver(chromeOptions);
-//						}
+//			if (browser.equalsIgnoreCase("chromeLocal")) {
+//				localExecutionFlag = true;
+//				System.setProperty("webdriver.http.factory", "jdk-http-client");
+//				WebDriverManager.chromedriver().clearDriverCache().setup();
+//				// Chrome Popups Disable Configurations:
+//				Map<String, Object> prefs = new HashMap<String, Object>();
+//				prefs.put("profile.default_content_setting_values.notifications", 2);
+//				prefs.put("autofill.profile_enabled", false);
+//				prefs.put("credentials_enable_service", false);
+//				prefs.put("autofill.credit_card_enabled", false);
+//				prefs.put("profile.password_manager_enabled", false);
+//
+//				ChromeOptions chromeOptions = new ChromeOptions();
+//				chromeOptions.addArguments("--disable-infobars");
+//				chromeOptions.addArguments("--disable-notifications");
+//				chromeOptions.addArguments("--remote-allow-origins=*");
+//				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				chromeOptions.setExperimentalOption("prefs", prefs);
+//
+//				// Mobile View Configuration:
+//				chromeOptions.setExperimentalOption("mobileEmulation",
+//						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+//
+//				driver = new ChromeDriver(chromeOptions);
+//			}
 			// ######################################################################## //
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -723,32 +729,6 @@ public class TestBase {
 			List<WebElement> loginWithDuoBtn = driver.findElements(By.xpath("//button[@data-testid='login-with-duo']"));
 			if (loginWithDuoBtn.size() != 0)
 				loginWithDuoBtn.get(0).click();
-
-//-----------------------------------------------------------------------------------------			
-//## 8th Nov'24:
-//## Disabled based on updated behavior with new EmailID: luxy-qa@luxyride.com	
-//			try {
-//				defaultWaitTime(1000);
-//				wait.until(ExpectedConditions
-//						.visibilityOfAllElementsLocatedBy(By.xpath("(//*[text()='Other options'])[1]")));
-//				List<WebElement> otherOptionsLink = driver.findElements(By.xpath("(//*[text()='Other options'])[1]"));
-//				if (otherOptionsLink.size() != 0) {
-//					action.moveToElement(otherOptionsLink.get(0)).click().build().perform();
-//					defaultWaitTime(5000);
-//					wait.until(ExpectedConditions
-//							.visibilityOfAllElementsLocatedBy(By.xpath("(//*[normalize-space()='Bypass code'])[1]")));
-//
-//					List<WebElement> byPassCodeLink = driver
-//							.findElements(By.xpath("(//*[normalize-space()='Bypass code'])[1]"));
-//					if (otherOptionsLink.size() != 0) {
-//						byPassCodeLink.get(0).click();
-//						defaultWaitTime(5000);
-//					}
-//				}
-//			} catch (Exception ex) {
-//				ex.printStackTrace();
-//			}
-//-----------------------------------------------------------------------------------------
 			try {
 				wait.until(ExpectedConditions
 						.visibilityOfAllElementsLocatedBy(By.xpath("//label[@for='passcode-input']")));
@@ -828,6 +808,22 @@ public class TestBase {
 				action.moveToElement(cardOption.get(0)).click().build().perform();
 				defaultWaitTime(3000);
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// UserPortal Toggle Navigation Bar for SignIn:
+	public void clickOnToggleNavigationBar() {
+		try {
+			defaultWaitTime(2000);
+			action = new Actions(driver);
+			List<WebElement> toggleNavigationBar = driver
+					.findElements(By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]"));
+			if (toggleNavigationBar.size() != 0) 
+				action.moveToElement(toggleNavigationBar.get(0)).click().build().perform();
+				
+			defaultWaitTime(2000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

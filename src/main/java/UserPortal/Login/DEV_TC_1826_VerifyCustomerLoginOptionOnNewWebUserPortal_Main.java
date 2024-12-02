@@ -29,7 +29,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")

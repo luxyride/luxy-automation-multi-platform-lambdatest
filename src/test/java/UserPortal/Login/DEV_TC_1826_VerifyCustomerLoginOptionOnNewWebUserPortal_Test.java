@@ -65,7 +65,8 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
-
+			objTestBase.closePopupWindow();
+			
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))
 					&& currURL.toLowerCase().contains("luxyride")) {
 				if (localExecutionFlag == true)
@@ -80,9 +81,16 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
+			
 			// ----------------------------------------------------------------------
 			// Method to close Pop-up Window:
-
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
@@ -187,7 +195,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 			objTestBase.defaultWaitTime(2000);
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			objTestBase.defaultWaitTime(1000);
-			
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,350)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -287,7 +295,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,300)", "");
 			objTestBase.defaultWaitTime(1000);
-			
+
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(6000);
@@ -323,7 +331,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 				testStep = "Verification of " + scenario + " Ride Booking Confirmation Page";
 				visibilityStatus = objVerifyNewBookingMain.verifyRideBookingConfirmation(visibilityStatus);
 
-					if (visibilityStatus.booleanValue() == true) {
+				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
