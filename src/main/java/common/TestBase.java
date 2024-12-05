@@ -85,7 +85,7 @@ public class TestBase {
 	public static Logger utillLogger = Logger.getLogger("LuxyQAAutoTest");
 	public static String dockerScreenshotsPath = "https://testimages.luxyride.com/screenshots/";
 	public static String localScreenshotsPath = System.getProperty("user.dir") + "\\screenshots\\";
-
+	
 	// --------------------------------------------------------------------------------------------------
 	// ## LambdaTest Configuration:
 	public static Boolean localExecutionFlag = false;
@@ -621,7 +621,7 @@ public class TestBase {
 	public void closePopupWindow() {
 		try {
 			action = new Actions(driver);
-			defaultWaitTime(3000);
+			defaultWaitTime(1000);
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
@@ -637,7 +637,7 @@ public class TestBase {
 				}
 			}
 
-			defaultWaitTime(3000);
+			defaultWaitTime(1000);
 			wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			List<WebElement> popupMainWindow = driver
 					.findElements(By.xpath("(//div[@data-testid='animated-teaser'])[1]"));
@@ -647,7 +647,7 @@ public class TestBase {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].remove();", popupMainWindow);
 			}
-			defaultWaitTime(3000);
+			defaultWaitTime(1000);
 		} catch (ElementNotInteractableException closePopup) {
 		} catch (Exception close) {
 		}
@@ -820,9 +820,9 @@ public class TestBase {
 			action = new Actions(driver);
 			List<WebElement> toggleNavigationBar = driver
 					.findElements(By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]"));
-			if (toggleNavigationBar.size() != 0) 
+			if (toggleNavigationBar.size() != 0)
 				action.moveToElement(toggleNavigationBar.get(0)).click().build().perform();
-				
+
 			defaultWaitTime(2000);
 		} catch (Exception e) {
 			e.printStackTrace();
