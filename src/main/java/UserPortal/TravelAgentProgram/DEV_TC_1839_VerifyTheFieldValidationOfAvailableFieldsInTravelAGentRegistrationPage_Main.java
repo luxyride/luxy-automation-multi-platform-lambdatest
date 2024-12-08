@@ -12,8 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Actions;
 
-public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Main
-		extends TestBase {
+public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Main extends TestBase {
 
 	WebDriver driver;
 	Actions action;
@@ -23,6 +22,9 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 
 	@FindBy(xpath = "//div[normalize-space()='Travel Agent Program'][1]")
 	WebElement travelAgentBtn;
+
+	@FindBy(xpath = "(//a[normalize-space()='Travel Agent Program'])[2]")
+	WebElement travelAgentBtn_Simulator;
 
 	@FindBy(xpath = "(//a[contains(@aria-label,'Join the LUXY Travel Agent Program')])[1]")
 	WebElement travelAgentSignup;
@@ -54,9 +56,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 	@FindBy(xpath = "//p[normalize-space()='Company Name is required']")
 	WebElement errorMessage;
 
-
-	public DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Main(
-			WebDriver driver) {
+	public DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Main(WebDriver driver) {
 		try {
 			this.driver = driver;
 			PageFactory.initElements(driver, this);
@@ -76,11 +76,22 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
-	public void clickOnTa() {
+	public Boolean visibilityOfTaTransportSimulatorView(Boolean visibilityStatus) {
+		try {
+			if (travelAgentBtn_Simulator.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnTA() {
 		try {
 			action = new Actions(driver);
 			action.moveToElement(travelAgentBtn).click().build().perform();
@@ -88,6 +99,15 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 			e.printStackTrace();
 		}
 
+	}
+
+	public void clickOnTA_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(travelAgentBtn_Simulator).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -110,7 +130,6 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfTaRegistrationForm(Boolean visibilityStatus) {
 		try {
 			if (companyName.isDisplayed())
@@ -152,7 +171,8 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 
 	public Boolean verifyTheAvailabilityOfTextFieldsInTravelAgentForm(Boolean visibilityStatus) {
 		try {
-			if (companyName.isDisplayed() && fName.isDisplayed()  && lName.isDisplayed()  && workAddress.isDisplayed()  && eMailInput.isDisplayed() && phoneInput.isDisplayed() &&  signupCreateBtn.isDisplayed())
+			if (companyName.isDisplayed() && fName.isDisplayed() && lName.isDisplayed() && workAddress.isDisplayed()
+					&& eMailInput.isDisplayed() && phoneInput.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -166,14 +186,18 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 	public void clickOnCreateButton() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", signupCreateBtn);
 			action.moveToElement(signupCreateBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}		
+		}
 	}
 
 	public Boolean verifyerrorMessagesUnderTextFields(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", errorMessage);
 			if (errorMessage.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -184,6 +208,5 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 
 		return visibilityStatus;
 	}
-	
 
 }

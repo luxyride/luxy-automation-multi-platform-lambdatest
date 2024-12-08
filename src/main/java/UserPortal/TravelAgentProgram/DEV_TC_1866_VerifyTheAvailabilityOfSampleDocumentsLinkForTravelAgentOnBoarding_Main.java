@@ -12,8 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Actions;
 
-public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Main
-		extends TestBase {
+public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Main extends TestBase {
 
 	WebDriver driver;
 	Actions action;
@@ -24,6 +23,9 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 	@FindBy(xpath = "//div[normalize-space()='Travel Agent Program'][1]")
 	WebElement travelAgentBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Travel Agent Program'])[2]")
+	WebElement travelAgentBtn_Simulator;
+
 	@FindBy(xpath = "(//a[contains(@aria-label,'Join the LUXY Travel Agent Program')])[1]")
 	WebElement travelAgentSignup;
 
@@ -33,17 +35,13 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
 
-
 	@FindBy(xpath = "//a[normalize-space()='Download Blank Direct Deposit']")
 	WebElement directDeposit;
 
 	@FindBy(xpath = "//a[normalize-space()='Download Blank W9']")
 	WebElement SampleDocument;
 
-
-
-	public DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Main(
-			WebDriver driver) {
+	public DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Main(WebDriver driver) {
 		try {
 			this.driver = driver;
 			PageFactory.initElements(driver, this);
@@ -63,18 +61,37 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
-	public void clickOnTa() {
+	public Boolean visibilityOfTaTransportSimulatorView(Boolean visibilityStatus) {
+		try {
+			if (travelAgentBtn_Simulator.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnTA() {
 		try {
 			action = new Actions(driver);
 			action.moveToElement(travelAgentBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
+	public void clickOnTA_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(travelAgentBtn_Simulator).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -97,7 +114,6 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfTaRegistrationForm(Boolean visibilityStatus) {
 		try {
 			if (companyName.isDisplayed())
@@ -138,37 +154,37 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 	}
 
 	public Boolean verifyVisibilityOfW9DocumentPage(Boolean visibilityStatus) {
-	    try {
-	        String expected = driver.getCurrentUrl(); 
-	        String environment = prop.getProperty("environment"); 
+		try {
+			String expected = driver.getCurrentUrl();
+			String environment = prop.getProperty("environment");
 
-	        if (expected.toLowerCase().contains(environment.toLowerCase()) 
-	                && expected.toLowerCase().contains("blank")) {
-	            visibilityStatus = true; 
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+			if (expected.toLowerCase().contains(environment.toLowerCase())
+					&& expected.toLowerCase().contains("blank")) {
+				visibilityStatus = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	    return visibilityStatus;
+		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfDirectDepositPage(Boolean visibilityStatus) {
-	    try {
-	        String expected = driver.getCurrentUrl(); 
-	        String environment = prop.getProperty("environment"); 
+		try {
+			String expected = driver.getCurrentUrl();
+			String environment = prop.getProperty("environment");
 
-	        if (expected.toLowerCase().contains(environment.toLowerCase()) 
-	                && expected.toLowerCase().contains("blank")) {
-	            visibilityStatus = true; 
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+			if (expected.toLowerCase().contains(environment.toLowerCase())
+					&& expected.toLowerCase().contains("blank")) {
+				visibilityStatus = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	    return visibilityStatus;
+		return visibilityStatus;
 	}
-	
+
 	public void clickOnW9Document() {
 		try {
 			action = new Actions(driver);
@@ -209,8 +225,6 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
 }

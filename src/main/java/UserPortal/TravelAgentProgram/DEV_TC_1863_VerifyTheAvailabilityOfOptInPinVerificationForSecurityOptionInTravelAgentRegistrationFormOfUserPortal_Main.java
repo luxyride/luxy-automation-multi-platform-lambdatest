@@ -24,6 +24,9 @@ public class DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 	@FindBy(xpath = "//div[normalize-space()='Travel Agent Program'][1]")
 	WebElement travelAgentBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Travel Agent Program'])[2]")
+	WebElement travelAgentBtn_Simulator;
+
 	@FindBy(xpath = "(//a[contains(@aria-label,'Join the LUXY Travel Agent Program')])[1]")
 	WebElement travelAgentSignup;
 
@@ -32,7 +35,6 @@ public class DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
-
 
 	public DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionInTravelAgentRegistrationFormOfUserPortal_Main(
 			WebDriver driver) {
@@ -59,14 +61,34 @@ public class DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		return visibilityStatus;
 	}
 
-	public void clickOnTa() {
+	public void clickOnTA() {
 		try {
 			action = new Actions(driver);
 			action.moveToElement(travelAgentBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
+	public void clickOnTA_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(travelAgentBtn_Simulator).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfTaTransportSimulatorView(Boolean visibilityStatus) {
+		try {
+			if (travelAgentBtn_Simulator.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -89,7 +111,6 @@ public class DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfTaRegistrationForm(Boolean visibilityStatus) {
 		try {
 			if (optInOPtion.isDisplayed())
@@ -125,10 +146,6 @@ public class DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
-
 }
