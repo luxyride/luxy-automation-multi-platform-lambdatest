@@ -80,6 +80,13 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
 
 			// ----------------------------------------------------------------------
 

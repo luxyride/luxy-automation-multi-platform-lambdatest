@@ -70,6 +70,14 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
+			
 			testStep = "Verify visibility of Affiliate  from Homepage Header";
 			visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransport(visibilityStatus);
 			objTestBase.defaultWaitTime(500);

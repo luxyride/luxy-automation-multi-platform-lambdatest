@@ -80,6 +80,14 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
+			
 			// ----------------------------------------------------------------------
 			// Method to close Pop-up Window:
 

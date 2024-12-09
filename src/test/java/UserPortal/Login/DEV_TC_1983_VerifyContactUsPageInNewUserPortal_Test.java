@@ -80,6 +80,14 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test extends TestBas
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
+			
 			// ----------------------------------------------------------------------
 			// Method to close Pop-up Window:
 

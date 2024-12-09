@@ -74,6 +74,13 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
@@ -116,7 +123,6 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifySighninMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
@@ -124,6 +130,13 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 					else
 						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
+				}
+				
+				// Configuration for handing mobile simulator testing:
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+						|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+						|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
 				}
 
 				visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
