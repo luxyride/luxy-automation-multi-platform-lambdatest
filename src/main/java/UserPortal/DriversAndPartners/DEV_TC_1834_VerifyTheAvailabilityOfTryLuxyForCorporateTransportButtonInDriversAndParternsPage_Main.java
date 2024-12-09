@@ -24,6 +24,9 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	@FindBy(xpath = "//div[normalize-space()='Driver & Partners']")
 	WebElement affiliateBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[2]")
+	WebElement affiliate_Simulator ;
+	
 	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY™ today')])[1]")
 	WebElement affiliateSignup;
 
@@ -48,7 +51,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
-			if (affiliateBtn.isDisplayed())
+			if (affiliate_Simulator.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -62,7 +65,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(affiliateBtn).click().build().perform();
+			action.moveToElement(affiliate_Simulator).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
