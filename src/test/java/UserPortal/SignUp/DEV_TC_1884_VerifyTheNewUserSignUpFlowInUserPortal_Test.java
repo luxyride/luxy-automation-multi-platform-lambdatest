@@ -72,13 +72,25 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 				testStatus = "FAILED";
 			}
 
+			closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+			}
+
 			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verification customer user login";
+			testStep = "Verification Customer User Login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				objTestBase.defaultWaitTime(1000);
-				objVerifySighninMain.clickSignIn();
-				objTestBase.defaultWaitTime(2000);
+				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
+						|| !browserType.equalsIgnoreCase("chromeiOSMobileView")
+						|| !browserType.equalsIgnoreCase("chromeLocal")) {
+					objVerifySighninMain.clickSignIn();
+					objTestBase.defaultWaitTime(2000);
+				}
 
 				testStep = "Verify customer log-in opion under sign in dropdown ";
 				visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus);
@@ -101,7 +113,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 				objTestBase.defaultWaitTime(1000);
 				objVerifySighninMain.clickOnSignup();
 				objTestBase.defaultWaitTime(8000);
-				
+
 				testStep = "visibility of sign up page ";
 				visibilityStatus = objVerifySighninMain.visibilityOfSignUpPage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
@@ -145,6 +157,8 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 
 					objVerifySighninMain.termsConditionsCheckbox();
 					objTestBase.defaultWaitTime(1000);
+					js = (JavascriptExecutor) driver;
+					js.executeScript("window.scrollBy(0,100)", "");
 
 					visibilityStatus = objVerifySighninMain.visibilityOfSignupButtonFromSignupScreen(visibilityStatus);
 					testStep = "Verify User entered details from Signup page";
@@ -166,7 +180,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 					if (!environmentCode.equalsIgnoreCase("prod")) {
 						objTestBase.defaultWaitTime(1000);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,-600)", "");
+						js.executeScript("window.scrollBy(0,100)", "");
 						objTestBase.defaultWaitTime(2000);
 
 						visibilityStatus = objVerifySighninMain.visibilityOfSignupConfirmationMsg(visibilityStatus);

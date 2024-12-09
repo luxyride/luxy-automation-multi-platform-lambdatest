@@ -74,28 +74,59 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of travel Agent  from Homepage Header";
-			visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransport(visibilityStatus);
-			objTestBase.defaultWaitTime(500);
 
-			if (visibilityStatus.booleanValue() == true) {
-				objVerifyRegisCorpMain.clickOnTa();
-				objTestBase.defaultWaitTime(1000);
-				screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
+			objTestBase.defaultWaitTime(3000);
+			closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+
+				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnTA_Siumlator();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
+				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransport(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnTA();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			}
-			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of travel Agent module  from Homepage Header";
+			
+			testStep = "Verify visibility of travel Agent module from Homepage Header";
 			if (testStatus == "PASSED") {
 				String parentWindow = driver.getWindowHandle();
 				objTestBase.defaultWaitTime(3000);
@@ -135,6 +166,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 
 			objVerifyRegisCorpMain.clickOnEnrollTaBtn();
 			objTestBase.defaultWaitTime(3000);
+			
 			testStep = "Verify visibility of travel Agent registration Page Option";
 			if (visibilityStatus.booleanValue() == true) {
 				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfTaRegistrationForm(visibilityStatus);

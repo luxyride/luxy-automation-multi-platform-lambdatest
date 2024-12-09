@@ -11,8 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test
-		extends TestBase {
+public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test extends TestBase {
 	String currURL;
 	String screenshotPath;
 	String expected;
@@ -75,39 +74,70 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of travel Agent  from Homepage Header";
-			visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransport(visibilityStatus);
-			objTestBase.defaultWaitTime(500);
 
-			if (visibilityStatus.booleanValue() == true) {
-				objVerifyRegisCorpMain.clickOnTa();
-				objTestBase.defaultWaitTime(1000);
-				screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
+			objTestBase.defaultWaitTime(3000);
+			closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
+
+				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnTA_Siumlator();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
+				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransport(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnTA();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			}
-			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of travel Agent module  from Homepage Header";
+			
+			testStep = "Verify visibility of travel Agent module from Homepage Header";
 			if (testStatus == "PASSED") {
 				String parentWindow = driver.getWindowHandle();
 				objTestBase.defaultWaitTime(3000);
 				visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
 				objTestBase.defaultWaitTime(1000);
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
-				
+
 				js = (JavascriptExecutor) driver;
 				js.executeScript("window.scrollBy(0,100)", "");
 				objTestBase.defaultWaitTime(2000);
-				
+
 				if (visibilityStatus.booleanValue() == true) {
 					visibilityStatus = objVerifyRegisCorpMain.verifyTaPage(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
@@ -132,10 +162,11 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 					testStatus = "FAILED";
 				}
 			}
+			
 			utillLogger.info(testStep + " - " + testStatus);
-
 			objVerifyRegisCorpMain.clickOnEnrollTaBtn();
 			objTestBase.defaultWaitTime(3000);
+			
 			testStep = "Verify visibility of travel Agent registration Page Option";
 			if (visibilityStatus.booleanValue() == true) {
 				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfTaRegistrationForm(visibilityStatus);
@@ -160,16 +191,16 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-		
+
 			utillLogger.info(testStep + " - " + testStatus);
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,300)", "");
 			objTestBase.defaultWaitTime(2000);
-			
+
 			String parentWindow = driver.getWindowHandle();
-	        objTestBase.defaultWaitTime(3000);
-				
+			objTestBase.defaultWaitTime(3000);
+
 			objTestBase.defaultWaitTime(1000);
 			objVerifyRegisCorpMain.clickOnW9Document();
 			objTestBase.defaultWaitTime(2000);
@@ -177,29 +208,41 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 			visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
 			objTestBase.defaultWaitTime(1000);
 			testStep = "Verify visibility of W9 Document in Travel Agent registration Page";
-	        visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfW9DocumentPage(visibilityStatus);
+			visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfW9DocumentPage(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
 			}
 			driver.close();
 			objTestBase.defaultWaitTime(2000);
 			visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
 
-			 parentWindow = driver.getWindowHandle();
-	        objTestBase.defaultWaitTime(2000);
+			parentWindow = driver.getWindowHandle();
+			objTestBase.defaultWaitTime(2000);
 			objVerifyRegisCorpMain.clickOnDirectDeposit();
 			objTestBase.defaultWaitTime(2000);
-			
+
 			visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
 			objTestBase.defaultWaitTime(1000);
 			testStep = "Verify visibility of Direct Deposit in Travel Agent registration  Page";
-	        visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfDirectDepositPage(visibilityStatus);
+			visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfDirectDepositPage(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
 			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
 			}
 			objTestBase.defaultWaitTime(1000);
 			driver.close();
@@ -209,7 +252,7 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 			objTestBase.defaultWaitTime(2000);
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(1000);
-		
+
 			utillLogger.info(testStep + " - " + testStatus);
 
 		} catch (Exception ex) {

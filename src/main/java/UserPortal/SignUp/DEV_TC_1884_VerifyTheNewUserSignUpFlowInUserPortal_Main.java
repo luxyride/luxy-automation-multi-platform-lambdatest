@@ -3,6 +3,7 @@ package UserPortal.SignUp;
 import common.TestBase;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,7 +26,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "(//*[text()='Sign In'])[1]")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "//div[normalize-space()='Sign Up for new account'][1]")
@@ -49,8 +50,8 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")
 	WebElement termsConditionsChckbx;
 
-	@FindBy(xpath = "//button[@aria-label='Signup and Continue']")
-	WebElement signupBtnFromSignupScreen;
+	@FindBy(xpath = "(//*[normalize-space()='Sign Up'])[1]")
+	List<WebElement> signupBtnFromSignupScreen;
 
 	@FindBy(xpath = "//div[@class='alert alert-success success_box m-top-1']//span")
 	WebElement successMsg;
@@ -58,8 +59,8 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "(//*[(@role='alert')])[1]")
-	WebElement alertMessge;
+	@FindBy(xpath = "(//*[contains(normalize-space(),'Your registration with LUXY is successful')])[1]")
+	List<WebElement> alertMessge;
 
 	TestBase objTestBase;
 
@@ -78,8 +79,6 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 		try {
 			action = new Actions(driver);
 			action.moveToElement(signinBtn).click().build().perform();
-			action.moveToElement(signinBtn).build().perform();
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -138,7 +137,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 	public Boolean visibilityOfSignupButton(Boolean visibilityStatus) {
 		try {
-			if (signupBtnFromSignupScreen.isDisplayed())
+			if (signupBtnFromSignupScreen.size() != 0)
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -198,7 +197,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public Boolean visibilityOfSignupButtonFromSignupScreen(Boolean visibilityStatus) {
 		try {
 			objTestBase.defaultWaitTime(1000);
-			if (signupBtnFromSignupScreen.isDisplayed())
+			if (signupBtnFromSignupScreen.size() != 0)
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -208,18 +207,17 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 		return visibilityStatus;
 	}
-	
+
 	public Boolean visibilityOfSignupConfirmationMsg(Boolean visibilityStatus) {
 		try {
 			objTestBase.defaultWaitTime(1000);
-			signupBtnFromSignupScreen.click();
-			
+			signupBtnFromSignupScreen.get(0).click();
+
 			String msgText = "";
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(alertMessge));
-			if (displayStatus.isDisplayed()) {
-				objTestBase.defaultWaitTime(500);
-				msgText = alertMessge.getText().toLowerCase();
+			wait.until(ExpectedConditions.visibilityOf(alertMessge.get(0)));
+			if (alertMessge.size() != 0) {
+				msgText = alertMessge.get(0).getText().toLowerCase();
 				visibilityStatus = true;
 			} else
 				visibilityStatus = false;
