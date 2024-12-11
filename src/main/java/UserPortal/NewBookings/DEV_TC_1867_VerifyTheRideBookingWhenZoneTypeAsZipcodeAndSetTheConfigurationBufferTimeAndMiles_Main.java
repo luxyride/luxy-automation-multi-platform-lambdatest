@@ -351,6 +351,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -607,6 +610,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toLowerCase().contains("choose") && vechileAvailableList.size() != 0) {
@@ -626,6 +632,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void clickOnSedan() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookSedan.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSedan.get(0)).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -658,6 +667,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void clickOnSecondaryPassenger() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -666,6 +678,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public void enterspFirstName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spFirstName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -674,6 +689,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public void enterspLastName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spLastName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -682,6 +700,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public void enterspEmail() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spEmail);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -690,6 +711,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public void enterspMobile() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spMobile);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -701,6 +725,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,200)", "");
+			
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.click();
@@ -765,7 +792,11 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
-
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("window.scrollBy(0,200)", "");
+			
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-1000)", "");
 			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
@@ -785,6 +816,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public Boolean verifyConfirmBookingBtnVisibility(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", confirmBookingBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -811,6 +845,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void clickOngetQuote() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -851,6 +888,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void clickonBookNextRide() {
 		try {
 			waitTimeForElement(bookNextRideBtn);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookNextRideBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(bookNextRideBtn).click().build().perform();
 		} catch (Exception e) {
@@ -968,6 +1008,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 
 	public Boolean visibilityOfVechileSection(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", dispatchvechileAvailableSection);
+			js.executeScript("window.scrollBy(0,200)", "");
 			objTestBase.defaultWaitTime(2000);
 			if (dispatchvechileAvailableSection.size() != 0)
 				visibilityStatus = true;

@@ -81,8 +81,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 				testStatus = "FAILED";
 			}
 
-			// ----------------------------------------------------------------------
-
+			closePopupWindow();
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
