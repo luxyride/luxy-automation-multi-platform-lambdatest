@@ -210,6 +210,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -229,6 +232,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void addToAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(toAddress).click().build().perform();
@@ -245,6 +251,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOnExtraStop() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", extraStopIcon);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
@@ -255,6 +264,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void addExtraStop() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", addextraStop);
+			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(addextraStop).click().build().perform();
@@ -271,6 +283,10 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void enterDate() {
 		try {
 			objTestBase.defaultWaitTime(2000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();",
+					driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")));
+			js.executeScript("window.scrollBy(0,200)", "");
 			driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")).click();
 			objTestBase.defaultWaitTime(2000);
 
@@ -354,6 +370,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enablePaymentInfo() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", paymentInfocheckbox.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(paymentInfocheckbox.get(0)).click().build().perform();
 		} catch (Exception e) {
@@ -364,6 +383,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOngetQuote() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -373,6 +395,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOnSedan() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookSedan);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSedan).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -468,6 +493,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickonBookNextRide() {
 		try {
 			waitTimeForElement(bookNextRideBtn);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookNextRideBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(bookNextRideBtn).click().build().perform();
 		} catch (Exception e) {
@@ -486,6 +514,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterspFirstName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spFirstName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -494,6 +525,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterspLastName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spLastName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -502,6 +536,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterspEmail() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spEmail);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -510,6 +547,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterspMobile() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", spMobile);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -519,6 +559,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void addAirline() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", airlinesDrpdwnHeader);
+			js.executeScript("window.scrollBy(0,200)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
 			action.moveToElement(airlinesDrpdwnValue).sendKeys(prop.getProperty("airlineInput")).build().perform();
@@ -532,6 +575,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterFlightNumber() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", flightNumber);
+			js.executeScript("window.scrollBy(0,200)", "");
 			flightNumber.sendKeys(prop.getProperty("flightNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -581,6 +627,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toUpperCase().contains("OPTIONS") && vechileAvailableList.size() != 0) {
@@ -601,6 +650,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,200)", "");
 
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
@@ -650,6 +702,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public Boolean verifyBookingForPersonalSelected(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookingForPersonal);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (bookingForPersonal.isSelected())
 				visibilityStatus = true;
 			else
@@ -665,6 +720,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (displayStatus.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -677,6 +735,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public Boolean verifyConfirmBookingBtnVisibility(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", confirmBookingBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -689,6 +750,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public Boolean visibilityOfVechileSection(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookSedan);
+			js.executeScript("window.scrollBy(0,200)", "");
 			waitTimeForElement(bookSedan);
 			visibilityStatus = true;
 		} catch (Exception e) {
@@ -700,6 +764,10 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public String captureRideBookingIDs(Boolean visibilityStatus, String scenario, String tripID) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("window.scrollBy(0,200)", "");
+			
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {
 				if (scenario == "Book Sedan") {
 					rideBookingIds.put("sedan", bookingRideTripId.getText().toString());
@@ -729,6 +797,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void selectDropdown() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", hourly);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(hourly).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -742,6 +813,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOnSecondaryPassenger() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -751,6 +825,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	
 	public void enterFirstName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", firstName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			firstName.sendKeys(prop.getProperty("fName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -759,6 +836,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterLastName() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", lastName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			lastName.sendKeys(prop.getProperty("lName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -767,6 +847,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterEmail() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", emailInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			emailInput.sendKeys(prop.getProperty("primaryEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -775,6 +858,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterMobile() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", mobileInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			mobileInput.sendKeys(prop.getProperty("phoneNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();

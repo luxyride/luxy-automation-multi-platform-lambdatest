@@ -298,6 +298,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -317,6 +320,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public void addToAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(toAddress).click().build().perform();
@@ -333,6 +339,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public void clickOnExtraStop() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", extraStopIcon);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
@@ -343,6 +352,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public void addExtraStop() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", addextraStop);
+			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(addextraStop).click().build().perform();
@@ -444,6 +456,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public void clickOngetQuote() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -466,6 +481,9 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toLowerCase().contains("choose") && vechileAvailableList.size() != 0) {

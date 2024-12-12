@@ -85,7 +85,7 @@ public class TestBase {
 	public static Logger utillLogger = Logger.getLogger("LuxyQAAutoTest");
 	public static String dockerScreenshotsPath = "https://testimages.luxyride.com/screenshots/";
 	public static String localScreenshotsPath = System.getProperty("user.dir") + "\\screenshots\\";
-	
+
 	// --------------------------------------------------------------------------------------------------
 	// ## LambdaTest Configuration:
 	public static Boolean localExecutionFlag = false;
@@ -625,6 +625,11 @@ public class TestBase {
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
+
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", popupChild);
+			js.executeScript("window.scrollBy(0,200)", "");
+
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupChild.get(0)));
 
 			if (displayStatus.isDisplayed()) {
@@ -644,7 +649,7 @@ public class TestBase {
 			displayStatus = wait.until(ExpectedConditions.visibilityOf(popupMainWindow.get(0)));
 
 			if (displayStatus.isDisplayed()) {
-				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].remove();", popupMainWindow);
 			}
 			defaultWaitTime(1000);
@@ -786,6 +791,13 @@ public class TestBase {
 		try {
 			defaultWaitTime(2000);
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();",
+					driver.findElements(
+							By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"))
+							.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
+
 			List<WebElement> checkboxFAQs = driver.findElements(
 					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"));
 			if (checkboxFAQs.size() != 0) {

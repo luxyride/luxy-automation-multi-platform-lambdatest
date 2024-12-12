@@ -360,6 +360,9 @@ public class DEV_TC_1955_VerifyTheAvailabilityOfAddingDriverManuallyForOnaTripsI
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");

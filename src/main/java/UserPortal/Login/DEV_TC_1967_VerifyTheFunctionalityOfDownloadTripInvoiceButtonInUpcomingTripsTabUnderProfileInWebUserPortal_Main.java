@@ -247,6 +247,9 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 	public void addToAddress() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(toAddress).click().build().perform();
@@ -744,6 +747,9 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 	public void selectDropdown() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView();", individual);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(individual).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.DOWN).build().perform();

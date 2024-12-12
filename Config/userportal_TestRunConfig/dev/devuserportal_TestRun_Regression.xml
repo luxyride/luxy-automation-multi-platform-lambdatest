@@ -40,12 +40,13 @@
 			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
 			<!-- ############################################################################################## -->
 
-			<!-- ################################### UserPortal.NewBookings ############################ -->
+			<!-- ################################### UserPortal.NewBookings ################################### -->
 			<class name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
 			<class name="UserPortal.NewBookings.DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfigurationBufferTimeAndMiles_Test" />
 			<class name="UserPortal.NewBookings.DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigurationBufferTimeAndMiles_Test" />
 			<class name="UserPortal.NewBookings.DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfigurationBufferTimeAndMiles_Test" />
 			<class name="UserPortal.NewBookings.DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test" />
 			<!-- ############################################################################################## -->	
 		
 			<!-- ################################### UserPortal.SignUp ################################## -->
