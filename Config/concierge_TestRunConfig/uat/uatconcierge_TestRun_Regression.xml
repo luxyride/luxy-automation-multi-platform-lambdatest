@@ -144,7 +144,10 @@
 
 			<class
 				name="Concierge.NewBookings.DEV_TC_2068_VerifyTheFunctionalityOfAddAnotherTripButtonInEventAndSpecialServiceQuoteRequestPage_Test" />
-
+			<class
+				name="Concierge.NewBookings.DEV_TC_2126_VerifyTheAvailabilityOfConfirmedOptionUnderRideStatusInConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_2129_VerifyTheFucntionalityOfConfirmedOptionUnderRideStatusInConciergePortal_Test" />
 
 			<!--
 			############################################################################################## -->
