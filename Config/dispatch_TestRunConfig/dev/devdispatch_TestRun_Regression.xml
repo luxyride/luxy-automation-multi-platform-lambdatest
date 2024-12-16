@@ -129,6 +129,10 @@
 				name="Dispatch.NewBooking.DEV_TC_2073_VerifyTheAvailabilityOfTripSourceDropdownInDispatchPortal_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_2072_VerifyTheFunctionalityOfTripSourceDropdownInDispatchPortal_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmailForCustomersBookingToOrFromWithOtherAirportAddresses_Test" />
+<class
+				name="Dispatch.NewBooking.DEV_TC_2105_VerifyThatTheJFKLinkIsIncludedInTheConfirmationEmailForCustomersBookingToOrFromJFKAirport_Test" />
 
 
 			<!--
