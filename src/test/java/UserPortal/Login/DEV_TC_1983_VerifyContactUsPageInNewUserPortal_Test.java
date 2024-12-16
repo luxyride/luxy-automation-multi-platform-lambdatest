@@ -81,15 +81,14 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test extends TestBas
 				testStatus = "FAILED";
 			}
 			
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
-				clickOnToggleNavigationBar();
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
 			}
-			
-			// ----------------------------------------------------------------------
-			// Method to close Pop-up Window:
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
@@ -361,6 +360,14 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test extends TestBas
 					lambdaTestStatusUpdate("failed", testStep);
 			} else {
 				driver.get(prop.getProperty("portalURL"));
+				// Method to close Pop-up Window:
+				objTestBase.closePopupWindow();
+				// Configuration for handing mobile simulator testing:
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+						clickOnToggleNavigationBar();
+				}
 			}
 
 			objTestBase.defaultWaitTime(2000);

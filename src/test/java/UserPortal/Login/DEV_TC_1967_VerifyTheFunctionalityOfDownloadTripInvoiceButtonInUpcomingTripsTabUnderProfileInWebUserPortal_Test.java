@@ -81,14 +81,14 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				testStatus = "FAILED";
 			}
 			
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
-				clickOnToggleNavigationBar();
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
 			}
-
-			// ----------------------------------------------------------------------
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
@@ -370,6 +370,14 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 					lambdaTestStatusUpdate("failed", testStep);
 			} else {
 				driver.get(prop.getProperty("portalURL"));
+				// Method to close Pop-up Window:
+				objTestBase.closePopupWindow();
+				// Configuration for handing mobile simulator testing:
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+						clickOnToggleNavigationBar();
+				}
 			}
 
 			objTestBase.defaultWaitTime(2000);

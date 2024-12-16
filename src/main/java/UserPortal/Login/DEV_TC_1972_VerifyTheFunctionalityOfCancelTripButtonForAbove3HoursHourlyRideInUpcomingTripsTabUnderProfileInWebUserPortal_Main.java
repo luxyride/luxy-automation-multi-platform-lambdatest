@@ -20,20 +20,20 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Main extends TestBase {
+public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Main
+		extends TestBase {
 
 	WebDriver driver;
 	Actions action;
 	String expected;
 
-
 	@FindBy(xpath = "//div[@class='choices__inner']")
 	WebElement individual;
-	
+
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
@@ -50,7 +50,6 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
 	WebElement signInBtnDropdown;
-
 
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Location']")
 	WebElement fromAddress;
@@ -99,16 +98,16 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	@FindBy(xpath = "//button[contains(@aria-label,'Add Secondary Passenger')]")
 	WebElement secondaryPassenger;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[1]")
 	WebElement firstName;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[2]")
 	WebElement lastName;
-	
+
 	@FindBy(xpath = "(//input[@type='tel'])")
 	WebElement mobileInput;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[3]")
 	WebElement emailInput;
 
@@ -156,7 +155,7 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
 	WebElement confirmBookingBtn;
-	
+
 	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
 	WebElement termsAndConditionsCheckbox;
 
@@ -189,16 +188,16 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	@FindBy(xpath = "//div[normalize-space()='Trip ID:']//following-sibling::div[1]")
 	WebElement bookingRideTripId;
-	
+
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
 	WebElement welcomeDropDown;
-	
+
 	@FindBy(xpath = "(//div[normalize-space()='My Ride Bookings'])[1]")
 	WebElement myRideBookings;
-	
+
 	@FindBy(xpath = "(//button[normalize-space()='Upcoming trips'])[1]")
 	WebElement upComingTripsPage;
-	
+
 	@FindBy(xpath = "(//a[@label='Profile'])[1]")
 	WebElement profileOption;
 
@@ -207,7 +206,7 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	@FindBy(xpath = "(//button[@value='Cancel Ride'])[1]")
 	WebElement cancelRideBtn;
-	
+
 	@FindBy(xpath = "(//p[@class='trip cancelled successfully'])[1]")
 	WebElement successMsg;
 
@@ -219,7 +218,8 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	JavascriptExecutor js;
 	LocalDate today;
 
-	public DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Main(WebDriver driver) {
+	public DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Main(
+			WebDriver driver) {
 		try {
 			this.driver = driver;
 			PageFactory.initElements(driver, this);
@@ -230,10 +230,12 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		}
 	}
 
-
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
+			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -254,12 +256,12 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
-	        action.moveToElement(toAddress).click().build().perform();
-	        objTestBase.defaultWaitTime(3000);
+			action.moveToElement(toAddress).click().build().perform();
+			objTestBase.defaultWaitTime(3000);
 			action.sendKeys(Keys.DOWN).build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -272,6 +274,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnExtraStop() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
@@ -282,10 +287,13 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void addExtraStop() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
+			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
-	        action.moveToElement(addextraStop).click().build().perform();
-	        objTestBase.defaultWaitTime(3000);
+			action.moveToElement(addextraStop).click().build().perform();
+			objTestBase.defaultWaitTime(3000);
 			action.sendKeys(Keys.DOWN).build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -298,6 +306,10 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void enterDate() {
 		try {
 			objTestBase.defaultWaitTime(2000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);",
+					driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")));
+			js.executeScript("window.scrollBy(0,200)", "");
 			driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")).click();
 			objTestBase.defaultWaitTime(2000);
 
@@ -368,6 +380,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean verifyVisibilityOfPaymentInfo(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (paymentInfocheckbox.isDisplayed()) {
 				visibilityStatus = true;
 			} else
@@ -381,6 +396,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void enablePaymentInfo() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -390,6 +408,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOngetQuote() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -399,6 +420,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnSedan() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSedan).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -408,6 +432,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean verifyVehicleConfirmationPopup(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmVehiclePopup.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (confirmVehiclePopup.size() != 0) {
 				visibilityStatus = true;
 			} else {
@@ -422,6 +449,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickonConfirmPopup() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmBtn.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(confirmBtn.get(0)).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -431,6 +461,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnSUV() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSUV);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSUV).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -441,6 +474,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnSUVXL() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSUVXL);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSUVXL).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -451,6 +487,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnVAN() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookVAN);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookVAN).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -461,6 +500,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnVANXL() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookVANXL);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookVANXL).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -471,6 +513,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickonPromocodeApply() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", applypromoCode);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(applypromoCode).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -483,8 +528,14 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
 			clickonFAQscheckbox();
 			objTestBase.defaultWaitTime(1000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", termsAndConditionsCheckbox);
+			js.executeScript("window.scrollBy(0,200)", "");
 			termsAndConditionsCheckbox.click();
 			objTestBase.defaultWaitTime(1000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -495,6 +546,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		try {
 			waitTimeForElement(bookNextRideBtn);
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookNextRideBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookNextRideBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -504,6 +558,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void promoCodeEnable() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", promoCodeEnable);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(promoCodeEnable).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -512,6 +569,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterspFirstName() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -520,6 +580,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterspLastName() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -528,6 +591,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterspEmail() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -536,6 +602,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterspMobile() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
+			js.executeScript("window.scrollBy(0,200)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -545,8 +614,14 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void addAirline() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnHeader);
+			js.executeScript("window.scrollBy(0,200)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnHeader);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(airlinesDrpdwnValue).sendKeys(prop.getProperty("airlineInput")).build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -558,6 +633,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterFlightNumber() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", flightNumber);
+			js.executeScript("window.scrollBy(0,200)", "");
 			flightNumber.sendKeys(prop.getProperty("flightNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -566,6 +644,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterPassengerNotes() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", passengerNotes);
+			js.executeScript("window.scrollBy(0,200)", "");
 			passengerNotes.sendKeys(prop.getProperty("pasengerNotes"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -575,6 +656,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void enterPromocode(String vechileModel) {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", promoCode);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(promoCode).click().build().perform();
 			if (vechileModel.equalsIgnoreCase("Book Sedan"))
 				action.moveToElement(promoCode).sendKeys(prop.getProperty("promocodeFixed")).build().perform();
@@ -607,6 +691,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toUpperCase().contains("OPTIONS") && vechileAvailableList.size() != 0) {
@@ -676,6 +763,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean verifyBookingForPersonalSelected(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingForPersonal);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (bookingForPersonal.isSelected())
 				visibilityStatus = true;
 			else
@@ -691,6 +781,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (displayStatus.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -703,6 +796,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean verifyConfirmBookingBtnVisibility(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -726,6 +822,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public String captureRideBookingIDs(Boolean visibilityStatus, String scenario, String tripID) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {
 				if (scenario == "Book Sedan") {
 					rideBookingIds.put("sedan", bookingRideTripId.getText().toString());
@@ -754,7 +853,7 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", individual);
+			js.executeScript("arguments[0].scrollIntoView(true);", individual);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(individual).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
@@ -764,22 +863,26 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}		
+		}
 	}
-
 
 	public void clickOnSecondaryPassenger() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", secondaryPassenger);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}
 	}
-	
-	
+
 	public void enterFirstName() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", firstName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			firstName.sendKeys(prop.getProperty("fName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -788,6 +891,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterLastName() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", lastName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			lastName.sendKeys(prop.getProperty("lName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -796,6 +902,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterEmail() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", emailInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			emailInput.sendKeys(prop.getProperty("primaryEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -804,18 +913,23 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public void enterMobile() {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", mobileInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			mobileInput.sendKeys(prop.getProperty("phoneNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -823,6 +937,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (customerLogin.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -836,15 +953,21 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(customerLogin).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void eMailInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception ex) {
@@ -855,6 +978,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void passwordInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
+			js.executeScript("window.scrollBy(0,200)", "");
 			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -864,6 +990,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void eyeIconClick() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", eyeIcon);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(eyeIcon).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -872,6 +1001,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (signInBtn_Login.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -885,17 +1017,21 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickSigninButton() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(signInBtn_Login).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-
-
 	public Boolean visibilityOfLoggedinUser(Boolean visibilityStatus) {
 		try {
 			waitTimeForElement(signInBtnDropdown);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (signInBtnDropdown.isDisplayed()) {
 				expected = signInBtnDropdown.getText();
 				if (expected.toLowerCase().contains("welcome")) {
@@ -911,10 +1047,13 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		}
 		return visibilityStatus;
 	}
-	
+
 	public void clickWelcomeDropDown() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", welcomeDropDown);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(welcomeDropDown).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -923,6 +1062,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean visibilityOfProfileOption(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", profileOption);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (profileOption.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -936,6 +1078,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnProfileOption() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", profileOption);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(profileOption).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -945,6 +1090,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 	public void clickOnMyRideBookings() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", myRideBookings);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(myRideBookings).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -953,6 +1101,9 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 
 	public Boolean visibilityOfMyRideBookingsPage(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", upComingTripsPage);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (upComingTripsPage.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -963,9 +1114,11 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		return visibilityStatus;
 	}
 
-
 	public Boolean visibilityOfCancelTripBtn(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (cancelBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -976,19 +1129,23 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		return visibilityStatus;
 	}
 
-
 	public void clickOnCancelTripBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", cancelBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(cancelBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-
 	public Boolean visibilityOfCancellationPopUP(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", cancelRideBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (cancelRideBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -999,19 +1156,23 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		return visibilityStatus;
 	}
 
-
 	public void clickOnCancelRideBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", cancelRideBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(cancelRideBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
-
 	public Boolean visibilityOfSuccessMessage(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", successMsg);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (successMsg.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -1021,5 +1182,4 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 		}
 		return visibilityStatus;
 	}
-	
 }

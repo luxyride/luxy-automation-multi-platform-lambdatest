@@ -29,7 +29,7 @@ public class DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Main e
 	@FindBy(xpath = "(//*[text()='Sign In'])[1]")
 	WebElement signInBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "//input[@id='email'][1]")

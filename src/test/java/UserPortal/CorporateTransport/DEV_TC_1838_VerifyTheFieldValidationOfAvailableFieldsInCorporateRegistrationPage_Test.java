@@ -75,6 +75,16 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
+			
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
+			
 			testStep = "Verify visibility of corporate  from Homepage Header";
 			visibilityStatus = objVerifyRegisCorpMain.visibilityOfCorporateTransport(visibilityStatus);
 			objTestBase.defaultWaitTime(500);

@@ -229,7 +229,7 @@ public class DEV_TC_18_VerifyTheFunctionalityForgotPassword_Main extends TestBas
 		driver.switchTo().frame("ifmail");
 		objTestBase.defaultWaitTime(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", yopMailforgotPwdLink);
+		js.executeScript("arguments[0].scrollIntoView(true);", yopMailforgotPwdLink);
 		objTestBase.defaultWaitTime(2000);
 		if (yopMailforgotPwdLink.isDisplayed())
 			visibilityStatus = true;

@@ -44,13 +44,13 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 
 	@FindBy(xpath = "//input[@id='website']")
 	WebElement website;
-	
+
 	@FindBy(xpath = "//input[@placeholder='Enter Business Address']")
 	WebElement workAddress;
 
 	@FindBy(xpath = "//label[@for='isPartner']")
 	WebElement termsConditionsChckbx;
-	
+
 	@FindBy(xpath = "//label[contains(@for,'terms')]")
 	WebElement privacyPolicy;
 
@@ -59,7 +59,6 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 
 	@FindBy(xpath = "//p[normalize-space()='Company Name is required']")
 	WebElement errorMessage;
-
 
 	public DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Main(
 			WebDriver driver) {
@@ -75,6 +74,9 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -82,18 +84,19 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -116,9 +119,11 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -126,18 +131,19 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnEnrollAffiliateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyAffiliatePage(Boolean visibilityStatus) {
@@ -145,42 +151,53 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
-				if (affiliateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return visibilityStatus;
-	}
-	
-
-	public Boolean verifyTheAvailabilityOfTextFieldsInTravelAgentForm(Boolean visibilityStatus) {
-		try {
-			if (companyName.isDisplayed() && privacyPolicy.isDisplayed() && fName.isDisplayed()  && lName.isDisplayed()  && website.isDisplayed()  && eMailInput.isDisplayed() && phoneInput.isDisplayed() &&  signupCreateBtn.isDisplayed())
+				js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+			if (affiliateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return visibilityStatus;
+	}
 
+	public Boolean verifyTheAvailabilityOfTextFieldsInTravelAgentForm(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
+			if (companyName.isDisplayed() && privacyPolicy.isDisplayed() && fName.isDisplayed() && lName.isDisplayed()
+					&& website.isDisplayed() && eMailInput.isDisplayed() && phoneInput.isDisplayed()
+					&& signupCreateBtn.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return visibilityStatus;
 	}
 
 	public void clickOnCreateButton() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(signupCreateBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}		
+		}
 	}
 
 	public Boolean verifyerrorMessagesUnderTextFields(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", errorMessage);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (errorMessage.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -188,10 +205,7 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
 
 }

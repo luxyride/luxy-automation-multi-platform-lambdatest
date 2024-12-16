@@ -197,7 +197,7 @@ public class DEV_TC_1314_VerifyAvailabilityFunctionalityOfNotificationsSettingsW
 	@FindBy(xpath = "//input[@id='login']")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "//*[@id='mail']//font[normalize-space()='Confirm Account']")
@@ -896,7 +896,7 @@ public class DEV_TC_1314_VerifyAvailabilityFunctionalityOfNotificationsSettingsW
 			driver.switchTo().frame("ifmail");
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmAccount);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmAccount);
 			objTestBase.defaultWaitTime(2000);
 			confirmEmailAccountEMail.click();
 		} catch (Exception ex) {

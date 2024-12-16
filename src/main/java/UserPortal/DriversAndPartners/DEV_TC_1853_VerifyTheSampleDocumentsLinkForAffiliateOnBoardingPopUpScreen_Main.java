@@ -49,11 +49,13 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -61,18 +63,19 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -97,6 +100,9 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -104,18 +110,19 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnEnrollAffiliateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyAffiliatePage(Boolean visibilityStatus) {
@@ -123,45 +130,53 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
-				if (affiliateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
+				js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+			if (affiliateSignup.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnW9Document() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", SampleDocument);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(SampleDocument).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void clickOnInsuranceDocument() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", insuranceDocument);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(insuranceDocument).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void clickOnDirectDeposit() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", directDeposit);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(directDeposit).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchBackToMainWindow(Boolean visibilityStatus) {
@@ -184,7 +199,6 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
@@ -195,61 +209,54 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			} else {
 				visibilityStatus = false;
 			}
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfW9DocumentPage(Boolean visibilityStatus) {
-	    try {
-	        String expected = driver.getCurrentUrl(); 
-	        String environment = prop.getProperty("environment"); 
+		try {
+			String expected = driver.getCurrentUrl();
+			String environment = prop.getProperty("environment");
 
-	        if (expected.toLowerCase().contains(environment.toLowerCase()) 
-	                && expected.toLowerCase().contains("blank")) {
-	            visibilityStatus = true; 
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-	    return visibilityStatus;
+			if (expected.toLowerCase().contains(environment.toLowerCase())
+					&& expected.toLowerCase().contains("blank")) {
+				visibilityStatus = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfInsurancePage(Boolean visibilityStatus) {
-	    try {
-	        String expected = driver.getCurrentUrl(); 
-	        String environment = prop.getProperty("environment"); 
+		try {
+			String expected = driver.getCurrentUrl();
+			String environment = prop.getProperty("environment");
 
-	        if (expected.toLowerCase().contains(environment.toLowerCase()) 
-	                && expected.toLowerCase().contains("sample")) {
-	            visibilityStatus = true; 
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-	    return visibilityStatus;
+			if (expected.toLowerCase().contains(environment.toLowerCase())
+					&& expected.toLowerCase().contains("sample")) {
+				visibilityStatus = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfDirectDepositPage(Boolean visibilityStatus) {
-	    try {
-	        String expected = driver.getCurrentUrl(); 
-	        String environment = prop.getProperty("environment"); 
+		try {
+			String expected = driver.getCurrentUrl();
+			String environment = prop.getProperty("environment");
 
-	        if (expected.toLowerCase().contains(environment.toLowerCase()) 
-	                && expected.toLowerCase().contains("blank")) {
-	            visibilityStatus = true; 
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-	    return visibilityStatus;
+			if (expected.toLowerCase().contains(environment.toLowerCase())
+					&& expected.toLowerCase().contains("blank")) {
+				visibilityStatus = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
-
-
 }

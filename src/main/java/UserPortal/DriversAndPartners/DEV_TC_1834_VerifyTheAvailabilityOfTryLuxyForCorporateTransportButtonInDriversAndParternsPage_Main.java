@@ -46,11 +46,13 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (affiliate_Simulator.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -58,18 +60,19 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliate_Simulator).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -95,6 +98,9 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -102,18 +108,19 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnEnrollAffiliateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyAffiliatePage(Boolean visibilityStatus) {
@@ -121,6 +128,9 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 				if (affiliateSignup.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -128,10 +138,6 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
-
 }

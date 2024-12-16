@@ -1064,7 +1064,7 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(2000);
 
 			if (clientMatterNumber.isDisplayed() && clientMatterNumberLables.size() != 0) {
@@ -1096,7 +1096,7 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(2000);
 
 			action.moveToElement(clientMatterNumber).click().sendKeys("!@#$%^&*()_+=").build().perform();
@@ -1143,7 +1143,7 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 			action = new Actions(driver);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(2000);
 
 			clientMatterNumberBeforeUpdate = clientMatterNumber.getAttribute("value");
@@ -1188,7 +1188,7 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", updateRideDetailsBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", updateRideDetailsBtn);
 			objTestBase.defaultWaitTime(2000);
 			action.moveToElement(updateRideDetailsBtn).click().build().perform();
 			objTestBase.defaultWaitTime(1000);

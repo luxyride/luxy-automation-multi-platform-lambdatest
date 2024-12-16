@@ -32,10 +32,9 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
-	
+
 	@FindBy(xpath = "//label[@for='isPartner']")
 	WebElement apsaCheckBox;
-
 
 	public DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Main(
 			WebDriver driver) {
@@ -46,11 +45,13 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -58,18 +59,19 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -92,9 +94,11 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -102,18 +106,19 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnEnrollAffiliateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyAffiliatePage(Boolean visibilityStatus) {
@@ -121,19 +126,24 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
-				if (affiliateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
+				js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+			if (affiliateSignup.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfAPSACheckBoxRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", apsaCheckBox);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (apsaCheckBox.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -141,10 +151,6 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
-
 }

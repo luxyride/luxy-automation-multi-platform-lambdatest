@@ -74,7 +74,15 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 				testStatus = "FAILED";
 			}
 
-
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
+			
 			testStep = "Verification user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";

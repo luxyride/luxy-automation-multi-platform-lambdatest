@@ -233,7 +233,7 @@ public class DEV_TC_1949_VerifyAvailabilityLevelOfInsuranceOptionsForPartnersInD
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 				WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(affiliateDetailsHeader));
 				if (displayStatus.isDisplayed()) {
-					js.executeScript("arguments[0].scrollIntoView();", coiExpirationDateText);
+					js.executeScript("arguments[0].scrollIntoView(true);", coiExpirationDateText);
 					js.executeScript("window.scrollBy(0,-200)", "");
 					defaultWaitTime(1000);
 					if (coiExpirationDateText.isDisplayed() && coiExpirationDateField.isDisplayed())
@@ -311,7 +311,7 @@ public class DEV_TC_1949_VerifyAvailabilityLevelOfInsuranceOptionsForPartnersInD
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 				WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(affiliateDetailsHeader));
 				if (displayStatus.isDisplayed()) {
-					js.executeScript("arguments[0].scrollIntoView();", coiExpirationDateText);
+					js.executeScript("arguments[0].scrollIntoView(true);", coiExpirationDateText);
 					js.executeScript("window.scrollBy(0,-200)", "");
 					defaultWaitTime(1000);
 					if (coiExpirationDateText.isDisplayed() && coiExpirationDateField.isDisplayed())

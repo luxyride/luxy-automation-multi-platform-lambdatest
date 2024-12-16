@@ -224,7 +224,14 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				testStatus = "FAILED";
 			}
 
-			objTestBase.closePopupWindow();
+			// Method to close Pop-up Window:
+			closePopupWindow();	
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
 
 			testStep = "Verification user login";
 			if (testStatus == "PASSED") {
@@ -427,6 +434,14 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				}
 			} else {
 				driver.get(prop.getProperty("portalURL"));
+				// Method to close Pop-up Window:
+				closePopupWindow();	
+				// Configuration for handing mobile simulator testing:
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+						clickOnToggleNavigationBar();
+				}
 				testStatus = "PASSED";
 			}
 			objTestBase.defaultWaitTime(2000);

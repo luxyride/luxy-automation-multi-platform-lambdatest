@@ -26,7 +26,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "(//*[text()='Sign In'])[1]")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
+	@FindBy(xpath = "((//a[normalize-space()='Customer Login'])[2])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "//div[normalize-space()='Sign Up for new account'][1]")

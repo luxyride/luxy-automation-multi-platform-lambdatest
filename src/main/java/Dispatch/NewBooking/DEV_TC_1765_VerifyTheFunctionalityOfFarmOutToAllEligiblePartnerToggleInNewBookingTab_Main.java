@@ -1058,7 +1058,7 @@ public class DEV_TC_1765_VerifyTheFunctionalityOfFarmOutToAllEligiblePartnerTogg
 	public String captureFarmoutPreferencesClaimRideHoursBeforeUpdate(String claimRideHoursBeforeUpdate) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", claimRideHoursTextMsg);
+			js.executeScript("arguments[0].scrollIntoView(true);", claimRideHoursTextMsg);
 			defaultWaitTime(2000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			defaultWaitTime(500);

@@ -36,7 +36,6 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
 
-
 	public DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Main(
 			WebDriver driver) {
 		try {
@@ -65,11 +64,13 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	public void clickOnCorporate() {
 		try {
 			action = new Actions(driver);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -97,10 +98,15 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("corporate"))
-				if (corporateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
+
+				js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+
+			if (corporateSignup.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -110,6 +116,10 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 	public Boolean verifyVisibilityOfCorporateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
+
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -124,13 +134,13 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	public void clickOnEnrollCorporateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
-
-	
-
 }

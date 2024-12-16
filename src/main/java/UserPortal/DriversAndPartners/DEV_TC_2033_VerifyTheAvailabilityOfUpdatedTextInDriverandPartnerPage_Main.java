@@ -12,8 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Actions;
 
-public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Main
-		extends TestBase {
+public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Main extends TestBase {
 
 	WebDriver driver;
 	Actions action;
@@ -32,13 +31,11 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
-	
+
 	@FindBy(xpath = "//b[contains(text(),'IMPORTANT NOTICE***We are currently not accepting ')]")
 	WebElement updatedText;
 
-
-	public DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Main(
-			WebDriver driver) {
+	public DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Main(WebDriver driver) {
 		try {
 			this.driver = driver;
 			PageFactory.initElements(driver, this);
@@ -46,11 +43,13 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -58,18 +57,19 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnAffiliate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -92,9 +92,11 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -102,13 +104,15 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public void clickOnEnrollAffiliateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -121,19 +125,24 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
-				if (affiliateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
+				js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
+			if (affiliateSignup.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public Boolean verifyUpdatedText(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", updatedText);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (updatedText.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -141,10 +150,6 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
-
 }

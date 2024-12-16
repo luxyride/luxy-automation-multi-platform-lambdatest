@@ -76,12 +76,19 @@ public class DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTrave
 			utillLogger.info(testStep + " - " + testStatus);
 
 			objTestBase.defaultWaitTime(3000);
-			closePopupWindow();
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
+			
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocal")) {
-				clickOnToggleNavigationBar();
 
 				testStep = "Verify visibility of travel Agent  from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);

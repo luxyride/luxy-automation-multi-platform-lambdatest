@@ -187,7 +187,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", signupCreateBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
 			action.moveToElement(signupCreateBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -197,7 +197,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 	public Boolean verifyerrorMessagesUnderTextFields(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", errorMessage);
+			js.executeScript("arguments[0].scrollIntoView(true);", errorMessage);
 			if (errorMessage.isDisplayed())
 				visibilityStatus = true;
 			else

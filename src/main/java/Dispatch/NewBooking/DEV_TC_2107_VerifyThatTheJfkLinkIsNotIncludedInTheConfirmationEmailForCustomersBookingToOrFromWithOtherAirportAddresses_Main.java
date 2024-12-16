@@ -887,7 +887,7 @@ public class DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmail
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			defaultWaitTime(2000);
-			js.executeScript("arguments[0].scrollIntoView();", note);
+			js.executeScript("arguments[0].scrollIntoView(true);", note);
 			objTestBase.defaultWaitTime(2000);
 			return note == null || !note.isDisplayed();
 		} catch (Exception ex) {

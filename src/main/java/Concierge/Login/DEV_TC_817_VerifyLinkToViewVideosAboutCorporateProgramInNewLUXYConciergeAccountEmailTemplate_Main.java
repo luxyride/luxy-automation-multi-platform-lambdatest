@@ -280,7 +280,7 @@ public class DEV_TC_817_VerifyLinkToViewVideosAboutCorporateProgramInNewLUXYConc
 			driver.switchTo().frame("ifmail");
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", EmailConfirmation);
+			js.executeScript("arguments[0].scrollIntoView(true);", EmailConfirmation);
 			objTestBase.defaultWaitTime(2000);
 			if (EmailConfirmation.isDisplayed())
 				visibilityStatus = true;

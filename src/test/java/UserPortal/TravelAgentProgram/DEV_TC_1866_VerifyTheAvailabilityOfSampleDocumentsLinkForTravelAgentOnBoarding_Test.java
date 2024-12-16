@@ -76,12 +76,19 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 			utillLogger.info(testStep + " - " + testStatus);
 
 			objTestBase.defaultWaitTime(3000);
-			closePopupWindow();
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocal")) {
 				clickOnToggleNavigationBar();
+			}
+
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
 
 				testStep = "Verify visibility of travel Agent  from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);
@@ -125,7 +132,7 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 					testStatus = "FAILED";
 				}
 			}
-			
+
 			testStep = "Verify visibility of travel Agent module from Homepage Header";
 			if (testStatus == "PASSED") {
 				String parentWindow = driver.getWindowHandle();
@@ -162,11 +169,11 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 					testStatus = "FAILED";
 				}
 			}
-			
+
 			utillLogger.info(testStep + " - " + testStatus);
 			objVerifyRegisCorpMain.clickOnEnrollTaBtn();
 			objTestBase.defaultWaitTime(3000);
-			
+
 			testStep = "Verify visibility of travel Agent registration Page Option";
 			if (visibilityStatus.booleanValue() == true) {
 				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfTaRegistrationForm(visibilityStatus);

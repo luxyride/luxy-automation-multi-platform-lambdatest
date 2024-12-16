@@ -210,7 +210,7 @@ public class DEV_TC_1153_VerifyForgotPasswordFunctionalityInTravelAgentSite_Main
 			driver.switchTo().frame("ifmail");
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", yopMailforgotPwdLink);
+			js.executeScript("arguments[0].scrollIntoView(true);", yopMailforgotPwdLink);
 			objTestBase.defaultWaitTime(2000);
 			if (yopMailforgotPwdLink.isDisplayed())
 				visibilityStatus = true;

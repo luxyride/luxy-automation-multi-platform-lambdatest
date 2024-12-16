@@ -72,6 +72,9 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 
 	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (corporateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -86,6 +89,9 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 	public void clickOnCorporate() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -125,12 +131,14 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfCorporateRegistrationForm(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -145,6 +153,9 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 	public void clickOnEnrollCorporateBtn() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
+			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -187,15 +198,20 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 	public void clickOnSignupCreateBtn() throws Exception {
 		try {
 			objTestBase.defaultWaitTime(1000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			signupCreateBtn.click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean visibilityOfSignupConfirmationMsg(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", successMsg);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (successMsg.isDisplayed()) {
 				expected = successMsg.getText();
 				if (expected.toLowerCase().contains("success")) {
@@ -203,18 +219,19 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 				} else {
 					visibilityStatus = false;
 				}
-
 			} else
 				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return visibilityStatus;
 	}
 
 	public Boolean verifyVisibilityOfSignupCreateBtn(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (signupCreateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -222,10 +239,6 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
-
-	
-
 }

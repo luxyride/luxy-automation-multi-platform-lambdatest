@@ -3,6 +3,7 @@ package UserPortal.Login;
 import common.TestBase;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,9 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+			js.executeScript("window.scrollBy(0,200)", "");
 			if (signinBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -39,7 +43,6 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return visibilityStatus;
 	}
 }

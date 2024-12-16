@@ -33,7 +33,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
@@ -211,7 +211,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
@@ -233,7 +233,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
@@ -252,7 +252,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", extraStopIcon);
+			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
@@ -265,7 +265,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", addextraStop);
+			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
 			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
@@ -284,7 +284,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();",
+			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")));
 			js.executeScript("window.scrollBy(0,200)", "");
 			driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")).click();
@@ -370,7 +370,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enablePaymentInfo() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", paymentInfocheckbox);
+			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(paymentInfocheckbox).click().build().perform();
@@ -383,7 +383,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
@@ -395,7 +395,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookSedan);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(bookSedan).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
@@ -493,7 +493,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			waitTimeForElement(bookNextRideBtn);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookNextRideBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookNextRideBtn);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(bookNextRideBtn).click().build().perform();
@@ -514,7 +514,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterspFirstName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spFirstName);
+			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
@@ -525,7 +525,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterspLastName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spLastName);
+			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
@@ -536,7 +536,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterspEmail() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spEmail);
+			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
@@ -547,7 +547,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterspMobile() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spMobile);
+			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
@@ -559,7 +559,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", airlinesDrpdwnHeader);
+			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnHeader);
 			js.executeScript("window.scrollBy(0,200)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
@@ -575,7 +575,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterFlightNumber() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", flightNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", flightNumber);
 			js.executeScript("window.scrollBy(0,200)", "");
 			flightNumber.sendKeys(prop.getProperty("flightNumber"));
 		} catch (Exception e) {
@@ -627,7 +627,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
@@ -702,7 +702,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public Boolean verifyBookingForPersonalSelected(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookingForPersonal);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingForPersonal);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (bookingForPersonal.isSelected())
 				visibilityStatus = true;
@@ -720,7 +720,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (displayStatus.isDisplayed())
 				visibilityStatus = true;
@@ -735,7 +735,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public Boolean verifyConfirmBookingBtnVisibility(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmBookingBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
@@ -750,7 +750,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public Boolean visibilityOfVechileSection(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookSedan);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
 			js.executeScript("window.scrollBy(0,200)", "");
 			waitTimeForElement(bookSedan);
 			visibilityStatus = true;
@@ -764,7 +764,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public String captureRideBookingIDs(Boolean visibilityStatus, String scenario, String tripID) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
 			js.executeScript("window.scrollBy(0,200)", "");
 			
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {
@@ -795,7 +795,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", individual);
+			js.executeScript("arguments[0].scrollIntoView(true);", individual);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(individual).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
@@ -813,7 +813,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
@@ -825,7 +825,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterFirstName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", firstName);
+			js.executeScript("arguments[0].scrollIntoView(true);", firstName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			firstName.sendKeys(prop.getProperty("fName"));
 		} catch (Exception e) {
@@ -836,7 +836,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterLastName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", lastName);
+			js.executeScript("arguments[0].scrollIntoView(true);", lastName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			lastName.sendKeys(prop.getProperty("lName"));
 		} catch (Exception e) {
@@ -847,7 +847,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterEmail() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", emailInput);
+			js.executeScript("arguments[0].scrollIntoView(true);", emailInput);
 			js.executeScript("window.scrollBy(0,200)", "");
 			emailInput.sendKeys(prop.getProperty("primaryEmail"));
 		} catch (Exception e) {
@@ -858,7 +858,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void enterMobile() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", mobileInput);
+			js.executeScript("arguments[0].scrollIntoView(true);", mobileInput);
 			js.executeScript("window.scrollBy(0,200)", "");
 			mobileInput.sendKeys(prop.getProperty("phoneNumber"));
 		} catch (Exception e) {

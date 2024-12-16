@@ -249,7 +249,7 @@ public class DEV_TC_1823_VerifyTheFunctionalityOfActiveAInactiveCoverageZonesInD
 			String temp = driver.getCurrentUrl();
 			if (temp.contains("edit")) {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].scrollIntoView();", addCoverzoneBtn.get(0));
+				js.executeScript("arguments[0].scrollIntoView(true);", addCoverzoneBtn.get(0));
 				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 				visibilityStatus = true;
@@ -344,7 +344,7 @@ public class DEV_TC_1823_VerifyTheFunctionalityOfActiveAInactiveCoverageZonesInD
 	public Boolean searchCoverzone(Boolean visibilityStatus) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", searchAffiliate);
+			js.executeScript("arguments[0].scrollIntoView(true);", searchAffiliate);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(2000);
 
@@ -409,7 +409,7 @@ public class DEV_TC_1823_VerifyTheFunctionalityOfActiveAInactiveCoverageZonesInD
 		try {
 			defaultWaitTime(8000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", searchAffiliate);
+			js.executeScript("arguments[0].scrollIntoView(true);", searchAffiliate);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(2000);
 

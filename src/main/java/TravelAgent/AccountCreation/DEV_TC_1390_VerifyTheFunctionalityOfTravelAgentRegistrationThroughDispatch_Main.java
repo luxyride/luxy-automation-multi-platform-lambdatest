@@ -325,7 +325,7 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 			confirmEmailAccount.click();
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmEmailAccount);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmEmailAccount);
 			objTestBase.defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();

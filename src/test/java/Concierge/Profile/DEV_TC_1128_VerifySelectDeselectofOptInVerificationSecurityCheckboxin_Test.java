@@ -76,7 +76,13 @@ public class DEV_TC_1128_VerifySelectDeselectofOptInVerificationSecurityCheckbox
 			}
 
 			// Method to close Pop-up Window:
-			objTestBase.closePopupWindow();
+			closePopupWindow();	
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
 			utillLogger.info(testStep + " - " + testStatus);
 
 			// Run the Test Script 2 times for Concierge Signup with Check and Uncheck

@@ -88,7 +88,7 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 	@FindBy(xpath = "//input[@id='login']")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "//*[@id='mail']//font[normalize-space()='Confirm Account']")
@@ -421,7 +421,7 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 		try {
 			driver.switchTo().frame("ifmail");
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmEmailAccount);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmEmailAccount);
 			confirmEmailAccount.click();
 			defaultWaitTime(1000);
 		} catch (Exception ex) {

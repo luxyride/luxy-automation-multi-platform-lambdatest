@@ -493,7 +493,7 @@ public class DEV_TC_1290_VerifyTheAvailabilityOfPassengersWhenACorporateEnrolled
 			driver.switchTo().frame("ifmail");
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmAccount);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmAccount);
 			objTestBase.defaultWaitTime(2000);
 			if (confirmAccount.isDisplayed())
 				visibilityStatus = true;

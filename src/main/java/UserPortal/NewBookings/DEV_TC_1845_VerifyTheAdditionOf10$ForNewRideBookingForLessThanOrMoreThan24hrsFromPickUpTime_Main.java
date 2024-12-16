@@ -34,7 +34,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
@@ -299,7 +299,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
@@ -321,7 +321,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
@@ -340,7 +340,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", extraStopIcon);
+			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
@@ -353,7 +353,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", addextraStop);
+			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
 			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
@@ -457,7 +457,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception ex) {
@@ -482,7 +482,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();

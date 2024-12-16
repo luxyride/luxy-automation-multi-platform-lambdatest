@@ -345,6 +345,11 @@ public class TestBase {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 			wait.until(ExpectedConditions.visibilityOf(element));
+			
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			js.executeScript("window.scrollBy(0,200)", "");
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -627,7 +632,7 @@ public class TestBase {
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", popupChild);
+			js.executeScript("arguments[0].scrollIntoView(true);", popupChild);
 			js.executeScript("window.scrollBy(0,200)", "");
 
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupChild.get(0)));
@@ -792,10 +797,14 @@ public class TestBase {
 			defaultWaitTime(2000);
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();",
+			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElements(
 							By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"))
 							.get(0));
+			js.executeScript("window.scrollBy(0,200)", "");
+
+			js.executeScript("arguments[0].scrollIntoView(true);", driver.findElements(
+					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")));
 			js.executeScript("window.scrollBy(0,200)", "");
 
 			List<WebElement> checkboxFAQs = driver.findElements(
@@ -814,6 +823,10 @@ public class TestBase {
 		try {
 			defaultWaitTime(2000);
 			action = new Actions(driver);
+			js.executeScript("arguments[0].scrollIntoView(true);",
+					driver.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']")));
+			js.executeScript("window.scrollBy(0,200)", "");
+
 			List<WebElement> cardOption = driver
 					.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']"));
 			if (cardOption.size() != 0) {

@@ -207,7 +207,7 @@ public class DEV_TC_2126_VerifyTheAvailabilityOfConfirmedOptionUnderRideStatusIn
 	public Boolean visibilityOfDropDownConfirmedValue(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", confirmed);
+			js.executeScript("arguments[0].scrollIntoView(true);", confirmed);
 			if (confirmed.isDisplayed())
 				visibilityStatus = true;
 			else

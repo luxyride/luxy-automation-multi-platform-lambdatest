@@ -89,7 +89,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				testStatus = "FAILED";
 			}
 
+			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
 			testStep = "Verification user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
@@ -145,6 +152,16 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								donotServeStatus = "afterDONOTSERVEEnabled";
 								driver.get(prop.getProperty("portalURL"));
 								objTestBase.defaultWaitTime(3000);
+								
+								// Method to close Pop-up Window:
+								objTestBase.closePopupWindow();
+								// Configuration for handing mobile simulator testing:
+								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+									|| browserType.equalsIgnoreCase("chromeLocal")) {
+										clickOnToggleNavigationBar();
+								}
+								
 								vechileBooking(donotServeStatus);
 
 								enableDONOTSERVE = false;
@@ -157,6 +174,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								donotServeStatus = "afterDONOTSERVEDisabled";
 								driver.get(prop.getProperty("portalURL"));
 								objTestBase.defaultWaitTime(3000);
+								// Method to close Pop-up Window:
+								objTestBase.closePopupWindow();
+								// Configuration for handing mobile simulator testing:
+								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+									|| browserType.equalsIgnoreCase("chromeLocal")) {
+										clickOnToggleNavigationBar();
+								}
 								vechileBooking(donotServeStatus);
 							}
 						}
@@ -750,6 +775,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				}
 			} else {
 				driver.get(prop.getProperty("portalURL"));
+				// Method to close Pop-up Window:
+				objTestBase.closePopupWindow();
+				// Configuration for handing mobile simulator testing:
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+						clickOnToggleNavigationBar();
+				}
 			}
 
 			objTestBase.defaultWaitTime(2000);

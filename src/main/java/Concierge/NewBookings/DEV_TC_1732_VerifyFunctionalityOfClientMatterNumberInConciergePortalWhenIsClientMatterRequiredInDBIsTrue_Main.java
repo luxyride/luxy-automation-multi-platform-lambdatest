@@ -1094,7 +1094,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -1115,7 +1115,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 				WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(alertMessge));
 				if (displayStatus.isDisplayed()) {
-					js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+					js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 					objTestBase.defaultWaitTime(1000);
 					js.executeScript("window.scrollBy(0,-200)", "");
 					objTestBase.defaultWaitTime(2000);
@@ -1144,7 +1144,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -1191,7 +1191,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -1211,7 +1211,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 		try {
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -1243,7 +1243,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", updateRideDetailsBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", updateRideDetailsBtn);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,5000)", "");
 			objTestBase.defaultWaitTime(2000);
@@ -1275,7 +1275,7 @@ public class DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePorta
 			visibilityStatus = verificationOfEditRidePageNavigation(visibilityStatus);
 			action.moveToElement(loadActivityBtn).click().build().perform();
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", clientMatterNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", clientMatterNumber);
 			objTestBase.defaultWaitTime(1000);
 			js.executeScript("window.scrollBy(0,-300)", "");
 			objTestBase.defaultWaitTime(2000);

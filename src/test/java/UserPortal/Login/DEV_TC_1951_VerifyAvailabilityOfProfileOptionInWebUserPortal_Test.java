@@ -81,15 +81,14 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 				testStatus = "FAILED";
 			}
 			
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
-				clickOnToggleNavigationBar();
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
 			}
-			
-			// ----------------------------------------------------------------------
-			// Method to close Pop-up Window:
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {

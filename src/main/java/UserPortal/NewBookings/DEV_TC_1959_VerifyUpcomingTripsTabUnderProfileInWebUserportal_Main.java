@@ -29,7 +29,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "//a[normalize-space()='Customer Login']")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 	
 	@FindBy(xpath = "(//div[normalize-space()='User Details'])[1]")
@@ -279,7 +279,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception ex) {
@@ -310,7 +310,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
@@ -332,7 +332,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", toAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
@@ -351,7 +351,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", extraStopIcon);
+			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
@@ -364,7 +364,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", addextraStop);
+			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
 			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
@@ -383,7 +383,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();",
+			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")));
 			js.executeScript("window.scrollBy(0,200)", "");
 			driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")).click();
@@ -458,7 +458,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", paymentInfocheckbox);
+			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
@@ -470,7 +470,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", getQuote);
+			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
@@ -577,7 +577,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			waitTimeForElement(bookNextRideBtn);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookNextRideBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookNextRideBtn);
 			js.executeScript("window.scrollBy(0,200)", "");
 			action = new Actions(driver);
 			action.moveToElement(bookNextRideBtn).click().build().perform();
@@ -598,7 +598,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void enterspFirstName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spFirstName);
+			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
@@ -609,7 +609,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void enterspLastName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spLastName);
+			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
@@ -620,7 +620,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void enterspEmail() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spEmail);
+			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
@@ -631,7 +631,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void enterspMobile() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", spMobile);
+			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
 			js.executeScript("window.scrollBy(0,200)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
@@ -643,7 +643,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", airlinesDrpdwnHeader);
+			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnHeader);
 			js.executeScript("window.scrollBy(0,200)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
@@ -659,7 +659,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void enterFlightNumber() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", flightNumber);
+			js.executeScript("arguments[0].scrollIntoView(true);", flightNumber);
 			js.executeScript("window.scrollBy(0,200)", "");
 			flightNumber.sendKeys(prop.getProperty("flightNumber"));
 		} catch (Exception e) {
@@ -711,7 +711,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", vechileAvailableSection);
+			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
 			js.executeScript("window.scrollBy(0,200)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
@@ -802,7 +802,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
 			js.executeScript("window.scrollBy(0,200)", "");
 			
 			if (displayStatus.isDisplayed())
@@ -830,7 +830,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public Boolean visibilityOfVechileSection(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookSedan);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
 			js.executeScript("window.scrollBy(0,200)", "");
 			waitTimeForElement(bookSedan);
 			visibilityStatus = true;
@@ -844,7 +844,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public String captureRideBookingIDs(Boolean visibilityStatus, String scenario, String tripID) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", bookingRideTripId);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
 			js.executeScript("window.scrollBy(0,200)", "");
 			
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {

@@ -361,7 +361,7 @@ public class DEV_TC_1955_VerifyTheAvailabilityOfAddingDriverManuallyForOnaTripsI
 		try {
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", fromAddress);
+			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
 			js.executeScript("window.scrollBy(0,200)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);

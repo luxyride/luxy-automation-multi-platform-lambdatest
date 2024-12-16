@@ -69,7 +69,13 @@ public class DEV_TC_700_VerifyGenerateConciergeAccountByRegisteringCorporateInWe
 			}
 
 			// Method to close Pop-up Window:
-			objTestBase.closePopupWindow();
+			closePopupWindow();	
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verify visibility of Programs dropdown from Homepage Header";

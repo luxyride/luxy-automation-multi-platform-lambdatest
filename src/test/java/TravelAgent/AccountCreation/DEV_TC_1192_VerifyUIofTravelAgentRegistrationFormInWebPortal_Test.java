@@ -71,7 +71,13 @@ public class DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Test e
 			}
 
 			// Method to close Pop-up Window:
-			objTestBase.closePopupWindow();
+			closePopupWindow();	
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+				|| browserType.equalsIgnoreCase("chromeLocal")) {
+					clickOnToggleNavigationBar();
+			}
 
 			scenario = "Without Login";
 			verifyTravelAgentReistrationForm(scenario);

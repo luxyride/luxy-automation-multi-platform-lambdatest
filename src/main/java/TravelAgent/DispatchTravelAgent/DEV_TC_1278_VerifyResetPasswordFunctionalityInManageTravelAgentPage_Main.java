@@ -302,7 +302,7 @@ public class DEV_TC_1278_VerifyResetPasswordFunctionalityInManageTravelAgentPage
 			driver.switchTo().frame("ifmail");
 			objTestBase.defaultWaitTime(2000);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", resetPassword);
+			js.executeScript("arguments[0].scrollIntoView(true);", resetPassword);
 			objTestBase.defaultWaitTime(2000);
 			resetPassword.click();
 		} catch (Exception ex) {

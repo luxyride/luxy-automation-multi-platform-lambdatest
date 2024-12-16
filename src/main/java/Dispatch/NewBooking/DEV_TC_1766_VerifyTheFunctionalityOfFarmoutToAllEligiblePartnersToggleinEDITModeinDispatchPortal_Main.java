@@ -388,7 +388,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 				js.executeScript("window.scrollBy(0,1200)", "");
 				objTestBase.defaultWaitTime(1000);
 
-				js.executeScript("arguments[0].scrollIntoView();", claimRideHours);
+				js.executeScript("arguments[0].scrollIntoView(true);", claimRideHours);
 				defaultWaitTime(500);
 				js.executeScript("window.scrollBy(0,-200)", "");
 
@@ -728,7 +728,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 			objTestBase.defaultWaitTime(1000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", cardHolderName);
+			js.executeScript("arguments[0].scrollIntoView(true);", cardHolderName);
 			defaultWaitTime(2000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 
@@ -780,7 +780,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 	public Boolean visibilityOfUpdateRideBtn(Boolean visibilityStatus) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", updateRideBtn.get(0));
+			js.executeScript("arguments[0].scrollIntoView(true);", updateRideBtn.get(0));
 			defaultWaitTime(2000);
 			if (updateRideBtn.size() != 0)
 				visibilityStatus = true;
@@ -1011,7 +1011,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 	public String captureFarmoutPreferencesClaimRideHoursBeforeUpdate(String claimRideHoursBeforeUpdate) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", claimRideHoursTextMsg);
+			js.executeScript("arguments[0].scrollIntoView(true);", claimRideHoursTextMsg);
 			defaultWaitTime(2000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			defaultWaitTime(500);
@@ -1032,7 +1032,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 	public String updateFarmoutPreferencesClaimRideHours(String claimRideHoursAfterUpdate) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView();", claimRideHoursTextMsg);
+			js.executeScript("arguments[0].scrollIntoView(true);", claimRideHoursTextMsg);
 			defaultWaitTime(2000);
 			js.executeScript("window.scrollBy(0,-200)", "");
 			defaultWaitTime(500);
@@ -1042,7 +1042,7 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 				select.selectByVisibleText("12 hrs");
 				defaultWaitTime(2000);
 
-				js.executeScript("arguments[0].scrollIntoView();", farmoutPartnersBtn);
+				js.executeScript("arguments[0].scrollIntoView(true);", farmoutPartnersBtn);
 				defaultWaitTime(1000);
 				js.executeScript("window.scrollBy(0,-200)", "");
 				defaultWaitTime(500);
