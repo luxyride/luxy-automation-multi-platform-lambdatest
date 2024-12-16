@@ -889,6 +889,10 @@ public class DEV_TC_2105_VerifyThatTheJFKLinkIsIncludedInTheConfirmationEmailFor
 			defaultWaitTime(2000);
 			js.executeScript("arguments[0].scrollIntoView(true);", note);
 			objTestBase.defaultWaitTime(2000);
+			if (note.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

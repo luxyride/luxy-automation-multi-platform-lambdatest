@@ -889,7 +889,10 @@ public class DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmail
 			defaultWaitTime(2000);
 			js.executeScript("arguments[0].scrollIntoView(true);", note);
 			objTestBase.defaultWaitTime(2000);
-			return note == null || !note.isDisplayed();
+			if (!note.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
