@@ -20,6 +20,8 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
+	WebElement customerLogin;
 
 	public DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main(WebDriver driver) {
 		try {
@@ -33,13 +35,26 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
-			if (signinBtn.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (signinBtn.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

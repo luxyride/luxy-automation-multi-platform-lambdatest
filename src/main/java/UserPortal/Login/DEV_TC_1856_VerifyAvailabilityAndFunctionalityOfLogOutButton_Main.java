@@ -147,13 +147,28 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
-			if (signinBtn.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (signinBtn.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

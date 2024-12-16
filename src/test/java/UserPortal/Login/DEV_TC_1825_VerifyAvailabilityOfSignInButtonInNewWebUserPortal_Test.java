@@ -73,19 +73,18 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
+
 			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocal")) {
-					clickOnToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				clickOnToggleNavigationBar();
 			}
 
 			if (testStatus == "PASSED") {
 				testStatus = " ";
-				objTestBase.closePopupWindow();
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
@@ -94,7 +93,6 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
-					objTestBase.closePopupWindow();
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)

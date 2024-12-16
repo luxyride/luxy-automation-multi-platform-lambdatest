@@ -26,10 +26,9 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	Actions action;
 	String expected;
 
-
 	@FindBy(xpath = "//div[@class='choices__inner']")
 	WebElement individual;
-	
+
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
@@ -50,7 +49,6 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
 	WebElement signInBtnDropdown;
-
 
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Location']")
 	WebElement fromAddress;
@@ -99,16 +97,16 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 	@FindBy(xpath = "//button[contains(@aria-label,'Add Secondary Passenger')]")
 	WebElement secondaryPassenger;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[1]")
 	WebElement firstName;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[2]")
 	WebElement lastName;
-	
+
 	@FindBy(xpath = "(//input[@type='tel'])")
 	WebElement mobileInput;
-	
+
 	@FindBy(xpath = "(//input[@id='fname'])[3]")
 	WebElement emailInput;
 
@@ -156,7 +154,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
 	WebElement confirmBookingBtn;
-	
+
 	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
 	WebElement termsAndConditionsCheckbox;
 
@@ -206,7 +204,6 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		}
 	}
 
-
 	public void addFromAddress() {
 		try {
 			action = new Actions(driver);
@@ -237,8 +234,8 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			js.executeScript("window.scrollBy(0,200)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
-	        action.moveToElement(toAddress).click().build().perform();
-	        objTestBase.defaultWaitTime(3000);
+			action.moveToElement(toAddress).click().build().perform();
+			objTestBase.defaultWaitTime(3000);
 			action.sendKeys(Keys.DOWN).build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -269,8 +266,8 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			js.executeScript("window.scrollBy(0,200)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
-	        action.moveToElement(addextraStop).click().build().perform();
-	        objTestBase.defaultWaitTime(3000);
+			action.moveToElement(addextraStop).click().build().perform();
+			objTestBase.defaultWaitTime(3000);
 			action.sendKeys(Keys.DOWN).build().perform();
 			objTestBase.defaultWaitTime(1000);
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -649,7 +646,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			
+
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,200)", "");
 
@@ -766,7 +763,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
 			js.executeScript("window.scrollBy(0,200)", "");
-			
+
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {
 				if (scenario == "Book Sedan") {
 					rideBookingIds.put("sedan", bookingRideTripId.getText().toString());
@@ -805,9 +802,8 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		}		
+		}
 	}
-
 
 	public void clickOnSecondaryPassenger() {
 		try {
@@ -818,10 +814,9 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}
 	}
-	
-	
+
 	public void enterFirstName() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -865,7 +860,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
@@ -897,7 +892,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public void eMailInput() {
 		try {
 			action = new Actions(driver);
@@ -928,12 +923,28 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
-			if (signInBtn_Login.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
-		} catch (Exception ex) {
-			ex.printStackTrace();
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (signInBtn_Login.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return visibilityStatus;
 	}
@@ -946,8 +957,6 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			ex.printStackTrace();
 		}
 	}
-
-
 
 	public Boolean visibilityOfLoggedinUser(Boolean visibilityStatus) {
 		try {
@@ -968,6 +977,4 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		return visibilityStatus;
 	}
 
-
-	
 }

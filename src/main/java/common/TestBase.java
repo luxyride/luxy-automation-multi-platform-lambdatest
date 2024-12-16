@@ -77,7 +77,7 @@ public class TestBase {
 	public static List<WebElement> popupChild;
 	public static String tripIDFarmoutScenario;
 	public static BufferedImage screenFullImage;
-	public static List<WebElement> popupCloseBtn;
+	public static List<WebElement> animatedTeaser;
 	public static String conciergehourlyRideTripID;
 	public static String travelAgenthourlyRideTripID;
 	public static Properties prop = new Properties();
@@ -345,11 +345,11 @@ public class TestBase {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 			wait.until(ExpectedConditions.visibilityOf(element));
-			
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
 			js.executeScript("window.scrollBy(0,200)", "");
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -626,40 +626,22 @@ public class TestBase {
 	public void closePopupWindow() {
 		try {
 			action = new Actions(driver);
-			defaultWaitTime(1000);
+			defaultWaitTime(3000);
 
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
-
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", popupChild);
-			js.executeScript("window.scrollBy(0,200)", "");
-
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupChild.get(0)));
-
 			if (displayStatus.isDisplayed()) {
-				if (popupChild.get(0).isDisplayed()) {
+				if (popupChild.get(0).isDisplayed())
 					action.moveToElement(popupChild.get(0)).click().build().perform();
-					defaultWaitTime(9000);
-					popupCloseBtn = driver.findElements(By.xpath("//*[name()='path']"));
-					if (popupCloseBtn.size() != 0)
-						action.moveToElement(popupCloseBtn.get(0)).click().build().perform();
-				}
 			}
 
-			defaultWaitTime(1000);
+			defaultWaitTime(3000);
 			wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-			List<WebElement> popupMainWindow = driver
-					.findElements(By.xpath("(//div[@data-testid='animated-teaser'])[1]"));
-			displayStatus = wait.until(ExpectedConditions.visibilityOf(popupMainWindow.get(0)));
-
-			if (displayStatus.isDisplayed()) {
-				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].remove();", popupMainWindow);
-			}
-			defaultWaitTime(1000);
-		} catch (ElementNotInteractableException closePopup) {
-		} catch (Exception close) {
+		} catch (ElementNotInteractableException ex) {
+			ex.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
@@ -841,7 +823,7 @@ public class TestBase {
 	// UserPortal Toggle Navigation Bar for SignIn:
 	public void clickOnToggleNavigationBar() {
 		try {
-			defaultWaitTime(2000);
+			defaultWaitTime(6000);
 			action = new Actions(driver);
 			List<WebElement> toggleNavigationBar = driver
 					.findElements(By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]"));

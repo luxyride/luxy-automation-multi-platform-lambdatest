@@ -29,7 +29,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
-	@FindBy(xpath = "((//a[normalize-space()='Customer Login'])[2])[2]")
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
@@ -250,15 +250,30 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-			js.executeScript("window.scrollBy(0,200)", "");
-			if (signInBtn_Login.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
-		} catch (Exception ex) {
-			ex.printStackTrace();
+
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocal")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+				js.executeScript("window.scrollBy(0,200)", "");
+				if (signinBtn.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return visibilityStatus;
 	}
@@ -594,11 +609,11 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
 			clickonFAQscheckbox();
 			objTestBase.defaultWaitTime(1000);
-			
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", termsAndConditionsCheckbox);
 			js.executeScript("window.scrollBy(0,200)", "");
-			
+
 			termsAndConditionsCheckbox.click();
 			objTestBase.defaultWaitTime(1000);
 			action.moveToElement(confirmBookingBtn).click().build().perform();
@@ -684,7 +699,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 			js.executeScript("window.scrollBy(0,200)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
-			
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnValue);
 			js.executeScript("window.scrollBy(0,200)", "");
@@ -921,7 +936,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
 			js.executeScript("window.scrollBy(0,200)", "");
-			
+
 			action.moveToElement(signinBtn).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
 		} catch (Exception ex) {
