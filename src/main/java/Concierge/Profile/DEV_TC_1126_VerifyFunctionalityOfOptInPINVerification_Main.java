@@ -1068,7 +1068,7 @@ public class DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Main extends 
 
 			action.moveToElement(formOutTabDispatch).click().build().perform();
 			objTestBase.defaultWaitTime(500);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objTestBase.defaultWaitTime(500);
 			action.moveToElement(companyNameDispatch).click().sendKeys(prop.getProperty("conciergeCompanyName")).build()
 					.perform();

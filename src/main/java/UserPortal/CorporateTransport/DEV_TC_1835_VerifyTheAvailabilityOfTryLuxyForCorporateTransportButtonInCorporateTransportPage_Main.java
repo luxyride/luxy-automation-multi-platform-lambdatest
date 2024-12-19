@@ -66,7 +66,7 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			if (corporateSignup.isDisplayed())
 				visibilityStatus = true;
@@ -118,7 +118,7 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
@@ -136,7 +136,7 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {

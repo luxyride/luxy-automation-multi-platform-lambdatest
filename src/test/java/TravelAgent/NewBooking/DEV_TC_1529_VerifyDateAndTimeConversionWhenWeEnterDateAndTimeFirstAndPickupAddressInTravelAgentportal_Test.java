@@ -210,7 +210,7 @@ public class DEV_TC_1529_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstA
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifySighninMain.enterspFirstName();

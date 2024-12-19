@@ -348,7 +348,7 @@ public class TestBase {
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -590,7 +590,7 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocal")) {
+//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {
 //				localExecutionFlag = true;
 //				System.setProperty("webdriver.http.factory", "jdk-http-client");
 //				WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -627,7 +627,6 @@ public class TestBase {
 		try {
 			action = new Actions(driver);
 			defaultWaitTime(3000);
-
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupChild.get(0)));
@@ -635,13 +634,9 @@ public class TestBase {
 				if (popupChild.get(0).isDisplayed())
 					action.moveToElement(popupChild.get(0)).click().build().perform();
 			}
-
 			defaultWaitTime(3000);
-			wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		} catch (ElementNotInteractableException ex) {
-			ex.printStackTrace();
 		} catch (Exception ex) {
-			ex.printStackTrace();
 		}
 	}
 
@@ -783,11 +778,11 @@ public class TestBase {
 					driver.findElements(
 							By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"))
 							.get(0));
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			js.executeScript("arguments[0].scrollIntoView(true);", driver.findElements(
 					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")));
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			List<WebElement> checkboxFAQs = driver.findElements(
 					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"));
@@ -807,7 +802,7 @@ public class TestBase {
 			action = new Actions(driver);
 			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']")));
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			List<WebElement> cardOption = driver
 					.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']"));
@@ -828,7 +823,7 @@ public class TestBase {
 			List<WebElement> toggleNavigationBar = driver
 					.findElements(By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]"));
 			if (toggleNavigationBar.size() != 0)
-				action.moveToElement(toggleNavigationBar.get(0)).click().build().perform();
+				toggleNavigationBar.get(0).click();
 
 			defaultWaitTime(2000);
 		} catch (Exception e) {

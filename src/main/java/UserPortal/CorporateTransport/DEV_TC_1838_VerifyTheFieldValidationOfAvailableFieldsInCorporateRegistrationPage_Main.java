@@ -71,7 +71,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (corporateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -88,7 +88,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -123,7 +123,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 					&& expected.toLowerCase().contains("corporate"))
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (corporateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -139,7 +139,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -156,7 +156,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -168,7 +168,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (companyName.isDisplayed() && fName.isDisplayed() && lName.isDisplayed() && workAddress.isDisplayed()
 					&& eMailInput.isDisplayed() && phoneInput.isDisplayed() && termsConditionsChckbx.isDisplayed()
 					&& signupCreateBtn.isDisplayed())
@@ -187,7 +187,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(signupCreateBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -198,7 +198,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", errorMessage);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			if (errorMessage.isDisplayed())
 				visibilityStatus = true;

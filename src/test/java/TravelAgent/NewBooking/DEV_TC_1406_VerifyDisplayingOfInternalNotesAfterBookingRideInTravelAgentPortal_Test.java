@@ -151,7 +151,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			objVerifyBookedRideCorporateMain.addToAddress();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objVerifyBookedRideCorporateMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifyBookedRideCorporateMain.clickOngetQuote();
@@ -307,7 +307,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 							}
 						} else {
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,200)", "");
+							js.executeScript("window.scrollBy(0,50)", "");
 							objTestBase.defaultWaitTime(2000);
 							
 							clickOnCardOption();

@@ -163,7 +163,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (corporateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -180,7 +180,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -215,7 +215,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 					&& expected.toLowerCase().contains("corporate"))
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (corporateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -231,7 +231,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -247,7 +247,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -293,7 +293,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			signupCreateBtn.click();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -326,7 +326,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (signupCreateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -344,7 +344,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			currURL = driver.getCurrentUrl();
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", dispatcheMailInput);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			dispatcheMailInput.sendKeys(prop.getProperty("dispatchadminMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 			dispatchpasswordInput.sendKeys(prop.getProperty("dispatchadminPwd"));
@@ -361,7 +361,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", dispatchsigninUser);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			waitTimeForElement(dispatchsigninUser);
 			if (dispatchsigninUser.isDisplayed()) {
 				expected = dispatchsigninUser.getText();
@@ -384,13 +384,13 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateTab);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(corporateTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", searchItem);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(searchItem).click().sendKeys(prop.getProperty("conciergeCName")).build().perform();
 			objTestBase.defaultWaitTime(2000);
 
@@ -419,13 +419,13 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", conciergeTab);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(conciergeTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", searchItem);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			action.moveToElement(searchItem).click().sendKeys(eMail).build().perform();
 			objTestBase.defaultWaitTime(2000);
@@ -477,7 +477,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", clearBtn.get(0));
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 
 			if (clearBtn.get(0).isDisplayed()) {
 				waitTimeForElement(clearBtn.get(0));
@@ -495,7 +495,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			String[] tempEmail = eMail.toString().split("@");
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", loginBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			loginBtn.sendKeys(tempEmail[0]);
 			action.sendKeys(Keys.ENTER).build().perform();
 			driver.navigate().refresh();
@@ -525,7 +525,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmEmailAccount);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objTestBase.defaultWaitTime(2000);
 			confirmEmailAccount.click();
 			objTestBase.defaultWaitTime(2000);
@@ -579,7 +579,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", password);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(password).click().sendKeys(prop.getProperty("regPwd")).build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -591,13 +591,13 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(signInBtn).click().build().perform();
 			Thread.sleep(1000);
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (customerLogin.isDisplayed())
 				action.moveToElement(customerLogin).click().build().perform();
 			Thread.sleep(1000);
@@ -614,7 +614,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			eMailInput.sendKeys(eMail);
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception ex) {
@@ -628,7 +628,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", password);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			password.sendKeys(prop.getProperty("regPwd"));
 			action.sendKeys(Keys.TAB).build().perform();
 			action.sendKeys(Keys.ENTER).build().perform();
@@ -641,7 +641,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", loggedInDrpdwn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (loggedInDrpdwn.isDisplayed()) {
 				waitTimeForElement(loggedInDrpdwn);
 				String tempText = loggedInDrpdwn.getText();
@@ -661,7 +661,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmAccount);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			confirmAccount.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();

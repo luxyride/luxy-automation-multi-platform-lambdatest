@@ -81,14 +81,14 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				clickOnToggleNavigationBar();
 			}
 
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 
 				testStep = "Verify visibility of travel Agent  from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);

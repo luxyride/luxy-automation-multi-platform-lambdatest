@@ -77,7 +77,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocal")) {
+				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 					clickOnToggleNavigationBar();
 			}
 
@@ -88,7 +88,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 				objTestBase.defaultWaitTime(1000);
 				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
 						|| !browserType.equalsIgnoreCase("chromeiOSMobileView")
-						|| !browserType.equalsIgnoreCase("chromeLocal")) {
+						|| !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 					objVerifySighninMain.clickSignIn();
 					objTestBase.defaultWaitTime(2000);
 				}

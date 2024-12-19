@@ -85,13 +85,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			Thread.sleep(1000);
 			if (customerLogin.isDisplayed()) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				action.moveToElement(customerLogin).click().build().perform();
 			}
 			Thread.sleep(1000);
@@ -108,7 +108,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception ex) {
@@ -121,7 +121,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -133,7 +133,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eyeIcon);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(eyeIcon).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -145,10 +145,10 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -156,7 +156,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				if (signInBtn_Login.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -174,7 +174,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(signInBtn_Login).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -186,7 +186,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			waitTimeForElement(signInBtnDropdown);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (signInBtnDropdown.isDisplayed()) {
 				expected = signInBtnDropdown.getText();
 				if (expected.toLowerCase().contains("welcome")) {
@@ -208,7 +208,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
 
@@ -221,7 +221,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (customerLogin.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -237,7 +237,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(customerLogin).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -249,7 +249,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", welcomeDropDown);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(welcomeDropDown).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -260,7 +260,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", profileOption);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (profileOption.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -276,7 +276,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", profileOption);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(profileOption).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -287,7 +287,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", userDetails);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (userDetails.isDisplayed() && myRideBookings.isDisplayed() && logOutBtn.isDisplayed()
 					&& submitBtn.isDisplayed())
 				visibilityStatus = true;

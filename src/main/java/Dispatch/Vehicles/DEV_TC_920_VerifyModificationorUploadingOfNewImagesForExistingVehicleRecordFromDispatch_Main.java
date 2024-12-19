@@ -245,7 +245,7 @@ public class DEV_TC_920_VerifyModificationorUploadingOfNewImagesForExistingVehic
 				objTestBase.defaultWaitTime(3000);
 
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 
 				vinNumber.click();
 				vinNumber.sendKeys(Keys.CONTROL + "A");

@@ -260,10 +260,10 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -271,7 +271,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				if (signInBtn_Login.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -316,7 +316,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -338,7 +338,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(toAddress).click().build().perform();
@@ -357,7 +357,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
@@ -370,7 +370,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
 	        action.moveToElement(addextraStop).click().build().perform();
@@ -474,7 +474,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -499,7 +499,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toLowerCase().contains("choose") && vechileAvailableList.size() != 0) {

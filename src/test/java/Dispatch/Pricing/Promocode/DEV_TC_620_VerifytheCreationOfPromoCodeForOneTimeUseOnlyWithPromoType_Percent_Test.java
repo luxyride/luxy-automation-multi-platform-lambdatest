@@ -229,7 +229,7 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocal")) {
+				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 					clickOnToggleNavigationBar();
 			}
 
@@ -417,7 +417,7 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				visibilityStatus = objVerifyPromocodePercentMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -439,7 +439,7 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				// Configuration for handing mobile simulator testing:
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocal")) {
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 						clickOnToggleNavigationBar();
 				}
 				testStatus = "PASSED";

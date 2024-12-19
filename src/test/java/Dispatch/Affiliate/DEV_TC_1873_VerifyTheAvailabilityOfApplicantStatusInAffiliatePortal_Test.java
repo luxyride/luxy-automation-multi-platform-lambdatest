@@ -110,7 +110,7 @@ public class DEV_TC_1873_VerifyTheAvailabilityOfApplicantStatusInAffiliatePortal
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 
-					js.executeScript("window.scrollBy(0,200)", "");
+					js.executeScript("window.scrollBy(0,50)", "");
 					objTestBase.defaultWaitTime(2000);
 
 					testStep = "Verification of Account Activation Confirmation Message Displayed for registered User - "

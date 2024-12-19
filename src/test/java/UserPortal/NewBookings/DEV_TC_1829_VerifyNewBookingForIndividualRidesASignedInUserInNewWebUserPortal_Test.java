@@ -281,7 +281,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.addAirline();
@@ -329,7 +329,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 				visibilityStatus = objVerifyNewBookingMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,200)", "");
+				js.executeScript("window.scrollBy(0,50)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {

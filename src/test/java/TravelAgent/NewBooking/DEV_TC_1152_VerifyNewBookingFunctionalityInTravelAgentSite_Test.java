@@ -149,7 +149,7 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Test ext
 			objVerifySighninMain.addExtraStop();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)", "");
+			js.executeScript("window.scrollBy(0,50)", "");
 			objVerifySighninMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifySighninMain.clickOngetQuote();
