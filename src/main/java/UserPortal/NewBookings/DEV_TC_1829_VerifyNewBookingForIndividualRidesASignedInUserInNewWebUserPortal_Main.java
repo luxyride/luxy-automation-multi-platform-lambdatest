@@ -29,7 +29,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "//div[@class='choices__inner']")
 	WebElement individual;
 
-	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")

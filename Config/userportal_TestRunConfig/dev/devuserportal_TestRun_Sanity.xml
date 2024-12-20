@@ -3,7 +3,7 @@
 <suite name="LuxyNewUserPortal_Sanity" thread-count="4"
 	preserve-order="true">
 	<parameter name="environment" value="devuserportal" />
-	<parameter name="browser" value="chromeLocal" />
+	<parameter name="browser" value="chromeLocalMobileView" />
 	<listeners>
 		<listener class-name="Common.LuxyAuto_ITestListener" />
 	</listeners>

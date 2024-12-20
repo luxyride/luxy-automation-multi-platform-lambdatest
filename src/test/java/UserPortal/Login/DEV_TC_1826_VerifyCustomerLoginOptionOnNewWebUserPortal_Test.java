@@ -133,7 +133,6 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)

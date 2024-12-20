@@ -56,7 +56,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "//div[@class='alert alert-success success_box m-top-1']//span")
 	WebElement successMsg;
 
-	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "(//*[contains(normalize-space(),'Your registration with LUXY is successful')])[1]")

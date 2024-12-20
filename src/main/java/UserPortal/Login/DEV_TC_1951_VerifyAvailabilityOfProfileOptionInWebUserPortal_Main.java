@@ -25,8 +25,14 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 	Actions action;
 	String expected;
 
-	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
+
+	@FindBy(xpath = "(//a[normalize-space()='Logout'])[2]")
+	WebElement logoutBtn;
+
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signinBtnNormalView;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
@@ -253,36 +259,6 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 			ex.printStackTrace();
 		}
 	}
-	
-	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
-		try {
-
-			// Configuration for handing mobile simulator testing:
-			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
-				if (customerLogin.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
-			} else {
-				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-				js.executeScript("window.scrollBy(0,50)", "");
-				if (signinBtn.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return visibilityStatus;
-	}
 
 	public void clickSigninButton() {
 		try {
@@ -290,19 +266,7 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(signInBtn_Login).click().build().perform();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-	}
-
-	public void clickOnSecondaryPassenger() {
-		try {
-			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", secondaryPassenger);
-			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(secondaryPassenger).click().build().perform();
+			signInBtn_Login.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -310,19 +274,25 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 
 	public Boolean visibilityOfLoggedinUser(Boolean visibilityStatus) {
 		try {
-			waitTimeForElement(signInBtnDropdown);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-			js.executeScript("window.scrollBy(0,50)", "");
-			if (signInBtnDropdown.isDisplayed()) {
-				expected = signInBtnDropdown.getText();
-				if (expected.toLowerCase().contains("welcome")) {
-					visibilityStatus = true;
-				} else {
-					visibilityStatus = false;
-				}
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOnToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
+				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
 			} else {
-				visibilityStatus = false;
+				waitTimeForElement(signInBtnDropdown);
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
+				js.executeScript("window.scrollBy(0,50)", "");
+				if (signInBtnDropdown.isDisplayed()) {
+					expected = signInBtnDropdown.getText();
+					if (expected.toLowerCase().contains("welcome"))
+						visibilityStatus = true;
+					else
+						visibilityStatus = false;
+				} else
+					visibilityStatus = false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -330,13 +300,43 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 		return visibilityStatus;
 	}
 
-	public void clickSignIn() {
+	public Boolean visibilityOfLogoutButton(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", logoutBtn);
+			js.executeScript("window.scrollBy(0,50)", "");
+			if (logoutBtn.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("window.scrollBy(0,50)", "");
+			if (signInBtn_Login.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickSignInNormalView() {
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtnNormalView);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(signinBtn).click().build().perform();
+			action.moveToElement(signinBtnNormalView).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -358,6 +358,21 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 		return visibilityStatus;
 	}
 
+	public Boolean visibilityOfSignInButtonNormalView(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtnNormalView);
+			js.executeScript("window.scrollBy(0,50)", "");
+			if (signinBtnNormalView.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
@@ -365,6 +380,70 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,50)", "");
 			action.moveToElement(customerLogin).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void clickOnProfileDropDown() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
+			js.executeScript("window.scrollBy(0,50)", "");
+			action.moveToElement(signInBtnDropdown).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfLogOutButton(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,50)", "");
+			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnLogOut() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", logoutBtn);
+			js.executeScript("window.scrollBy(0,50)", "");
+			action.moveToElement(logoutBtn).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void clickOnSecondaryPassenger() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", secondaryPassenger);
+			js.executeScript("window.scrollBy(0,50)", "");
+			action.moveToElement(secondaryPassenger).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void clickSignIn() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+			js.executeScript("window.scrollBy(0,50)", "");
+			action.moveToElement(signinBtn).click().build().perform();
+			action.moveToElement(signinBtn).build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

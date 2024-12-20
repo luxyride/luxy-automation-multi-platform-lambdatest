@@ -36,7 +36,7 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	WebDriver driver;
 	Boolean modifyDateFlag = false;
 
-	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "((//a[normalize-space()='Customer Login'])[2])[1]")

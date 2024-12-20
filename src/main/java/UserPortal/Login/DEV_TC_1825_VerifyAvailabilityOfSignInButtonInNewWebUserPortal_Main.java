@@ -17,7 +17,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 	Actions action;
 	String expected;
 
-	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
