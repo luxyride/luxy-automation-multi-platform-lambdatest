@@ -82,7 +82,7 @@ public class DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTrave
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			// Configuration for handing mobile simulator testing:

@@ -78,7 +78,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);

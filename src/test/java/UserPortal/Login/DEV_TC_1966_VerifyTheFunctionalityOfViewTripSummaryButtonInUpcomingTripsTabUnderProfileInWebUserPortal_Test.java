@@ -85,7 +85,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
 			// ----------------------------------------------------------------------

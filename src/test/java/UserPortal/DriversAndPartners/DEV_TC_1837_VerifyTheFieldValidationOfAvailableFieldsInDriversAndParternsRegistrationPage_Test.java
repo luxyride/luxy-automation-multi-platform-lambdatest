@@ -84,7 +84,7 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of Affiliate  from Homepage Header";

@@ -82,7 +82,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of Affiliate  from Homepage Header";

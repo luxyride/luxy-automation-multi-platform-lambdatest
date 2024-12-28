@@ -87,7 +87,7 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verification customer user login";
@@ -376,7 +376,7 @@ public class DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursH
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

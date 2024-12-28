@@ -80,7 +80,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verification user login";

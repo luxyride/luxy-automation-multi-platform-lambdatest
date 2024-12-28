@@ -74,7 +74,7 @@ public class DEV_TC_700_VerifyGenerateConciergeAccountByRegisteringCorporateInWe
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);

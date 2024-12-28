@@ -82,7 +82,7 @@ public class DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgen
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
 			// Configuration for handing mobile simulator testing:

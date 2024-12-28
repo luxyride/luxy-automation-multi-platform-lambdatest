@@ -87,7 +87,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test 
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification customer user login";
@@ -366,7 +366,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test 
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

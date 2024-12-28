@@ -590,7 +590,7 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {
+//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {	// chromeLocal or chromeLocalMobileView
 //				localExecutionFlag = true;
 //				System.setProperty("webdriver.http.factory", "jdk-http-client");
 //				WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -608,11 +608,11 @@ public class TestBase {
 //				chromeOptions.addArguments("--remote-allow-origins=*");
 //				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 //				chromeOptions.setExperimentalOption("prefs", prefs);
-//
+//				//-----------------------------------------------------------------------
 //				// Mobile View Configuration:
 //				chromeOptions.setExperimentalOption("mobileEmulation",
 //						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
-//
+//				//-----------------------------------------------------------------------
 //				driver = new ChromeDriver(chromeOptions);
 //			}
 			// ######################################################################## //
@@ -626,7 +626,7 @@ public class TestBase {
 	public void closePopupWindow() {
 		try {
 			action = new Actions(driver);
-			defaultWaitTime(3000);
+			defaultWaitTime(1000);
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 			popupChild = driver.findElements(By.xpath("(//*[name()='circle'])[1]"));
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupChild.get(0)));
@@ -634,7 +634,7 @@ public class TestBase {
 				if (popupChild.get(0).isDisplayed())
 					action.moveToElement(popupChild.get(0)).click().build().perform();
 			}
-			defaultWaitTime(3000);
+			defaultWaitTime(1000);
 		} catch (ElementNotInteractableException ex) {
 		} catch (Exception ex) {
 		}
@@ -815,16 +815,18 @@ public class TestBase {
 		}
 	}
 
-	// UserPortal Toggle Navigation Bar for SignIn:
-	public void clickOnToggleNavigationBar() {
+	// UserPortal 3 Horizontal Toggle Navigation Bar for SignIn[Simulator View]:
+	public void clickOn3HorizontalToggleNavigationBar() {
 		try {
 			defaultWaitTime(6000);
 			action = new Actions(driver);
-			List<WebElement> toggleNavigationBar = driver
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+					By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]")));
+			List<WebElement> displayStatus = driver
 					.findElements(By.xpath("(//div[normalize-space()='Book Now'])[1]//following::button[1]"));
-			if (toggleNavigationBar.size() != 0)
-				toggleNavigationBar.get(0).click();
-
+			if (displayStatus.size() != 0)
+				action.moveToElement(displayStatus.get(0)).click().build().perform();
 			defaultWaitTime(2000);
 		} catch (Exception e) {
 			e.printStackTrace();

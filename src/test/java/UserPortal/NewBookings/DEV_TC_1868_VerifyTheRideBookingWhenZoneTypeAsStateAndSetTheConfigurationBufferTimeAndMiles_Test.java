@@ -95,7 +95,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			testStep = "Verification user login";
 			if (testStatus == "PASSED") {
@@ -159,7 +159,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 									|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-										clickOnToggleNavigationBar();
+										clickOn3HorizontalToggleNavigationBar();
 								}
 								
 								vechileBooking(donotServeStatus);
@@ -180,7 +180,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 									|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-										clickOnToggleNavigationBar();
+										clickOn3HorizontalToggleNavigationBar();
 								}
 								vechileBooking(donotServeStatus);
 							}
@@ -781,7 +781,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

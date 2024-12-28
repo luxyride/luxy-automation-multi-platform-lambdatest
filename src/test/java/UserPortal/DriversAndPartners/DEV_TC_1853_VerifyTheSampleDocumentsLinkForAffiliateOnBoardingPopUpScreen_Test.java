@@ -77,7 +77,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of Affiliate  from Homepage Header";

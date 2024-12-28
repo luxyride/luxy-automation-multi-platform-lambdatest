@@ -231,7 +231,7 @@ public class DEV_TC_621_VerifytheCreationOfPromoCodeForMultipleUsesWithPromoType
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification user login";
@@ -441,7 +441,7 @@ public class DEV_TC_621_VerifytheCreationOfPromoCodeForMultipleUsesWithPromoType
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 				testStatus = "PASSED";
 			}

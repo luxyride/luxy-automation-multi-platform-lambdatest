@@ -82,14 +82,14 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 
 				testStep = "Verify visibility of travel Agent  from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);
