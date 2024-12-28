@@ -86,7 +86,7 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification customer user login";
@@ -100,7 +100,7 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 					objVerifyNewBookingMain.clickSignInNormalView();
 					objTestBase.defaultWaitTime(2000);
 				} else {
-					testStep = "Verify customer log-in opion under sign in dropdown ";
+					testStep = "Verify visibility of Customer Login";
 					visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
@@ -132,14 +132,12 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingMain.clickSigninButton();
-					objTestBase.defaultWaitTime(3000);
-					testStatus = "PASSED";
+					objTestBase.defaultWaitTime(6000);
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
@@ -164,16 +162,30 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 			}
 			utillLogger.info(testStep + " - " + testStatus);
 
-			objTestBase.defaultWaitTime(2000);
-			testStep = "Verify customer log-in opion under sign in dropdown ";
-			// Configuration for handing mobile simulator testing:
+			// Validation of PROFILE option availability:
+			testStep = "Verify availability of PROFILE option.?";
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus,
+						"profileOptionSimulatorView");
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
 			} else {
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfSignInButtonNormalView(visibilityStatus);
+				objTestBase.defaultWaitTime(2000);
+				objVerifyNewBookingMain.clickWelcomeDropDown();
+				objTestBase.defaultWaitTime(3000);
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus,
+						"profileOptionNormalViewF");
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -187,28 +199,6 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 				}
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickWelcomeDropDown();
-			objTestBase.defaultWaitTime(3000);
-
-			testStep = "Verify availability of PROFILE option under dropdown ";
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus);
-			testStep = "verifi profile option under welcome dropdown";
-			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
-			}
-			utillLogger.info(testStep + " - " + testStatus);
 			objTestBase.defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -219,12 +209,14 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test e
 	public void afterClass() {
 		driver.quit();
 		// Print the Captured the Ride Booking ids - captured from
-		// DEV_TC_1092_VerifyCustomerLoginOptionOnWebUserPortal_Test Test Case:
+		// DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test Test Case:
 		utillLogger.info("//--------------------------------------------------------------------------------------//");
 		for (Map.Entry<String, String> entry : rideBookingIds.entrySet()) {
-			System.out.println("Booking IDs from TC: DEV_TC_1092_VerifyCustomerLoginOptionOnWebUserPortal_Test = "
-					+ "Total TripIDs = " + rideBookingIds.size() + " - " + entry.getKey() + " - " + entry.getValue());
-			utillLogger.info("Booking IDs from TC: DEV_TC_1092_VerifyCustomerLoginOptionOnWebUserPortal_Test = "
+			System.out
+					.println("Booking IDs from TC: DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test = "
+							+ "Total TripIDs = " + rideBookingIds.size() + " - " + entry.getKey() + " - "
+							+ entry.getValue());
+			utillLogger.info("Booking IDs from TC: DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test = "
 					+ "Total TripIDs = " + rideBookingIds.size() + entry.getKey() + " - " + entry.getValue());
 		}
 		utillLogger.info("//--------------------------------------------------------------------------------------//");

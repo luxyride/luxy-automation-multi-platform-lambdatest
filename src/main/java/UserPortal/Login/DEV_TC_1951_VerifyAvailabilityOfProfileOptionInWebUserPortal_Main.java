@@ -41,7 +41,10 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 	WebElement welcomeDropDown;
 
 	@FindBy(xpath = "(//a[@label='Profile'])[1]")
-	WebElement profileOption;
+	WebElement profileOptionNormalView;
+
+	@FindBy(xpath = "(//a[@label='Profile'])[2]")
+	WebElement profileOptionSimulatorView;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
 	WebElement eMailInput;
@@ -278,7 +281,7 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
+				clickOn3HorizontalToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
 				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
 			} else {
 				waitTimeForElement(signInBtnDropdown);
@@ -461,15 +464,25 @@ public class DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Main e
 		}
 	}
 
-	public Boolean visibilityOfProfileOption(Boolean visibilityStatus) {
+	public Boolean visibilityOfProfileOption(Boolean visibilityStatus, String viewName) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", welcomeDropDown);
-			js.executeScript("window.scrollBy(0,50)", "");
-			if (customerLogin.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			if (viewName.equalsIgnoreCase("profileOptionNormalView")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", profileOptionNormalView);
+				js.executeScript("window.scrollBy(0,50)", "");
+				if (profileOptionNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", profileOptionSimulatorView);
+				js.executeScript("window.scrollBy(0,50)", "");
+				if (profileOptionSimulatorView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -58,7 +58,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 			objTestBase.defaultWaitTime(2000);
 
 			currURL = driver.getCurrentUrl();
-			testStep = "visibility of sign in Button ";
+			testStep = "Verification of User Portal Landing Page";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
 				if (localExecutionFlag == true)
@@ -80,9 +80,10 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
+			testStep = "Verify visibility of SIGN IN option from User Portal Landing Page";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);

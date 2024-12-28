@@ -38,14 +38,17 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 	@FindBy(xpath = "(//*[name()='path'])[4]")
 	WebElement eyeIcon;
 
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
+
 	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
-	WebElement signInBtn_Login;
+	WebElement loginAndContinue;
 
 	@FindBy(xpath = "(//a[normalize-space()='Logout'])[2]")
 	WebElement logoutBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
-	WebElement signInBtn_LoginDropdown;
+	WebElement loginAndContinueDropdown;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Location']")
 	WebElement fromAddress;
@@ -193,9 +196,9 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(signInBtn_Login).click().build().perform();
+			action.moveToElement(loginAndContinue).click().build().perform();
 			Thread.sleep(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
@@ -250,13 +253,26 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-			js.executeScript("window.scrollBy(0,50)", "");
-			if (signInBtn_Login.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,50)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
+				js.executeScript("window.scrollBy(0,50)", "");
+				if (signInBtnNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -267,9 +283,9 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(signInBtn_Login).click().build().perform();
+			loginAndContinue.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -293,15 +309,15 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();	//Click on 3 Lines Navigation Bar:
+				clickOn3HorizontalToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
 				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
 			} else {
-				waitTimeForElement(signInBtn_LoginDropdown);
+				waitTimeForElement(loginAndContinueDropdown);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_LoginDropdown);
+				js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinueDropdown);
 				js.executeScript("window.scrollBy(0,50)", "");
-				if (signInBtn_LoginDropdown.isDisplayed()) {
-					expected = signInBtn_LoginDropdown.getText();
+				if (loginAndContinueDropdown.isDisplayed()) {
+					expected = loginAndContinueDropdown.getText();
 					if (expected.toLowerCase().contains("welcome"))
 						visibilityStatus = true;
 					else
@@ -943,9 +959,9 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(signInBtn_Login).click().build().perform();
+			action.moveToElement(loginAndContinue).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -972,7 +988,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,50)", "");
-			action.moveToElement(customerLogin).click().build().perform();
+			customerLogin.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
