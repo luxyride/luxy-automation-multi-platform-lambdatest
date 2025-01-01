@@ -209,14 +209,14 @@ public class DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInP
 			}
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyNewBookingConciergeMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.addAirline();
@@ -226,7 +226,7 @@ public class DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInP
 			objVerifyNewBookingConciergeMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			clickOnCardOption();
@@ -236,7 +236,7 @@ public class DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInP
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

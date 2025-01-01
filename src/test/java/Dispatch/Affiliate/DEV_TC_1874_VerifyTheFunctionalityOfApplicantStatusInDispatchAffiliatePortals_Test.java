@@ -167,7 +167,7 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 					objTestBase.defaultWaitTime(2000);
 
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,300)", "");
+					
 					objTestBase.defaultWaitTime(2000);
 
 					if (testStatus == "PASSED") {
@@ -342,7 +342,7 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 								objTestBase.defaultWaitTime(2000);
 
 								js = (JavascriptExecutor) driver;
-								js.executeScript("window.scrollBy(0,300)", "");
+								
 								objTestBase.defaultWaitTime(2000);
 
 								if (testStatus == "PASSED") {

@@ -414,7 +414,7 @@ public class DEV_TC_1729_VerifyTheFunctionalityOfEmployeeIdInConciergePortalWhen
 			mobileInput.sendKeys(prop.getProperty("phoneNumber"));
 			defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(3000);
 
 			employeInput.sendKeys(prop.getProperty("invalidEmployee"));

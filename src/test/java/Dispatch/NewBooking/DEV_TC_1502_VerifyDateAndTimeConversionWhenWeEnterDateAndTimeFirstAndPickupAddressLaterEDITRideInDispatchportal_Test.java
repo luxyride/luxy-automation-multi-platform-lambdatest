@@ -229,7 +229,7 @@ public class DEV_TC_1502_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstA
 				}
 			} else {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 				
 				clickOnCardOption();

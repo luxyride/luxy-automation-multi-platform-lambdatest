@@ -266,7 +266,7 @@ public class DEV_TC_923_VerifyNewVehicleRegistrationInDispatchSite_Main extends 
 				objTestBase.defaultWaitTime(2000);
 
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 
 				action.moveToElement(vinNumber).click().sendKeys(prop.getProperty("vinNumber")).build().perform();
 				objTestBase.defaultWaitTime(1000);
@@ -275,7 +275,7 @@ public class DEV_TC_923_VerifyNewVehicleRegistrationInDispatchSite_Main extends 
 
 				enterDate();
 				objTestBase.defaultWaitTime(2000);
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 
 				utillLogger.info("DEV_TC_923 - Docker UserName = " + " - " + System.getProperty("user.name"));
 				if (System.getProperty("user.name").equalsIgnoreCase("circleci")) // Docker Env. User Name
@@ -299,7 +299,7 @@ public class DEV_TC_923_VerifyNewVehicleRegistrationInDispatchSite_Main extends 
 					objTestBase.defaultWaitTime(15000);
 				}
 
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(15000);
 
 				saveBtn.click();

@@ -115,7 +115,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
 				
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				
 				if (visibilityStatus.booleanValue() == true) {
@@ -200,7 +200,7 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 		
 			utillLogger.info(testStep + " - " + testStatus);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			objTestBase.defaultWaitTime(2000);

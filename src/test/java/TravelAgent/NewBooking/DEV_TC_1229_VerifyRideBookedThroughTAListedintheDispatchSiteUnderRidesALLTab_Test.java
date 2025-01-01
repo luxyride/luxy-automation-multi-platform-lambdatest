@@ -155,7 +155,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 			objVerifySighninMain.addExtraStop();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objVerifySighninMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifySighninMain.clickOngetQuote();
@@ -175,7 +175,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 			objVerifySighninMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifySighninMain.clickOnYes();
 			objTestBase.defaultWaitTime(3000);
@@ -185,7 +185,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifySighninMain.addAirline();
@@ -195,7 +195,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 			objVerifySighninMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(3000);
 
 			clickOnCardOption();
@@ -205,7 +205,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -372,7 +372,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				objVerifySighninMain.enterSearch(tripID);
 				objTestBase.defaultWaitTime(3000);
@@ -401,7 +401,7 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				objVerifySighninMain.enterSearch(tripID);
 				objTestBase.defaultWaitTime(3000);

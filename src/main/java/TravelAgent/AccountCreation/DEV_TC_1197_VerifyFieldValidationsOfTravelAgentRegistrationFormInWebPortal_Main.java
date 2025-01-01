@@ -544,7 +544,7 @@ public class DEV_TC_1197_VerifyFieldValidationsOfTravelAgentRegistrationFormInWe
 							"Travel Agent Local Path = " + localTravelAgentDocsPath + "TestDDForm_InvalidFileType.jpg");
 					defaultWaitTime(1000);
 				}
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				createBtn.click();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 				WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(alertMessge));

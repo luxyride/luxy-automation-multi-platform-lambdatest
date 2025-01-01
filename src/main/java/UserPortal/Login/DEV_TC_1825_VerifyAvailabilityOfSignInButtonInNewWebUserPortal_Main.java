@@ -44,7 +44,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -52,7 +52,7 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (signInBtnNormalView.isDisplayed())
 					visibilityStatus = true;
 				else

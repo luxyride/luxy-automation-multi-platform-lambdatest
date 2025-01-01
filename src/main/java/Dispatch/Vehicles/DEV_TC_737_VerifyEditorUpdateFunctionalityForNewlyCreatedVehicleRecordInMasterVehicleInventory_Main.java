@@ -254,7 +254,7 @@ public class DEV_TC_737_VerifyEditorUpdateFunctionalityForNewlyCreatedVehicleRec
 				vehicleDataAfterEdit.put("editvehicleType", ele.getText());
 
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 
 				submitBtn.click();
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));

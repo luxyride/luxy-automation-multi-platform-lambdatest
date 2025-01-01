@@ -628,7 +628,7 @@ public class DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheCo
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(1000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,350)", "");
+					
 					testStatus = continueSedanBooking(donotServeStatus, testStatus);
 				} else {
 					if (localExecutionFlag == true)
@@ -706,7 +706,7 @@ public class DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheCo
 			objVerifyZoneTypeCityMain.clickOnSecondaryPassenger();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			objVerifyZoneTypeCityMain.enterspFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -722,14 +722,14 @@ public class DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheCo
 
 			visibilityStatus = objVerifyZoneTypeCityMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 			objTestBase.defaultWaitTime(5000);
-			js.executeScript("window.scrollBy(0,500)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus.booleanValue() == true)
 				objVerifyZoneTypeCityMain.enterPaymentInformation();
 
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);

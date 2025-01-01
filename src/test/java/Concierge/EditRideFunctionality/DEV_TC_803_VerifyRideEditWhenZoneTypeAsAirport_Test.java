@@ -475,7 +475,7 @@ public class DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Test extends TestBas
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objTestBase.defaultWaitTime(1000);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,350)", "");
+						
 					} else {
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						visibilityStatus = false;
@@ -547,18 +547,18 @@ public class DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Test extends TestBas
 			objVerifyEditRidesZone_Main.clickOnSUVXL();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyEditRidesZone_Main.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			clickOnCardOption();
@@ -568,7 +568,7 @@ public class DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Test extends TestBas
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

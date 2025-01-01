@@ -226,7 +226,7 @@ public class DEV_TC_1891_VerifyNewBookingFunctionalityWithCreditOrDebitCardsUnde
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingDispatchMain.enterspFirstName();
@@ -262,7 +262,7 @@ public class DEV_TC_1891_VerifyNewBookingFunctionalityWithCreditOrDebitCardsUnde
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

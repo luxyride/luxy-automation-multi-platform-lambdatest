@@ -1012,7 +1012,7 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 		try {
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			if (clientMatterNumber.isDisplayed() && clientMatterNumberLables.size() != 0)
 				visibilityStatus = true;

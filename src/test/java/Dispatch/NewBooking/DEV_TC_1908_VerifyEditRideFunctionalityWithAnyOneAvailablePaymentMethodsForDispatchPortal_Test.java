@@ -223,14 +223,14 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 							}
 							objTestBase.defaultWaitTime(2000);
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,500)", "");
+							
 							objTestBase.defaultWaitTime(2000);
 
 							objVerifyEditDetails_Main.selectTravelWithPet();
 							objTestBase.defaultWaitTime(3000);
 
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,300)", "");
+							
 							objTestBase.defaultWaitTime(2000);
 
 							testStep = "Verification of Visibility of Card Options In NewBooking Page";

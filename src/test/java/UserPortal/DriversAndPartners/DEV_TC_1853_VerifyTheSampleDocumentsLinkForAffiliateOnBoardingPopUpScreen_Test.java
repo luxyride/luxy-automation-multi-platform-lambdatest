@@ -110,7 +110,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 				testStep = "Verify visibility of Affiliate Navigation from Programs dropdown";
 				
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				
 				if (visibilityStatus.booleanValue() == true) {
@@ -168,7 +168,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			utillLogger.info(testStep + " - " + testStatus);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			String parentWindow = driver.getWindowHandle();

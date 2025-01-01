@@ -362,7 +362,7 @@ public class DEV_TC_1955_VerifyTheAvailabilityOfAddingDriverManuallyForOnaTripsI
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -1076,7 +1076,7 @@ public class DEV_TC_1955_VerifyTheAvailabilityOfAddingDriverManuallyForOnaTripsI
 			action = new Actions(driver);
 			defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			action.moveToElement(claimRideBtn).click().build().perform();
 			objTestBase.defaultWaitTime(1000);

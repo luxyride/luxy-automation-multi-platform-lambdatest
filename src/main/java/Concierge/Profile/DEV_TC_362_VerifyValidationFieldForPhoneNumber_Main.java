@@ -174,7 +174,7 @@ public class DEV_TC_362_VerifyValidationFieldForPhoneNumber_Main extends TestBas
 				editProfileBtn.click();
 				defaultWaitTime(3000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,500)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				// Verify thru Exception Handle:
@@ -233,7 +233,7 @@ public class DEV_TC_362_VerifyValidationFieldForPhoneNumber_Main extends TestBas
 					editProfileBtn.click();
 					defaultWaitTime(3000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,500)", "");
+					
 					objTestBase.defaultWaitTime(2000);
 
 					phoneNumber.click();

@@ -201,7 +201,7 @@ public class DEV_TC_1058_VerifySendingPINConfirmationForPrimaryAndSecondaryPasse
 			}
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifySendingPINDispatchMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -214,7 +214,7 @@ public class DEV_TC_1058_VerifySendingPINConfirmationForPrimaryAndSecondaryPasse
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifySendingPINDispatchMain.addAirline();
@@ -224,7 +224,7 @@ public class DEV_TC_1058_VerifySendingPINConfirmationForPrimaryAndSecondaryPasse
 			objVerifySendingPINDispatchMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			clickOnCardOption();
@@ -234,7 +234,7 @@ public class DEV_TC_1058_VerifySendingPINConfirmationForPrimaryAndSecondaryPasse
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

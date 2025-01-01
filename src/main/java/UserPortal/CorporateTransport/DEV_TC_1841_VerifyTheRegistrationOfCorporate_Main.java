@@ -74,7 +74,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (corporateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -91,7 +91,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,7 +138,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -155,7 +155,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -200,7 +200,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			signupCreateBtn.click();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -211,7 +211,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", successMsg);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (successMsg.isDisplayed()) {
 				expected = successMsg.getText();
 				if (expected.toLowerCase().contains("success")) {
@@ -231,7 +231,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Main
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (signupCreateBtn.isDisplayed())
 				visibilityStatus = true;
 			else

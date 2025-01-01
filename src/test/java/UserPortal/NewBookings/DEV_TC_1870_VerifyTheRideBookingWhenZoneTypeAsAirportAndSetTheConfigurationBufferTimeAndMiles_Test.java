@@ -626,7 +626,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(1000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,350)", "");
+					
 					testStatus = continueSedanBooking(donotServeStatus, testStatus);
 				} else {
 					if (localExecutionFlag == true)
@@ -705,7 +705,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			objVerifyZoneTypeAirportMain.clickOnSecondaryPassenger();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			objVerifyZoneTypeAirportMain.enterspFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -721,14 +721,14 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 
 			visibilityStatus = objVerifyZoneTypeAirportMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 			objTestBase.defaultWaitTime(5000);
-			js.executeScript("window.scrollBy(0,500)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus.booleanValue() == true)
 				objVerifyZoneTypeAirportMain.enterPaymentInformation();
 
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);

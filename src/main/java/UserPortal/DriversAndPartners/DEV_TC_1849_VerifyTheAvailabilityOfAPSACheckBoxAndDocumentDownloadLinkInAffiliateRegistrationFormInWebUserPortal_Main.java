@@ -51,7 +51,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -67,7 +67,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,7 +98,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -114,7 +114,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -128,7 +128,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 					&& expected.toLowerCase().contains("affiliate"))
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -143,7 +143,7 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", apsaCheckBox);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (apsaCheckBox.isDisplayed())
 				visibilityStatus = true;
 			else

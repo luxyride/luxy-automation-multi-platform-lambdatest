@@ -51,7 +51,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (corporateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -67,7 +67,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 					&& expected.toLowerCase().contains("corporate"))
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (corporateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -116,7 +116,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", optInOPtion);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (optInOPtion.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -132,7 +132,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();

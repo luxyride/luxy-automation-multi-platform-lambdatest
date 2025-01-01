@@ -52,7 +52,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliate_Simulator.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -68,7 +68,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliate_Simulator).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,7 +100,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -116,7 +116,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -130,7 +130,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 					&& expected.toLowerCase().contains("affiliate"))
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 				if (affiliateSignup.isDisplayed())
 					visibilityStatus = true;
 				else

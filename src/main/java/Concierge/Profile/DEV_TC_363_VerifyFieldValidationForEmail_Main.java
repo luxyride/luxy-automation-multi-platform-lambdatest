@@ -166,7 +166,7 @@ public class DEV_TC_363_VerifyFieldValidationForEmail_Main extends TestBase {
 				editProfileBtn.click();
 				defaultWaitTime(3000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				// Verify thru Exception Handle:

@@ -134,7 +134,7 @@ public class DEV_TC_1390_VerifyTheFunctionalityOfTravelAgentRegistrationThroughD
 					if (eMail != null) {
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,50)", "");
+						js.executeScript("window.scrollBy(0,-100)", "");
 						objTestBase.defaultWaitTime(2000);
 						objVerifySighninMain.clickOnRegister();
 						objTestBase.defaultWaitTime(8000);

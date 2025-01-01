@@ -62,16 +62,16 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			Thread.sleep(1000);
 			if (viewName.equalsIgnoreCase("simulatorView") && customerLoginSimulatorView.isDisplayed()) {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				action.moveToElement(customerLoginSimulatorView).click().build().perform();
 			} else {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginNormalView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				action.moveToElement(customerLoginNormalView).click().build().perform();
 			}
 			defaultWaitTime(1000);
@@ -88,7 +88,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception ex) {
@@ -101,7 +101,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -113,7 +113,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eyeIcon);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(eyeIcon).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -124,7 +124,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			loginAndContinue.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -143,7 +143,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 				waitTimeForElement(signInBtnDropdown);
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (signInBtnDropdown.isDisplayed()) {
 					expected = signInBtnDropdown.getText();
 					if (expected.toLowerCase().contains("welcome"))
@@ -163,7 +163,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", logoutBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (logoutBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -182,7 +182,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLoginSimulatorView.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -190,7 +190,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (signInBtnNormalView.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -207,7 +207,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signInBtnNormalView).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
 		} catch (Exception ex) {
@@ -219,7 +219,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (signInBtnNormalView.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -235,16 +235,16 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			Thread.sleep(1000);
 			if (viewName.equalsIgnoreCase("simulatorView") && customerLoginSimulatorView.isDisplayed()) {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				customerLoginSimulatorView.click();
 			} else {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginNormalView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				customerLoginNormalView.click();
 			}
 			defaultWaitTime(1000);
@@ -261,7 +261,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signInBtnDropdown).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -273,19 +273,19 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			Thread.sleep(1000);
 			if (viewName.equalsIgnoreCase("simulatorView") && customerLoginSimulatorView.isDisplayed()) {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLoginSimulatorView.isDisplayed())
 					visibilityStatus = true;
 				else
 					visibilityStatus = false;
 			} else {
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginNormalView);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLoginNormalView.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -306,7 +306,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", logoutBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(logoutBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -348,7 +348,7 @@ public class TestBase {
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", element);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -590,7 +590,7 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {	// chromeLocal or chromeLocalMobileView
+//			if (browser.equalsIgnoreCase("chromeLocal")) {	// chromeLocal or chromeLocalMobileView
 //				localExecutionFlag = true;
 //				System.setProperty("webdriver.http.factory", "jdk-http-client");
 //				WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -610,8 +610,8 @@ public class TestBase {
 //				chromeOptions.setExperimentalOption("prefs", prefs);
 //				//-----------------------------------------------------------------------
 //				// Mobile View Configuration:
-//				chromeOptions.setExperimentalOption("mobileEmulation",
-//						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+////				chromeOptions.setExperimentalOption("mobileEmulation",
+////						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
 //				//-----------------------------------------------------------------------
 //				driver = new ChromeDriver(chromeOptions);
 //			}
@@ -778,11 +778,11 @@ public class TestBase {
 					driver.findElements(
 							By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"))
 							.get(0));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 
 			js.executeScript("arguments[0].scrollIntoView(true);", driver.findElements(
 					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 
 			List<WebElement> checkboxFAQs = driver.findElements(
 					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"));
@@ -802,7 +802,7 @@ public class TestBase {
 			action = new Actions(driver);
 			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']")));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 
 			List<WebElement> cardOption = driver
 					.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']"));
