@@ -20,7 +20,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Main
+public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Main
 		extends TestBase {
 	WebDriver driver;
 	Actions action;
@@ -93,7 +93,7 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 	@FindBy(xpath = "//img[@src='../assets/images/reverse.svg']")
 	WebElement swapBtn;
 
-	public DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Main(
+	public DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Main(
 			WebDriver driver) {
 		try {
 			this.driver = driver;

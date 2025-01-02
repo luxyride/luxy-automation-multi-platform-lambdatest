@@ -11,7 +11,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test
+public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Test
 		extends TestBase {
 
 	String currURL;
@@ -29,8 +29,8 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 	JavascriptExecutor js;
 	String scenario;
 
-	DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Main objVerifyArrivalMeetGreet_Main;
-	DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test objVerifyArrivalMeetGreet_Test;
+	DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Main objVerifyArrivalMeetGreet_Main;
+	DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Test objVerifyArrivalMeetGreet_Test;
 	UpdateExtentReportResults objupdateResults;
 	TestBase objTestBase;
 
@@ -50,9 +50,9 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 
 		try {
 			action = new Actions(driver);
-			objVerifyArrivalMeetGreet_Main = new DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Main(
+			objVerifyArrivalMeetGreet_Main = new DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Main(
 					driver);
-			objVerifyArrivalMeetGreet_Test = new DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test();
+			objVerifyArrivalMeetGreet_Test = new DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupSwappingfromConciergePortal_Test();
 			objTestBase = new TestBase();
 			objupdateResults = new UpdateExtentReportResults(driver);
 
@@ -94,7 +94,7 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 					objVerifyArrivalMeetGreet_Main.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					objVerifyArrivalMeetGreet_Main.ClickNewBooking();
-					objTestBase.defaultWaitTime(3000);
+					objTestBase.defaultWaitTime(4000);
 					driver.navigate().refresh();
 					objTestBase.closePopupWindow();
 					testStatus = "PASSED";
@@ -181,7 +181,7 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 
 			if (visibilityStatus == true) {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,350)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				utillLogger.info(testStep + " - " + testStatus);
 				objVerifyArrivalMeetGreet_Main.clickOnSedan();
@@ -248,7 +248,7 @@ public class DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 				objVerifyArrivalMeetGreet_Main.clickonSwap();
 				objTestBase.defaultWaitTime(6000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,500)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				// After Swapping Validations:
