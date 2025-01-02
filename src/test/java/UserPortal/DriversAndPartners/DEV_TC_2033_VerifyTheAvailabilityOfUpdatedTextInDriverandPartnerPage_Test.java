@@ -82,7 +82,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of Affiliate  from Homepage Header";
@@ -115,7 +115,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 				testStep = "Verify visibility of Affiliate Navigation from Programs dropdown";
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -172,7 +172,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 			}
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify visibility of Updated Text in Affiliate  registration Page";

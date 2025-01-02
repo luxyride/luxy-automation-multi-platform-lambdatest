@@ -17,8 +17,11 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 	Actions action;
 	String expected;
 
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
+	
 	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
-	WebElement signinBtn;
+	WebElement loginAndContinue;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
@@ -41,16 +44,16 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Main
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
 					visibilityStatus = false;
 			} else {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-				js.executeScript("window.scrollBy(0,50)", "");
-				if (signinBtn.isDisplayed())
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (signInBtnNormalView.isDisplayed())
 					visibilityStatus = true;
 				else
 					visibilityStatus = false;

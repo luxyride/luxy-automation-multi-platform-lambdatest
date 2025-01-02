@@ -65,7 +65,6 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
-
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))
 					&& currURL.toLowerCase().contains("luxyride")) {
 				if (localExecutionFlag == true)
@@ -80,37 +79,42 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
+
 			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.clickSignIn();
-				objTestBase.defaultWaitTime(2000);
-
-				testStep = "Verify customer log-in opion under sign in dropdown ";
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
+				// Configuration for handing mobile simulator testing:
+				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
+						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
+						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+					objVerifyNewBookingMain.clickSignInNormalView();
+					objTestBase.defaultWaitTime(2000);
 				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
+					testStep = "Verify visibility of Customer Login";
+					visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
+					if (visibilityStatus.booleanValue() == true) {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+						else
+							lambdaTestStatusUpdate("passed", testStep);
+						testStatus = "PASSED";
+					} else {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+						else
+							lambdaTestStatusUpdate("failed", testStep);
+						testStatus = "FAILED";
+					}
 				}
 
 				objTestBase.defaultWaitTime(1000);
@@ -120,24 +124,21 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
-				objVerifyNewBookingMain.eyeIconClick();
-				objTestBase.defaultWaitTime(1000);
+
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
+					objTestBase.defaultWaitTime(2000);
 					objVerifyNewBookingMain.clickSigninButton();
-					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
-					testStatus = "PASSED";
+					objTestBase.defaultWaitTime(6000);
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
@@ -160,32 +161,57 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
 				testStatus = "SKIPPED";
 			}
-			
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickWelcomeDropDown();
-			objTestBase.defaultWaitTime(3000);
-			
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus);
-			testStep = "verifi profile option under welcome dropdown";
-			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
-			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickOnProfileOption();
-			objTestBase.defaultWaitTime(3000);
-			
+
+			// Validation of PROFILE option availability:
+			testStep = "Verify availability of PROFILE option.?";
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus,
+						"profileOptionSimulatorView");
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+
+				utillLogger.info(testStep + " - " + testStatus);
+				objTestBase.defaultWaitTime(2000);
+				objVerifyNewBookingMain.clickOnProfileOption("profileOptionSimulatorView");
+				objTestBase.defaultWaitTime(3000);
+			} else {
+				objTestBase.defaultWaitTime(2000);
+				objVerifyNewBookingMain.clickWelcomeDropDown();
+				objTestBase.defaultWaitTime(3000);
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus,
+						"profileOptionNormalViewF");
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+
+				utillLogger.info(testStep + " - " + testStatus);
+				objTestBase.defaultWaitTime(2000);
+
+				objTestBase.defaultWaitTime(2000);
+				objVerifyNewBookingMain.clickOnProfileOption("profileOptionNormalView");
+				objTestBase.defaultWaitTime(3000);
+			}
+
 			visibilityStatus = objVerifyNewBookingMain.VerifyProfilePage(visibilityStatus);
 			testStep = "verify profile options Page";
 			if (visibilityStatus.booleanValue() == true) {
@@ -201,11 +227,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			utillLogger.info(testStep + " - " + testStatus);
-			
 			objTestBase.defaultWaitTime(2000);
-			driver.navigate().refresh();
-			objTestBase.closePopupWindow();
 			utillLogger.info(testStep + " - " + testStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();

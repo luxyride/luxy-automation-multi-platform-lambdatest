@@ -82,7 +82,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of corporate  from Homepage Header";
@@ -115,7 +115,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
 				
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				
 				if (visibilityStatus.booleanValue() == true) {
@@ -148,7 +148,7 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 			objTestBase.defaultWaitTime(3000);
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			testStep = "Verify visibility of OPt In Option Corporate registration Page";

@@ -12,7 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test extends TestBase {
+public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test
+		extends TestBase {
 
 	String currURL;
 	String screenshotPath;
@@ -80,14 +81,15 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
+
+			// Method to close Pop-up Window:
+			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 			}
-
 			// ----------------------------------------------------------------------
 
 			testStep = "Verification customer user login";
@@ -114,8 +116,8 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 				}
 
 				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.clickOnCustomerLogin();
-				objTestBase.defaultWaitTime(1000);
+				objVerifyNewBookingMain.clickOncustomerLogin();
+				objTestBase.defaultWaitTime(6000);
 				objVerifyNewBookingMain.eMailInput();
 				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingMain.passwordInput();
@@ -128,16 +130,19 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
+
+					js = (JavascriptExecutor) driver;
+					js.executeScript("window.scrollBy(0,-200)", "");
+					objTestBase.defaultWaitTime(1000);
+
 					objVerifyNewBookingMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
-					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
@@ -147,19 +152,15 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
-			} else {
+			} else
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
-				testStatus = "SKIPPED";
-			}
 
 			testStep = "Verification user login";
 			scenario = "Book Sedan";
@@ -195,9 +196,6 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objVerifyNewBookingMain.clickOngetQuote();
 			objTestBase.defaultWaitTime(2000);
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,350)", "");
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
@@ -252,13 +250,9 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
 			objTestBase.defaultWaitTime(1000);
-
 			objVerifyNewBookingMain.clickOnSecondaryPassenger();
 			objTestBase.defaultWaitTime(2000);
-
 			objVerifyNewBookingMain.enterspFirstName();
 			objTestBase.defaultWaitTime(1000);
 			objVerifyNewBookingMain.enterspLastName();
@@ -268,10 +262,6 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objVerifyNewBookingMain.enterspEmail();
 			objTestBase.defaultWaitTime(1000);
 
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
-			objTestBase.defaultWaitTime(1000);
-			
 			testStep = "Verification of Booking For 'Personal' is selected by default for the scenario " + scenario
 					+ " from Ride Booking Details Page";
 			visibilityStatus = objVerifyNewBookingMain.verifyBookingForPersonalSelected(visibilityStatus);
@@ -288,7 +278,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.addAirline();
@@ -299,18 +289,9 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(5000);
-			
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
-			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(3000);
-
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,500)", "");
-			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verification of " + scenario + " Ride Booking Details Page";
@@ -336,7 +317,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 				visibilityStatus = objVerifyNewBookingMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -347,7 +328,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 					driver.navigate().refresh();
 					js = (JavascriptExecutor) driver;
 					js.executeScript("window.scrollBy(0,-200)", "");
-					objTestBase.defaultWaitTime(2000);					// Capture the Ride Booking IDs:
+					objTestBase.defaultWaitTime(2000); // Capture the Ride Booking IDs:
 					String[] tempVal = scenario.split(" ");
 					tripID = objVerifyNewBookingMain.captureRideBookingIDs(visibilityStatus, scenario, tripID);
 					testStep = "Verification of Capturing the Ride ID for " + tempVal[1] + " - TripID = " + tripID;
@@ -375,7 +356,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickWelcomeDropDown();
 			objTestBase.defaultWaitTime(3000);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus);
 			testStep = "verifi profile option under welcome dropdown";
 			if (visibilityStatus.booleanValue() == true) {
@@ -392,13 +373,13 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickOnProfileOption();
 			objTestBase.defaultWaitTime(3000);
 			objVerifyNewBookingMain.clickOnMyRideBookings();
 			objTestBase.defaultWaitTime(2000);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfMyRideBookingsPage(visibilityStatus);
 			testStep = "visibility Of My ride Bookings page";
 			if (visibilityStatus.booleanValue() == true) {
@@ -415,7 +396,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfTripSummaryBtn(visibilityStatus);
 			testStep = "visibility Of Trip Summary in Upcomings trips";
 			if (visibilityStatus.booleanValue() == true) {
@@ -436,7 +417,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objTestBase.defaultWaitTime(1000);
 			objVerifyNewBookingMain.clickOnTripSummary();
 			objTestBase.defaultWaitTime(3000);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfTripSummaryPage(visibilityStatus);
 			testStep = "visibility Of Trip Summary in Upcomings trips";
 			if (visibilityStatus.booleanValue() == true) {
@@ -453,11 +434,11 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			objTestBase.defaultWaitTime(1000);
 			objVerifyNewBookingMain.clickOnCloseBtn();
 			objTestBase.defaultWaitTime(2000);
-			
+
 			objTestBase.defaultWaitTime(2000);
 			driver.navigate().refresh();
 			utillLogger.info(testStep + " - " + testStatus);

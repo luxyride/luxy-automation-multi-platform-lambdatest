@@ -86,7 +86,29 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
+			}
+			
+			testStep = "Verify visibility of SIGN IN option from User Portal Landing Page";
+			if (testStatus == "PASSED") {
+				testStatus = " ";
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfSigninButton(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					objTestBase.defaultWaitTime(3000);
+					driver.navigate().refresh();
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+				utillLogger.info(testStep + " - " + testStatus);
 			}
 
 			testStep = "Verification customer user login";
@@ -99,7 +121,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 					objVerifyNewBookingMain.clickSignIn();
 					objTestBase.defaultWaitTime(2000);
-				}else {
+
 					testStep = "Verify customer log-in opion under sign in dropdown ";
 					visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
@@ -116,7 +138,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 						testStatus = "FAILED";
 					}
 				}
-				
+
 				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingMain.clickOnCustomerLogin();
 				objTestBase.defaultWaitTime(1000);

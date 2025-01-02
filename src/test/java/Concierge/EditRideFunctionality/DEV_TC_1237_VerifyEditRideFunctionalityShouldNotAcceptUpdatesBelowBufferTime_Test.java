@@ -198,7 +198,7 @@ public class DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowB
 
 						objTestBase.defaultWaitTime(1000);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,300)", "");
+						
 						objTestBase.defaultWaitTime(2000);
 
 						objVerifyEditRides_Main.addAirline();
@@ -371,14 +371,14 @@ public class DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowB
 			objVerifyEditRides_Main.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyEditRides_Main.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyEditRides_Main.addAirline();
@@ -388,7 +388,7 @@ public class DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowB
 			objVerifyEditRides_Main.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			clickOnCardOption();
@@ -398,7 +398,7 @@ public class DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowB
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

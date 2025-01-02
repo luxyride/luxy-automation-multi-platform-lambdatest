@@ -687,7 +687,7 @@ public class DEV_TC_1050_VerifyPINConfirmationInProgressAvailableUpcomingComplet
 
 				objTestBase.defaultWaitTime(1000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				enterspFirstName();
@@ -705,7 +705,7 @@ public class DEV_TC_1050_VerifyPINConfirmationInProgressAvailableUpcomingComplet
 				enterPassengerNotes();
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,350)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				promoCodeEnable();
@@ -726,7 +726,7 @@ public class DEV_TC_1050_VerifyPINConfirmationInProgressAvailableUpcomingComplet
 				objTestBase.defaultWaitTime(2000);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				visibilityStatus = verifyConfirmBookingBtnVisibility(visibilityStatus);

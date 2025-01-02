@@ -203,18 +203,18 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 				visibilityStatus = false;
 			}
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objVerifyLessThan12hrsMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyLessThan12hrsMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyLessThan12hrsMain.addAirline();
@@ -224,7 +224,7 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 			objVerifyLessThan12hrsMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 			
 			clickOnCardOption();
@@ -234,7 +234,7 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

@@ -181,7 +181,7 @@ public class DEV_TC_1334_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus == true) {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,350)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				utillLogger.info(testStep + " - " + testStatus);
 				objVerifyArrivalMeetGreet_Main.clickOnSedan();

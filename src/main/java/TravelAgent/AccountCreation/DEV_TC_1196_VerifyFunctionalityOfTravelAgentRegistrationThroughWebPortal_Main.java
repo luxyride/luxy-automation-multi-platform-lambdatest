@@ -356,7 +356,7 @@ public class DEV_TC_1196_VerifyFunctionalityOfTravelAgentRegistrationThroughWebP
 					utillLogger.info("Travel Agent Local Path = " + localTravelAgentDocsPath + "TestDDForm.pdf");
 					defaultWaitTime(15000);
 				}
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				defaultWaitTime(3000);
 				if (createBtn.isDisplayed())
 					visibilityStatus = true;

@@ -55,7 +55,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliateBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -71,7 +71,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliateBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,7 +102,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -118,7 +118,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(affiliateSignup).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -132,7 +132,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 					&& expected.toLowerCase().contains("affiliate"))
 				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliateSignup.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -148,7 +148,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", SampleDocument);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(SampleDocument).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -160,7 +160,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", insuranceDocument);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(insuranceDocument).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -172,7 +172,7 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", directDeposit);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(directDeposit).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();

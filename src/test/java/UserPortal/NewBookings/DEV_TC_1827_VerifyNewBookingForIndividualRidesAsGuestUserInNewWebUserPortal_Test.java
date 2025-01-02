@@ -87,7 +87,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verification customer user login";
@@ -130,7 +130,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,350)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
@@ -186,7 +186,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 
 			utillLogger.info(testStep + " - " + testStatus);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.enterFirstName();
@@ -229,7 +229,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			
 		
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.addAirline();
@@ -250,7 +250,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,500)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -277,7 +277,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 				visibilityStatus = objVerifyNewBookingMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -318,7 +318,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

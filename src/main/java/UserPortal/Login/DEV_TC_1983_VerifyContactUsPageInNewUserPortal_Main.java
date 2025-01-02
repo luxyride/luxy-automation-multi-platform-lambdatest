@@ -194,13 +194,13 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			Thread.sleep(1000);
 			if (customerLogin.isDisplayed()) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				action.moveToElement(customerLogin).click().build().perform();
 			}
 			Thread.sleep(1000);
@@ -217,7 +217,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception ex) {
@@ -230,7 +230,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -242,7 +242,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", eyeIcon);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(eyeIcon).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -257,7 +257,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -265,7 +265,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (signInBtn_Login.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -282,7 +282,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signInBtn_Login).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -294,7 +294,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", secondaryPassenger);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -306,7 +306,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			waitTimeForElement(signInBtnDropdown);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (signInBtnDropdown.isDisplayed()) {
 				expected = signInBtnDropdown.getText();
 				if (expected.toLowerCase().contains("welcome")) {
@@ -328,7 +328,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -350,7 +350,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			toAddress.sendKeys(prop.getProperty("toAddress"));
 			objTestBase.defaultWaitTime(3000);
 			action.moveToElement(toAddress).click().build().perform();
@@ -369,7 +369,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", extraStopIcon);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(extraStopIcon).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
@@ -382,7 +382,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", addextraStop);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			addextraStop.sendKeys(prop.getProperty("extraStop"));
 			objTestBase.defaultWaitTime(3000);
 			action.moveToElement(addextraStop).click().build().perform();
@@ -402,7 +402,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);",
 					driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			driver.findElement(By.xpath("//input[@placeholder='Enter Pickup Date']")).click();
 			objTestBase.defaultWaitTime(2000);
 
@@ -477,7 +477,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -489,7 +489,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -501,7 +501,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookSedan).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -513,7 +513,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmVehiclePopup.get(0));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (confirmVehiclePopup.size() != 0) {
 				visibilityStatus = true;
 			} else {
@@ -530,7 +530,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmVehiclePopup.get(0));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(confirmBtn.get(0)).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -542,7 +542,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSUV);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookSUV).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -555,7 +555,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSUVXL);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookSUVXL).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -568,7 +568,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookVAN);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookVAN).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -581,7 +581,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookVANXL);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookVANXL).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
@@ -594,7 +594,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", applypromoCode);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(applypromoCode).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -609,12 +609,12 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", termsAndConditionsCheckbox);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			termsAndConditionsCheckbox.click();
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -627,7 +627,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookNextRideBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookNextRideBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -639,7 +639,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", promoCodeEnable);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(promoCodeEnable).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -650,7 +650,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -661,7 +661,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -672,7 +672,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -683,7 +683,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -695,7 +695,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", airlinesDrpdwnHeader);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			airlinesDrpdwnHeader.click();
 			objTestBase.defaultWaitTime(1000);
 			action.moveToElement(airlinesDrpdwnValue).sendKeys(prop.getProperty("airlineInput")).build().perform();
@@ -711,7 +711,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", flightNumber);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			flightNumber.sendKeys(prop.getProperty("flightNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -722,7 +722,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", passengerNotes);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passengerNotes.sendKeys(prop.getProperty("pasengerNotes"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -734,7 +734,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", passengerNotes);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(promoCode).click().build().perform();
 			if (vechileModel.equalsIgnoreCase("Book Sedan"))
 				action.moveToElement(promoCode).sendKeys(prop.getProperty("promocodeFixed")).build().perform();
@@ -769,7 +769,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toUpperCase().contains("OPTIONS") && vechileAvailableList.size() != 0) {
@@ -841,7 +841,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingForPersonal);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (bookingForPersonal.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -859,7 +859,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(bookingRideTripId));
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (displayStatus.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -874,7 +874,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -900,7 +900,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (bookingRideTripId.isDisplayed() && !rideBookingIds.containsValue(bookingRideTripId.getText())) {
 				if (scenario == "Book Sedan") {
 					rideBookingIds.put("sedan", bookingRideTripId.getText().toString());
@@ -930,7 +930,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signinBtn).click().build().perform();
 			action.moveToElement(signinBtn).build().perform();
 		} catch (Exception ex) {
@@ -942,7 +942,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		try {
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (customerLogin.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -958,7 +958,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(customerLogin).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();

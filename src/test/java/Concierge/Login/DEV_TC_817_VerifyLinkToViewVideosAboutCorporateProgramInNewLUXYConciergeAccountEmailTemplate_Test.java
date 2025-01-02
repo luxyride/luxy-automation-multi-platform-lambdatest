@@ -189,7 +189,7 @@ public class DEV_TC_817_VerifyLinkToViewVideosAboutCorporateProgramInNewLUXYConc
 				}
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,500)", "");
+				
 				objTestBase.defaultWaitTime(3000);
 
 				testStep = "Verification of links available in Email ";

@@ -298,7 +298,7 @@ public class DEV_TC_491_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 			visibilityStatus = objVerifyPromocodeFixedtMain.visibilityOfVechileSection(visibilityStatus);
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,350)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
@@ -348,7 +348,7 @@ public class DEV_TC_491_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 			objVerifyPromocodeFixedtMain.clickOnSecondaryPassenger();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,350)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			objVerifyPromocodeFixedtMain.enterspFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -410,7 +410,7 @@ public class DEV_TC_491_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				visibilityStatus = objVerifyPromocodeFixedtMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {

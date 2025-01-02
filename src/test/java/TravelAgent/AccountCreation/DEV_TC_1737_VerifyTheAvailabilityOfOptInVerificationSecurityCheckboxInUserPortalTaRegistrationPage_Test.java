@@ -76,7 +76,7 @@ public class DEV_TC_1737_VerifyTheAvailabilityOfOptInVerificationSecurityCheckbo
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			scenario = "Without Login";

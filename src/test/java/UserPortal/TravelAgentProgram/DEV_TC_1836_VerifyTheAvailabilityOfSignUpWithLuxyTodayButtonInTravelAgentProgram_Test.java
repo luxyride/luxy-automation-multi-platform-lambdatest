@@ -82,7 +82,7 @@ public class DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTrave
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			// Configuration for handing mobile simulator testing:
@@ -143,7 +143,7 @@ public class DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTrave
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {

@@ -95,7 +95,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			testStep = "Verification user login";
 			if (testStatus == "PASSED") {
@@ -159,7 +159,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 									|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-										clickOnToggleNavigationBar();
+										clickOn3HorizontalToggleNavigationBar();
 								}
 								
 								vechileBooking(donotServeStatus);
@@ -180,7 +180,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 								if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 									|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 									|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-										clickOnToggleNavigationBar();
+										clickOn3HorizontalToggleNavigationBar();
 								}
 								vechileBooking(donotServeStatus);
 							}
@@ -626,7 +626,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(1000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,350)", "");
+					
 					testStatus = continueSedanBooking(donotServeStatus, testStatus);
 				} else {
 					if (localExecutionFlag == true)
@@ -704,7 +704,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			objVerifyZoneTypeStateMain.clickOnSecondaryPassenger();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			objVerifyZoneTypeStateMain.enterspFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -720,14 +720,14 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 
 			visibilityStatus = objVerifyZoneTypeStateMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 			objTestBase.defaultWaitTime(5000);
-			js.executeScript("window.scrollBy(0,500)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus.booleanValue() == true)
 				objVerifyZoneTypeStateMain.enterPaymentInformation();
 
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -781,7 +781,7 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

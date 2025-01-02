@@ -172,7 +172,7 @@ public class DEV_TC_2091_verifyTheAvailabilityOfDriverRatingColumnInPassengerPro
 				utillLogger.info(testStep + " - " + testStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				objTestBase.defaultWaitTime(2000);

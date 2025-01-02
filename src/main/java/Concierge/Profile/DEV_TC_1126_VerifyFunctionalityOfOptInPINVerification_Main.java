@@ -369,7 +369,7 @@ public class DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Main extends 
 				editProfileBtn.click();
 				defaultWaitTime(3000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 			} else
 				visibilityStatus = false;
@@ -1068,7 +1068,7 @@ public class DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Main extends 
 
 			action.moveToElement(formOutTabDispatch).click().build().perform();
 			objTestBase.defaultWaitTime(500);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(500);
 			action.moveToElement(companyNameDispatch).click().sendKeys(prop.getProperty("conciergeCompanyName")).build()
 					.perform();

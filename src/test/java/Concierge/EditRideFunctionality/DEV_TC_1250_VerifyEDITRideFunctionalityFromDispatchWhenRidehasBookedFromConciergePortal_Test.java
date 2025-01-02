@@ -277,7 +277,7 @@ public class DEV_TC_1250_VerifyEDITRideFunctionalityFromDispatchWhenRidehasBooke
 								objVerifyEditDetails_Main.clickonArrivalMeetGreet();
 								objTestBase.defaultWaitTime(2000);
 								js = (JavascriptExecutor) driver;
-								js.executeScript("window.scrollBy(0,100)", "");
+								
 								objVerifyEditDetails_Main.enterArrivalMeetGreetDetails();
 								objTestBase.defaultWaitTime(1000);
 
@@ -315,7 +315,7 @@ public class DEV_TC_1250_VerifyEDITRideFunctionalityFromDispatchWhenRidehasBooke
 								objTestBase.defaultWaitTime(1000);
 
 								js = (JavascriptExecutor) driver;
-								js.executeScript("window.scrollBy(0,250)", "");
+								
 								objTestBase.defaultWaitTime(2000);
 							}
 
@@ -347,7 +347,7 @@ public class DEV_TC_1250_VerifyEDITRideFunctionalityFromDispatchWhenRidehasBooke
 								}
 							} else {
 								js = (JavascriptExecutor) driver;
-								js.executeScript("window.scrollBy(0,50)", "");
+								js.executeScript("window.scrollBy(0,-100)", "");
 								objTestBase.defaultWaitTime(2000);
 								
 								clickOnCardOption();

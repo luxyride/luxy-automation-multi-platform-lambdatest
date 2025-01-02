@@ -146,7 +146,7 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 			objTestBase.defaultWaitTime(2000);
 	
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objVerifySighninMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifySighninMain.clickOngetQuote();
@@ -166,7 +166,7 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 			objVerifySighninMain.clickOnSuv();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifySighninMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
@@ -183,7 +183,7 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

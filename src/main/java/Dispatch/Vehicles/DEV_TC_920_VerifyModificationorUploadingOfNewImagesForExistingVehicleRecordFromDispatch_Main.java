@@ -245,7 +245,7 @@ public class DEV_TC_920_VerifyModificationorUploadingOfNewImagesForExistingVehic
 				objTestBase.defaultWaitTime(3000);
 
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 
 				vinNumber.click();
 				vinNumber.sendKeys(Keys.CONTROL + "A");
@@ -254,7 +254,7 @@ public class DEV_TC_920_VerifyModificationorUploadingOfNewImagesForExistingVehic
 				action.moveToElement(vinNumber).click().sendKeys(prop.getProperty("editvinNumber")).build().perform();
 				objTestBase.defaultWaitTime(1000);
 
-				js.executeScript("window.scrollBy(0,500)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				utillLogger.info("DEV_TC_920 - Docker UserName = " + " - " + System.getProperty("user.name"));
@@ -278,7 +278,7 @@ public class DEV_TC_920_VerifyModificationorUploadingOfNewImagesForExistingVehic
 					editregistrationImageUpload.sendKeys(localvehicleImagesPath + "suvxl_Registration.jpg");
 					objTestBase.defaultWaitTime(15000);
 				}
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(15000);
 				visibilityStatus = true;
 			}

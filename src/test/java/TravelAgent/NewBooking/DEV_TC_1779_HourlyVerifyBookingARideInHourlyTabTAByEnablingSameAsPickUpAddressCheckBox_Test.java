@@ -157,7 +157,7 @@ public class DEV_TC_1779_HourlyVerifyBookingARideInHourlyTabTAByEnablingSameAsPi
 			objVerifySighninMain.selectTime();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objVerifySighninMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifySighninMain.clickOngetQuote();
@@ -177,13 +177,13 @@ public class DEV_TC_1779_HourlyVerifyBookingARideInHourlyTabTAByEnablingSameAsPi
 			objVerifySighninMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifySighninMain.enterFirstName();
 
 			objTestBase.defaultWaitTime(4000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifySighninMain.addAirline();
@@ -193,7 +193,7 @@ public class DEV_TC_1779_HourlyVerifyBookingARideInHourlyTabTAByEnablingSameAsPi
 			objVerifySighninMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			clickOnCardOption();
@@ -203,7 +203,7 @@ public class DEV_TC_1779_HourlyVerifyBookingARideInHourlyTabTAByEnablingSameAsPi
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

@@ -80,7 +80,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			testStep = "Verify visibility of corporate  from Homepage Header";
@@ -113,7 +113,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {

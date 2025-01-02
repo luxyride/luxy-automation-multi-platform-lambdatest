@@ -240,7 +240,7 @@ public class DEV_TC_736_VerifyAddNewVehicleFunctionalityInVehicleInventory_Main 
 			objTestBase.defaultWaitTime(1000);
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			currYear = GetCurrentDateTime.getCurrentYear(currYear);
 			action.moveToElement(enterYear).click().sendKeys(currYear).build().perform();

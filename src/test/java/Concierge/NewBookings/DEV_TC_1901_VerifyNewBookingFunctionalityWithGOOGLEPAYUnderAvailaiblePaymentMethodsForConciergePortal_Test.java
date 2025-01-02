@@ -217,14 +217,14 @@ public class DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaib
 			objVerifyNewBookingConciergeMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyNewBookingConciergeMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.addAirline();

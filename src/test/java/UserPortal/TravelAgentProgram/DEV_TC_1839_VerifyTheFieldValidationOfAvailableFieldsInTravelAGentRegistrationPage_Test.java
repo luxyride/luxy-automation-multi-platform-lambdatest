@@ -82,14 +82,14 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 			
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOnToggleNavigationBar();
+				clickOn3HorizontalToggleNavigationBar();
 
 				testStep = "Verify visibility of travel Agent  from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfTaTransportSimulatorView(visibilityStatus);
@@ -143,7 +143,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,100)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -232,7 +232,7 @@ public class DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentR
 
 			utillLogger.info(testStep + " - " + testStatus);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,100)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objTestBase.defaultWaitTime(2000);

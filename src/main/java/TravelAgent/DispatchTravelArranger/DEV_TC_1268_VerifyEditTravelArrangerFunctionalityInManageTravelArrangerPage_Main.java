@@ -323,7 +323,7 @@ public class DEV_TC_1268_VerifyEditTravelArrangerFunctionalityInManageTravelArra
 				utillLogger.info("Travel Agent Local Path = " + localTravelAgentDocsPath + "TestDDForm.pdf");
 				defaultWaitTime(15000);
 			}
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			defaultWaitTime(3000);
 			if (updateBtn.isDisplayed())
 				visibilityStatus = true;

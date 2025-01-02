@@ -151,7 +151,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			objVerifyBookedRideCorporateMain.addToAddress();
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objVerifyBookedRideCorporateMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifyBookedRideCorporateMain.clickOngetQuote();
@@ -171,14 +171,14 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			objVerifyBookedRideCorporateMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyBookedRideCorporateMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyBookedRideCorporateMain.addAirline();
@@ -191,7 +191,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			objTestBase.defaultWaitTime(1000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			clickOnCardOption();
@@ -201,7 +201,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -307,7 +307,7 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 							}
 						} else {
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,50)", "");
+							js.executeScript("window.scrollBy(0,-100)", "");
 							objTestBase.defaultWaitTime(2000);
 							
 							clickOnCardOption();

@@ -338,7 +338,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 							objTestBase.defaultWaitTime(1000);
 
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,250)", "");
+							
 							objTestBase.defaultWaitTime(2000);
 						}
 
@@ -373,7 +373,7 @@ public class DEV_TC_1051_VerifyPINConfirmationEmailIsNotSentToCustomerWhenTheRid
 
 						} else {
 							js = (JavascriptExecutor) driver;
-							js.executeScript("window.scrollBy(0,50)", "");
+							js.executeScript("window.scrollBy(0,-100)", "");
 							objTestBase.defaultWaitTime(2000);
 							
 							clickOnCardOption();

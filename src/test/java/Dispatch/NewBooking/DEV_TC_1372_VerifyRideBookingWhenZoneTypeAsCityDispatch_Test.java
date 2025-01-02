@@ -281,7 +281,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 				objTestBase.defaultWaitTime(2000);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				objVerifyBufferTimeScenarios_Main.addAirline();
@@ -291,7 +291,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 				objVerifyBufferTimeScenarios_Main.enterPassengerNotes();
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,350)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				objVerifyBufferTimeScenarios_Main.promoCodeEnable();
@@ -302,7 +302,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 				objTestBase.defaultWaitTime(2000);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				
 				clickOnCardOption();
@@ -312,7 +312,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 				objTestBase.defaultWaitTime(2000);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				utillLogger.info(testStep + " - " + testStatus);
@@ -487,7 +487,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 					objVerifyBufferTimeScenarios_Main.clickOngetQuote();
 					objTestBase.defaultWaitTime(3000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,100)", "");
+					
 
 					testStep = "Verify list of available vechiles - " + donotServeStatus;
 					visibilityStatus = objVerifyBufferTimeScenarios_Main.visibilityOfListofVechiles(visibilityStatus);
@@ -495,7 +495,7 @@ public class DEV_TC_1372_VerifyRideBookingWhenZoneTypeAsCityDispatch_Test extend
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 						objTestBase.defaultWaitTime(1000);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,350)", "");
+						
 					} else {
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
 						visibilityStatus = false;

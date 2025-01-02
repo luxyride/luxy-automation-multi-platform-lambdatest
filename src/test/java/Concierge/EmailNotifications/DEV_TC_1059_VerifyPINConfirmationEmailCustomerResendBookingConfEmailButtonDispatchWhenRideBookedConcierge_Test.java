@@ -169,14 +169,14 @@ public class DEV_TC_1059_VerifyPINConfirmationEmailCustomerResendBookingConfEmai
 
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyResendEmailMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyResendEmailMain.addAirline();
@@ -186,7 +186,7 @@ public class DEV_TC_1059_VerifyPINConfirmationEmailCustomerResendBookingConfEmai
 			objVerifyResendEmailMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			clickOnCardOption();
@@ -196,7 +196,7 @@ public class DEV_TC_1059_VerifyPINConfirmationEmailCustomerResendBookingConfEmai
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

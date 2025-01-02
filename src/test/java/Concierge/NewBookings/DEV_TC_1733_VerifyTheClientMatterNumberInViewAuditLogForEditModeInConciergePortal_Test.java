@@ -339,13 +339,13 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 			}
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyNewBookingConciergeMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.addAirline();
@@ -353,28 +353,28 @@ public class DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInC
 			objVerifyNewBookingConciergeMain.enterFlightNumber();
 			objTestBase.defaultWaitTime(1000);
 
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objVerifyNewBookingConciergeMain.enterClientMatterNumber();
 
 			objTestBase.defaultWaitTime(1000);
 			objVerifyNewBookingConciergeMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			clickOnCardOption();
 			objTestBase.defaultWaitTime(2000);
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

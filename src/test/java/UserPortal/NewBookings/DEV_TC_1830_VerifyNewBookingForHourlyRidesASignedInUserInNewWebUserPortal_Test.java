@@ -87,7 +87,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification customer user login";
@@ -191,7 +191,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,350)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
@@ -247,7 +247,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 			utillLogger.info(testStep + " - " + testStatus);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(1000);
 
 
@@ -264,7 +264,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			objTestBase.defaultWaitTime(1000);
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			testStep = "Verification of Booking For 'Personal' is selected by default for the scenario " + scenario
@@ -283,7 +283,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.addAirline();
@@ -296,7 +296,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			objTestBase.defaultWaitTime(5000);
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.enterPaymentInformation();
@@ -331,7 +331,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 				visibilityStatus = objVerifyNewBookingMain.verifyRideBookingConfirmation(visibilityStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -371,7 +371,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOnToggleNavigationBar();
+						clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 

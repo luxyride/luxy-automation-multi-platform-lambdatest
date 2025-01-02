@@ -180,7 +180,7 @@ public class DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExi
 			objVerifyNewBookingDispatchMain.clickOnSedan();
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 
 			objVerifyNewBookingDispatchMain.searchBookingUserName();
 			objTestBase.defaultWaitTime(1000);
@@ -189,7 +189,7 @@ public class DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExi
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingDispatchMain.addAirline();
@@ -236,7 +236,7 @@ public class DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExi
 				objVerifyNewBookingDispatchMain.enterPaymentInformation();
 				objTestBase.defaultWaitTime(4000);
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,300)", "");
+				
 				objTestBase.defaultWaitTime(4000);
 				testStep = "Verify save card for future use checkbox";
 				visibilityStatus = objVerifyNewBookingDispatchMain.visibilityOfSavedCardForFuture(visibilityStatus);

@@ -168,7 +168,7 @@ public class DEV_TC_2068_VerifyTheFunctionalityOfAddAnotherTripButtonInEventAndS
 			objTestBase.defaultWaitTime(3000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verification of special events tab ";

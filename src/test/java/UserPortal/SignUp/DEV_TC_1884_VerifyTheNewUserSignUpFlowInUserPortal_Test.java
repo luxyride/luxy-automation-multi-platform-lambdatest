@@ -78,7 +78,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -159,7 +159,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 					objVerifySighninMain.termsConditionsCheckbox();
 					objTestBase.defaultWaitTime(1000);
 					js = (JavascriptExecutor) driver;
-					js.executeScript("window.scrollBy(0,100)", "");
+					
 
 					visibilityStatus = objVerifySighninMain.visibilityOfSignupButtonFromSignupScreen(visibilityStatus);
 					testStep = "Verify User entered details from Signup page";
@@ -181,7 +181,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 					if (!environmentCode.equalsIgnoreCase("prod")) {
 						objTestBase.defaultWaitTime(1000);
 						js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,100)", "");
+						
 						objTestBase.defaultWaitTime(2000);
 
 						visibilityStatus = objVerifySighninMain.visibilityOfSignupConfirmationMsg(visibilityStatus);

@@ -180,7 +180,7 @@ public class DEV_TC_1351_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus == true) {
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,350)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 				utillLogger.info(testStep + " - " + testStatus);
 				objVerifyArrivalMeetGreet_Main.clickOnSedan();
@@ -197,7 +197,7 @@ public class DEV_TC_1351_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtr
 				utillLogger.info(testStep + " - " + testStatus);
 
 				js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,500)", "");
+				
 				objTestBase.defaultWaitTime(2000);
 
 				if (testStatus == "PASSED"

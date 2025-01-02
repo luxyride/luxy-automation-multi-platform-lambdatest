@@ -292,7 +292,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLogin.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -300,7 +300,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			} else {
 				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
-				js.executeScript("window.scrollBy(0,50)", "");
+				js.executeScript("window.scrollBy(0,-100)", "");
 				if (signInBtn_Login.isDisplayed())
 					visibilityStatus = true;
 				else
@@ -369,7 +369,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", fromAddress);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			fromAddress.click();
 			objTestBase.defaultWaitTime(1000);
 			fromAddress.sendKeys(Keys.CONTROL + "A");
@@ -628,7 +628,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (vechileAvailableSection.isDisplayed()) {
 				expected = vechileAvailableSection.getText();
 				if (expected.toLowerCase().contains("choose") && vechileAvailableList.size() != 0) {
@@ -650,7 +650,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan.get(0));
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(bookSedan.get(0)).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -685,7 +685,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -696,7 +696,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spFirstName.sendKeys(prop.getProperty("spFirstName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -707,7 +707,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spLastName.sendKeys(prop.getProperty("spLastName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -718,7 +718,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spEmail.sendKeys(prop.getProperty("spEmail"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -729,7 +729,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			spMobile.sendKeys(prop.getProperty("spMobile"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -742,7 +742,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			objTestBase.defaultWaitTime(1000);
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
@@ -811,7 +811,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingRideTripId);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-1000)", "");
@@ -834,7 +834,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -863,7 +863,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			action = new Actions(driver);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", getQuote);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(getQuote).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -906,7 +906,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 			waitTimeForElement(bookNextRideBtn);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookNextRideBtn);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action = new Actions(driver);
 			action.moveToElement(bookNextRideBtn).click().build().perform();
 		} catch (Exception e) {
@@ -1026,7 +1026,7 @@ public class DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfi
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", dispatchvechileAvailableSection);
-			js.executeScript("window.scrollBy(0,50)", "");
+			js.executeScript("window.scrollBy(0,-100)", "");
 			objTestBase.defaultWaitTime(2000);
 			if (dispatchvechileAvailableSection.size() != 0)
 				visibilityStatus = true;

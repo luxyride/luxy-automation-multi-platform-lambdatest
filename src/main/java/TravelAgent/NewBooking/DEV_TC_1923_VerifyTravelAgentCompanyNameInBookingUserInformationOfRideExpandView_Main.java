@@ -969,7 +969,7 @@ public class DEV_TC_1923_VerifyTravelAgentCompanyNameInBookingUserInformationOfR
 			objTestBase.defaultWaitTime(1000);
 
 			action.moveToElement(dispatchBookingUserInfo).click().build().perform();
-			js.executeScript("window.scrollBy(0,250)", "");
+			
 			objTestBase.defaultWaitTime(1000);
 
 			if (dispatchTravelAgentCompnayName.isDisplayed()) {

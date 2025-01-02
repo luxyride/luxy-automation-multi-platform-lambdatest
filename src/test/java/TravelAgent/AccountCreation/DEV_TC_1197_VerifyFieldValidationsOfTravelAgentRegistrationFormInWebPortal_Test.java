@@ -77,7 +77,7 @@ public class DEV_TC_1197_VerifyFieldValidationsOfTravelAgentRegistrationFormInWe
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 		} catch (

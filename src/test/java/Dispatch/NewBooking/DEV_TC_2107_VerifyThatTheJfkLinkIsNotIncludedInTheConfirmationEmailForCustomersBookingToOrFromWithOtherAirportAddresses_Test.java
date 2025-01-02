@@ -233,7 +233,7 @@ public class DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmail
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

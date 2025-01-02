@@ -76,7 +76,7 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOnToggleNavigationBar();
+					clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verify visibility of Programs dropdown from Homepage Header";
@@ -247,7 +247,7 @@ public class DEV_TC_911_VerifyLoggingintotheRegisteredAffiliate_Test extends Tes
 						objTestBase.defaultWaitTime(3000);
 						if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 
-						js.executeScript("window.scrollBy(0,50)", "");
+						js.executeScript("window.scrollBy(0,-100)", "");
 						objTestBase.defaultWaitTime(2000);
 
 						testStep = "Verification of Account Activation Confirmation Message Displayed for registered User - "
