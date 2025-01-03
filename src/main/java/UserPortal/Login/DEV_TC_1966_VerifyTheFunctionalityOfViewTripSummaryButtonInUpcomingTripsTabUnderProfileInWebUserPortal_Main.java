@@ -33,6 +33,12 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
+	WebElement customerLogin;
+
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signinBtnNormalView;
+
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[1]")
 	WebElement customerLoginNorvmalView;
 
@@ -132,7 +138,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 	@FindBy(xpath = "//textarea[@id='passenger_notes']")
 	WebElement passengerNotes;
 
-	@FindBy(xpath = "//label[@for='personal']//input")
+	@FindBy(xpath = "//*[normalize-space()='Personal Travel']")
 	WebElement bookingForPersonal;
 
 	@FindBy(xpath = "//input[@value='Business']")
@@ -262,6 +268,31 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			objTestBase.defaultWaitTime(2000);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void clickSignInNormalView() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtnNormalView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(signinBtnNormalView).click().build().perform();
+			action.moveToElement(signinBtn).build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void clickOnCustomerLogin() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(customerLogin).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
@@ -703,7 +734,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", cardPaymentType);
 			js.executeScript("window.scrollBy(0,-100)", "");
@@ -997,6 +1028,22 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {

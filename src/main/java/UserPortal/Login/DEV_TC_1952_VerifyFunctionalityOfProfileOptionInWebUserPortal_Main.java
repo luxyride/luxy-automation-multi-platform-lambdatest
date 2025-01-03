@@ -60,6 +60,9 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 
 	@FindBy(xpath = "(//*[name()='path'])[4]")
 	WebElement eyeIcon;
+	
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	WebElement loginAndContinue;
 
 	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement signinBtnNormalView;
@@ -147,6 +150,21 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public void clickSignInNormalView() {

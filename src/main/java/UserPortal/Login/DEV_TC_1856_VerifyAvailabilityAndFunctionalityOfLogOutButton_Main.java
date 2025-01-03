@@ -20,6 +20,9 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
+	WebElement customerLogin;
+
 	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement signInBtnNormalView;
 
@@ -120,6 +123,21 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 		}
 	}
 
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
 	public void clickSigninButton() {
 		try {
 			js = (JavascriptExecutor) driver;
@@ -215,6 +233,33 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 		}
 	}
 
+	public void clickSignIn() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(loginAndContinue).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
 	public Boolean visibilityOfSignInButtonNormalView(Boolean visibilityStatus) {
 		try {
 			js = (JavascriptExecutor) driver;
@@ -228,6 +273,18 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			e.printStackTrace();
 		}
 		return visibilityStatus;
+	}
+
+	public void clickOnCustomerLogin() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			customerLogin.click();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	public void clickOnCustomerLogin(String viewName) throws Exception {
@@ -271,19 +328,20 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 	public Boolean visibilityOfDropDown(Boolean visibilityStatus, String viewName) throws Exception {
 		try {
 			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(signinBtn).click().build().perform();
-			Thread.sleep(1000);
-			if (viewName.equalsIgnoreCase("simulatorView") && customerLoginSimulatorView.isDisplayed()) {
-				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
-				js.executeScript("window.scrollBy(0,-100)", "");
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				defaultWaitTime(3000);
+				clickOn3HorizontalToggleNavigationBar();
+				defaultWaitTime(3000);
 				if (customerLoginSimulatorView.isDisplayed())
 					visibilityStatus = true;
 				else
 					visibilityStatus = false;
 			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signinBtn);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(signinBtn).click().build().perform();
+				Thread.sleep(1000);
 				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginNormalView);
 				js.executeScript("window.scrollBy(0,-100)", "");
 				if (customerLoginNormalView.isDisplayed())

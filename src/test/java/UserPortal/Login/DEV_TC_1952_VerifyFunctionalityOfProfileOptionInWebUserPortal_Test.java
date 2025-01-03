@@ -125,15 +125,13 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test 
 				objVerifyNewBookingMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
 
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfSigninButton(visibilityStatus);
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
-					objTestBase.defaultWaitTime(2000);
 					objVerifyNewBookingMain.clickSigninButton();
-					objTestBase.defaultWaitTime(6000);
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
