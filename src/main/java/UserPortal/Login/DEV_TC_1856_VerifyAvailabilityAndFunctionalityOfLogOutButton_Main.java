@@ -31,6 +31,9 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 
 	@FindBy(xpath = "(//a[normalize-space()='sign in'])[2]//following::a[normalize-space()='Customer Login']")
 	WebElement customerLoginSimulatorView;
+	
+	@FindBy(xpath = "(//button[contains(@class,'pointer-events-auto')])[2]")
+	WebElement closeBtnSimulatorView;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
 	WebElement eMailInput;
@@ -157,6 +160,11 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				clickOn3HorizontalToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
 				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if(closeBtnSimulatorView.isDisplayed())
+						closeBtnSimulatorView.click();
+					defaultWaitTime(3000);
+				}
 			} else {
 				waitTimeForElement(signInBtnDropdown);
 				js = (JavascriptExecutor) driver;
@@ -173,6 +181,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
 		return visibilityStatus;
 	}

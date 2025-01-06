@@ -701,7 +701,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingForPersonal);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (bookingForPersonal.isSelected())
+			if (bookingForPersonal.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;

@@ -3,7 +3,7 @@
 <suite name="LuxyNewUserPortal_Sanity" thread-count="4"
 	preserve-order="true">
 	<parameter name="environment" value="uatuserportal" />
-	<parameter name="browser" value="chromeLocal" />
+	<parameter name="browser" value="chromeLocal" />	<!-- chromeLocal or chromeLocalMobileView -->
 	<listeners>
 		<listener class-name="Common.LuxyAuto_ITestListener" />
 	</listeners>
@@ -19,8 +19,10 @@
 		<classes>
 			<!-- ######################################## UserPortal.Login #################################### -->
 			<class name="UserPortal.Login.DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test" />
-			<class name="UserPortal.Login.DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test" />
-			<class name="UserPortal.Login.DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test" />
+			<class name="UserPortal.Login.DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test" />  
+			<class name="UserPortal.Login.DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test" /> 
+			<class name="UserPortal.Login.DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test" /> 
+			<class name="UserPortal.Login.DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test" />
 			<!-- ############################################################################################## -->
 			
 			<!-- ##################################### UserPortal.DriversAndPartners ########################## -->

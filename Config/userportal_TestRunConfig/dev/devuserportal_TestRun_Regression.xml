@@ -2,13 +2,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="LuxyNewUserPortal_Regression" thread-count="4" preserve-order="true">
 	<parameter name="environment" value="devuserportal" />
-	<parameter name="browser" value="chromeLocal" />
+	<parameter name="browser" value="chromeLocal" />	<!-- chromeLocal or chromeLocalMobileView -->
 	<listeners>
 		<listener class-name="Common.LuxyAuto_ITestListener" />
 	</listeners>
 	<test name="LuxyNewUserPortalAutoTest" preserve-order="true">
 		<groups>
 			<run>
+				<include name="UserPortal.Login" />
 				<include name="UserPortal.CorporateTransport" />
 				<include name="UserPortal.TravelAgentProgram" />
 				<include name="UserPortal.DriversAndPartners" />  
@@ -18,6 +19,14 @@
 		</groups>
 
 		<classes>
+			<!-- ######################################## UserPortal.Login #################################### -->
+			<class name="UserPortal.Login.DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1968_VerifyTheFunctionalityOfCancelTripButtonByEnablingTripProtectionForAbove3Hours_WebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test" />
+			<!-- ############################################################################################## -->
+		
 			<!-- ############################# UserPortal.CorporateTransport ########################### -->
 			<class name="UserPortal.CorporateTransport.DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Test" />
 			<class name="UserPortal.CorporateTransport.DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateRegistrationPage_Test" />

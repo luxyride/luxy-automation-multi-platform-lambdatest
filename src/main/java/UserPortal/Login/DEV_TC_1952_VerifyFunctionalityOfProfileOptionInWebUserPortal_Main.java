@@ -33,6 +33,9 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
 	WebElement welcomeDropDown;
+	
+	@FindBy(xpath = "(//button[contains(@class,'pointer-events-auto')])[2]")
+	WebElement closeBtnSimulatorView;
 
 	@FindBy(xpath = "(//div[normalize-space()='User Details'])[1]")
 	WebElement userDetails;
@@ -215,6 +218,11 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				clickOn3HorizontalToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
 				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if(closeBtnSimulatorView.isDisplayed())
+						closeBtnSimulatorView.click();
+					defaultWaitTime(3000);
+				}
 			} else {
 				waitTimeForElement(signInBtnDropdown);
 				js = (JavascriptExecutor) driver;
@@ -231,6 +239,7 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
 		return visibilityStatus;
 	}

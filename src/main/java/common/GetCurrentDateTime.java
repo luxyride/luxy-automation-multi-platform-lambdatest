@@ -33,7 +33,7 @@ public class GetCurrentDateTime {
 			System.out.print(nextYear.substring(nextYear.length() - 2));
 
 			monthYear = currMonth + "/" + nextYear.substring(nextYear.length() - 2);
-
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

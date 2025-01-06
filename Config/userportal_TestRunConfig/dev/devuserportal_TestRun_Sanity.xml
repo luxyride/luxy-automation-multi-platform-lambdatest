@@ -22,7 +22,7 @@
 			<class name="UserPortal.Login.DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test" />  
 			<class name="UserPortal.Login.DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test" /> 
 			<class name="UserPortal.Login.DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test" /> 
-			<class name="UserPortal.Login.DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test" /> 
+			<class name="UserPortal.Login.DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test" />
 			<!-- ############################################################################################## -->
 			
 			<!-- ##################################### UserPortal.DriversAndPartners ########################## -->

@@ -52,6 +52,12 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 
 	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
 	WebElement signInBtnDropdown;
+	
+	@FindBy(xpath = "(//button[contains(@class,'pointer-events-auto')])[2]")
+	WebElement closeBtnSimulatorView;
+	
+	@FindBy(xpath = "(//a[normalize-space()='Logout'])[2]")
+	WebElement logoutBtn;
 
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Location']")
 	WebElement fromAddress;
@@ -73,6 +79,9 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
 	WebElement vechileAvailableSection;
+	
+	@FindBy(xpath = "(//div[normalize-space()='Card'])[2]")
+	WebElement cardPaymentType;
 
 	@FindBy(xpath = "//div[normalize-space()='LOOKING FOR OTHER CAR OPTIONS?']")
 	List<WebElement> vechileAvailableList;
@@ -324,22 +333,49 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 
 	public Boolean visibilityOfLoggedinUser(Boolean visibilityStatus) {
 		try {
-			waitTimeForElement(signInBtnDropdown);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			if (signInBtnDropdown.isDisplayed()) {
-				expected = signInBtnDropdown.getText();
-				if (expected.toLowerCase().contains("welcome")) {
-					visibilityStatus = true;
-				} else {
-					visibilityStatus = false;
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar(); // Click on 3 Lines Navigation Bar:
+				visibilityStatus = visibilityOfLogoutButton(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if(closeBtnSimulatorView.isDisplayed())
+						closeBtnSimulatorView.click();
+					defaultWaitTime(3000);
 				}
 			} else {
-				visibilityStatus = false;
+				waitTimeForElement(signInBtnDropdown);
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnDropdown);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (signInBtnDropdown.isDisplayed()) {
+					expected = signInBtnDropdown.getText();
+					if (expected.toLowerCase().contains("welcome"))
+						visibilityStatus = true;
+					else
+						visibilityStatus = false;
+				} else
+					visibilityStatus = false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
+		}
+		return visibilityStatus;
+	}
+	
+	public Boolean visibilityOfLogoutButton(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", logoutBtn);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (logoutBtn.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 		return visibilityStatus;
 	}
@@ -494,17 +530,22 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 
 	public void enablePaymentInfo() {
 		try {
-			action = new Actions(driver);
 			defaultWaitTime(1000);
+			for (int i = 0; i <= 6; i++) {
+				action.sendKeys(Keys.TAB).build().perform();
+				defaultWaitTime(500);
+			}
+			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(paymentInfocheckbox).click().build().perform();
+			js.executeScript("window.scrollBy(0,2000)", "");
+			js.executeScript("window.scrollBy(0,-500)", "");
+			paymentInfocheckbox.click();
+			defaultWaitTime(3000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 	public void clickOngetQuote() {
 		try {
 			action = new Actions(driver);
@@ -812,8 +853,21 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			js = (JavascriptExecutor) driver;
+			objTestBase.defaultWaitTime(1000);
+			js.executeScript("window.scrollBy(0,700)", "");
+			objTestBase.defaultWaitTime(1000);
+			js.executeScript("arguments[0].scrollIntoView(true);", cardPaymentType);
+			objTestBase.defaultWaitTime(1000);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(cardPaymentType).click().build().perform();
+			objTestBase.defaultWaitTime(5000);
+
+			objTestBase.defaultWaitTime(1000);
+			driver.switchTo().defaultContent();
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
+			js.executeScript("arguments[0].scrollIntoView(true);", cardHolderName);
 			cardHolderName.click();
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderNameGuest"));
 
@@ -828,16 +882,17 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			objTestBase.defaultWaitTime(1000);
 			driver.switchTo().defaultContent();
 
-			// SwitchTo Expiry Date
+			// SwitchTo Expire Date:
 			driver.switchTo().frame("braintree-hosted-field-expirationDate");
 			cardExpiryDate.click();
+			objTestBase.defaultWaitTime(1000);
 			String expiryDate = GetCurrentDateTime.getMonthYear(expected, "addCard");
 			action.moveToElement(cardExpiryDate).click().sendKeys(expiryDate).perform();
 
 			objTestBase.defaultWaitTime(1000);
 			driver.switchTo().defaultContent();
 
-			// SwitchTo Expiry Date
+			// SwitchTo CVV:
 			driver.switchTo().frame("braintree-hosted-field-cvv");
 			cvv.click();
 			cvv.sendKeys(prop.getProperty("walletCVVGuest"));

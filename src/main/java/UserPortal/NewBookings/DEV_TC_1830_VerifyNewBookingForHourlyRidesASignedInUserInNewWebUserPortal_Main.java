@@ -705,7 +705,7 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookingForPersonal);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (bookingForPersonal.isSelected())
+			if (bookingForPersonal.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
