@@ -586,6 +586,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public void enterPassengerNotes() {
 		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", passengerNotes);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passengerNotes.sendKeys(prop.getProperty("pasengerNotes"));
 		} catch (Exception e) {
 			e.printStackTrace();
