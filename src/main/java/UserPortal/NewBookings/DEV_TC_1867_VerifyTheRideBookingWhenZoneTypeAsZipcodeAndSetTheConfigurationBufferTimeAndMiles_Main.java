@@ -259,6 +259,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void eMailInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
 			action.sendKeys(Keys.TAB).build().perform();
 		} catch (Exception e) {
@@ -269,6 +272,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void passwordInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -278,6 +284,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void eyeIconClick() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", eyeIcon);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(eyeIcon).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -315,6 +324,9 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	public void clickSigninButton() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signInBtn_Login).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
