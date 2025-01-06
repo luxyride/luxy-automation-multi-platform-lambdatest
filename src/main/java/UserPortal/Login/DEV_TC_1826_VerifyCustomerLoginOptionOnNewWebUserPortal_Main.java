@@ -122,7 +122,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 	@FindBy(xpath = "//textarea[@id='passenger_notes']")
 	WebElement passengerNotes;
 
-	@FindBy(xpath = "//label[@for='personal']//input")
+	@FindBy(xpath = "//*[normalize-space()='Personal Travel']")
 	WebElement bookingForPersonal;
 
 	@FindBy(xpath = "//input[@value='Business']")
@@ -273,6 +273,21 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Main extend
 				else
 					visibilityStatus = false;
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -32,6 +32,9 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signinBtnNormalView;
+
 	@FindBy(xpath = "(//input[@id='email'])[1]")
 	WebElement eMailInput;
 
@@ -40,6 +43,9 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 
 	@FindBy(xpath = "(//*[name()='path'])[4]")
 	WebElement eyeIcon;
+	
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	WebElement loginAndContinue;
 
 	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signInBtn_Login;
@@ -119,7 +125,7 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 	@FindBy(xpath = "//textarea[@id='passenger_notes']")
 	WebElement passengerNotes;
 
-	@FindBy(xpath = "//label[@for='personal']//input")
+	@FindBy(xpath = "//*[normalize-space()='Personal Travel']")
 	WebElement bookingForPersonal;
 
 	@FindBy(xpath = "//input[@value='Business']")
@@ -247,6 +253,21 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
 	}
 
 	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
@@ -951,6 +972,19 @@ public class DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Main extends TestBas
 			e.printStackTrace();
 		}
 		return visibilityStatus;
+	}
+
+	public void clickSignInNormalView() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signinBtnNormalView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(signinBtnNormalView).click().build().perform();
+			action.moveToElement(signinBtn).build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	public void clickOnCustomerLogin() {

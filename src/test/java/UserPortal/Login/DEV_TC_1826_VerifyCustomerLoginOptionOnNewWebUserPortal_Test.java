@@ -99,7 +99,6 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
@@ -114,7 +113,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
-				objTestBase.defaultWaitTime(1000);
+				objTestBase.defaultWaitTime(3000);
 				// Configuration for handing mobile simulator testing:
 				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
 						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
@@ -147,23 +146,21 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 				objVerifyNewBookingMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
 
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfSigninButton(visibilityStatus);
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingMain.clickSigninButton();
-					objTestBase.defaultWaitTime(3000);
-					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 
+				objTestBase.defaultWaitTime(6000);
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
 				testStep = "Verification of User Portal Login";
 				if (visibilityStatus.booleanValue() == true) {

@@ -93,7 +93,6 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
@@ -108,52 +107,46 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
-				objTestBase.defaultWaitTime(1000);
+				objTestBase.defaultWaitTime(3000);
 				// Configuration for handing mobile simulator testing:
 				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
 						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
 						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					objVerifySighninMain.clickSignInNormalView();
+					objVerifySighninMain.clickSignIn();
 					objTestBase.defaultWaitTime(2000);
-				} else {
-					testStep = "Verify visibility of Customer Login";
-					visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus, "normalView");
+
+					testStep = "Verify customer log-in opion under sign in dropdown ";
+					visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 						else
 							lambdaTestStatusUpdate("passed", testStep);
+						testStatus = "PASSED";
 					} else {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 						else
 							lambdaTestStatusUpdate("failed", testStep);
+						testStatus = "FAILED";
 					}
 				}
 
 				objTestBase.defaultWaitTime(1000);
-				// Configuration for handing mobile simulator testing:
-				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-						|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-						|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					objVerifySighninMain.clickOnCustomerLogin("customerLoginSimulatorView");
-				} else
-					objVerifySighninMain.clickOnCustomerLogin("customerLoginNormalView");
-
+				objVerifySighninMain.clickOnCustomerLogin();
 				objTestBase.defaultWaitTime(1000);
 				objVerifySighninMain.eMailInput();
 				objTestBase.defaultWaitTime(1000);
 				objVerifySighninMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
 
-				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
+				visibilityStatus = objVerifySighninMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifySighninMain.clickSigninButton();
-					objTestBase.defaultWaitTime(6000);
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
@@ -161,6 +154,7 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 						lambdaTestStatusUpdate("failed", testStep);
 				}
 
+				objTestBase.defaultWaitTime(6000);
 				visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
 				testStep = "Verification of User Portal Login";
 				if (visibilityStatus.booleanValue() == true) {
@@ -168,29 +162,33 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test e
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
 				}
 				utillLogger.info(testStep + " - " + testStatus);
-			} else
+			} else {
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
+				testStatus = "SKIPPED";
+			}
 			utillLogger.info(testStep + " - " + testStatus);
 
 			objTestBase.defaultWaitTime(2000);
-			objVerifySighninMain.clickOnLogOut();
-			objTestBase.defaultWaitTime(5000);
-
 			testStep = "Verify customer log-in opion under sign in dropdown ";
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-				clickOn3HorizontalToggleNavigationBar();
+				objVerifySighninMain.clickOnLogOut();
+				objTestBase.defaultWaitTime(5000);
 				visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus, "simulatorView");
 			} else {
+				objVerifySighninMain.clickOnLogOut();
+				objTestBase.defaultWaitTime(5000);
 				visibilityStatus = objVerifySighninMain.visibilityOfSignInButtonNormalView(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)

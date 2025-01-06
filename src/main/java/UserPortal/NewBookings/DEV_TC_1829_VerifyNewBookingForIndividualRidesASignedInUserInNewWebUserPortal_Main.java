@@ -134,7 +134,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "//textarea[@id='passenger_notes']")
 	WebElement passengerNotes;
 
-	@FindBy(xpath = "//label[@for='personal']//input")
+	@FindBy(xpath = "//*[normalize-space()='Personal Travel']")
 	WebElement bookingForPersonal;
 
 	@FindBy(xpath = "//input[@value='Business']")

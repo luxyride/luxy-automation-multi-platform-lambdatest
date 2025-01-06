@@ -590,7 +590,7 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocal")) {	// chromeLocal or chromeLocalMobileView
+//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {	// chromeLocal or chromeLocalMobileView
 //				localExecutionFlag = true;
 //				System.setProperty("webdriver.http.factory", "jdk-http-client");
 //				WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -610,8 +610,8 @@ public class TestBase {
 //				chromeOptions.setExperimentalOption("prefs", prefs);
 //				//-----------------------------------------------------------------------
 //				// Mobile View Configuration:
-////				chromeOptions.setExperimentalOption("mobileEmulation",
-////						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+//				chromeOptions.setExperimentalOption("mobileEmulation",
+//						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
 //				//-----------------------------------------------------------------------
 //				driver = new ChromeDriver(chromeOptions);
 //			}

@@ -12,7 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test extends TestBase {
+public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test
+		extends TestBase {
 
 	String currURL;
 	String screenshotPath;
@@ -66,7 +67,6 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
-
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -80,37 +80,42 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
+
 			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOn3HorizontalToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
 			testStep = "Verification customer user login";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.clickSignIn();
-				objTestBase.defaultWaitTime(2000);
-
-				testStep = "Verify customer log-in opion under sign in dropdown ";
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
+				// Configuration for handing mobile simulator testing:
+				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
+						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
+						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+					objVerifyNewBookingMain.clickSignInNormalView();
+					objTestBase.defaultWaitTime(2000);
 				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
+					testStep = "Verify visibility of Customer Login";
+					visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
+					if (visibilityStatus.booleanValue() == true) {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+						else
+							lambdaTestStatusUpdate("passed", testStep);
+						testStatus = "PASSED";
+					} else {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+						else
+							lambdaTestStatusUpdate("failed", testStep);
+						testStatus = "FAILED";
+					}
 				}
 
 				objTestBase.defaultWaitTime(1000);
@@ -120,24 +125,19 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
-				objVerifyNewBookingMain.eyeIconClick();
-				objTestBase.defaultWaitTime(1000);
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfSigninButton(visibilityStatus);
+
+				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingMain.clickSigninButton();
-					objTestBase.defaultWaitTime(3000);
-					driver.navigate().refresh();
-					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
 					else
 						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
 				}
 
 				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
@@ -160,6 +160,7 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
 				testStatus = "SKIPPED";
 			}
+			utillLogger.info(testStep + " - " + testStatus);
 
 			testStep = "Verification user login";
 			scenario = "Book Sedan";
@@ -197,7 +198,7 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
@@ -253,7 +254,7 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 
 			utillLogger.info(testStep + " - " + testStatus);
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.clickOnSecondaryPassenger();
@@ -269,9 +270,9 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 			objTestBase.defaultWaitTime(1000);
 
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(1000);
-			
+
 			testStep = "Verification of Booking For 'Personal' is selected by default for the scenario " + scenario
 					+ " from Ride Booking Details Page";
 			visibilityStatus = objVerifyNewBookingMain.verifyBookingForPersonalSelected(visibilityStatus);
@@ -299,9 +300,9 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(5000);
-			
+
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(1000);
 
 			objVerifyNewBookingMain.enterPaymentInformation();
@@ -309,7 +310,7 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(1000);
 
 			utillLogger.info(testStep + " - " + testStatus);
@@ -344,10 +345,10 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
-					driver.navigate().refresh();
+
 					js = (JavascriptExecutor) driver;
 					js.executeScript("window.scrollBy(0,-200)", "");
-					objTestBase.defaultWaitTime(2000);					// Capture the Ride Booking IDs:
+					objTestBase.defaultWaitTime(2000); // Capture the Ride Booking IDs:
 					String[] tempVal = scenario.split(" ");
 					tripID = objVerifyNewBookingMain.captureRideBookingIDs(visibilityStatus, scenario, tripID);
 					testStep = "Verification of Capturing the Ride ID for " + tempVal[1] + " - TripID = " + tripID;
@@ -374,16 +375,16 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				objTestBase.closePopupWindow();
 				// Configuration for handing mobile simulator testing:
 				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-						clickOn3HorizontalToggleNavigationBar();
+						|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+						|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+					clickOn3HorizontalToggleNavigationBar();
 				}
 			}
 
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickWelcomeDropDown();
 			objTestBase.defaultWaitTime(3000);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfProfileOption(visibilityStatus);
 			testStep = "verifi profile option under welcome dropdown";
 			if (visibilityStatus.booleanValue() == true) {
@@ -400,13 +401,13 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickOnProfileOption();
 			objTestBase.defaultWaitTime(3000);
 			objVerifyNewBookingMain.clickOnMyRideBookings();
 			objTestBase.defaultWaitTime(2000);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfMyRideBookingsPage(visibilityStatus);
 			testStep = "visibility Of My ride Bookings page";
 			if (visibilityStatus.booleanValue() == true) {
@@ -423,7 +424,7 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfDownloadTripInvoiceBtn(visibilityStatus);
 			testStep = "visibility Of Download Trip invoice Button in Upcomings trips";
 			if (visibilityStatus.booleanValue() == true) {
@@ -439,9 +440,6 @@ public class DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpco
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			utillLogger.info(testStep + " - " + testStatus);
-			objTestBase.defaultWaitTime(2000);
-			driver.navigate().refresh();
 			utillLogger.info(testStep + " - " + testStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
