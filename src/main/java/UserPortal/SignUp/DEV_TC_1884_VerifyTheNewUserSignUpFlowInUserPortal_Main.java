@@ -62,6 +62,21 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "(//*[contains(normalize-space(),'Your registration with LUXY is successful')])[1]")
 	List<WebElement> alertMessge;
 
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='sign in'])[1]//following::a[normalize-space()='Customer Login'][1]")
+	WebElement customerLoginNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='sign in'])[2]//following::a[normalize-space()='Customer Login']")
+	WebElement customerLoginSimulatorView;
+
+	@FindBy(xpath = "(//button[contains(@class,'pointer-events-auto')])[2]")
+	WebElement closeBtnSimulatorView;
+
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	WebElement loginAndContinue;
+
 	TestBase objTestBase;
 
 	public DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main(WebDriver driver) {
@@ -78,7 +93,10 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(signinBtn).click().build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(loginAndContinue).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -86,7 +104,53 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
+		try {
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLoginSimulatorView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (customerLoginSimulatorView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtnNormalView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (signInBtnNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean visibilityOfLoginAndContinueBtn(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (loginAndContinue.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -99,7 +163,10 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(customerLogin).click().build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			customerLogin.click();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -108,6 +175,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void clickOnSignup() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupBtn);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(signupBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,6 +188,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void fNameInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", fName);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			fName.sendKeys(prop.getProperty("fName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,6 +201,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void lNameInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", lName);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			lName.sendKeys(prop.getProperty("lName"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -137,6 +213,10 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 	public Boolean visibilityOfSignupButton(Boolean visibilityStatus) {
 		try {
+			defaultWaitTime(3000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupBtnFromSignupScreen.get(0));
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (signupBtnFromSignupScreen.size() != 0)
 				visibilityStatus = true;
 			else
@@ -155,6 +235,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 			// luxyqatestMMDDYYYY_HHMMSS@yopmail.com
 			eMail = prop.getProperty("regeMail") + currDateTime + prop.getProperty("eMailDomain");
 			action.sendKeys(Keys.TAB).build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", eMailInput);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			eMailInput.sendKeys(eMail);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,6 +249,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void passwordInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", passwordInput);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			passwordInput.sendKeys(prop.getProperty("regPwd"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -176,6 +262,9 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void phoneNumberInput() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", phoneInput);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			phoneInput.sendKeys(prop.getProperty("phoneNumber"));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -186,8 +275,10 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void termsConditionsCheckbox() {
 		try {
 			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", termsConditionsChckbx);
+			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(termsConditionsChckbx).click().build().perform();
-			;
 			objTestBase.defaultWaitTime(2000);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -196,7 +287,10 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 	public Boolean visibilityOfSignupButtonFromSignupScreen(Boolean visibilityStatus) {
 		try {
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(3000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupBtnFromSignupScreen.get(0));
+			js.executeScript("window.scrollBy(0,-100)", "");
 			if (signupBtnFromSignupScreen.size() != 0)
 				visibilityStatus = true;
 			else
@@ -210,10 +304,16 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 
 	public Boolean visibilityOfSignupConfirmationMsg(Boolean visibilityStatus) {
 		try {
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(3000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", signupBtnFromSignupScreen.get(0));
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.sendKeys(Keys.TAB).build().perform();
+			defaultWaitTime(1000);
 			signupBtnFromSignupScreen.get(0).click();
-
+			js.executeScript("window.scrollBy(0,-5000)", "");
 			String msgText = "";
+			defaultWaitTime(1000);
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 			wait.until(ExpectedConditions.visibilityOf(alertMessge.get(0)));
 			if (alertMessge.size() != 0) {
@@ -228,7 +328,6 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 				visibilityStatus = false;
 			System.out.println(msgText);
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return visibilityStatus;
 	}

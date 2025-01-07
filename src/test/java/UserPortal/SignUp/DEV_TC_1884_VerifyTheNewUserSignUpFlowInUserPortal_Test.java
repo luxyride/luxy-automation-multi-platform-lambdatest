@@ -76,93 +76,45 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOn3HorizontalToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar();
 			}
 
-			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verification Customer User Login";
+			testStep = "Verify visibility of SIGN IN option from User Portal Landing Page";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
-				objTestBase.defaultWaitTime(1000);
+				visibilityStatus = objVerifySighninMain.visibilityOfSigninButton(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					objTestBase.defaultWaitTime(3000);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+				utillLogger.info(testStep + " - " + testStatus);
+			}
+
+			testStep = "Verification customer user login";
+			if (testStatus == "PASSED") {
+				testStatus = " ";
+				objTestBase.defaultWaitTime(3000);
+				// Configuration for handing mobile simulator testing:
 				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
-						|| !browserType.equalsIgnoreCase("chromeiOSMobileView")
-						|| !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
+						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 					objVerifySighninMain.clickSignIn();
 					objTestBase.defaultWaitTime(2000);
-				}
 
-				testStep = "Verify customer log-in opion under sign in dropdown ";
-				visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus);
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
-				}
-
-				objTestBase.defaultWaitTime(1000);
-				objVerifySighninMain.clickOnCustomerLogin();
-				objTestBase.defaultWaitTime(1000);
-				objVerifySighninMain.clickOnSignup();
-				objTestBase.defaultWaitTime(8000);
-
-				testStep = "visibility of sign up page ";
-				visibilityStatus = objVerifySighninMain.visibilityOfSignUpPage(visibilityStatus);
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
-				}
-
-				utillLogger.info(testStep + " - " + testStatus);
-				if (testStatus == "PASSED") {
-					testStatus = " ";
-					Thread.sleep(1000);
-					action = new Actions(driver);
-
-					objVerifySighninMain.fNameInput();
-					objTestBase.defaultWaitTime(1000);
-
-					objVerifySighninMain.lNameInput();
-					objTestBase.defaultWaitTime(1000);
-
-					eMail = objVerifySighninMain.eMailInput(eMail);
-					objTestBase.defaultWaitTime(1000);
-
-					System.out.println("Regression Email = " + eMail);
-					utillLogger
-							.info(objVerifySighninTest.getClass().getSimpleName() + " - Regression Email = " + eMail);
-
-					objVerifySighninMain.passwordInput();
-					objTestBase.defaultWaitTime(1000);
-
-					objVerifySighninMain.phoneNumberInput();
-					objTestBase.defaultWaitTime(1000);
-
-					objVerifySighninMain.termsConditionsCheckbox();
-					objTestBase.defaultWaitTime(1000);
-					js = (JavascriptExecutor) driver;
-					
-
-					visibilityStatus = objVerifySighninMain.visibilityOfSignupButtonFromSignupScreen(visibilityStatus);
-					testStep = "Verify User entered details from Signup page";
+					testStep = "Verify customer log-in opion under sign in dropdown ";
+					visibilityStatus = objVerifySighninMain.visibilityOfDropDown(visibilityStatus);
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -176,41 +128,126 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 							lambdaTestStatusUpdate("failed", testStep);
 						testStatus = "FAILED";
 					}
-
-					// Prod Restriction:
-					if (!environmentCode.equalsIgnoreCase("prod")) {
-						objTestBase.defaultWaitTime(1000);
-						js = (JavascriptExecutor) driver;
-						
-						objTestBase.defaultWaitTime(2000);
-
-						visibilityStatus = objVerifySighninMain.visibilityOfSignupConfirmationMsg(visibilityStatus);
-						testStep = "Verification of User Signup Confirmation Message.!";
-						if (visibilityStatus.booleanValue() == true) {
-							if (localExecutionFlag == true)
-								objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep,
-										exception);
-							else
-								lambdaTestStatusUpdate("passed", testStep);
-							testStatus = "PASSED";
-						} else {
-							if (localExecutionFlag == true)
-								objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep,
-										exception);
-							else
-								lambdaTestStatusUpdate("failed", testStep);
-							testStatus = "FAILED";
-						}
-						utillLogger.info(testStep + " - " + testStatus);
-					}
-				} else {
-					testStep = "Verify User entered details from Signup page";
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
 				}
-				utillLogger.info(testStep + " - " + testStatus);
-				objTestBase.defaultWaitTime(2000);
-				extent.endTest(logger);
+
+				objTestBase.defaultWaitTime(1000);
+				objVerifySighninMain.clickOnCustomerLogin();
+				objTestBase.defaultWaitTime(1000);
+
+				visibilityStatus = objVerifySighninMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+			} else {
+				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
+				testStatus = "SKIPPED";
 			}
+			utillLogger.info(testStep + " - " + testStatus);
+
+			objTestBase.defaultWaitTime(1000);
+			objVerifySighninMain.clickOnSignup();
+			objTestBase.defaultWaitTime(8000);
+
+			testStep = "visibility of sign up page ";
+			visibilityStatus = objVerifySighninMain.visibilityOfSignUpPage(visibilityStatus);
+			if (visibilityStatus.booleanValue() == true) {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
+				testStatus = "PASSED";
+			} else {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
+				testStatus = "FAILED";
+			}
+
+			utillLogger.info(testStep + " - " + testStatus);
+			if (testStatus == "PASSED") {
+				testStatus = " ";
+				Thread.sleep(1000);
+				action = new Actions(driver);
+
+				objVerifySighninMain.fNameInput();
+				objTestBase.defaultWaitTime(1000);
+
+				objVerifySighninMain.lNameInput();
+				objTestBase.defaultWaitTime(1000);
+
+				eMail = objVerifySighninMain.eMailInput(eMail);
+				objTestBase.defaultWaitTime(1000);
+
+				System.out.println("Regression Email = " + eMail);
+				utillLogger.info(objVerifySighninTest.getClass().getSimpleName() + " - Regression Email = " + eMail);
+
+				objVerifySighninMain.passwordInput();
+				objTestBase.defaultWaitTime(1000);
+
+				objVerifySighninMain.phoneNumberInput();
+				objTestBase.defaultWaitTime(1000);
+
+				objVerifySighninMain.termsConditionsCheckbox();
+				objTestBase.defaultWaitTime(1000);
+				js = (JavascriptExecutor) driver;
+
+				visibilityStatus = objVerifySighninMain.visibilityOfSignupButtonFromSignupScreen(visibilityStatus);
+				testStep = "Verify User entered details from Signup page";
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+
+				// Prod Restriction:
+				if (!environmentCode.equalsIgnoreCase("prod")) {
+					objTestBase.defaultWaitTime(1000);
+					js = (JavascriptExecutor) driver;
+
+					objTestBase.defaultWaitTime(2000);
+
+					visibilityStatus = objVerifySighninMain.visibilityOfSignupConfirmationMsg(visibilityStatus);
+					testStep = "Verification of User Signup Confirmation Message.!";
+					if (visibilityStatus.booleanValue() == true) {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+						else
+							lambdaTestStatusUpdate("passed", testStep);
+						testStatus = "PASSED";
+					} else {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+						else
+							lambdaTestStatusUpdate("failed", testStep);
+						testStatus = "FAILED";
+					}
+					utillLogger.info(testStep + " - " + testStatus);
+				}
+			} else {
+				testStep = "Verify User entered details from Signup page";
+				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
+			}
+			utillLogger.info(testStep + " - " + testStatus);
+			objTestBase.defaultWaitTime(2000);
+			extent.endTest(logger);
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			if (localExecutionFlag == true)
