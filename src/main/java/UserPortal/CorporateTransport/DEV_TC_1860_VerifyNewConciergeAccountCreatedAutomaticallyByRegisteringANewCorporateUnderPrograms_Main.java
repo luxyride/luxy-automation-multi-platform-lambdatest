@@ -57,7 +57,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 	@FindBy(xpath = "//input[@id='677c7684-e3ff-4afd-b679-7cbf41eaa70089']")
 	WebElement workAddress;
 
-	@FindBy(xpath = "//label[@for='isPartner']")
+	@FindBy(xpath = "//label[@for='isPartner']//div")
 	WebElement termsConditionsChckbx;
 
 	@FindBy(xpath = "//button[@aria-label='Create']")
@@ -71,6 +71,9 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 
 	@FindBy(xpath = "(//span[normalize-space()='Corporate'])[1]")
 	WebElement corporateTab;
+
+	@FindBy(xpath = "//button[@id='toggleBtn']")
+	WebElement dispatchToggleBtn;
 
 	@FindBy(xpath = "//span[normalize-space()='Concierge']")
 	WebElement conciergeTab;
@@ -293,16 +296,18 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			eMailInput.sendKeys(eMail);
 			phoneInput.sendKeys(prop.getProperty("phoneNumber"));
 			action.sendKeys(Keys.TAB).build().perform();
-			action.sendKeys(Keys.TAB).build().perform();
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", termsConditionsChckbx);
-			js.executeScript("window.scrollBy(0,-100)", "");
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", termsConditionsChckbx);
+				js.executeScript("window.scrollBy(0,-500)", "");
+			}
 			termsConditionsChckbx.click();
-			objTestBase.defaultWaitTime(500);
+			objTestBase.defaultWaitTime(3000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyTheAvailabilityOfTextFieldsInCorporateForm(Boolean visibilityStatus) {
@@ -439,14 +444,21 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		return visibilityStatus;
 	}
 
-	public Boolean verifyCorporateTab(Boolean visibilityStatus) {
+	public Boolean verifyCorporateTab(Boolean visibilityStatus, String viewName) {
 		try {
 			action = new Actions(driver);
+			if (viewName.equalsIgnoreCase("simulatorView"))
+				action.moveToElement(dispatchToggleBtn).click().build().perform();
+
+			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateTab);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
+
+			if (viewName.equalsIgnoreCase("simulatorView"))
+				action.moveToElement(dispatchToggleBtn).click().build().perform();
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", searchItem);
@@ -469,7 +481,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 		return visibilityStatus;
 	}
 
-	public Boolean verifyConciergeTab(Boolean visibilityStatus, String scenario) {
+	public Boolean verifyConciergeTab(Boolean visibilityStatus, String scenario, String viewName) {
 		try {
 			if (scenario == "afterEMailActivation")
 				driver.get(prop.getProperty("dispatchURL"));
@@ -477,11 +489,18 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			driver.navigate().refresh();
 			objTestBase.defaultWaitTime(3000);
 			action = new Actions(driver);
+
+			if (viewName.equalsIgnoreCase("simulatorView"))
+				action.moveToElement(dispatchToggleBtn).click().build().perform();
+
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", conciergeTab);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(conciergeTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
+
+			if (viewName.equalsIgnoreCase("simulatorView"))
+				action.moveToElement(dispatchToggleBtn).click().build().perform();
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", searchItem);
@@ -518,7 +537,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 			objTestBase.defaultWaitTime(1000);
 			System.out.println("Regression Email = " + eMail);
 			utillLogger.info(
-					"DEV_TC_700_VerifyGenerateConciergeAccountByRegisteringCorporateInWebPortal_Main - Regression Email = "
+					"DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test - Regression Email = "
 							+ eMail);
 			visibilityStatus = verifyyopeMail(visibilityStatus);
 			js = (JavascriptExecutor) driver;

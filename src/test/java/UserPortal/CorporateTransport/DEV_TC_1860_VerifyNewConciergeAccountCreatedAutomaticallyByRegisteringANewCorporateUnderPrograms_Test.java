@@ -243,7 +243,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
-				
+
 				utillLogger.info(testStep + " - " + testStatus);
 				testStep = "Verification of User Signup Confirmation Message.!";
 				if (testStatus == "PASSED") {
@@ -301,7 +301,13 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 				objTestBase.defaultWaitTime(1000);
 				testStep = "Verify Signedup user from CORPORATE tab from Dispatch Site";
 				if (testStatus == "PASSED") {
-					visibilityStatus = objVerifyRegisCorpMain.verifyCorporateTab(visibilityStatus);
+					if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+							|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+							|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+						visibilityStatus = objVerifyRegisCorpMain.verifyCorporateTab(visibilityStatus, "simulatorView");
+					} else
+						visibilityStatus = objVerifyRegisCorpMain.verifyCorporateTab(visibilityStatus, "normalView");
+
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -327,8 +333,15 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 				objTestBase.defaultWaitTime(1000);
 				testStep = "Verify Signedup user from CONCIERGE tab from Dispatch Site";
 				if (testStatus == "PASSED") {
-					visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
-							"beforeEMailActivation");
+					if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+							|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+							|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+						visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
+								"beforeEMailActivation", "simulatorView");
+					} else
+						visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
+								"beforeEMailActivation", "normalView");
+
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -387,8 +400,14 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 				objTestBase.defaultWaitTime(5000);
 				testStep = "Verify Signedup user from CONCIERGE tab from Dispatch Site after Email Activation Completed";
 				if (testStatus == "PASSED") {
-					visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
-							"afterEMailActivation");
+					if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+							|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+							|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+						visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
+								"beforeEMailActivation", "simulatorView");
+					} else
+						visibilityStatus = objVerifyRegisCorpMain.verifyConciergeTab(visibilityStatus,
+								"beforeEMailActivation", "normalView");
 					if (visibilityStatus.booleanValue() == true) {
 						if (localExecutionFlag == true)
 							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
