@@ -39,6 +39,10 @@
 				name="UserPortal.Login.DEV_TC_2185_VerifyTheAvailabilityOfChangePasswordInAccountSettingsPage_Test" />
 			<class
 				name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_2183_VerifyTheAvailabilityOfNotificationPreferenceSettingsInAccountSettingsPage_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
 
 			<!--
 			############################################################################################## -->
