@@ -21,13 +21,13 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "//div[normalize-space()='Driver & Partners']")
-	WebElement affiliateBtn;
+	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[1]")
+	WebElement affiliate_NormalView;
 
 	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[2]")
-	WebElement affiliate_Simulator ;
-	
-	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY™ today')])[1]")
+	WebElement affiliate_SimulatorView;
+
+	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY today')])[1]")
 	WebElement affiliateSignup;
 
 	@FindBy(xpath = "//input[@id='companyName']")
@@ -35,7 +35,6 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
-
 
 	public DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Main(
 			WebDriver driver) {
@@ -48,12 +47,9 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		}
 	}
 
-	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
+	public Boolean visibilityOfDriverPartnersSimulatorView(Boolean visibilityStatus) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			if (affiliate_Simulator.isDisplayed())
+			if (affiliate_SimulatorView.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -63,13 +59,64 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		return visibilityStatus;
 	}
 
-	public void clickOnAffiliate() {
+	public void clickOnDriverPartners_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(affiliate_SimulatorView).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfAffiliateTransportNormalVeiw(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_NormalView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (affiliate_SimulatorView.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean visibilityOfAffiliateTransportSimulatorView(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_SimulatorView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (affiliate_SimulatorView.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnAffiliateSimulatorView() {
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_Simulator);
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_SimulatorView);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(affiliate_Simulator).click().build().perform();
+			action.moveToElement(affiliate_SimulatorView).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clickOnAffiliateNormalView() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_NormalView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(affiliate_NormalView).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -95,7 +142,6 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 		return visibilityStatus;
 	}
 
-	
 	public Boolean verifyVisibilityOfAffiliateRegistrationForm(Boolean visibilityStatus) {
 		try {
 			js = (JavascriptExecutor) driver;
@@ -128,13 +174,13 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
-			js = (JavascriptExecutor) driver;
+				js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
 			js.executeScript("window.scrollBy(0,-100)", "");
-				if (affiliateSignup.isDisplayed())
-					visibilityStatus = true;
-				else
-					visibilityStatus = false;
+			if (affiliateSignup.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

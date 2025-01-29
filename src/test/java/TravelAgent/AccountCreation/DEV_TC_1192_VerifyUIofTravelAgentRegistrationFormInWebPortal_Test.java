@@ -163,7 +163,7 @@ public class DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Test e
 			js.executeScript("window.scrollBy(0,5000)", "");
 			objTestBase.defaultWaitTime(2000);
 
-			testStep = "Verify visibility of 'JOIN THE LUXY™ TRAVEL AGENT PROGRAM' Button visibility - " + scenario;
+			testStep = "Verify visibility of 'JOIN THE LUXY TRAVEL AGENT PROGRAM' Button visibility - " + scenario;
 			visibilityStatus = objVerifyUITARegisMain.visibilityOfJoinTheLuxyAgentProgramBtn(visibilityStatus);
 			objTestBase.defaultWaitTime(2000);
 			if (visibilityStatus.booleanValue() == true) {

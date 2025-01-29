@@ -44,7 +44,7 @@ public class DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Main e
 	@FindBy(xpath = "//button[normalize-space()='Sign In']")
 	WebElement signInBtnfromHomePage;
 
-	@FindBy(xpath = "//span[text()='JOIN THE LUXY™ TRAVEL AGENT PROGRAM']")
+	@FindBy(xpath = "//span[text()='JOIN THE LUXY TRAVEL AGENT PROGRAM']")
 	WebElement joinTABtn;
 
 	// Travel Agent Registration Form Fields:

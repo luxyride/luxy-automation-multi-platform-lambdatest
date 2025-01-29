@@ -124,7 +124,7 @@ public class DEV_TC_1196_VerifyFunctionalityOfTravelAgentRegistrationThroughWebP
 			js.executeScript("window.scrollBy(0,5000)", "");
 			objTestBase.defaultWaitTime(2000);
 
-			testStep = "Verify visibility of 'JOIN THE LUXY™ TRAVEL AGENT PROGRAM' Button visibility";
+			testStep = "Verify visibility of 'JOIN THE LUXY TRAVEL AGENT PROGRAM' Button visibility";
 			visibilityStatus = objVerifyUITARegisMain.visibilityOfJoinTheLuxyAgentProgramBtn(visibilityStatus);
 			objTestBase.defaultWaitTime(2000);
 			if (visibilityStatus.booleanValue() == true) {

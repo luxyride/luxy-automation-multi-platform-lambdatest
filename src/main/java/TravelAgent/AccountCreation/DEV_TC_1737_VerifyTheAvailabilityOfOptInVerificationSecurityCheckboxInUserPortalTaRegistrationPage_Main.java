@@ -45,7 +45,7 @@ public class DEV_TC_1737_VerifyTheAvailabilityOfOptInVerificationSecurityCheckbo
 	@FindBy(xpath = "//button[normalize-space()='Sign In']")
 	WebElement signInBtnfromHomePage;
 
-	@FindBy(xpath = "//span[text()='JOIN THE LUXY™ TRAVEL AGENT PROGRAM']")
+	@FindBy(xpath = "//span[text()='JOIN THE LUXY TRAVEL AGENT PROGRAM']")
 	WebElement joinTABtn;
 
 	@FindBy(xpath = "//label[normalize-space()='Opt in PIN Verification for security']")

@@ -23,7 +23,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 	@FindBy(xpath = "//div[normalize-space()='Driver & Partners']")
 	WebElement affiliateBtn;
 
-	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY™ today')])[1]")
+	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY today')])[1]")
 	WebElement affiliateSignup;
 
 	@FindBy(xpath = "//input[@id='companyName']")
