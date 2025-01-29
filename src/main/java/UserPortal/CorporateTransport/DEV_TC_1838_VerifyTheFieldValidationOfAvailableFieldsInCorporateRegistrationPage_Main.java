@@ -20,8 +20,11 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "//div[normalize-space()='Corporate Transport'][1]")
-	WebElement corporateBtn;
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[1]")
+	WebElement corporateBtnNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[2]")
+	WebElement corporateBtnSimulatorView;
 
 	@FindBy(xpath = "//a[normalize-space()='Corporate']")
 	WebElement corporate;
@@ -67,33 +70,43 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 
 	}
 
-	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus) {
+	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus, String viewName) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			if (corporateBtn.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				if (corporateBtnSimulatorView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				if (corporateBtnNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
-
 		return visibilityStatus;
 	}
 
-	public void clickOnCorporate() {
+	public void clickOnCorporate(String viewName) {
 		try {
 			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(corporateBtn).click().build().perform();
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnSimulatorView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnSimulatorView).click().build().perform();
+			} else {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnNormalView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnNormalView).click().build().perform();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
@@ -118,20 +131,22 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 
 	public Boolean verifyCorporatePage(Boolean visibilityStatus) {
 		try {
+			js = (JavascriptExecutor) driver;
 			expected = driver.getCurrentUrl();
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
-					&& expected.toLowerCase().contains("corporate"))
-				js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			if (corporateSignup.isDisplayed())
-				visibilityStatus = true;
-			else
+					&& expected.toLowerCase().contains("corporate")) {
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (corporateSignup.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else
 				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
-
 		return visibilityStatus;
 	}
 
@@ -146,8 +161,8 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
-
 		return visibilityStatus;
 	}
 
@@ -158,10 +173,10 @@ public class DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateReg
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(corporateSignup).click().build().perform();
+			defaultWaitTime(3000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-
 	}
 
 	public Boolean verifyTheAvailabilityOfTextFieldsInCorporateForm(Boolean visibilityStatus) {

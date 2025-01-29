@@ -21,8 +21,14 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "//div[normalize-space()='Corporate Transport'][1]")
-	WebElement corporateBtn;
+	@FindBy(xpath = "//label[@for='isOpt']")
+	WebElement optInOPtion;
+
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[1]")
+	WebElement corporateBtnNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[2]")
+	WebElement corporateBtnSimulatorView;
 
 	@FindBy(xpath = "//a[normalize-space()='Corporate']")
 	WebElement corporate;
@@ -30,11 +36,29 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 	@FindBy(xpath = "(//a[contains(@aria-label,'Try LUXY for Corporate Transport')])[1]")
 	WebElement corporateSignup;
 
-	@FindBy(xpath = "//label[@for='isOpt']")
-	WebElement optInOPtion;
+	@FindBy(xpath = "//input[@id='companyName']")
+	WebElement companyName;
 
 	@FindBy(xpath = "//input[@id='firstName']")
 	WebElement fName;
+
+	@FindBy(xpath = "//input[@id='lastName']")
+	WebElement lName;
+
+	@FindBy(xpath = "(//input[@id='email'])[1]")
+	WebElement eMailInput;
+
+	@FindBy(xpath = "//input[@type='tel']")
+	WebElement phoneInput;
+
+	@FindBy(xpath = "//input[@placeholder='Enter Bussiness Address']")
+	WebElement workAddress;
+
+	@FindBy(xpath = "//label[@for='isPartner']")
+	WebElement termsConditionsChckbx;
+
+	@FindBy(xpath = "//button[@aria-label='Create']")
+	WebElement signupCreateBtn;
 
 	public DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Main(
 			WebDriver driver) {
@@ -47,30 +71,54 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		}
 	}
 
-	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus) {
+	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus, String viewName) {
 		try {
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			if (corporateBtn.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				if (corporateBtnSimulatorView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				if (corporateBtnNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
 		return visibilityStatus;
 	}
 
-	public void clickOnCorporate() {
+	public void clickOnCorporate(String viewName) {
+		try {
+			action = new Actions(driver);
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnSimulatorView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnSimulatorView).click().build().perform();
+			} else {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnNormalView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnNormalView).click().build().perform();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void clickOnCreateButton() {
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", signupCreateBtn);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(corporateBtn).click().build().perform();
-		} catch (Exception e) {
-			e.printStackTrace();
+			action.moveToElement(signupCreateBtn).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
@@ -137,5 +185,38 @@ public class DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityO
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	public Boolean verifyTheAvailabilityOfTextFieldsInCorporateForm(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (companyName.isDisplayed() && fName.isDisplayed() && lName.isDisplayed() && workAddress.isDisplayed()
+					&& eMailInput.isDisplayed() && phoneInput.isDisplayed() && termsConditionsChckbx.isDisplayed()
+					&& signupCreateBtn.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public Boolean verifyVisibilityOfCorporateRegistrationForm(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (companyName.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			visibilityStatus = false;
+		}
+		return visibilityStatus;
 	}
 }

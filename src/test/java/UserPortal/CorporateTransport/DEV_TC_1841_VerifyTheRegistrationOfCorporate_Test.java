@@ -73,22 +73,35 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOn3HorizontalToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar();
 			}
-			
-			testStep = "Verify visibility of corporate  from Homepage Header";
-			visibilityStatus = objVerifyRegisCorpMain.visibilityOfCorporateTransport(visibilityStatus);
-			objTestBase.defaultWaitTime(500);
 
+			testStep = "Verify visibility of corporate from Homepage Header";
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfCorporateTransport(visibilityStatus,
+						"simulatorView");
+			} else
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfCorporateTransport(visibilityStatus,
+						"normalView");
+
+			objTestBase.defaultWaitTime(1000);
 			if (visibilityStatus.booleanValue() == true) {
-				objVerifyRegisCorpMain.clickOnCorporate();
+				if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+						|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+						|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+					objVerifyRegisCorpMain.clickOnCorporate("simulatorView");
+				} else
+					objVerifyRegisCorpMain.clickOnCorporate("normalView");
+				
 				objTestBase.defaultWaitTime(1000);
 				screenshotPath = getScreenshot(driver, "VerifyRideRewards");
 				if (localExecutionFlag == true)
@@ -104,34 +117,16 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of Corporate module under Programs dropdown from Homepage Header";
+			testStep = "Verify visibility of Corporate Program Page Navigation from UserPortal Home page.?";
 			if (testStatus == "PASSED") {
-				String parentWindow = driver.getWindowHandle();
-				objTestBase.defaultWaitTime(3000);
-				visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
-				objTestBase.defaultWaitTime(1000);
-				testStep = "Verify visibility of Corporate Navigation from Programs dropdown";
-
-				js = (JavascriptExecutor) driver;
-				
-				objTestBase.defaultWaitTime(2000);
-
+				visibilityStatus = objVerifyRegisCorpMain.verifyCorporatePage(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					visibilityStatus = objVerifyRegisCorpMain.verifyCorporatePage(visibilityStatus);
-					if (visibilityStatus.booleanValue() == true) {
-						screenshotPath = getScreenshot(driver, "VerifyCorporate");
-						if (localExecutionFlag == true)
-							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-						else
-							lambdaTestStatusUpdate("passed", testStep);
-						testStatus = "PASSED";
-					} else {
-						if (localExecutionFlag == true)
-							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-						else
-							lambdaTestStatusUpdate("failed", testStep);
-						testStatus = "FAILED";
-					}
+					screenshotPath = getScreenshot(driver, "VerifyCorporate");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
@@ -144,7 +139,7 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 
 			objVerifyRegisCorpMain.clickOnEnrollCorporateBtn();
 			objTestBase.defaultWaitTime(3000);
-			testStep = "Verify visibility of Corporate registration Page Option";
+			testStep = "Verify visibility of Corporate registration Page";
 			if (visibilityStatus.booleanValue() == true) {
 				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfCorporateRegistrationForm(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
@@ -168,6 +163,44 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
+			utillLogger.info(testStep + " - " + testStatus);
+			objTestBase.defaultWaitTime(3000);
+
+			testStep = "Verify Availability of Text feilds in Corporate Registartion From";
+			if (visibilityStatus.booleanValue() == true) {
+				visibilityStatus = objVerifyRegisCorpMain
+						.verifyTheAvailabilityOfTextFieldsInCorporateForm(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					screenshotPath = getScreenshot(driver, "VerifyCorporate");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+			} else {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
+				testStatus = "FAILED";
+			}
+
+			utillLogger.info(testStep + " - " + testStatus);
+			objTestBase.defaultWaitTime(2000);
+			objVerifyRegisCorpMain.clickOnCreateButton();
+			objTestBase.defaultWaitTime(2000);
+
+			js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,-100)", "");
+			objTestBase.defaultWaitTime(2000);
+			utillLogger.info(testStep + " - " + testStatus);
 
 			objVerifyRegisCorpMain.enterAllDetails();
 			objTestBase.defaultWaitTime(2000);

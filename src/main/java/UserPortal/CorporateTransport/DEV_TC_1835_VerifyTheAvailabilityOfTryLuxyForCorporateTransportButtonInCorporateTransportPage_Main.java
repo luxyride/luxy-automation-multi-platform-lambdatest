@@ -21,8 +21,11 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "//div[normalize-space()='Corporate Transport'][1]")
-	WebElement corporateBtn;
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[1]")
+	WebElement corporateBtnNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[2]")
+	WebElement corporateBtnSimulatorView;
 
 	@FindBy(xpath = "//a[normalize-space()='Corporate']")
 	WebElement corporate;
@@ -32,9 +35,6 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 	@FindBy(xpath = "//input[@id='companyName']")
 	WebElement companyName;
-
-	@FindBy(xpath = "//input[@id='firstName']")
-	WebElement fName;
 
 	public DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Main(
 			WebDriver driver) {
@@ -48,69 +48,63 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 
 	}
 
-	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus) {
+	public Boolean visibilityOfCorporateTransport(Boolean visibilityStatus, String viewName) {
 		try {
-			if (corporateBtn.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return visibilityStatus;
-	}
-
-	public void clickOnCorporate() {
-		try {
-			action = new Actions(driver);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(corporateBtn).click().build().perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public Boolean switchToNewTab(Boolean visibilityStatus, String parentWindow) {
-		try {
-			defaultWaitTime(10000);
-			Set<String> listOfWindows = driver.getWindowHandles();
-			Iterator<String> windowsIterator = listOfWindows.iterator();
-			while (windowsIterator.hasNext()) {
-				String child_window = windowsIterator.next();
-				if (!parentWindow.equals(child_window)) {
-					driver.switchTo().window(child_window);
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				if (corporateBtnSimulatorView.isDisplayed())
 					visibilityStatus = true;
-					break;
-				}
+				else
+					visibilityStatus = false;
+			} else {
+				if (corporateBtnNormalView.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 			visibilityStatus = false;
 		}
 		return visibilityStatus;
 	}
 
-	public Boolean verifyCorporatePage(Boolean visibilityStatus) {
+	public void clickOnCorporate(String viewName) {
 		try {
-			expected = driver.getCurrentUrl();
-			if (expected.toLowerCase().contains(prop.getProperty("environment"))
-					&& expected.toLowerCase().contains("corporate"))
-
-				js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
-			js.executeScript("window.scrollBy(0,-100)", "");
-
-			if (corporateSignup.isDisplayed())
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
+			action = new Actions(driver);
+			if (viewName.equalsIgnoreCase("simulatorView")) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnSimulatorView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnSimulatorView).click().build().perform();
+			} else {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateBtnNormalView);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				action.moveToElement(corporateBtnNormalView).click().build().perform();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
+	public Boolean verifyCorporatePage(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			expected = driver.getCurrentUrl();
+			if (expected.toLowerCase().contains(prop.getProperty("environment"))
+					&& expected.toLowerCase().contains("corporate")) {
+				js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (corporateSignup.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			visibilityStatus = false;
+		}
 		return visibilityStatus;
 	}
 
@@ -119,15 +113,14 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", companyName);
 			js.executeScript("window.scrollBy(0,-100)", "");
-
 			if (companyName.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
 		} catch (Exception e) {
 			e.printStackTrace();
+			visibilityStatus = false;
 		}
-
 		return visibilityStatus;
 	}
 
@@ -137,8 +130,8 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", corporateSignup);
 			js.executeScript("window.scrollBy(0,-100)", "");
-
 			action.moveToElement(corporateSignup).click().build().perform();
+			defaultWaitTime(3000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
