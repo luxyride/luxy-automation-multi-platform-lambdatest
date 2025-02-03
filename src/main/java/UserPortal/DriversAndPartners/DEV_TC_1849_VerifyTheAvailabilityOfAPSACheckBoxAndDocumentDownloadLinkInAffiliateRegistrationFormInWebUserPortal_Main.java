@@ -92,6 +92,15 @@ public class DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadL
 		return visibilityStatus;
 	}
 
+	public void clickOnDriverPartners_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(affiliate_SimulatorView).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void clickOnAffiliateNormalView() {
 		try {
 			action = new Actions(driver);
