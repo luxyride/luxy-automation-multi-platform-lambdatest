@@ -20,8 +20,11 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "//div[normalize-space()='Driver & Partners']")
-	WebElement affiliateBtn;
+	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[1]")
+	WebElement affiliate_NormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[2]")
+	WebElement affiliate_SimulatorView;
 
 	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY today')])[1]")
 	WebElement affiliateSignup;
@@ -45,12 +48,12 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		}
 	}
 
-	public Boolean visibilityOfAffiliateTransport(Boolean visibilityStatus) {
+	public Boolean visibilityOfAffiliateTransportSimulatorView(Boolean visibilityStatus) {
 		try {
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_SimulatorView);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (affiliateBtn.isDisplayed())
+			if (affiliate_SimulatorView.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -60,13 +63,61 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 		return visibilityStatus;
 	}
 
-	public void clickOnAffiliate() {
+	public Boolean visibilityOfAffiliateTransportNormalVeiw(Boolean visibilityStatus) {
+		try {
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_NormalView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			if (affiliate_SimulatorView.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnDriverPartners_Siumlator() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(affiliate_SimulatorView).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfDriverPartnersSimulatorView(Boolean visibilityStatus) {
+		try {
+			if (affiliate_SimulatorView.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnAffiliateNormalView() {
 		try {
 			action = new Actions(driver);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", affiliateBtn);
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_NormalView);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(affiliateBtn).click().build().perform();
+			action.moveToElement(affiliate_NormalView).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void clickOnAffiliateSimulatorView() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_SimulatorView);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action.moveToElement(affiliate_SimulatorView).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

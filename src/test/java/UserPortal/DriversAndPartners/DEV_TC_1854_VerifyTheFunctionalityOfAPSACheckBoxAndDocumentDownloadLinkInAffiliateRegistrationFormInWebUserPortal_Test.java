@@ -75,35 +75,81 @@ public class DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownload
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			
+
 			// Method to close Pop-up Window:
 			objTestBase.closePopupWindow();
 			// Configuration for handing mobile simulator testing:
 			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
-				|| browserType.equalsIgnoreCase("chromeiOSMobileView")
-				|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					clickOn3HorizontalToggleNavigationBar();
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				clickOn3HorizontalToggleNavigationBar();
 			}
-			
-			testStep = "Verify visibility of Affiliate  from Homepage Header";
-			visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransport(visibilityStatus);
-			objTestBase.defaultWaitTime(500);
 
-			if (visibilityStatus.booleanValue() == true) {
-				objVerifyRegisCorpMain.clickOnAffiliate();
-				objTestBase.defaultWaitTime(1000);
-				screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+
+				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfDriverPartnersSimulatorView(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnDriverPartners_Siumlator();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+
+				testStep = "Verify visibility of Affiliate from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransportSimulatorView(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnAffiliateSimulatorView();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
+				testStep = "Verify visibility of Affiliate from Homepage Header";
+				visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransportNormalVeiw(visibilityStatus);
+				objTestBase.defaultWaitTime(500);
+				if (visibilityStatus.booleanValue() == true) {
+					objVerifyRegisCorpMain.clickOnAffiliateNormalView();
+					objTestBase.defaultWaitTime(1000);
+					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
 			}
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verify visibility of  Affiliate module  from Homepage Header";
@@ -115,7 +161,7 @@ public class DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownload
 				testStep = "Verify visibility of Affiliate Navigation from Programs dropdown";
 
 				js = (JavascriptExecutor) driver;
-				
+
 				objTestBase.defaultWaitTime(2000);
 
 				if (visibilityStatus.booleanValue() == true) {
@@ -194,7 +240,6 @@ public class DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownload
 
 			objVerifyRegisCorpMain.enterAllDetails();
 			objTestBase.defaultWaitTime(2000);
-			
 
 			// Prod Restriction:
 			if (!environmentCode.equalsIgnoreCase("prod")) {
@@ -253,7 +298,7 @@ public class DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownload
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
+
 			objTestBase.defaultWaitTime(1000);
 			objVerifyRegisCorpMain.clickOnTermsCheckbox();
 			objTestBase.defaultWaitTime(2000);

@@ -109,7 +109,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void clickOnAffiliateNormalView() {
 		try {
 			action = new Actions(driver);

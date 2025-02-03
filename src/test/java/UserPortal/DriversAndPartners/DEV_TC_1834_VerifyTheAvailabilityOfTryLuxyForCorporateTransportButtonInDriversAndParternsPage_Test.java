@@ -153,7 +153,7 @@ public class DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);
-			testStep = "Verify visibility of  Affiliate module  from Homepage Header";
+			testStep = "Verify visibility of Affiliate module  from Homepage Header";
 			if (testStatus == "PASSED") {
 				String parentWindow = driver.getWindowHandle();
 				objTestBase.defaultWaitTime(3000);
