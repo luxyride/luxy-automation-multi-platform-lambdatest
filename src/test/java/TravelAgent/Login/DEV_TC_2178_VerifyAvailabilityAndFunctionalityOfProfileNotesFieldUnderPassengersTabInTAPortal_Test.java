@@ -55,12 +55,12 @@ public class DEV_TC_2178_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUn
 			utillLogger.info("## " + objVerifySighninTest.getClass().getSimpleName()
 					+ " - START --------------------------------------------------------------##");
 
-			driver.get(prop.getProperty("ConciergeURL"));
+			driver.get(prop.getProperty("travelAgentURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(2000);
 
 			currURL = driver.getCurrentUrl();
-			testStep = "Verification of Concierge Portal Loginpage ";
+			testStep = "Verification of TA Portal Loginpage ";
 
 			if (currURL.toLowerCase().contains(prop.getProperty("environment"))) {
 				if (localExecutionFlag == true)
@@ -107,7 +107,7 @@ public class DEV_TC_2178_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUn
 				objVerifySighninMain.clickNewBooking();
 				objTestBase.defaultWaitTime(3000);
 
-				testStep = "Verification of Concierge Portal Login With Valid Credentials";
+				testStep = "Verification of TA Portal Login With Valid Credentials";
 				visibilityStatus = objVerifySighninMain.visibilityOfLoggedinUser(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
 					if (localExecutionFlag == true)
