@@ -196,6 +196,9 @@
 				name="Concierge.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInConcierge_Test" />
 			<class
 				name="Concierge.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInConcierge_Test" />
+			<class
+				name="Concierge.Login.DEV_TC_2177_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUnderPassengersTabInConciergePortal_Test" />
+
 			<!--
 			############################################################################################## -->
 

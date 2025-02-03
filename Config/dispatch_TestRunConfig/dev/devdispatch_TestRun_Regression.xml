@@ -37,6 +37,9 @@
 				name="Dispatch.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
 			<class
 				name="Dispatch.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInDispatch_Test" />
+			<class
+				name="Dispatch.Login.DEV_TC_2176_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUnderPassengersTabInDispatchPortal_Test" />
+
 			<!--
 			############################################################################################# -->
 
@@ -131,7 +134,7 @@
 				name="Dispatch.NewBooking.DEV_TC_2072_VerifyTheFunctionalityOfTripSourceDropdownInDispatchPortal_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmailForCustomersBookingToOrFromWithOtherAirportAddresses_Test" />
-<class
+			<class
 				name="Dispatch.NewBooking.DEV_TC_2105_VerifyThatTheJFKLinkIsIncludedInTheConfirmationEmailForCustomersBookingToOrFromJFKAirport_Test" />
 
 
