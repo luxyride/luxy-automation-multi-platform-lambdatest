@@ -1,6 +1,6 @@
 
 version: 0.1
-runson: mac13
+runson: mac15
 
 ##Minutes
 globalTimeout: 150
