@@ -68,7 +68,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliate_NormalView);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (affiliate_SimulatorView.isDisplayed())
+			if (affiliate_NormalView.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;
@@ -177,6 +177,7 @@ public class DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPag
 			if (expected.toLowerCase().contains(prop.getProperty("environment"))
 					&& expected.toLowerCase().contains("affiliate"))
 				js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,200)", "");
 			js.executeScript("arguments[0].scrollIntoView(true);", affiliateSignup);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			if (affiliateSignup.isDisplayed())

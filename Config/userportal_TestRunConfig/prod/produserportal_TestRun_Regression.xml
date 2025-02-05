@@ -37,7 +37,8 @@
 			<class name="UserPortal.DriversAndPartners.DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Test" />
 			<class name="UserPortal.DriversAndPartners.DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Test" />
 			<class name="UserPortal.DriversAndPartners.DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test" />
-			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUpScreen_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Test" />
 			<!-- ############################################################################################## -->
 
 			<!-- ################################### UserPortal.NewBookings ############################ -->

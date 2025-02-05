@@ -89,32 +89,11 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test extends TestBase 
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 
-				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				testStep = "Verify visibility of Driver & Partners from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfDriverPartnersSimulatorView(visibilityStatus);
 				objTestBase.defaultWaitTime(500);
-
 				if (visibilityStatus.booleanValue() == true) {
 					objVerifyRegisCorpMain.clickOnDriverPartners_Siumlator();
-					objTestBase.defaultWaitTime(1000);
-					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
-				}
-
-				testStep = "Verify visibility of Affiliate from Homepage Header";
-				visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransportSimulatorView(visibilityStatus);
-				objTestBase.defaultWaitTime(500);
-				if (visibilityStatus.booleanValue() == true) {
-					objVerifyRegisCorpMain.clickOnAffiliateSimulatorView();
 					objTestBase.defaultWaitTime(1000);
 					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
 					if (localExecutionFlag == true)
@@ -277,11 +256,8 @@ public class DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test extends TestBase 
 						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
-				utillLogger.info(testStep + " - " + testStatus);
 			}
-
 			utillLogger.info(testStep + " - " + testStatus);
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());

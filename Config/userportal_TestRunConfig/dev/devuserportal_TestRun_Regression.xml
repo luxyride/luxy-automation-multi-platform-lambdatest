@@ -21,97 +21,54 @@
 		</groups>
 
 		<classes>
-			<!-- ######################################## UserPortal.Login
-			#################################### -->
-			<class
-				name="UserPortal.Login.DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_1968_VerifyTheFunctionalityOfCancelTripButtonByEnablingTripProtectionForAbove3Hours_WebUserPortal_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_2189_VerifyTheAvailabilityOfFavoriteAddressesUnderMyAddressesMenu_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_2185_VerifyTheAvailabilityOfChangePasswordInAccountSettingsPage_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
+			<!-- ######################################## UserPortal.Login #################################### -->
+			<class name="UserPortal.Login.DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1967_VerifyTheFunctionalityOfDownloadTripInvoiceButtonInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1968_VerifyTheFunctionalityOfCancelTripButtonByEnablingTripProtectionForAbove3Hours_WebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1972_VerifyTheFunctionalityOfCancelTripButtonForAbove3HoursHourlyRideInUpcomingTripsTabUnderProfileInWebUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_1983_VerifyContactUsPageInNewUserPortal_Test" />
+			<class name="UserPortal.Login.DEV_TC_2189_VerifyTheAvailabilityOfFavoriteAddressesUnderMyAddressesMenu_Test" />
+			<class name="UserPortal.Login.DEV_TC_2185_VerifyTheAvailabilityOfChangePasswordInAccountSettingsPage_Test" />
+			<class name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
+ 			<class name="UserPortal.Login.DEV_TC_2183_VerifyTheAvailabilityOfNotificationPreferenceSettingsInAccountSettingsPage_Test" />
+			<class name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
+ 			<!-- ############################################################################################## -->
 
-			<class
-				name="UserPortal.Login.DEV_TC_2183_VerifyTheAvailabilityOfNotificationPreferenceSettingsInAccountSettingsPage_Test" />
-			<class
-				name="UserPortal.Login.DEV_TC_2186_VerifyTheFunctionalityOfChangePasswordInAccountSettingsPage_Test" />
+			<!-- ############################# UserPortal.CorporateTransport ########################### -->
+			<class name="UserPortal.CorporateTransport.DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateRegistrationPage_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test" />
+			<class name="UserPortal.CorporateTransport.DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Test" />
+			<!-- ############################################################################################## -->
 
-			<!--
-			############################################################################################## -->
+			<!-- ############################## UserPortal.TravelAgentProgram ########################## -->
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTravelAgentProgram_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionInTravelAgentRegistrationFormOfUserPortal_Test" />
+			<class name="UserPortal.TravelAgentProgram.DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test" />
+			<!-- ############################################################################################## -->
 
-			<!-- ############################# UserPortal.CorporateTransport
-			########################### -->
-			<class
-				name="UserPortal.CorporateTransport.DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInCorporateTransportPage_Test" />
-			<class
-				name="UserPortal.CorporateTransport.DEV_TC_1838_VerifyTheFieldValidationOfAvailableFieldsInCorporateRegistrationPage_Test" />
-			<class
-				name="UserPortal.CorporateTransport.DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test" />
-			<class
-				name="UserPortal.CorporateTransport.DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test" />
-			<class
-				name="UserPortal.CorporateTransport.DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Test" />
-			<!--
-			############################################################################################## -->
+			<!-- ############################## UserPortal.DriversAndPartners ########################## -->
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUpScreen_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_2033_VerifyTheAvailabilityOfUpdatedTextInDriverandPartnerPage_Test" />
+			<!-- ############################################################################################## -->
 
-			<!-- ############################## UserPortal.TravelAgentProgram
-			########################## -->
-			<class
-				name="UserPortal.TravelAgentProgram.DEV_TC_1836_VerifyTheAvailabilityOfSignUpWithLuxyTodayButtonInTravelAgentProgram_Test" />
-			<class
-				name="UserPortal.TravelAgentProgram.DEV_TC_1839_VerifyTheFieldValidationOfAvailableFieldsInTravelAGentRegistrationPage_Test" />
-			<class
-				name="UserPortal.TravelAgentProgram.DEV_TC_1863_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionInTravelAgentRegistrationFormOfUserPortal_Test" />
-			<class
-				name="UserPortal.TravelAgentProgram.DEV_TC_1866_VerifyTheAvailabilityOfSampleDocumentsLinkForTravelAgentOnBoarding_Test" />
-			<!--
-			############################################################################################## -->
+			<!-- ################################### UserPortal.NewBookings ################################### -->
+			<class name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheConfigurationBufferTimeAndMiles_Test" />
+			<class name="UserPortal.NewBookings.DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test" />
+			<!-- ############################################################################################## -->
 
-			<!-- ############################## UserPortal.DriversAndPartners
-			########################## -->
-			<class
-				name="UserPortal.DriversAndPartners.DEV_TC_1834_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButtonInDriversAndParternsPage_Test" />
-			<class
-				name="UserPortal.DriversAndPartners.DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndParternsRegistrationPage_Test" />
-			<class
-				name="UserPortal.DriversAndPartners.DEV_TC_1840_VerifyTheRegistrationOfAffiliate_Test" />
-			<class
-				name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
-			<!--
-			############################################################################################## -->
-
-			<!-- ################################### UserPortal.NewBookings
-			################################### -->
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfigurationBufferTimeAndMiles_Test" />
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigurationBufferTimeAndMiles_Test" />
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1870_VerifyTheRideBookingWhenZoneTypeAsAirportAndSetTheConfigurationBufferTimeAndMiles_Test" />
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1871_DRAFT_VerifyTheRideBookingWhenZoneTypeAsCityAndSetTheConfigurationBufferTimeAndMiles_Test" />
-			<class
-				name="UserPortal.NewBookings.DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test" />
-			<!--
-			############################################################################################## -->
-
-			<!-- ################################### UserPortal.SignUp
-			################################## -->
-			<class
-				name="UserPortal.SignUp.DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test" />
-			<!--
-			############################################################################################## -->
+			<!-- ################################### UserPortal.SignUp ################################## -->
+			<class name="UserPortal.SignUp.DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test" />
+			<!-- ############################################################################################## -->
 		</classes>
 	</test>
 </suite> <!--

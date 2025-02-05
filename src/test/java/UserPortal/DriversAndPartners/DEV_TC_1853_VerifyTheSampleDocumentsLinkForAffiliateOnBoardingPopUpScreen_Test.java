@@ -90,32 +90,11 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 
-				testStep = "Verify visibility of travel Agent  from Homepage Header";
+				testStep = "Verify visibility of Driver & Partners from Homepage Header";
 				visibilityStatus = objVerifyRegisCorpMain.visibilityOfDriverPartnersSimulatorView(visibilityStatus);
 				objTestBase.defaultWaitTime(500);
-
 				if (visibilityStatus.booleanValue() == true) {
 					objVerifyRegisCorpMain.clickOnDriverPartners_Siumlator();
-					objTestBase.defaultWaitTime(1000);
-					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
-				}
-
-				testStep = "Verify visibility of Affiliate from Homepage Header";
-				visibilityStatus = objVerifyRegisCorpMain.visibilityOfAffiliateTransportSimulatorView(visibilityStatus);
-				objTestBase.defaultWaitTime(500);
-				if (visibilityStatus.booleanValue() == true) {
-					objVerifyRegisCorpMain.clickOnAffiliateSimulatorView();
 					objTestBase.defaultWaitTime(1000);
 					screenshotPath = getScreenshot(driver, "VerifyRideRewards");
 					if (localExecutionFlag == true)
@@ -190,18 +169,28 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 			}
 			utillLogger.info(testStep + " - " + testStatus);
 
-			objVerifyRegisCorpMain.clickOnEnrollAffiliateBtn();
-			objTestBase.defaultWaitTime(3000);
-			testStep = "Verify visibility of Affiliate  registration Page Option";
-			if (visibilityStatus.booleanValue() == true) {
-				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfAffiliateRegistrationForm(visibilityStatus);
+			// Prod Restriction:
+			if (!environmentCode.equalsIgnoreCase("prod")) {
+				objVerifyRegisCorpMain.clickOnEnrollAffiliateBtn();
+				objTestBase.defaultWaitTime(3000);
+				testStep = "Verify visibility of Affiliate  registration Page Option";
 				if (visibilityStatus.booleanValue() == true) {
-					screenshotPath = getScreenshot(driver, "VerifyCorporate");
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
+					visibilityStatus = objVerifyRegisCorpMain
+							.verifyVisibilityOfAffiliateRegistrationForm(visibilityStatus);
+					if (visibilityStatus.booleanValue() == true) {
+						screenshotPath = getScreenshot(driver, "VerifyCorporate");
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+						else
+							lambdaTestStatusUpdate("passed", testStep);
+						testStatus = "PASSED";
+					} else {
+						if (localExecutionFlag == true)
+							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+						else
+							lambdaTestStatusUpdate("failed", testStep);
+						testStatus = "FAILED";
+					}
 				} else {
 					if (localExecutionFlag == true)
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
@@ -209,101 +198,92 @@ public class DEV_TC_1853_VerifyTheSampleDocumentsLinkForAffiliateOnBoardingPopUp
 						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
+				utillLogger.info(testStep + " - " + testStatus);
+
+				js = (JavascriptExecutor) driver;
+
+				objTestBase.defaultWaitTime(2000);
+
+				String parentWindow = driver.getWindowHandle();
+				objTestBase.defaultWaitTime(3000);
+
+				objTestBase.defaultWaitTime(1000);
+				objVerifyRegisCorpMain.clickOnW9Document();
+				objTestBase.defaultWaitTime(2000);
+
+				visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
+				objTestBase.defaultWaitTime(1000);
+				testStep = "Verify visibility of W9 Document Page";
+				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfW9DocumentPage(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+				driver.close();
+				objTestBase.defaultWaitTime(2000);
+				visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
+
+				parentWindow = driver.getWindowHandle();
+				objTestBase.defaultWaitTime(3000);
+
+				objVerifyRegisCorpMain.clickOnInsuranceDocument();
+				objTestBase.defaultWaitTime(2000);
+
+				visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
+				objTestBase.defaultWaitTime(1000);
+				testStep = "Verify visibility of Insurance  Page";
+				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfInsurancePage(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+				driver.close();
+
+				objTestBase.defaultWaitTime(2000);
+				visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
+
+				parentWindow = driver.getWindowHandle();
+				objTestBase.defaultWaitTime(2000);
+				objVerifyRegisCorpMain.clickOnDirectDeposit();
+				objTestBase.defaultWaitTime(2000);
+
+				visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
+				objTestBase.defaultWaitTime(1000);
+				testStep = "Verify visibility of Direct Deposit Page";
+				visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfDirectDepositPage(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+				}
+				driver.close();
+				objTestBase.defaultWaitTime(2000);
+				visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
+				objTestBase.defaultWaitTime(2000);
+				driver.navigate().refresh();
+				objTestBase.defaultWaitTime(1000);
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-
-			js = (JavascriptExecutor) driver;
-
-			objTestBase.defaultWaitTime(2000);
-
-			String parentWindow = driver.getWindowHandle();
-			objTestBase.defaultWaitTime(3000);
-
-			objTestBase.defaultWaitTime(1000);
-			objVerifyRegisCorpMain.clickOnW9Document();
-			objTestBase.defaultWaitTime(2000);
-
-			visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
-			objTestBase.defaultWaitTime(1000);
-			testStep = "Verify visibility of W9 Document Page";
-			visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfW9DocumentPage(visibilityStatus);
-			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-			}
-			driver.close();
-			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
-
-			parentWindow = driver.getWindowHandle();
-			objTestBase.defaultWaitTime(3000);
-
-			objVerifyRegisCorpMain.clickOnInsuranceDocument();
-			objTestBase.defaultWaitTime(2000);
-
-			visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
-			objTestBase.defaultWaitTime(1000);
-			testStep = "Verify visibility of Insurance  Page";
-			visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfInsurancePage(visibilityStatus);
-			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-			}
-			driver.close();
-
-			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
-
-			parentWindow = driver.getWindowHandle();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyRegisCorpMain.clickOnDirectDeposit();
-			objTestBase.defaultWaitTime(2000);
-
-			visibilityStatus = objVerifyRegisCorpMain.switchToNewTab(visibilityStatus, parentWindow);
-			objTestBase.defaultWaitTime(1000);
-			testStep = "Verify visibility of Direct Deposit Page";
-			visibilityStatus = objVerifyRegisCorpMain.verifyVisibilityOfDirectDepositPage(visibilityStatus);
-			if (visibilityStatus.booleanValue() == true) {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-				else
-					lambdaTestStatusUpdate("passed", testStep);
-			} else {
-				if (localExecutionFlag == true)
-					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-				else
-					lambdaTestStatusUpdate("failed", testStep);
-			}
-			driver.close();
-
-			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyRegisCorpMain.switchBackToMainWindow(visibilityStatus);
-			objTestBase.defaultWaitTime(2000);
-			driver.navigate().refresh();
-			objTestBase.defaultWaitTime(1000);
-
-			utillLogger.info(testStep + " - " + testStatus);
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());

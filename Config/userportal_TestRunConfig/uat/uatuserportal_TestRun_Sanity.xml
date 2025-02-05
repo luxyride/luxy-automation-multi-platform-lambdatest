@@ -27,7 +27,7 @@
 			
 			<!-- ##################################### UserPortal.DriversAndPartners ########################## -->
 			<class name="UserPortal.DriversAndPartners.DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
-			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />			
 			<!-- ############################################################################################## -->
 
 			<!-- ######################################### UserPortal.NewBookings ############################## -->
