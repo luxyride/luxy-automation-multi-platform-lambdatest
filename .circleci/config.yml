@@ -10,7 +10,7 @@ jobs:
       - image: cimg/openjdk:20.0-browsers
     #resource_class: xlarge
     steps:
-      - browser-tools/install-browser-tools
+#      - browser-tools/install-browser-tools
       - checkout
       - run: |
             google-chrome --version
