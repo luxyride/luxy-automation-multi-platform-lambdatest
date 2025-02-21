@@ -117,7 +117,7 @@ workflows:
                 - windows
     dev-userportal-sanity-safari:
       when:
-      equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
+       equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
