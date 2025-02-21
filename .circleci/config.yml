@@ -94,6 +94,8 @@ workflows:
                 - userportal
                 - chrome
                 - windows
+                - chromeAndroidMobileView
+                - chromeiOSMobileView
           filters:
             tags:
               only: /^devchrome.20.*/
@@ -113,9 +115,7 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  dev-userportal-sanity-safari:
+    dev-userportal-sanity-safari:
     when:
       equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
@@ -128,9 +128,7 @@ workflows:
                 - dev
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  dev-userportal-regression-chrome:
+    dev-userportal-regression-chrome:
     when:
       equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
     jobs:
@@ -143,9 +141,7 @@ workflows:
                 - dev
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  dev-userportal-regression-safari:
+    dev-userportal-regression-safari:
     when:
       equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
     jobs:
@@ -158,9 +154,7 @@ workflows:
                 - dev
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  uat-userportal-sanity-chrome:
+    uat-userportal-sanity-chrome:
     when:
       equal: [ uat-userportal-sanity-chrome, << pipeline.schedule.name >> ]
     jobs:
@@ -173,9 +167,7 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  uat-userportal-sanity-safari:
+    uat-userportal-sanity-safari:
     when:
       equal: [ uat-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
@@ -280,6 +272,7 @@ workflows:
                 - mac
                 - chromeAndroidMobileView
                 - chromeiOSMobileView
+  
   dev-dispatch-sanity-chrome:
     when:
       equal: [ dev-dispatch-sanity-chrome, << pipeline.schedule.name >> ]
@@ -702,3 +695,171 @@ workflows:
                 - prod
                 - safari
                 - mac
+  dev-userportal-sanity-chrome-android-mobile:
+    when:
+      equal: [ dev-userportal-sanity-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - dev
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  dev-userportal-sanity-safari-ios-mobile:
+    when:
+      equal: [ dev-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - dev
+                - safari
+                - windows
+                - chromeiOSMobileView
+  dev-userportal-regression-chrome-android-mobile:
+    when:
+      equal: [ dev-userportal-regression-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - dev
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  dev-userportal-regression-safari-ios-mobile:
+    when:
+      equal: [ dev-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - dev
+                - safari
+                - windows
+                - chromeiOSMobileView
+  uat-userportal-sanity-chrome-android-mobile:
+    when:
+      equal: [ uat-userportal-sanity-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - uat
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  uat-userportal-sanity-safari-ios-mobile:
+    when:
+      equal: [ uat-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - uat
+                - safari
+                - windows
+                - chromeiOSMobileView
+  uat-userportal-regression-chrome-android-mobile:
+    when:
+      equal: [ uat-userportal-regression-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - uat
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  uat-userportal-regression-safari-ios-mobile:
+    when:
+      equal: [ uat-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - uat
+                - safari
+                - windows
+                - chromeiOSMobileView
+  prod-userportal-sanity-chrome-android-mobile:
+    when:
+      equal: [ prod-userportal-sanity-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - prod
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  prod-userportal-sanity-safari-ios-mobile:
+    when:
+      equal: [ prod-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - sanity
+                - userportal
+                - prod
+                - safari
+                - windows
+                - chromeiOSMobileView
+  prod-userportal-regression-chrome-android-mobile:
+    when:
+      equal: [ prod-userportal-regression-chrome-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - prod
+                - chrome
+                - windows
+                - chromeAndroidMobileView
+  prod-userportal-regression-safari-ios-mobile:
+    when:
+      equal: [ prod-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+    jobs:
+      - test:
+          context: 
+                - aws-lower-env
+                - slack-secrets
+                - regression
+                - userportal
+                - prod
+                - safari
+                - windows
+                - chromeiOSMobileView
