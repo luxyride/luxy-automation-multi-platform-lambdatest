@@ -102,7 +102,7 @@ workflows:
             branches:
               ignore: /.*/
 
-    dev-userportal-sanity-chrome:
+  dev-userportal-sanity-chrome:
     when:
      equal: [ dev-userportal-sanity-chrome, << pipeline.schedule.name >> ]
     jobs:
@@ -115,7 +115,7 @@ workflows:
                 - dev
                 - chrome
                 - windows
-    dev-userportal-sanity-safari:
+  dev-userportal-sanity-safari:
       when:
        equal: [ dev-userportal-sanity-safari, << pipeline.schedule.name >> ]
       jobs:
@@ -130,7 +130,7 @@ workflows:
                 - mac
                 - chromeAndroidMobileView
                 - chromeiOSMobileView
-    dev-userportal-regression-chrome:
+  dev-userportal-regression-chrome:
       when:
        equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
       jobs:
@@ -143,7 +143,7 @@ workflows:
                 - dev
                 - chrome
                 - windows
-    dev-userportal-regression-safari:
+  dev-userportal-regression-safari:
     when:
      equal: [ dev-userportal-regression-safari, << pipeline.schedule.name >> ]
     jobs:
@@ -156,7 +156,7 @@ workflows:
                 - dev
                 - safari
                 - mac
-    uat-userportal-sanity-chrome:
+  uat-userportal-sanity-chrome:
     when:
      equal: [ uat-userportal-sanity-chrome, << pipeline.schedule.name >> ]
     jobs:
@@ -169,7 +169,7 @@ workflows:
                 - uat
                 - chrome
                 - windows
-    uat-userportal-sanity-safari:
+  uat-userportal-sanity-safari:
     when:
      equal: [ uat-userportal-sanity-safari, << pipeline.schedule.name >> ]
     jobs:
