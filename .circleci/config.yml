@@ -713,7 +713,7 @@ workflows:
                 - chromeAndroidMobileView
   dev-userportal-sanity-safari-ios-mobile:
     when:
-     equal: [ dev-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ dev-userportal-sanity-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -741,7 +741,7 @@ workflows:
                 - chromeAndroidMobileView
   dev-userportal-regression-safari-ios-mobile:
     when:
-     equal: [ dev-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ dev-userportal-regression-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -769,7 +769,7 @@ workflows:
                 - chromeAndroidMobileView
   uat-userportal-sanity-safari-ios-mobile:
     when:
-     equal: [ uat-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ uat-userportal-sanity-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -797,7 +797,7 @@ workflows:
                 - chromeAndroidMobileView
   uat-userportal-regression-safari-ios-mobile:
     when:
-     equal: [ uat-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ uat-userportal-regression-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -825,7 +825,7 @@ workflows:
                 - chromeAndroidMobileView
   prod-userportal-sanity-safari-ios-mobile:
     when:
-     equal: [ prod-userportal-sanity-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ prod-userportal-sanity-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
@@ -853,7 +853,7 @@ workflows:
                 - chromeAndroidMobileView
   prod-userportal-regression-safari-ios-mobile:
     when:
-     equal: [ prod-userportal-regression-safari-android-mobile, << pipeline.schedule.name >> ]
+     equal: [ prod-userportal-regression-safari-ios-mobile, << pipeline.schedule.name >> ]
     jobs:
       - test:
           context: 
