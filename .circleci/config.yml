@@ -128,8 +128,6 @@ workflows:
                 - dev
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   dev-userportal-regression-chrome:
       when:
        equal: [ dev-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -182,8 +180,6 @@ workflows:
                 - uat
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   uat-userportal-regression-chrome:
     when:
      equal: [ uat-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -197,8 +193,6 @@ workflows:
                 - uat
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   uat-userportal-regression-safari:
     when:
      equal: [ uat-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -212,8 +206,6 @@ workflows:
                 - uat
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   prod-userportal-sanity-chrome:
     when:
      equal: [ prod-userportal-sanity-chrome, << pipeline.schedule.name >> ]
@@ -227,8 +219,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   prod-userportal-sanity-safari:
     when:
      equal: [ prod-userportal-sanity-safari, << pipeline.schedule.name >> ]
@@ -242,8 +232,6 @@ workflows:
                 - prod
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   prod-userportal-regression-chrome:
     when:
      equal: [ prod-userportal-regression-chrome, << pipeline.schedule.name >> ]
@@ -257,8 +245,6 @@ workflows:
                 - prod
                 - chrome
                 - windows
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
   prod-userportal-regression-safari:
     when:
      equal: [ prod-userportal-regression-safari, << pipeline.schedule.name >> ]
@@ -272,9 +258,6 @@ workflows:
                 - prod
                 - safari
                 - mac
-                - chromeAndroidMobileView
-                - chromeiOSMobileView
-  
   dev-dispatch-sanity-chrome:
     when:
      equal: [ dev-dispatch-sanity-chrome, << pipeline.schedule.name >> ]
