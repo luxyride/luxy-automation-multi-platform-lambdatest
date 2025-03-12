@@ -136,6 +136,10 @@
 				name="Dispatch.NewBooking.DEV_TC_2107_VerifyThatTheJfkLinkIsNotIncludedInTheConfirmationEmailForCustomersBookingToOrFromWithOtherAirportAddresses_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_2105_VerifyThatTheJFKLinkIsIncludedInTheConfirmationEmailForCustomersBookingToOrFromJFKAirport_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2161_VerifyBookerNameUnderPassengerProfileTabInDispatchPortal_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2162_VerifyBookerNameUnderTravelArrangerProfileTabInDispatchPortal_Test" />
 
 
 			<!--
