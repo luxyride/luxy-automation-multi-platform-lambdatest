@@ -58,6 +58,9 @@
 				name="UserPortal.CorporateTransport.DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegisteringANewCorporateUnderPrograms_Test" />
 			<class
 				name="UserPortal.CorporateTransport.DEV_TC_1862_VerifyTheAvailabilityOfOptInPinVerificationForSecurityOptionUncheckedWhileNewCorporateRegistrationInUserPortal_Test" />
+			<class
+				name="UserPortal.CorporateTransport.DEV_TC_2222_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingInCorporateProgram_Test" />
+
 			<!--
 			############################################################################################## -->
 
@@ -105,6 +108,7 @@
 				name="UserPortal.NewBookings.DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Test" />
 			<class
 				name="UserPortal.NewBookings.DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingInRideBookingFlowInWebUserPortal_Test" />
+
 
 			<!--
 			############################################################################################## -->
