@@ -173,6 +173,9 @@
 				name="TravelAgent.Login.DEV_TC_1157_VerifyTheFieldValidationForForgotPasswordInTravelAgentSite_Test" />
 			<class
 				name="TravelAgent.Login.DEV_TC_2178_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUnderPassengersTabInTAPortal_Test" />
+			<class
+				name="TravelAgent.Login.DEV_TC_2235_VerifyTheAvailabilityOfIataFieldUnderTaProfileInTAPortal_Test" />
+
 			<!--
 			############################################################################################## -->
 

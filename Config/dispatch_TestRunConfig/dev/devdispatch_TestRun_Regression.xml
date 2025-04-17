@@ -140,6 +140,8 @@
 				name="Dispatch.NewBooking.DEV_TC_2161_VerifyBookerNameUnderPassengerProfileTabInDispatchPortal_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_2162_VerifyBookerNameUnderTravelArrangerProfileTabInDispatchPortal_Test" />
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2236_VerifyTheAvailabilityOfIataFieldUnderTaProfileInDispatchPortal_Test" />
 
 
 			<!--
