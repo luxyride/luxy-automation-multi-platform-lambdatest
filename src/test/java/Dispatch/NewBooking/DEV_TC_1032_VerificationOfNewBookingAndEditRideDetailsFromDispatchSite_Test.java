@@ -61,7 +61,7 @@ public class DEV_TC_1032_VerificationOfNewBookingAndEditRideDetailsFromDispatchS
 
 			driver.get(prop.getProperty("dispatchURL"));
 			driver.manage().window().maximize();
-			objTestBase.defaultWaitTime(3000);
+			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify Dispatch Portal Launch Homepage";
 			currURL = driver.getCurrentUrl();
@@ -89,7 +89,7 @@ public class DEV_TC_1032_VerificationOfNewBookingAndEditRideDetailsFromDispatchS
 					objVerifyEditDetails_Main.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
-					objTestBase.defaultWaitTime(1000);
+					objTestBase.defaultWaitTime(2000);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);

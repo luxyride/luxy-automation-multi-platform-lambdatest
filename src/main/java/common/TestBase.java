@@ -75,6 +75,7 @@ public class TestBase {
 	public static String filePathExtension;
 	public static List<WebElement> popupMain;
 	public static List<WebElement> popupChild;
+	public static List<WebElement> popupCookies;
 	public static String tripIDFarmoutScenario;
 	public static BufferedImage screenFullImage;
 	public static List<WebElement> animatedTeaser;
@@ -633,6 +634,23 @@ public class TestBase {
 			if (displayStatus.isDisplayed()) {
 				if (popupChild.get(0).isDisplayed())
 					action.moveToElement(popupChild.get(0)).click().build().perform();
+			}
+			defaultWaitTime(1000);
+		} catch (ElementNotInteractableException ex) {
+		} catch (Exception ex) {
+		}
+	}
+
+	public void closeCookiesPopupWindow() {
+		try {
+			action = new Actions(driver);
+			defaultWaitTime(1000);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+			popupCookies = driver.findElements(By.xpath("//div[normalize-space()='Accept Cookies'][1]"));
+			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupCookies.get(0)));
+			if (displayStatus.isDisplayed()) {
+				if (popupCookies.get(0).isDisplayed())
+					action.moveToElement(popupCookies.get(0)).click().build().perform();
 			}
 			defaultWaitTime(1000);
 		} catch (ElementNotInteractableException ex) {

@@ -56,7 +56,7 @@ public class DEV_TC_1192_VerifyUIofTravelAgentRegistrationFormInWebPortal_Test e
 
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
-			objTestBase.defaultWaitTime(2000);
+			objTestBase.defaultWaitTime(3000);
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";

@@ -55,6 +55,8 @@ public class DEV_TC_1841_VerifyTheRegistrationOfCorporate_Test extends TestBase 
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(3000);
+			objTestBase.closeCookiesPopupWindow();
+
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";

@@ -108,7 +108,7 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 					objVerifyNewBookingDispatchMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
-					objTestBase.defaultWaitTime(1000);
+					objTestBase.defaultWaitTime(2000);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
@@ -252,9 +252,9 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 
 			// Prod Restriction:
 			if (!environmentCode.equalsIgnoreCase("prod")) {
-				objTestBase.defaultWaitTime(2000);
+				objTestBase.defaultWaitTime(3000);
 				objVerifyNewBookingDispatchMain.clickonConfirmBooking();
-				objTestBase.defaultWaitTime(2000);
+				objTestBase.defaultWaitTime(3000);
 
 				testStep = "Verification of " + scenario + " Ride Booking Confirmation Message";
 				visibilityStatus = objVerifyNewBookingDispatchMain.verifyRideBookingConfirmation(visibilityStatus);
@@ -274,7 +274,7 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 
 				objTestBase.defaultWaitTime(3000);
 				objVerifyNewBookingDispatchMain.clickRidesSection();
-				objTestBase.defaultWaitTime(6000);
+				objTestBase.defaultWaitTime(5000);
 
 				if (testStatus == "PASSED") {
 					// Capture the Ride Booking IDs:

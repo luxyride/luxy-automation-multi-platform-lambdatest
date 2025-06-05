@@ -54,6 +54,8 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Test extends Tes
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(2000);
+			objTestBase.closeCookiesPopupWindow();
+
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";

@@ -57,6 +57,8 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(3000);
+			objTestBase.closeCookiesPopupWindow();
+
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
