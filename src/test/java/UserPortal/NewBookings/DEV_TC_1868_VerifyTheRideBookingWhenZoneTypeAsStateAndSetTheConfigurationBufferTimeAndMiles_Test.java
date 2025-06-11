@@ -70,7 +70,9 @@ public class DEV_TC_1868_VerifyTheRideBookingWhenZoneTypeAsStateAndSetTheConfigu
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(3000);
-
+			objTestBase.closeCookiesPopupWindow();
+			objTestBase.defaultWaitTime(2000);
+			
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
 			System.out.println(prop.getProperty("environment"));

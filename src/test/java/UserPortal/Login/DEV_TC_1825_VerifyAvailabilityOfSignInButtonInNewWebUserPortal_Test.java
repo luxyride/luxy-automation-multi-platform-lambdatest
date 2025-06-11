@@ -56,6 +56,10 @@ public class DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(2000);
+			objTestBase.closeCookiesPopupWindow();
+			objTestBase.defaultWaitTime(2000);
+
+
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verification of User Portal Landing Page";

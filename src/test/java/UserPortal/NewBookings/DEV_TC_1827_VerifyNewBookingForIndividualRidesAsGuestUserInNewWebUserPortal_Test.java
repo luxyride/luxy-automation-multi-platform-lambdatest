@@ -63,6 +63,8 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			driver.get(prop.getProperty("portalURL"));
 			driver.manage().window().maximize();
 			objTestBase.defaultWaitTime(3000);
+			objTestBase.closeCookiesPopupWindow();
+			objTestBase.defaultWaitTime(2000);
 
 			currURL = driver.getCurrentUrl();
 			testStep = "Verify Luxy Portal Launch Homepage";
