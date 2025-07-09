@@ -31,7 +31,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	String expected;
 
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
@@ -68,7 +68,7 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -211,19 +211,39 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 		}
 	}
 
-	public void clickLogin() throws InterruptedException {
+	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
+			defaultWaitTime(1000);
 			action.moveToElement(signinBtn).click().build().perform();
-			Thread.sleep(1000);
-			if (customerLogin.isDisplayed())
-				action.moveToElement(customerLogin).click().build().perform();
-			Thread.sleep(1000);
+			defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			WebElement ele = driver.findElement(By.xpath("//*[@id='responsive-navbar-nav']/div/a[4]"));
-			ele.click();
-			Thread.sleep(1000);
+		}
+	}
+
+	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
+		try {
+			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnCustomerLogin() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 

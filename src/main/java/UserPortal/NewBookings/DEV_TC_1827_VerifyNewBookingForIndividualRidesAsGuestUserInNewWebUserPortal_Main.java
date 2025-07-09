@@ -44,7 +44,7 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -458,10 +458,11 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 		try {
 			action = new Actions(driver);
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
+			objTestBase.defaultWaitTime(2000);
 			clickonFAQscheckbox();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
 			termsAndConditionsCheckbox.click();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -730,7 +731,6 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
-			js.executeScript("window.scrollBy(0,-100)", "");
 			waitTimeForElement(bookSedan);
 			visibilityStatus = true;
 		} catch (Exception e) {

@@ -77,7 +77,7 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -511,18 +511,12 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 
 	public void enablePaymentInfo() {
 		try {
-			defaultWaitTime(1000);
-			for (int i = 0; i <= 6; i++) {
-				action.sendKeys(Keys.TAB).build().perform();
-				defaultWaitTime(500);
-			}
-			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
-			js.executeScript("window.scrollBy(0,2000)", "");
-			js.executeScript("window.scrollBy(0,-500)", "");
-			paymentInfocheckbox.click();
-			defaultWaitTime(3000);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			action = new Actions(driver);
+			defaultWaitTime(1000);
+			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -887,6 +881,7 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
 			js.executeScript("window.scrollBy(0,-100)", "");
+			bookSedan.click();
 			visibilityStatus = true;
 		} catch (Exception e) {
 			visibilityStatus = false;
@@ -957,8 +952,8 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
 			defaultWaitTime(1000);
-			action.moveToElement(customerLogin).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

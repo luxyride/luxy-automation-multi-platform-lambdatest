@@ -35,6 +35,10 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
+	
+
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
 
 	@FindBy(xpath = "(//input[@id='email'])[1]")
 	WebElement eMailInput;
@@ -67,11 +71,11 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
-	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
-	WebElement vechileAvailableSection;
+	@FindBy(xpath = "//div[normalize-space()='LOOKING FOR OTHER CAR OPTIONS?']")
+	WebElement options;
 
 	@FindBy(xpath = "//div[normalize-space()='LOOKING FOR OTHER CAR OPTIONS?']")
 	List<WebElement> vechileAvailableList;
@@ -151,8 +155,8 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	@FindBy(xpath = "//button[@class='btn btn-small customized-button']")
 	WebElement applypromoCode;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Proceed to Pay')]")
-	List<WebElement> paymentInfocheckbox;
+	@FindBy(xpath = "//div[@class='translate-y-0 transition duration-500 group-hover:-translate-y-[100%]'][normalize-space()='Proceed to Pay']")
+	WebElement paymentInfocheckbox;
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
 	WebElement confirmBookingBtn;
@@ -160,12 +164,15 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	@FindBy(xpath = "//div[normalize-space()='Book Another Ride'][1]")
 	WebElement bookNextRideBtn;
 	
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
+	@FindBy(xpath = "//label[@for='677c7684-e3ff-4afd-b679-7cbf']")
 	WebElement termsAndConditionsCheckbox;
 
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
 	WebElement dateNextMonth;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOption;
+	
 	@FindBy(xpath = "//input[@id='cardholder-name']")
 	WebElement cardHolderName;
 
@@ -357,8 +364,8 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 
 	public Boolean verifyVisibilityOfPaymentInfo(Boolean visibilityStatus) {
 		try {
-			if (paymentInfocheckbox.size() != 0 && paymentInfocheckbox.get(0).isDisplayed()) {
-				waitTimeForElement(paymentInfocheckbox.get(0));
+			if ( paymentInfocheckbox.isDisplayed()) {
+				waitTimeForElement(paymentInfocheckbox);
 				visibilityStatus = true;
 			} else
 				visibilityStatus = false;
@@ -371,10 +378,10 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void enablePaymentInfo() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox.get(0));
+			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			action = new Actions(driver);
-			action.moveToElement(paymentInfocheckbox.get(0)).click().build().perform();
+			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -631,18 +638,14 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
+			js.executeScript("arguments[0].scrollIntoView(true);", options);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (vechileAvailableSection.isDisplayed()) {
-				expected = vechileAvailableSection.getText();
-				if (expected.toUpperCase().contains("OPTIONS") && vechileAvailableList.size() != 0) {
+			if (options.isDisplayed()) {
 					visibilityStatus = true;
 				} else {
 					visibilityStatus = false;
 				}
-			} else {
-				visibilityStatus = false;
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -656,6 +659,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-100)", "");
+			
+			cardOption.click();
+			defaultWaitTime(2000);
 
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
@@ -816,9 +822,6 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOnSecondaryPassenger() {
 		try {
 			action = new Actions(driver);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
-			js.executeScript("window.scrollBy(0,-100)", "");
 			action.moveToElement(secondaryPassenger).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -873,9 +876,9 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(signinBtn).click().build().perform();
-			action.moveToElement(signinBtn).build().perform();
-
+			defaultWaitTime(1000);
+			action.moveToElement(signInBtnNormalView).click().build().perform();
+			defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -896,7 +899,11 @@ public class DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUser
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(customerLogin).click().build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

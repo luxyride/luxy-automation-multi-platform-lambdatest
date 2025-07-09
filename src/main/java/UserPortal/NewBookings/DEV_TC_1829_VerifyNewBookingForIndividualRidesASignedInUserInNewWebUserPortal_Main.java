@@ -32,6 +32,9 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
 	WebElement signinBtn;
 
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
+
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
 	WebElement customerLogin;
 
@@ -65,10 +68,10 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
-	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
+	@FindBy(xpath = "//div[normalize-space()='Sedan']")
 	WebElement vechileAvailableSection;
 
 	@FindBy(xpath = "//div[normalize-space()='LOOKING FOR OTHER CAR OPTIONS?']")
@@ -149,20 +152,23 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	@FindBy(xpath = "//button[@class='btn btn-small customized-button']")
 	WebElement applypromoCode;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Proceed to Pay')]")
+	@FindBy(xpath = "//div[@class='translate-y-0 transition duration-500 group-hover:-translate-y-[100%]'][normalize-space()='Proceed to Pay']")
 	WebElement paymentInfocheckbox;
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
 	WebElement confirmBookingBtn;
 
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
-	WebElement termsAndConditionsCheckbox;
+	@FindBy(xpath = "//label[@for='677c7684-e3ff-4afd-b679-7cbf']")
+	WebElement secondCheckBox;
 
 	@FindBy(xpath = "//div[normalize-space()='Book Another Ride'][1]")
 	WebElement bookNextRideBtn;
 
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
 	WebElement dateNextMonth;
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOption;
 
 	@FindBy(xpath = "//input[@id='cardholder-name']")
 	WebElement cardHolderName;
@@ -370,6 +376,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			js.executeScript("arguments[0].scrollIntoView(true);", paymentInfocheckbox);
 			js.executeScript("window.scrollBy(0,-100)", "");
 			action = new Actions(driver);
+			defaultWaitTime(1000);
 			action.moveToElement(paymentInfocheckbox).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -476,10 +483,11 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		try {
 			action = new Actions(driver);
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
+			objTestBase.defaultWaitTime(2000);
 			clickonFAQscheckbox();
-			objTestBase.defaultWaitTime(1000);
-			termsAndConditionsCheckbox.click();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
+			secondCheckBox.click();
+			objTestBase.defaultWaitTime(2000);
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -624,18 +632,14 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public Boolean visibilityOfListofVechiles(Boolean visibilityStatus) {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", vechileAvailableSection);
+			js.executeScript("arguments[0].scrollIntoView(true);", bookSedan);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			if (vechileAvailableSection.isDisplayed()) {
-				expected = vechileAvailableSection.getText();
-				if (expected.toUpperCase().contains("OPTIONS") && vechileAvailableList.size() != 0) {
-					visibilityStatus = true;
-				} else {
-					visibilityStatus = false;
-				}
+			if (bookSedan.isDisplayed()) {
+				visibilityStatus = true;
 			} else {
 				visibilityStatus = false;
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -647,8 +651,11 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOption.click();
+			defaultWaitTime(2000);
+
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,-100)", "");
+			js.executeScript("window.scrollBy(0,150)", "");
 
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
@@ -660,6 +667,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 			// SwitchTo CardNumber Frame
 			driver.switchTo().frame("braintree-hosted-field-number");
+			objTestBase.defaultWaitTime(1000);
 			cardHolderNumber.click();
 			cardHolderNumber.sendKeys(prop.getProperty("walletcardNumberGuest"));
 
@@ -668,6 +676,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 			// SwitchTo Expiry Date
 			driver.switchTo().frame("braintree-hosted-field-expirationDate");
+			objTestBase.defaultWaitTime(1000);
 			cardExpiryDate.click();
 			String expiryDate = GetCurrentDateTime.getMonthYear(expected, "addCard");
 			action.moveToElement(cardExpiryDate).click().sendKeys(expiryDate).perform();
@@ -677,6 +686,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 			// SwitchTo Expiry Date
 			driver.switchTo().frame("braintree-hosted-field-cvv");
+			objTestBase.defaultWaitTime(1000);
 			cvv.click();
 			cvv.sendKeys(prop.getProperty("walletCVVGuest"));
 
@@ -685,12 +695,14 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 			// SwitchTo Postal Code:
 			driver.switchTo().frame("braintree-hosted-field-postalCode");
+			objTestBase.defaultWaitTime(1000);
 			postalCode.click();
 			postalCode.sendKeys(prop.getProperty("walletPostalCodeGuest"));
 			objTestBase.defaultWaitTime(1000);
 
 			// SwitchBackTo Default Frame
 			driver.switchTo().defaultContent();
+			objTestBase.defaultWaitTime(1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -731,9 +743,6 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 
 	public Boolean verifyConfirmBookingBtnVisibility(Boolean visibilityStatus) {
 		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", confirmBookingBtn);
-			js.executeScript("window.scrollBy(0,-100)", "");
 			if (confirmBookingBtn.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -805,68 +814,12 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 		}
 	}
 
-	public void clickOnSecondaryPassenger() {
-		try {
-			action = new Actions(driver);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", toAddress);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(secondaryPassenger).click().build().perform();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterFirstName() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", firstName);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			firstName.sendKeys(prop.getProperty("fName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterLastName() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", lastName);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			lastName.sendKeys(prop.getProperty("lName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterEmail() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", emailInput);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			emailInput.sendKeys(prop.getProperty("primaryEmail"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterMobile() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", mobileInput);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			mobileInput.sendKeys(prop.getProperty("phoneNumber"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(signinBtn).click().build().perform();
-			action.moveToElement(signinBtn).build().perform();
-
+			defaultWaitTime(1000);
+			action.moveToElement(signInBtnNormalView).click().build().perform();
+			defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -887,7 +840,11 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(customerLogin).click().build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

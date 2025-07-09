@@ -294,7 +294,8 @@ public class DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Main 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(customerLogin).click().build().perform();
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

@@ -89,23 +89,49 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				objTestBase.defaultWaitTime(1000);
-				objVerifyAdditionMain.clickLogin();
+				objVerifyAdditionMain.clickSignIn();
 				objTestBase.defaultWaitTime(2000);
+
+				testStep = "Verify customer log-in opion under sign in dropdown ";
+				visibilityStatus = objVerifyAdditionMain.visibilityOfDropDown(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+
+				objTestBase.defaultWaitTime(1000);
+				objVerifyAdditionMain.clickOnCustomerLogin();
+				objTestBase.defaultWaitTime(1000);
 				objVerifyAdditionMain.eMailInput();
+				objTestBase.defaultWaitTime(1000);
 				objVerifyAdditionMain.passwordInput();
 				objTestBase.defaultWaitTime(2000);
 				objVerifyAdditionMain.eyeIconClick();
 				objTestBase.defaultWaitTime(1000);
 				visibilityStatus = objVerifyAdditionMain.visibilityOfSigninButton(visibilityStatus);
 				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyAdditionMain.clickSigninButton();
 					objTestBase.defaultWaitTime(3000);
 					driver.navigate().refresh();
-					objTestBase.closePopupWindow();
 					testStatus = "PASSED";
 				} else {
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
 					testStatus = "FAILED";
 				}
 
@@ -153,14 +179,8 @@ public class DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMor
 			objVerifyAdditionMain.clickOngetQuote();
 			objTestBase.defaultWaitTime(3000);
 
-			visibilityStatus = objVerifyAdditionMain.visibilityOfVechileSection();
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-
 			testStep = "Verify list of available vechiles";
-			visibilityStatus = objVerifyAdditionMain.visibilityOfListofVechiles(visibilityStatus);
+			visibilityStatus = objVerifyAdditionMain.visibilityOfVechileSection();
 			if (visibilityStatus.booleanValue() == true) {
 				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
 				visibilityStatus = true;

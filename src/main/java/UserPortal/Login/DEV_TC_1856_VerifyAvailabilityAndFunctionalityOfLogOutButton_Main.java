@@ -245,10 +245,9 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(loginAndContinue).click().build().perform();
+			defaultWaitTime(1000);
+			action.moveToElement(signInBtnNormalView).click().build().perform();
+			defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -290,7 +289,8 @@ public class DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Main e
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			customerLogin.click();
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

@@ -36,7 +36,7 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 	WebDriver driver;
 	Boolean modifyDateFlag = false;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "((//a[normalize-space()='Customer Login'])[2])[1]")
@@ -239,20 +239,39 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 		}
 	}
 
-	public void clickLogin() throws InterruptedException {
+	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
+			defaultWaitTime(1000);
 			action.moveToElement(signinBtn).click().build().perform();
-			action.moveToElement(signinBtn).build().perform();
-			Thread.sleep(1000);
-			if (customerLogin.isDisplayed())
-				action.moveToElement(customerLogin).click().build().perform();
-			Thread.sleep(1000);
+			defaultWaitTime(2000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			WebElement ele = driver.findElement(By.xpath("//*[@id='responsive-navbar-nav']/div/a[4]"));
-			ele.click();
-			Thread.sleep(1000);
+		}
+	}
+
+	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
+		try {
+			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnCustomerLogin() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 

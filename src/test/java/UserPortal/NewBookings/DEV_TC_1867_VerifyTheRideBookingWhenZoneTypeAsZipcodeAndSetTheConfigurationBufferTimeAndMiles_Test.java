@@ -104,8 +104,28 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 			if (testStatus == "PASSED") {
 				testStatus = " ";
 				objTestBase.defaultWaitTime(1000);
-				objVerifyZoneTypeZipcodeMain.clickLogin();
+				objVerifyZoneTypeZipcodeMain.clickSignIn();
 				objTestBase.defaultWaitTime(2000);
+
+				testStep = "Verify customer log-in opion under sign in dropdown ";
+				visibilityStatus = objVerifyZoneTypeZipcodeMain.visibilityOfDropDown(visibilityStatus);
+				if (visibilityStatus.booleanValue() == true) {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+					else
+						lambdaTestStatusUpdate("passed", testStep);
+					testStatus = "PASSED";
+				} else {
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
+					testStatus = "FAILED";
+				}
+
+				objTestBase.defaultWaitTime(1000);
+				objVerifyZoneTypeZipcodeMain.clickOnCustomerLogin();
+				objTestBase.defaultWaitTime(1000);
 				objVerifyZoneTypeZipcodeMain.eMailInput();
 				objTestBase.defaultWaitTime(1000);
 				objVerifyZoneTypeZipcodeMain.passwordInput();

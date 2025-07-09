@@ -166,7 +166,8 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			customerLogin.click();
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

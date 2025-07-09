@@ -78,7 +78,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -165,7 +165,7 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
 	WebElement confirmBookingBtn;
 
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
+	@FindBy(xpath = "(//div[@class='relative h-4 w-4 rounded-full bg-white items-start checkbox border border-orange-300'])[2]")
 	WebElement termsAndConditionsCheckbox;
 
 	@FindBy(xpath = "//div[normalize-space()='Book Another Ride'][1]")
@@ -296,7 +296,8 @@ public class DEV_TC_1966_VerifyTheFunctionalityOfViewTripSummaryButtonInUpcoming
 			js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
 			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(customerLogin).click().build().perform();
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

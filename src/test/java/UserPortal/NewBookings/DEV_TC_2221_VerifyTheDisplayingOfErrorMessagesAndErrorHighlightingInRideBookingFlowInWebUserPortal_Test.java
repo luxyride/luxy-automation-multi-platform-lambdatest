@@ -212,14 +212,9 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickOngetQuote();
 			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-
-			objTestBase.defaultWaitTime(2000);
 
 			testStep = "Verify list of available vechiles";
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfListofVechiles(visibilityStatus);
+			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -249,9 +244,7 @@ public class DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingI
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickOngetQuote();
+		
 			objTestBase.defaultWaitTime(2000);
 			
 			js = (JavascriptExecutor) driver;

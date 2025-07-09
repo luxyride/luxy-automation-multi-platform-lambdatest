@@ -199,18 +199,6 @@ public class DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPo
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enterEmail();
 			objTestBase.defaultWaitTime(1000);
-
-			objVerifyNewBookingMain.clickOnSecondaryPassenger();
-			objTestBase.defaultWaitTime(2000);
-
-			objVerifyNewBookingMain.enterspFirstName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspLastName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspMobile();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.enterspEmail();
-			objTestBase.defaultWaitTime(1000);
 			
 			js = (JavascriptExecutor) driver;
 			
@@ -229,16 +217,15 @@ public class DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPo
 			else
 				lambdaTestStatusUpdate("failed", testStep);
 
-			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
-
-			objVerifyNewBookingMain.addAirline();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0 1200)", "");
 			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterFlightNumber();
-			objTestBase.defaultWaitTime(2000);
+			
+			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-100)", "");
-			objTestBase.defaultWaitTime(5000);
+			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(5000);

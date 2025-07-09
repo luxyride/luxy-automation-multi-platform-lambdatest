@@ -90,7 +90,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
 				clickOn3HorizontalToggleNavigationBar();
 			}
-			
+
 			testStep = "Verify visibility of SIGN IN option from User Portal Landing Page";
 			if (testStatus == "PASSED") {
 				testStatus = " ";
@@ -112,77 +112,70 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 				utillLogger.info(testStep + " - " + testStatus);
 			}
 
-			testStep = "Verification customer user login";
-			if (testStatus == "PASSED") {
-				testStatus = " ";
-				objTestBase.defaultWaitTime(3000);
-				// Configuration for handing mobile simulator testing:
-				if (!browserType.equalsIgnoreCase("chromeAndroidMobileView")
-						&& !browserType.equalsIgnoreCase("chromeiOSMobileView")
-						&& !browserType.equalsIgnoreCase("chromeLocalMobileView")) {
-					objVerifyNewBookingMain.clickSignIn();
-					objTestBase.defaultWaitTime(2000);
+			objTestBase.defaultWaitTime(2000);
+			objTestBase.closeCookiesPopupWindow();
 
-					testStep = "Verify customer log-in opion under sign in dropdown ";
-					visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
-					if (visibilityStatus.booleanValue() == true) {
-						if (localExecutionFlag == true)
-							objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-						else
-							lambdaTestStatusUpdate("passed", testStep);
-						testStatus = "PASSED";
-					} else {
-						if (localExecutionFlag == true)
-							objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-						else
-							lambdaTestStatusUpdate("failed", testStep);
-						testStatus = "FAILED";
-					}
-				}
+			objVerifyNewBookingMain.clickSignIn();
+			objTestBase.defaultWaitTime(2000);
 
-				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.clickOnCustomerLogin();
-				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.eMailInput();
-				objTestBase.defaultWaitTime(1000);
-				objVerifyNewBookingMain.passwordInput();
-				objTestBase.defaultWaitTime(2000);
-
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					objVerifyNewBookingMain.clickSigninButton();
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-				}
-
-				objTestBase.defaultWaitTime(6000);
-				visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
-				testStep = "Verification of User Portal Login";
-				if (visibilityStatus.booleanValue() == true) {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
-					else
-						lambdaTestStatusUpdate("passed", testStep);
-					testStatus = "PASSED";
-				} else {
-					if (localExecutionFlag == true)
-						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
-					else
-						lambdaTestStatusUpdate("failed", testStep);
-					testStatus = "FAILED";
-				}
-				utillLogger.info(testStep + " - " + testStatus);
+			testStep = "Verify customer log-in opion under sign in dropdown ";
+			visibilityStatus = objVerifyNewBookingMain.visibilityOfDropDown(visibilityStatus);
+			if (visibilityStatus.booleanValue() == true) {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
+				testStatus = "PASSED";
 			} else {
-				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
-				testStatus = "SKIPPED";
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
+				testStatus = "FAILED";
 			}
+
+			objTestBase.defaultWaitTime(1000);
+			objVerifyNewBookingMain.clickOnCustomerLogin();
+			objTestBase.defaultWaitTime(1000);
+			objVerifyNewBookingMain.eMailInput();
+			objTestBase.defaultWaitTime(1000);
+			objVerifyNewBookingMain.passwordInput();
+			objTestBase.defaultWaitTime(2000);
+
+			visibilityStatus = objVerifyNewBookingMain.visibilityOfLoginAndContinueBtn(visibilityStatus);
+			if (visibilityStatus.booleanValue() == true) {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
+				objVerifyNewBookingMain.clickSigninButton();
+			} else {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
+			}
+
+			objTestBase.defaultWaitTime(6000);
+			visibilityStatus = objVerifyNewBookingMain.visibilityOfLoggedinUser(visibilityStatus);
+			testStep = "Verification of User Portal Login";
+			if (visibilityStatus.booleanValue() == true) {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
+				else
+					lambdaTestStatusUpdate("passed", testStep);
+				testStatus = "PASSED";
+			} else {
+				if (localExecutionFlag == true)
+					objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+				else
+					lambdaTestStatusUpdate("failed", testStep);
+				testStatus = "FAILED";
+			}
+			utillLogger.info(testStep + " - " + testStatus);
+
+			objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
+			testStatus = "SKIPPED";
 			utillLogger.info(testStep + " - " + testStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -192,7 +185,6 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 				lambdaTestStatusUpdate("failed", testStep + " - Exception - " + ex.toString());
 			utillLogger.info(testStep + " - " + testStatus + " - " + ex.toString());
 			driver.navigate().refresh();
-			objTestBase.closePopupWindow();
 		}
 	}
 
@@ -212,4 +204,5 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 		utillLogger.info("## " + objVerifyNewBookingTest.getClass().getSimpleName()
 				+ " - END --------------------------------------------------------------##");
 	}
+
 }

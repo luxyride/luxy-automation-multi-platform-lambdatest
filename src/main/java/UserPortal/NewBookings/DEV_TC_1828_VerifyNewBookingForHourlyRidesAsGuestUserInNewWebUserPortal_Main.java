@@ -44,10 +44,10 @@ public class DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPo
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
-	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
+	@FindBy(xpath = "//div[normalize-space()='Sedan']")
 	WebElement vechileAvailableSection;
 
 	@FindBy(xpath = "//div[normalize-space()='LOOKING FOR OTHER CAR OPTIONS?']")
@@ -128,7 +128,7 @@ public class DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPo
 	@FindBy(xpath = "//button[@class='btn btn-small customized-button']")
 	WebElement applypromoCode;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Proceed to Pay')]")
+	@FindBy(xpath = "//div[@class='translate-y-0 transition duration-500 group-hover:-translate-y-[100%]'][normalize-space()='Proceed to Pay']")
 	WebElement paymentInfocheckbox;
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
@@ -164,7 +164,7 @@ public class DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPo
 	@FindBy(xpath = "//div[normalize-space()='Trip ID:']//following-sibling::div[1]")
 	WebElement bookingRideTripId;
 	
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
+	@FindBy(xpath = "//label[@for='677c7684-e3ff-4afd-b679-7cbf']")
 	WebElement termsAndConditionsCheckbox;
 
 	TestBase objTestBase;

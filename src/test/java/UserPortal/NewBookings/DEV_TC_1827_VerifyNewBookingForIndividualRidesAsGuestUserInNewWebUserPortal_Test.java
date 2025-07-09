@@ -121,22 +121,13 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.addToAddress();
 			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickOnExtraStop();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.addExtraStop();
-			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.clickOngetQuote();
 			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
 			
-			objTestBase.defaultWaitTime(2000);
-
 			testStep = "Verify list of available vechiles";
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfListofVechiles(visibilityStatus);
+			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
 			if (visibilityStatus.booleanValue() == true) {
 				if (localExecutionFlag == true)
 					objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
@@ -200,18 +191,6 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			objVerifyNewBookingMain.enterEmail();
 			objTestBase.defaultWaitTime(1000);
 
-			objVerifyNewBookingMain.clickOnSecondaryPassenger();
-			objTestBase.defaultWaitTime(2000);
-
-			objVerifyNewBookingMain.enterspFirstName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspLastName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspMobile();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.enterspEmail();
-			objTestBase.defaultWaitTime(1000);
-
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,400)", "");
 			objTestBase.defaultWaitTime(1000);
@@ -231,29 +210,24 @@ public class DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUs
 			
 		
 			js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1200)", "");
+			objTestBase.defaultWaitTime(1000);
 			
-			objTestBase.defaultWaitTime(1000);
-
-			objVerifyNewBookingMain.addAirline();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.enterFlightNumber();
-			objTestBase.defaultWaitTime(1000);
-
+			
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(5000);
-
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,130)", "");
-			objTestBase.defaultWaitTime(1000);
 			
+			js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,200)", "");
+			objTestBase.defaultWaitTime(4000);
+
 			objVerifyNewBookingMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(3000);
-
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
 			
 			objTestBase.defaultWaitTime(1000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,100)", "");
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verification of " + scenario + " Ride Booking Details Page";

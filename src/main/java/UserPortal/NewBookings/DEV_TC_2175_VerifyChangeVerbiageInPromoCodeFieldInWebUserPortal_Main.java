@@ -29,6 +29,31 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 	@FindBy(xpath = "//div[@class='choices__inner']")
 	WebElement individual;
 
+
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	WebElement signinBtn;
+
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
+	WebElement signInBtnNormalView;
+
+	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
+	WebElement customerLogin;
+
+	@FindBy(xpath = "(//input[@id='email'])[1]")
+	WebElement eMailInput;
+
+	@FindBy(xpath = "(//input[@id='password'])[1]")
+	WebElement passwordInput;
+
+	@FindBy(xpath = "(//*[name()='path'])[4]")
+	WebElement eyeIcon;
+
+	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	WebElement signInBtn_Login;
+
+	@FindBy(xpath = "(//a[normalize-space()='Welcome Test User'])[1]")
+	WebElement signInBtnDropdown;
+	
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Location']")
 	WebElement fromAddress;
 
@@ -44,7 +69,7 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -122,13 +147,13 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 	@FindBy(xpath = "//div[@class='custom-control custom-switch ']")
 	WebElement promoCodeEnable;
 
-	@FindBy(xpath = "//input[@id='promocode']")
+	@FindBy(xpath = "//input[@id='promo-code-input']")
 	WebElement promoCode;
 
 	@FindBy(xpath = "//button[@value='Apply Code']")
 	WebElement applypromoCode;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Proceed to Pay')]")
+	@FindBy(xpath = "//div[@class='translate-y-0 transition duration-500 group-hover:-translate-y-[100%]'][normalize-space()='Proceed to Pay']")
 	WebElement paymentInfocheckbox;
 
 	@FindBy(xpath = "//div[normalize-space()='Make Payment & Book Ride'][1]")
@@ -140,6 +165,9 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
 	WebElement dateNextMonth;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOption;
+	
 	@FindBy(xpath = "//input[@id='cardholder-name']")
 	WebElement cardHolderName;
 
@@ -164,7 +192,7 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 	@FindBy(xpath = "//div[normalize-space()='Trip ID:']//following-sibling::div[1]")
 	WebElement bookingRideTripId;
 
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
+	@FindBy(xpath = "//label[@for='677c7684-e3ff-4afd-b679-7cbf']")
 	WebElement termsAndConditionsCheckbox;
 
 	TestBase objTestBase;
@@ -182,6 +210,108 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 			ex.printStackTrace();
 		}
 	}
+	
+	public void clickSignIn() {
+		try {
+			action = new Actions(driver);
+			defaultWaitTime(1000);
+			action.moveToElement(signInBtnNormalView).click().build().perform();
+			defaultWaitTime(2000);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfDropDown(Boolean visibilityStatus) {
+		try {
+			if (customerLogin.isDisplayed())
+				visibilityStatus = true;
+			else
+				visibilityStatus = false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickOnCustomerLogin() {
+		try {
+			action = new Actions(driver);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void eMailInput() {
+		try {
+			action = new Actions(driver);
+			eMailInput.sendKeys(prop.getProperty("sanityeMail"));
+			action.sendKeys(Keys.TAB).build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void passwordInput() {
+		try {
+			action = new Actions(driver);
+			passwordInput.sendKeys(prop.getProperty("sanityPwd"));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public void eyeIconClick() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(eyeIcon).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	public Boolean visibilityOfSigninButton(Boolean visibilityStatus) {
+		try {
+			// Configuration for handing mobile simulator testing:
+			if (browserType.equalsIgnoreCase("chromeAndroidMobileView")
+					|| browserType.equalsIgnoreCase("chromeiOSMobileView")
+					|| browserType.equalsIgnoreCase("chromeLocalMobileView")) {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (customerLogin.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			} else {
+				js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].scrollIntoView(true);", signInBtn_Login);
+				js.executeScript("window.scrollBy(0,-100)", "");
+				if (signInBtn_Login.isDisplayed())
+					visibilityStatus = true;
+				else
+					visibilityStatus = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return visibilityStatus;
+	}
+
+	public void clickSigninButton() {
+		try {
+			action = new Actions(driver);
+			action.moveToElement(signInBtn_Login).click().build().perform();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	
 
 	public void addFromAddress() {
 		try {
@@ -458,10 +588,11 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 		try {
 			action = new Actions(driver);
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
+			objTestBase.defaultWaitTime(2000);
 			clickonFAQscheckbox();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
 			termsAndConditionsCheckbox.click();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -629,6 +760,9 @@ public class DEV_TC_2175_VerifyChangeVerbiageInPromoCodeFieldInWebUserPortal_Mai
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOption.click();
+			defaultWaitTime(2000);
+			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-100)", "");
 

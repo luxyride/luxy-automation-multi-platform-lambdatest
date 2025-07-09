@@ -180,19 +180,10 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.addToAddress();
 			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickOnExtraStop();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.addExtraStop();
-			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enterDate();
 			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.clickOngetQuote();
-			objTestBase.defaultWaitTime(2000);
-			visibilityStatus = objVerifyNewBookingMain.visibilityOfVechileSection(visibilityStatus);
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
+			objVerifyNewBookingMain.clickOngetQuote();			
+			objTestBase.defaultWaitTime(4000);
 
 			testStep = "Verify list of available vechiles";
 			visibilityStatus = objVerifyNewBookingMain.visibilityOfListofVechiles(visibilityStatus);
@@ -226,6 +217,7 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 	public void continueBookingFlow(String scenario, String testStatus) {
 		try {
 			if (scenario == "Book Sedan") {
+				objTestBase.defaultWaitTime(2000);
 				objVerifyNewBookingMain.clickOnSedan();
 			}
 			objTestBase.defaultWaitTime(3000);
@@ -246,25 +238,8 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			}
 
 			utillLogger.info(testStep + " - " + testStatus);
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(1000);
-
-			objVerifyNewBookingMain.clickOnSecondaryPassenger();
+		
 			objTestBase.defaultWaitTime(2000);
-
-			objVerifyNewBookingMain.enterspFirstName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspLastName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterspMobile();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingMain.enterspEmail();
-			objTestBase.defaultWaitTime(1000);
-
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(1000);
 			
 			testStep = "Verification of Booking For 'Personal' is selected by default for the scenario " + scenario
 					+ " from Ride Booking Details Page";
@@ -279,32 +254,27 @@ public class DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWeb
 			else
 				lambdaTestStatusUpdate("failed", testStep);
 
-			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
-
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,-100)", "");
-			objTestBase.defaultWaitTime(1000);
-
-			objVerifyNewBookingMain.addAirline();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingMain.enterFlightNumber();
-			objTestBase.defaultWaitTime(1000);
+			js.executeScript("window.scrollBy(0,1300)", "");
+			objTestBase.defaultWaitTime(4000);
+			
+			
+			visibilityStatus = objVerifyNewBookingMain.verifyVisibilityOfPaymentInfo(visibilityStatus);
 
 			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enablePaymentInfo();
 			objTestBase.defaultWaitTime(5000);
 			
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(1000);
+			js.executeScript("window.scrollBy(0,200)", "");
+			objTestBase.defaultWaitTime(4000);
 
 			objVerifyNewBookingMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(3000);
-
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
 			
 			objTestBase.defaultWaitTime(1000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,100)", "");
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verification of " + scenario + " Ride Booking Details Page";

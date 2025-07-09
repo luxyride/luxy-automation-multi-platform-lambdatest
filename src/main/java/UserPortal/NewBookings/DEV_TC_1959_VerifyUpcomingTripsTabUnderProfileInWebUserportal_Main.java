@@ -26,7 +26,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	Actions action;
 	String expected;
 
-	@FindBy(xpath = "//button[contains(@aria-label,'Login and Continue')]")
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement signinBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
@@ -83,7 +83,7 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	@FindBy(xpath = "//input[@placeholder='Enter Pickup Date']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[@aria-label='Get Quote']")
+	@FindBy(xpath = "//div[normalize-space()='Get Quote'][2]")
 	WebElement getQuote;
 
 	@FindBy(xpath = "(//div[@class='rounded-2xl p-4 border border-orange-100 bg-white gap-y-8 flex flex-col animate-[fadeIn_1s]'])[1]")
@@ -166,6 +166,9 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 
 	@FindBy(xpath = "//button[@aria-label='Next Month']")
 	WebElement dateNextMonth;
+	
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOption;
 
 	@FindBy(xpath = "//input[@id='cardholder-name']")
 	WebElement cardHolderName;
@@ -191,8 +194,8 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	@FindBy(xpath = "//div[normalize-space()='Trip ID:']")
 	WebElement bookingRideTripId;
 
-	@FindBy(xpath = "//div[text()='Save card for future use']//following::input//following::label//div[1]")
-	WebElement termsAndConditionsCheckbox;
+	@FindBy(xpath = "//label[@for='677c7684-e3ff-4afd-b679-7cbf']")
+	WebElement secondCheckBox;
 
 	TestBase objTestBase;
 	GetCurrentDateTime getDate;
@@ -588,10 +591,11 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			// Validate FAQs checkbox - User Portal Ride-Details Page:
+			objTestBase.defaultWaitTime(2000);
 			clickonFAQscheckbox();
-			objTestBase.defaultWaitTime(1000);
-			termsAndConditionsCheckbox.click();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
+			secondCheckBox.click();
+			objTestBase.defaultWaitTime(2000);
 			action.moveToElement(confirmBookingBtn).click().build().perform();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -759,6 +763,9 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 			
+			cardOption.click();
+			defaultWaitTime(2000);
+			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,-100)", "");
 
@@ -900,8 +907,6 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 		try {
 			action = new Actions(driver);
 			action.moveToElement(signinBtn).click().build().perform();
-			action.moveToElement(signinBtn).build().perform();
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -922,7 +927,11 @@ public class DEV_TC_1959_VerifyUpcomingTripsTabUnderProfileInWebUserportal_Main 
 	public void clickOnCustomerLogin() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(customerLogin).click().build().perform();
+			js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", customerLogin);
+			js.executeScript("window.scrollBy(0,-100)", "");
+			driver.findElement(By.linkText("Customer Login")).click();
+			defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

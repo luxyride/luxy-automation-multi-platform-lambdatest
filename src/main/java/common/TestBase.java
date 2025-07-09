@@ -141,6 +141,7 @@ public class TestBase {
 	public static Map<String, String> externalSourceTripIDsOriginator;
 
 	// ---------------------------------------------------------------
+
 	// Dispatch Delete Account:
 	@FindBy(xpath = "//input[@type='text']")
 	WebElement dispatcheMailInput;
@@ -591,7 +592,7 @@ public class TestBase {
 			// ######################################################################## //
 
 			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocalMobileView")) {	// chromeLocal or chromeLocalMobileView
+//			if (browser.equalsIgnoreCase("chromeLocal")) { // chromeLocal or chromeLocalMobileView
 //				localExecutionFlag = true;
 //				System.setProperty("webdriver.http.factory", "jdk-http-client");
 //				WebDriverManager.chromedriver().clearDriverCache().setup();
@@ -609,11 +610,11 @@ public class TestBase {
 //				chromeOptions.addArguments("--remote-allow-origins=*");
 //				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 //				chromeOptions.setExperimentalOption("prefs", prefs);
-//				//-----------------------------------------------------------------------
-//				// Mobile View Configuration:
+//				// -----------------------------------------------------------------------
+				// Mobile View Configuration:
 //				chromeOptions.setExperimentalOption("mobileEmulation",
 //						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
-//				//-----------------------------------------------------------------------
+				// -----------------------------------------------------------------------
 //				driver = new ChromeDriver(chromeOptions);
 //			}
 			// ######################################################################## //
@@ -643,18 +644,19 @@ public class TestBase {
 
 	public void closeCookiesPopupWindow() {
 		try {
-			action = new Actions(driver);
-			defaultWaitTime(1000);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-			popupCookies = driver.findElements(By.xpath("//div[normalize-space()='Accept Cookies'][1]"));
-			WebElement displayStatus = wait.until(ExpectedConditions.visibilityOf(popupCookies.get(0)));
-			if (displayStatus.isDisplayed()) {
-				if (popupCookies.get(0).isDisplayed())
-					action.moveToElement(popupCookies.get(0)).click().build().perform();
-			}
-			defaultWaitTime(1000);
-		} catch (ElementNotInteractableException ex) {
-		} catch (Exception ex) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+			// Option 1: Based on value attribute
+			WebElement cookieBtn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@value='Accept Cookies']")));
+
+			// Option 2: Alternatively, based on aria-label
+			// WebElement cookieBtn = wait.until(ExpectedConditions.elementToBeClickable(
+			// By.xpath("//button[@aria-label='button for Accept Cookies']")
+			// ));
+
+			cookieBtn.click();
+		} catch (Exception e) {
 		}
 	}
 
@@ -789,25 +791,13 @@ public class TestBase {
 	// Click on FAQs checkbox for User Portal Ride-Details Page:
 	public void clickonFAQscheckbox() {
 		try {
-			defaultWaitTime(2000);
-			action = new Actions(driver);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);",
-					driver.findElements(
-							By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"))
-							.get(0));
-			js.executeScript("window.scrollBy(0,-100)", "");
+			WebElement checkbox1 = driver
+					.findElement(By.xpath("//label[@for='677c7684-e3ff-4afd-b679-7cbf41eaa70034']"));
 
-			js.executeScript("arguments[0].scrollIntoView(true);", driver.findElements(
-					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")));
-			js.executeScript("window.scrollBy(0,-100)", "");
-
-			List<WebElement> checkboxFAQs = driver.findElements(
-					By.xpath("//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']"));
-			if (checkboxFAQs.size() != 0) {
-				action.moveToElement(checkboxFAQs.get(0)).click().build().perform();
-				defaultWaitTime(3000);
-			}
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", checkbox1);
+			Thread.sleep(300);
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox1);
+			Thread.sleep(2000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
