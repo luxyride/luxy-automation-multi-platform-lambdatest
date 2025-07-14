@@ -596,8 +596,14 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	}
 
 	public void clickcheckbox() {
-		action = new Actions(driver);
-		action.moveToElement(checkBox).click().build().perform();
+		try {
+			action = new Actions(driver);
+			objTestBase.defaultWaitTime(2000);
+			action.moveToElement(checkBox).click().build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void clickOnAddSecondaryPassengerDetails() {

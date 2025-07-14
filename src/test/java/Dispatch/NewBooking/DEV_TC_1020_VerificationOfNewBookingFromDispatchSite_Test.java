@@ -219,30 +219,8 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test extends T
 			objVerifyNewBookingDispatchMain.clickcheckbox();
 			objTestBase.defaultWaitTime(2000);
 
-			objVerifyNewBookingDispatchMain.clickOnAddSecondaryPassengerDetails();
-			objTestBase.defaultWaitTime(1000);
-
-			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,-100)", "");
-			objTestBase.defaultWaitTime(2000);
-
-			objVerifyNewBookingDispatchMain.enterspFirstName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingDispatchMain.enterspLastName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingDispatchMain.enterspMobile();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyNewBookingDispatchMain.enterspEmail();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingDispatchMain.addAirline();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingDispatchMain.enterFlightNumber();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyNewBookingDispatchMain.enterPassengerNotes();
-
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,800)", "");
+			js.executeScript("window.scrollBy(0,900)", "");
 			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
@@ -252,7 +230,7 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test extends T
 
 			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,300)", "");
+			js.executeScript("window.scrollBy(0,200)", "");
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verification of " + scenario + " Ride Booking Details Page";

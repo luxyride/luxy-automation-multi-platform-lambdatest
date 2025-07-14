@@ -23,7 +23,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	Actions action;
 	String expected;
 
-	@FindBy(xpath = "(//*[text()='Sign In'])[1]")
+	@FindBy(xpath = "(//*[normalize-space()='sign in'])[1]")
 	WebElement loginBtn;
 
 	@FindBy(xpath = "(//a[normalize-space()='Customer Login'])[2]")
@@ -47,7 +47,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	@FindBy(xpath = "//input[@type='tel']")
 	WebElement phoneInput;
 
-	@FindBy(xpath = "//div[@class='relative h-4 w-4 rounded-full border border-orange-300 bg-white']")
+	@FindBy(xpath = "//div[@class='relative h-4 w-4 rounded-full bg-white items-start checkbox border border-orange-300']")
 	WebElement termsConditionsChckbx;
 
 	@FindBy(xpath = "(//*[normalize-space()='Sign Up'])[1]")
