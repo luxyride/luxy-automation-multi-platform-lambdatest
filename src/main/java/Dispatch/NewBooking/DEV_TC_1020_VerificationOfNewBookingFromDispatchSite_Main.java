@@ -150,6 +150,9 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	@FindBy(xpath = "//input[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+
 	@FindBy(xpath = "//input[@name='credit-card-number']")
 	WebElement cardHolderNumber;
 
@@ -581,11 +584,10 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	public void searchBookingUserName() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(searchBookingUser).click().sendKeys(prop.getProperty("dispatchadminMail")).build()
-					.perform();
+			action.moveToElement(searchBookingUser).click().sendKeys(prop.getProperty("dispatchadminMail")).build().perform();
 			objTestBase.defaultWaitTime(6000);
 			action.sendKeys(Keys.TAB).build().perform();
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
 			action.sendKeys(Keys.ENTER).build().perform();
 			objTestBase.defaultWaitTime(2000);
 		} catch (Exception e) {
@@ -596,38 +598,6 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	public void clickcheckbox() {
 		action = new Actions(driver);
 		action.moveToElement(checkBox).click().build().perform();
-	}
-
-	public void enterPrimaryFirstName() {
-		try {
-			primaryFirstName.sendKeys(prop.getProperty("fName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterPrimaryLastName() {
-		try {
-			primaryLastName.sendKeys(prop.getProperty("lName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterPrimaryEmail() {
-		try {
-			primaryEmail.sendKeys(prop.getProperty("dispatchadminMail"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterPrimaryMobile() {
-		try {
-			primaryMobile.sendKeys(prop.getProperty("phoneNumber"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void clickOnAddSecondaryPassengerDetails() {
@@ -758,13 +728,15 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	public void enterPaymentInformation() throws Exception {
 		try {
 			action = new Actions(driver);
-			objTestBase.defaultWaitTime(1000);
+			objTestBase.defaultWaitTime(2000);
+
+			clickOnCardOption();
+			objTestBase.defaultWaitTime(3000);
 
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));
 			objTestBase.defaultWaitTime(1000);
 			driver.switchTo().defaultContent();
-
 
 			// SwitchTo CardNumber Frame
 			driver.switchTo().frame("braintree-hosted-field-number");
@@ -845,7 +817,10 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 					utillLogger.info(testStep + " - Capture the Trip ID = " + tripID);
 				} else {
 					visibilityStatus = false;
-					if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
+					if (localExecutionFlag == true)
+						objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);
+					else
+						lambdaTestStatusUpdate("failed", testStep);
 				}
 			} else
 				visibilityStatus = false;

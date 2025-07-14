@@ -155,6 +155,9 @@ public class TestBase {
 	@FindBy(xpath = "(//span[normalize-space()='Passengers'])[1]")
 	WebElement dispatchpassengersTab;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+	
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	WebElement dispatchSearchPassenger;
 
@@ -361,262 +364,262 @@ public class TestBase {
 		try {
 			browserType = browser;
 			// #################### LambdaTest Cloud Execution #################### //
-			if (browser.equalsIgnoreCase("chrome")) {
-				DesiredCapabilities chromeCapability = new DesiredCapabilities();
-				chromeCapability.setCapability("platform", "Windows 11");
-				chromeCapability.setCapability("version", "latest");
-				chromeCapability.setCapability("name", testCaseName);
-				chromeCapability.setCapability("framework", "testng");
-				chromeCapability.setCapability("status", "COMPLETED");
-				chromeCapability.setCapability("buildName", buildName);
-				chromeCapability.setCapability("browserName", "Chrome");
-				chromeCapability.setCapability("browserVersion", "latest");
-				chromeCapability.setCapability("percyCaptureMode", "auto");
-				chromeCapability.setCapability("projectName", dateTimeStamp);
-				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
-				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
-				chromeCapability.setCapability("autoGrantPermissions", "true");
-				chromeCapability.setCapability("visual", "true");
-
-				// INIT CHROME OPTIONS
-				ChromeOptions chromeOptions = new ChromeOptions();
-				Map<String, Object> prefs = new HashMap<String, Object>();
-				Map<String, Object> profile = new HashMap<String, Object>();
-				Map<String, Object> contentSettings = new HashMap<String, Object>();
-
-				// SET CHROME OPTIONS
-				// 0 - Default, 1 - Allow, 2 - Block
-				contentSettings.put("geolocation", 1);
-				profile.put("managed_default_content_settings", contentSettings);
-
-				prefs.put("profile.default_content_setting_values.notifications", 2);
-				prefs.put("autofill.profile_enabled", false);
-				prefs.put("credentials_enable_service", false);
-				prefs.put("autofill.credit_card_enabled", false);
-				prefs.put("profile.password_manager_enabled", false);
-				prefs.put("profile", profile);
-
-				// Chrome options to handle popups
-				chromeOptions.addArguments("--incognito");
-				chromeOptions.addArguments("--disable-infobars");
-				chromeOptions.addArguments("--disable-notifications");
-				chromeOptions.addArguments("--remote-allow-origins=*");
-				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				chromeOptions.setExperimentalOption("prefs", prefs);
-
-				// SET CAPABILITY
-				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
-				Thread.sleep(1000);
-				driver.manage().window().maximize();
-				Thread.sleep(2000);
-				jseLambdaTest = (JavascriptExecutor) driver;
-			} else if (browser.equalsIgnoreCase("safari")) {
-				DesiredCapabilities safariCapability = new DesiredCapabilities();
-				safariCapability.setCapability("platform", "macos");
-				safariCapability.setCapability("version", "latest");
-				safariCapability.setCapability("name", testCaseName);
-				safariCapability.setCapability("framework", "testng");
-				safariCapability.setCapability("status", "COMPLETED");
-				safariCapability.setCapability("buildName", buildName);
-				safariCapability.setCapability("browserName", "Safari");
-				safariCapability.setCapability("browserVersion", "17.3");
-				safariCapability.setCapability("percyCaptureMode", "auto");
-				safariCapability.setCapability("projectName", dateTimeStamp);
-				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
-				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
-				safariCapability.setCapability("--disable-infobars", true);
-				safariCapability.setCapability("--disable-notifications", true);
-				safariCapability.setCapability("--remote-allow-origins=*", true);
-				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				safariCapability.setCapability("autoGrantPermissions", true);
-				safariCapability.setCapability("javascriptEnabled", false);
-
-				// Handling pop-ups and permissions
-				safariCapability.setCapability("safariAllowPopups", false);
-				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
-
-				// Set additional options for Safari
-				safariCapability.setCapability("safari:automaticProfiling", false);
-				safariCapability.setCapability("safari:automaticInspection", false);
-
-				// Set capabilities specific to Safari
-				safariCapability.setCapability("safari:useSingleSession", true);
-
-				// Initialize SafariOptions
-				SafariOptions safariOptions = new SafariOptions();
-				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
-
-				Map<String, Object> prefs = new HashMap<String, Object>();
-				Map<String, Object> profile = new HashMap<String, Object>();
-				Map<String, Object> contentSettings = new HashMap<String, Object>();
-
-				// SET CHROME OPTIONS
-				// 0 - Default, 1 - Allow, 2 - Block
-				contentSettings.put("geolocation", 1);
-				profile.put("managed_default_content_settings", contentSettings);
-				prefs.put("profile.default_content_setting_values.notifications", 2);
-				prefs.put("autofill.profile_enabled", false);
-				prefs.put("credentials_enable_service", false);
-				prefs.put("autofill.credit_card_enabled", false);
-				prefs.put("profile.password_manager_enabled", false);
-				prefs.put("--disable-infobars", true);
-				prefs.put("--remote-allow-origins=*", true);
-				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				prefs.put("profile", profile);
-
-				safariOptions.setCapability("prefs", prefs);
-				safariOptions.setCapability("--disable-infobars", true);
-				safariOptions.setCapability("--disable-notifications", true);
-				safariOptions.setCapability("--remote-allow-origins=*", true);
-				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-
-				// SET CAPABILITY
-				safariCapability.setCapability("prefs", prefs);
-
-				// Initialize RemoteWebDriver with LambdaTest URL
-				driver = new RemoteWebDriver(new URL(URL), safariCapability);
-				Thread.sleep(1000);
-				driver.manage().window().maximize();
-				Thread.sleep(2000);
-				jseLambdaTest = (JavascriptExecutor) driver;
-			} else if (browser.equalsIgnoreCase("chromeAndroidMobileView")) {
-				DesiredCapabilities chromeCapability = new DesiredCapabilities();
-				chromeCapability.setCapability("platform", "Windows 11");
-				chromeCapability.setCapability("version", "latest");
-				chromeCapability.setCapability("name", testCaseName);
-				chromeCapability.setCapability("framework", "testng");
-				chromeCapability.setCapability("status", "COMPLETED");
-				chromeCapability.setCapability("buildName", buildName);
-				chromeCapability.setCapability("browserName", "Chrome");
-				chromeCapability.setCapability("browserVersion", "latest");
-				chromeCapability.setCapability("percyCaptureMode", "auto");
-				chromeCapability.setCapability("projectName", dateTimeStamp);
-				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
-				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
-				chromeCapability.setCapability("autoGrantPermissions", "true");
-				chromeCapability.setCapability("visual", "true");
-
-				// INIT CHROME OPTIONS
-				ChromeOptions chromeOptions = new ChromeOptions();
-				Map<String, Object> prefs = new HashMap<String, Object>();
-				Map<String, Object> profile = new HashMap<String, Object>();
-				Map<String, Object> contentSettings = new HashMap<String, Object>();
-
-				// SET CHROME OPTIONS
-				// 0 - Default, 1 - Allow, 2 - Block
-				contentSettings.put("geolocation", 1);
-				profile.put("managed_default_content_settings", contentSettings);
-
-				prefs.put("profile.default_content_setting_values.notifications", 2);
-				prefs.put("autofill.profile_enabled", false);
-				prefs.put("credentials_enable_service", false);
-				prefs.put("autofill.credit_card_enabled", false);
-				prefs.put("profile.password_manager_enabled", false);
-				prefs.put("profile", profile);
-
-				// Chrome options to handle popups
-				chromeOptions.addArguments("--incognito");
-				chromeOptions.addArguments("--disable-infobars");
-				chromeOptions.addArguments("--disable-notifications");
-				chromeOptions.addArguments("--remote-allow-origins=*");
-				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				chromeOptions.setExperimentalOption("prefs", prefs);
-
-				// Mobile View Configuration:
-				chromeOptions.setExperimentalOption("mobileEmulation",
-						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
-
-				// SET CAPABILITY
-				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
-				Thread.sleep(1000);
-				driver.manage().window().maximize();
-				Thread.sleep(2000);
-				jseLambdaTest = (JavascriptExecutor) driver;
-			} else if (browser.equalsIgnoreCase("chromeiOSMobileView")) {
-				DesiredCapabilities chromeCapability = new DesiredCapabilities();
-				chromeCapability.setCapability("platform", "Windows 11");
-				chromeCapability.setCapability("version", "latest");
-				chromeCapability.setCapability("name", testCaseName);
-				chromeCapability.setCapability("framework", "testng");
-				chromeCapability.setCapability("status", "COMPLETED");
-				chromeCapability.setCapability("buildName", buildName);
-				chromeCapability.setCapability("browserName", "Chrome");
-				chromeCapability.setCapability("browserVersion", "latest");
-				chromeCapability.setCapability("percyCaptureMode", "auto");
-				chromeCapability.setCapability("projectName", dateTimeStamp);
-				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
-				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
-				chromeCapability.setCapability("autoGrantPermissions", "true");
-				chromeCapability.setCapability("visual", "true");
-
-				// INIT CHROME OPTIONS
-				ChromeOptions chromeOptions = new ChromeOptions();
-				Map<String, Object> prefs = new HashMap<String, Object>();
-				Map<String, Object> profile = new HashMap<String, Object>();
-				Map<String, Object> contentSettings = new HashMap<String, Object>();
-
-				// SET CHROME OPTIONS
-				// 0 - Default, 1 - Allow, 2 - Block
-				contentSettings.put("geolocation", 1);
-				profile.put("managed_default_content_settings", contentSettings);
-
-				prefs.put("profile.default_content_setting_values.notifications", 2);
-				prefs.put("autofill.profile_enabled", false);
-				prefs.put("credentials_enable_service", false);
-				prefs.put("autofill.credit_card_enabled", false);
-				prefs.put("profile.password_manager_enabled", false);
-				prefs.put("profile", profile);
-
-				// Chrome options to handle popups
-				chromeOptions.addArguments("--incognito");
-				chromeOptions.addArguments("--disable-infobars");
-				chromeOptions.addArguments("--disable-notifications");
-				chromeOptions.addArguments("--remote-allow-origins=*");
-				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-				chromeOptions.setExperimentalOption("prefs", prefs);
-
-				// Mobile View Configuration:
-				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "iPhone 14 Pro Max"));
-
-				// SET CAPABILITY
-				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
-				Thread.sleep(1000);
-				driver.manage().window().maximize();
-				Thread.sleep(2000);
-				jseLambdaTest = (JavascriptExecutor) driver;
-			}
-			// ######################################################################## //
-
-			// ########################## Local Execution ############################# //
-//			if (browser.equalsIgnoreCase("chromeLocal")) { // chromeLocal or chromeLocalMobileView
-//				localExecutionFlag = true;
-//				System.setProperty("webdriver.http.factory", "jdk-http-client");
-//				WebDriverManager.chromedriver().clearDriverCache().setup();
-//				// Chrome Popups Disable Configurations:
+//			if (browser.equalsIgnoreCase("chrome")) {
+//				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+//				chromeCapability.setCapability("platform", "Windows 11");
+//				chromeCapability.setCapability("version", "latest");
+//				chromeCapability.setCapability("name", testCaseName);
+//				chromeCapability.setCapability("framework", "testng");
+//				chromeCapability.setCapability("status", "COMPLETED");
+//				chromeCapability.setCapability("buildName", buildName);
+//				chromeCapability.setCapability("browserName", "Chrome");
+//				chromeCapability.setCapability("browserVersion", "latest");
+//				chromeCapability.setCapability("percyCaptureMode", "auto");
+//				chromeCapability.setCapability("projectName", dateTimeStamp);
+//				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+//				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+//				chromeCapability.setCapability("autoGrantPermissions", "true");
+//				chromeCapability.setCapability("visual", "true");
+//
+//				// INIT CHROME OPTIONS
+//				ChromeOptions chromeOptions = new ChromeOptions();
 //				Map<String, Object> prefs = new HashMap<String, Object>();
+//				Map<String, Object> profile = new HashMap<String, Object>();
+//				Map<String, Object> contentSettings = new HashMap<String, Object>();
+//
+//				// SET CHROME OPTIONS
+//				// 0 - Default, 1 - Allow, 2 - Block
+//				contentSettings.put("geolocation", 1);
+//				profile.put("managed_default_content_settings", contentSettings);
+//
 //				prefs.put("profile.default_content_setting_values.notifications", 2);
 //				prefs.put("autofill.profile_enabled", false);
 //				prefs.put("credentials_enable_service", false);
 //				prefs.put("autofill.credit_card_enabled", false);
 //				prefs.put("profile.password_manager_enabled", false);
+//				prefs.put("profile", profile);
 //
-//				ChromeOptions chromeOptions = new ChromeOptions();
+//				// Chrome options to handle popups
+//				chromeOptions.addArguments("--incognito");
 //				chromeOptions.addArguments("--disable-infobars");
 //				chromeOptions.addArguments("--disable-notifications");
 //				chromeOptions.addArguments("--remote-allow-origins=*");
 //				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 //				chromeOptions.setExperimentalOption("prefs", prefs);
+//
+//				// SET CAPABILITY
+//				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+//				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+//				Thread.sleep(1000);
+//				driver.manage().window().maximize();
+//				Thread.sleep(2000);
+//				jseLambdaTest = (JavascriptExecutor) driver;
+//			} else if (browser.equalsIgnoreCase("safari")) {
+//				DesiredCapabilities safariCapability = new DesiredCapabilities();
+//				safariCapability.setCapability("platform", "macos");
+//				safariCapability.setCapability("version", "latest");
+//				safariCapability.setCapability("name", testCaseName);
+//				safariCapability.setCapability("framework", "testng");
+//				safariCapability.setCapability("status", "COMPLETED");
+//				safariCapability.setCapability("buildName", buildName);
+//				safariCapability.setCapability("browserName", "Safari");
+//				safariCapability.setCapability("browserVersion", "17.3");
+//				safariCapability.setCapability("percyCaptureMode", "auto");
+//				safariCapability.setCapability("projectName", dateTimeStamp);
+//				safariCapability.setCapability("LambdaTest.idleTimeout", 300);
+//				safariCapability.setCapability("unhandledPromptBehavior", "ignore");
+//				safariCapability.setCapability("--disable-infobars", true);
+//				safariCapability.setCapability("--disable-notifications", true);
+//				safariCapability.setCapability("--remote-allow-origins=*", true);
+//				safariCapability.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				safariCapability.setCapability("autoGrantPermissions", true);
+//				safariCapability.setCapability("javascriptEnabled", false);
+//
+//				// Handling pop-ups and permissions
+//				safariCapability.setCapability("safariAllowPopups", false);
+//				safariCapability.setCapability("LambdaTest.safari.enablePopups", true); // LambdaTest specific
+//
+//				// Set additional options for Safari
+//				safariCapability.setCapability("safari:automaticProfiling", false);
+//				safariCapability.setCapability("safari:automaticInspection", false);
+//
+//				// Set capabilities specific to Safari
+//				safariCapability.setCapability("safari:useSingleSession", true);
+//
+//				// Initialize SafariOptions
+//				SafariOptions safariOptions = new SafariOptions();
+//				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				safariOptions.setCapability("CAPABILITY", SafariOptions.fromCapabilities(safariOptions));
+//
+//				Map<String, Object> prefs = new HashMap<String, Object>();
+//				Map<String, Object> profile = new HashMap<String, Object>();
+//				Map<String, Object> contentSettings = new HashMap<String, Object>();
+//
+//				// SET CHROME OPTIONS
+//				// 0 - Default, 1 - Allow, 2 - Block
+//				contentSettings.put("geolocation", 1);
+//				profile.put("managed_default_content_settings", contentSettings);
+//				prefs.put("profile.default_content_setting_values.notifications", 2);
+//				prefs.put("autofill.profile_enabled", false);
+//				prefs.put("credentials_enable_service", false);
+//				prefs.put("autofill.credit_card_enabled", false);
+//				prefs.put("profile.password_manager_enabled", false);
+//				prefs.put("--disable-infobars", true);
+//				prefs.put("--remote-allow-origins=*", true);
+//				prefs.put("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				prefs.put("profile", profile);
+//
+//				safariOptions.setCapability("prefs", prefs);
+//				safariOptions.setCapability("--disable-infobars", true);
+//				safariOptions.setCapability("--disable-notifications", true);
+//				safariOptions.setCapability("--remote-allow-origins=*", true);
+//				safariOptions.setCapability("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//
+//				// SET CAPABILITY
+//				safariCapability.setCapability("prefs", prefs);
+//
+//				// Initialize RemoteWebDriver with LambdaTest URL
+//				driver = new RemoteWebDriver(new URL(URL), safariCapability);
+//				Thread.sleep(1000);
+//				driver.manage().window().maximize();
+//				Thread.sleep(2000);
+//				jseLambdaTest = (JavascriptExecutor) driver;
+//			} else if (browser.equalsIgnoreCase("chromeAndroidMobileView")) {
+//				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+//				chromeCapability.setCapability("platform", "Windows 11");
+//				chromeCapability.setCapability("version", "latest");
+//				chromeCapability.setCapability("name", testCaseName);
+//				chromeCapability.setCapability("framework", "testng");
+//				chromeCapability.setCapability("status", "COMPLETED");
+//				chromeCapability.setCapability("buildName", buildName);
+//				chromeCapability.setCapability("browserName", "Chrome");
+//				chromeCapability.setCapability("browserVersion", "latest");
+//				chromeCapability.setCapability("percyCaptureMode", "auto");
+//				chromeCapability.setCapability("projectName", dateTimeStamp);
+//				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+//				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+//				chromeCapability.setCapability("autoGrantPermissions", "true");
+//				chromeCapability.setCapability("visual", "true");
+//
+//				// INIT CHROME OPTIONS
+//				ChromeOptions chromeOptions = new ChromeOptions();
+//				Map<String, Object> prefs = new HashMap<String, Object>();
+//				Map<String, Object> profile = new HashMap<String, Object>();
+//				Map<String, Object> contentSettings = new HashMap<String, Object>();
+//
+//				// SET CHROME OPTIONS
+//				// 0 - Default, 1 - Allow, 2 - Block
+//				contentSettings.put("geolocation", 1);
+//				profile.put("managed_default_content_settings", contentSettings);
+//
+//				prefs.put("profile.default_content_setting_values.notifications", 2);
+//				prefs.put("autofill.profile_enabled", false);
+//				prefs.put("credentials_enable_service", false);
+//				prefs.put("autofill.credit_card_enabled", false);
+//				prefs.put("profile.password_manager_enabled", false);
+//				prefs.put("profile", profile);
+//
+//				// Chrome options to handle popups
+//				chromeOptions.addArguments("--incognito");
+//				chromeOptions.addArguments("--disable-infobars");
+//				chromeOptions.addArguments("--disable-notifications");
+//				chromeOptions.addArguments("--remote-allow-origins=*");
+//				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				chromeOptions.setExperimentalOption("prefs", prefs);
+//
+//				// Mobile View Configuration:
+//				chromeOptions.setExperimentalOption("mobileEmulation",
+//						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
+//
+//				// SET CAPABILITY
+//				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+//				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+//				Thread.sleep(1000);
+//				driver.manage().window().maximize();
+//				Thread.sleep(2000);
+//				jseLambdaTest = (JavascriptExecutor) driver;
+//			} else if (browser.equalsIgnoreCase("chromeiOSMobileView")) {
+//				DesiredCapabilities chromeCapability = new DesiredCapabilities();
+//				chromeCapability.setCapability("platform", "Windows 11");
+//				chromeCapability.setCapability("version", "latest");
+//				chromeCapability.setCapability("name", testCaseName);
+//				chromeCapability.setCapability("framework", "testng");
+//				chromeCapability.setCapability("status", "COMPLETED");
+//				chromeCapability.setCapability("buildName", buildName);
+//				chromeCapability.setCapability("browserName", "Chrome");
+//				chromeCapability.setCapability("browserVersion", "latest");
+//				chromeCapability.setCapability("percyCaptureMode", "auto");
+//				chromeCapability.setCapability("projectName", dateTimeStamp);
+//				chromeCapability.setCapability("LambdaTest.idleTimeout", 300);
+//				chromeCapability.setCapability("LambdaTest.chrome.enablePopups", "false");
+//				chromeCapability.setCapability("autoGrantPermissions", "true");
+//				chromeCapability.setCapability("visual", "true");
+//
+//				// INIT CHROME OPTIONS
+//				ChromeOptions chromeOptions = new ChromeOptions();
+//				Map<String, Object> prefs = new HashMap<String, Object>();
+//				Map<String, Object> profile = new HashMap<String, Object>();
+//				Map<String, Object> contentSettings = new HashMap<String, Object>();
+//
+//				// SET CHROME OPTIONS
+//				// 0 - Default, 1 - Allow, 2 - Block
+//				contentSettings.put("geolocation", 1);
+//				profile.put("managed_default_content_settings", contentSettings);
+//
+//				prefs.put("profile.default_content_setting_values.notifications", 2);
+//				prefs.put("autofill.profile_enabled", false);
+//				prefs.put("credentials_enable_service", false);
+//				prefs.put("autofill.credit_card_enabled", false);
+//				prefs.put("profile.password_manager_enabled", false);
+//				prefs.put("profile", profile);
+//
+//				// Chrome options to handle popups
+//				chromeOptions.addArguments("--incognito");
+//				chromeOptions.addArguments("--disable-infobars");
+//				chromeOptions.addArguments("--disable-notifications");
+//				chromeOptions.addArguments("--remote-allow-origins=*");
+//				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+//				chromeOptions.setExperimentalOption("prefs", prefs);
+//
+//				// Mobile View Configuration:
+//				chromeOptions.setExperimentalOption("mobileEmulation", Map.of("deviceName", "iPhone 14 Pro Max"));
+//
+//				// SET CAPABILITY
+//				chromeCapability.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+//				driver = new RemoteWebDriver(new URL(URL), chromeCapability);
+//				Thread.sleep(1000);
+//				driver.manage().window().maximize();
+//				Thread.sleep(2000);
+//				jseLambdaTest = (JavascriptExecutor) driver;
+//			}
+			// ######################################################################## //
+
+			// ########################## Local Execution ############################# //
+			if (browser.equalsIgnoreCase("chromeLocal")) { // chromeLocal or chromeLocalMobileView
+				localExecutionFlag = true;
+				System.setProperty("webdriver.http.factory", "jdk-http-client");
+				WebDriverManager.chromedriver().clearDriverCache().setup();
+				// Chrome Popups Disable Configurations:
+				Map<String, Object> prefs = new HashMap<String, Object>();
+				prefs.put("profile.default_content_setting_values.notifications", 2);
+				prefs.put("autofill.profile_enabled", false);
+				prefs.put("credentials_enable_service", false);
+				prefs.put("autofill.credit_card_enabled", false);
+				prefs.put("profile.password_manager_enabled", false);
+
+				ChromeOptions chromeOptions = new ChromeOptions();
+				chromeOptions.addArguments("--disable-infobars");
+				chromeOptions.addArguments("--disable-notifications");
+				chromeOptions.addArguments("--remote-allow-origins=*");
+				chromeOptions.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
+				chromeOptions.setExperimentalOption("prefs", prefs);
 //				// -----------------------------------------------------------------------
 				// Mobile View Configuration:
 //				chromeOptions.setExperimentalOption("mobileEmulation",
 //						Map.of("deviceName", "Samsung Galaxy S20 Ultra"));
 				// -----------------------------------------------------------------------
-//				driver = new ChromeDriver(chromeOptions);
-//			}
+				driver = new ChromeDriver(chromeOptions);
+			}
 			// ######################################################################## //
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -704,12 +707,18 @@ public class TestBase {
 			action = new Actions(driver);
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Skip for now']")));
+			List<WebElement> skipBtn = driver.findElements(By.xpath("//button[normalize-space()='Skip for now']"));
+			if (skipBtn.size() != 0)
+				skipBtn.get(0).click();
+
 			try {
 				wait.until(ExpectedConditions
-						.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Skip for now']")));
+						.visibilityOfAllElementsLocatedBy(By.xpath("(//a[normalize-space()='Other options'])[1]")));
 				defaultWaitTime(1000);
 				List<WebElement> skipChromeUpdateScreen = driver
-						.findElements(By.xpath("//button[normalize-space()='Skip for now']"));
+						.findElements(By.xpath("(//a[normalize-space()='Other options'])[1]"));
 				if (skipChromeUpdateScreen.size() != 0) {
 					skipChromeUpdateScreen.get(0).click();
 					defaultWaitTime(3000);
@@ -719,26 +728,21 @@ public class TestBase {
 			}
 
 			wait.until(ExpectedConditions
-					.visibilityOfAllElementsLocatedBy(By.xpath("//button[normalize-space()='Get started']")));
-			List<WebElement> getStartedBtn = driver.findElements(By.xpath("//button[normalize-space()='Get started']"));
+					.visibilityOfAllElementsLocatedBy(By.xpath("//div[normalize-space()='Bypass code']")));
+			List<WebElement> getStartedBtn = driver.findElements(By.xpath("//div[normalize-space()='Bypass code']"));
 			defaultWaitTime(3000);
 			if (getStartedBtn.size() != 0)
 				getStartedBtn.get(0).click();
 
-			wait.until(ExpectedConditions
-					.visibilityOfAllElementsLocatedBy(By.xpath("//button[@data-testid='skip-button']")));
-			List<WebElement> skipBtn = driver.findElements(By.xpath("//button[@data-testid='skip-button']"));
-			if (skipBtn.size() != 0)
-				skipBtn.get(0).click();
-
-			wait.until(ExpectedConditions
-					.visibilityOfAllElementsLocatedBy(By.xpath("//button[@data-testid='login-with-duo']")));
-			List<WebElement> loginWithDuoBtn = driver.findElements(By.xpath("//button[@data-testid='login-with-duo']"));
-			if (loginWithDuoBtn.size() != 0)
-				loginWithDuoBtn.get(0).click();
+			/*
+			 * wait.until(ExpectedConditions .visibilityOfAllElementsLocatedBy(By.xpath(
+			 * "//button[@data-testid='login-with-duo']"))); List<WebElement>
+			 * loginWithDuoBtn =
+			 * driver.findElements(By.xpath("//button[@data-testid='login-with-duo']")); if
+			 * (loginWithDuoBtn.size() != 0) loginWithDuoBtn.get(0).click();
+			 */
 			try {
-				wait.until(ExpectedConditions
-						.visibilityOfAllElementsLocatedBy(By.xpath("//label[@for='passcode-input']")));
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@type='submit']")));
 				defaultWaitTime(500);
 			} catch (TimeoutException ex) {
 				ex.printStackTrace();
@@ -807,17 +811,7 @@ public class TestBase {
 	public void clickOnCardOption() {
 		try {
 			defaultWaitTime(2000);
-			action = new Actions(driver);
-			js.executeScript("arguments[0].scrollIntoView(true);",
-					driver.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']")));
-			js.executeScript("window.scrollBy(0,-100)", "");
-
-			List<WebElement> cardOption = driver
-					.findElements(By.xpath("//div[@class='braintree-option braintree-option__card']"));
-			if (cardOption.size() != 0) {
-				action.moveToElement(cardOption.get(0)).click().build().perform();
-				defaultWaitTime(3000);
-			}
+			cardOptions.click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

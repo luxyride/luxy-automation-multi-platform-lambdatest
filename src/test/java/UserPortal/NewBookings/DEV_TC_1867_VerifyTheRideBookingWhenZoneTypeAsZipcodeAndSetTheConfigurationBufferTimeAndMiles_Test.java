@@ -717,21 +717,8 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-			objVerifyZoneTypeZipcodeMain.clickOnSecondaryPassenger();
-			objTestBase.defaultWaitTime(2000);
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(1000);
-			objVerifyZoneTypeZipcodeMain.enterspFirstName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyZoneTypeZipcodeMain.enterspLastName();
-			objTestBase.defaultWaitTime(1000);
-			objVerifyZoneTypeZipcodeMain.enterspMobile();
-			objTestBase.defaultWaitTime(2000);
-			objVerifyZoneTypeZipcodeMain.enterspEmail();
-			objTestBase.defaultWaitTime(1000);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,1100)", "");
+			js.executeScript("window.scrollBy(0,1200)", "");
 			objTestBase.defaultWaitTime(1000);
 
 			visibilityStatus = objVerifyZoneTypeZipcodeMain.verifyVisibilityOfPaymentInfo(visibilityStatus);

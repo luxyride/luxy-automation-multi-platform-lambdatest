@@ -723,50 +723,6 @@ public class DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfi
 		}
 	}
 
-	public void enterspFirstName() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", spFirstName);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			spFirstName.sendKeys(prop.getProperty("spFirstName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterspLastName() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", spLastName);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			spLastName.sendKeys(prop.getProperty("spLastName"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterspEmail() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", spEmail);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			spEmail.sendKeys(prop.getProperty("spEmail"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void enterspMobile() {
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", spMobile);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			spMobile.sendKeys(prop.getProperty("spMobile"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void enterPaymentInformation() throws Exception {
 		try {
 			action = new Actions(driver);

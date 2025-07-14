@@ -172,8 +172,7 @@ public class DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test extend
 					lambdaTestStatusUpdate("failed", testStep);
 				testStatus = "FAILED";
 			}
-			utillLogger.info(testStep + " - " + testStatus);
-
+		
 			objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
 			testStatus = "SKIPPED";
 			utillLogger.info(testStep + " - " + testStatus);

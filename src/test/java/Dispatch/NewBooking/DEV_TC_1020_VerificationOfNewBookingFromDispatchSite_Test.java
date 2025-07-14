@@ -137,28 +137,9 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test extends T
 				testStatus = "SKIPPED";
 			}
 
-			for (int i = 1; i <= 1; i++) {
-				if (i == 1) {
-					scenario = "Book Sedan";
-					testStatus = vechileBooking(scenario, testStatus);
-				} else if (i == 2) {
-					scenario = "Book SUV";
-					testStatus = vechileBooking(scenario, testStatus);
-				} else if (i == 3) {
-					scenario = "Book SUVXL";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-				// Prod Restriction:
-				else if (!environmentCode.equalsIgnoreCase("prod") && i == 4) {
-					scenario = "Book VAN";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-				// Prod Restriction:
-				else if (!environmentCode.equalsIgnoreCase("prod") && i == 5) {
-					scenario = "Book VANXL";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-			}
+			scenario = "Book Sedan";
+			testStatus = vechileBooking(scenario, testStatus);
+
 			utillLogger.info(testStep + " - " + testStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -226,16 +207,8 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test extends T
 
 			if (scenario == "Book Sedan") {
 				objVerifyNewBookingDispatchMain.clickOnSedan();
-			} else if (scenario == "Book SUV") {
-				objVerifyNewBookingDispatchMain.clickOnSUV();
-			} else if (scenario == "Book SUVXL") {
-				objVerifyNewBookingDispatchMain.clickOnSUVXL();
-			} else if (scenario == "Book VAN") {
-				objVerifyNewBookingDispatchMain.clickOnVAN();
-			} else if (scenario == "Book VANXL") {
-				objVerifyNewBookingDispatchMain.clickOnVANXL();
-			}
-
+			} 
+			
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,600)", "");
@@ -269,18 +242,17 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Test extends T
 			objVerifyNewBookingDispatchMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,700)", "");
-			objTestBase.defaultWaitTime(3000);
-
-			clickOnCardOption();
+			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(2000);
+			js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,300)", "");
 
 			utillLogger.info(testStep + " - " + testStatus);
 			testStep = "Verification of " + scenario + " Ride Booking Details Page";
