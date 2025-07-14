@@ -24,13 +24,13 @@ public class DEV_TC_1835_VerifyTheAvailabilityOfTryLuxyForCorporateTransportButt
 	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[1]")
 	WebElement corporateBtnNormalView;
 
-	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[2]")
+	@FindBy(xpath = "(//a[normalize-space()='Corporate Program'])[1]")
 	WebElement corporateBtnSimulatorView;
 
 	@FindBy(xpath = "//a[normalize-space()='Corporate']")
 	WebElement corporate;
 
-	@FindBy(xpath = "(//a[contains(@aria-label,'Try LUXY for Corporate Transport')])[1]")
+	@FindBy(xpath = "(//a[@aria-label='Link for Try LUXY for Corporate Travel'])[1]")
 	WebElement corporateSignup;
 
 	@FindBy(xpath = "//input[@id='companyName']")

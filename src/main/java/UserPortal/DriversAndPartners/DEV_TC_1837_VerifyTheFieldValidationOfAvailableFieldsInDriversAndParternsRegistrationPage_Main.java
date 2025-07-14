@@ -21,10 +21,10 @@ public class DEV_TC_1837_VerifyTheFieldValidationOfAvailableFieldsInDriversAndPa
 	JavascriptExecutor js;
 	TestBase objTestBase;
 
-	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[1]")
+	@FindBy(xpath = "(//a[normalize-space()='Supply Partners'])[1]")
 	WebElement affiliate_NormalView;
 
-	@FindBy(xpath = "(//a[normalize-space()='Driver & Partners'])[2]")
+	@FindBy(xpath = "(//a[normalize-space()='Supply Partners'])[1]")
 	WebElement affiliate_SimulatorView;
 
 	@FindBy(xpath = "(//a[contains(@aria-label,'Sign Up with LUXY today')])[1]")

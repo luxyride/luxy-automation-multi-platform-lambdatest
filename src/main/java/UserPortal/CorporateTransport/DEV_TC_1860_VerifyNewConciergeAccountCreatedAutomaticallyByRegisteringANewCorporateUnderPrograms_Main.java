@@ -36,7 +36,7 @@ public class DEV_TC_1860_VerifyNewConciergeAccountCreatedAutomaticallyByRegister
 	@FindBy(xpath = "//a[normalize-space()='Corporate']")
 	WebElement corporate;
 
-	@FindBy(xpath = "(//a[contains(@aria-label,'Try LUXY for Corporate Transport')])[1]")
+	@FindBy(xpath = "(//a[@aria-label='Link for Try LUXY for Corporate Travel'])[1]")
 	WebElement corporateSignup;
 
 	@FindBy(xpath = "//input[@id='companyName']")

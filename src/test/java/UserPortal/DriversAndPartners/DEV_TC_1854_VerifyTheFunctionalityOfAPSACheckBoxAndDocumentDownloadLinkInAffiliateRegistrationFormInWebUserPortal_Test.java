@@ -260,9 +260,6 @@ public class DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownload
 						objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);
 					else
 						lambdaTestStatusUpdate("passed", testStep);
-
-					objVerifyRegisCorpMain.clickOnSignupCreateBtn();
-					objTestBase.defaultWaitTime(3000);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
