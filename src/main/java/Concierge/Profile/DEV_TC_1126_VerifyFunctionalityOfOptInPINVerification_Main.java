@@ -201,10 +201,10 @@ public class DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Main extends 
 	@FindBy(xpath = "//td[@tabindex='3']")
 	WebElement rideStatusConcierge;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='7']")
 	WebElement ridePlaceDateTimeConcierge;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripIdConcierge;
 
 	@FindBy(xpath = "//td[@tabindex='11']//div")

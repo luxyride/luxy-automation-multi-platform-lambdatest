@@ -147,10 +147,10 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 	@FindBy(xpath = "//td[@tabindex='3']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='7']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']//div")

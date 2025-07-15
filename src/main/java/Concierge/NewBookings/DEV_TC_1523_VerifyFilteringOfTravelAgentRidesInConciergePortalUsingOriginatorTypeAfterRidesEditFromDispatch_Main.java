@@ -154,10 +154,10 @@ public class DEV_TC_1523_VerifyFilteringOfTravelAgentRidesInConciergePortalUsing
 	@FindBy(xpath = "//td[@tabindex='8']")
 	WebElement ridePickupDateTimeAvailable;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='7']")
 	WebElement bookingRideTripIdAvailable;
 
 	@FindBy(xpath = "//td[@tabindex='12']//a")

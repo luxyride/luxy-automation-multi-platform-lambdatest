@@ -82,8 +82,9 @@ public class DEV_TC_1680_VerifyDisplayingOfCorporateNameInDispatchPortalRideExpa
 				testStatus = " ";
 				objTestBase.defaultWaitTime(2000);
 				objVerifyNewBookingConciergeMain.eMailInput();
+				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingConciergeMain.passwordInput();
-				objTestBase.defaultWaitTime(2000);
+				objTestBase.defaultWaitTime(1000);
 				objVerifyNewBookingConciergeMain.eyeIconClick();
 				objTestBase.defaultWaitTime(1000);
 
@@ -187,13 +188,9 @@ public class DEV_TC_1680_VerifyDisplayingOfCorporateNameInDispatchPortalRideExpa
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,400)", "");
-			objTestBase.defaultWaitTime(2000);
+			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();
-			objTestBase.defaultWaitTime(2000);
-
-			js = (JavascriptExecutor) driver;
-			
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);

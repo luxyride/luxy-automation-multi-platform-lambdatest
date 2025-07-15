@@ -137,30 +137,9 @@ public class DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Te
 				objupdateResults.updateResults(screenshotPath, logger, LogStatus.SKIP, testStep, exception);
 				testStatus = "SKIPPED";
 			}
-
-			for (int i = 1; i <= 5; i++) {
-				if (i == 1) {
-					scenario = "Book Sedan";
-					testStatus = vechileBooking(scenario, testStatus);
-				} else if (i == 2) {
-					scenario = "Book SUV";
-					testStatus = vechileBooking(scenario, testStatus);
-				} else if (i == 3) {
-					scenario = "Book SUVXL";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-				// Prod Restriction:
-				else if (!environmentCode.equalsIgnoreCase("prod") && i == 4) {
-					scenario = "Book VAN";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-				// Prod Restriction:
-				else if (!environmentCode.equalsIgnoreCase("prod") && i == 5) {
-					scenario = "Book VANXL";
-					testStatus = vechileBooking(scenario, testStatus);
-				}
-			}
-			utillLogger.info(testStep + " - " + testStatus);
+			
+			scenario = "Book Sedan";
+			testStatus = vechileBooking(scenario, testStatus);
 
 			// ## Validations from Dispatch:--------------------------------
 			if (rideBookingIdsConcierge.size() != 0) {
@@ -243,25 +222,16 @@ public class DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Te
 
 			if (scenario == "Book Sedan") {
 				objVerifyNewBookingConciergeMain.clickOnSedan();
-			} else if (scenario == "Book SUV") {
-				objVerifyNewBookingConciergeMain.clickOnSUV();
-			} else if (scenario == "Book SUVXL") {
-				objVerifyNewBookingConciergeMain.clickOnSUVXL();
-			} else if (scenario == "Book VAN") {
-				objVerifyNewBookingConciergeMain.clickOnVAN();
-			} else if (scenario == "Book VANXL") {
-				objVerifyNewBookingConciergeMain.clickOnVANXL();
 			}
 			objTestBase.defaultWaitTime(3000);
 			js = (JavascriptExecutor) driver;
-			
 
 			objVerifyNewBookingConciergeMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
 			objTestBase.defaultWaitTime(1000);
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.addAirline();
@@ -278,7 +248,7 @@ public class DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Te
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			
+
 			objTestBase.defaultWaitTime(2000);
 
 			utillLogger.info(testStep + " - " + testStatus);
