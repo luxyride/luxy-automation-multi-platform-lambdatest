@@ -24,8 +24,6 @@
 			<class
 				name="Dispatch.Login.DEV_TC_13_VerifyDisplayingOnDispatchSiteSigninPage_Test" />
 			<class
-				name="Dispatch.Login.DEV_TC_18_VerifyTheFunctionalityForgotPassword_Test" />
-			<class
 				name="Dispatch.Login.DEV_TC_25_VerifySigninWithValidCredentials_Test" />
 			<class
 				name="Dispatch.Login.DEV_TC_27_VerifyAvailablityOfButtons_NavigationLinksInHomePage_Test" />
