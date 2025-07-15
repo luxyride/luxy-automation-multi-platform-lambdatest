@@ -260,8 +260,7 @@ public class DEV_TC_1900_VerifyNewBookingFunctionalityWithCreditOrDebitCardsUnde
 
 			}
 			
-			objTestBase.defaultWaitTime(1000);
-			clickOnCardOption();
+		
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

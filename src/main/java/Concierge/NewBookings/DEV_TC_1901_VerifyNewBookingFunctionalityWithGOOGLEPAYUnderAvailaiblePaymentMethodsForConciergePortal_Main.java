@@ -78,7 +78,7 @@ public class DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaib
 	@FindBy(xpath = "//input[@id='date-picker-inline']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[normalize-space()='Get Quote']")
+	@FindBy(xpath = "//span[normalize-space()='Show Vehicles']")
 	WebElement getQuote;
 
 	@FindBy(xpath = "//span[normalize-space()='Choose Vehicle']//following-sibling::div")

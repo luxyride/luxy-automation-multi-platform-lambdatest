@@ -193,10 +193,7 @@ public class DEV_TC_1314_VerifyAvailabilityFunctionalityOfNotificationsSettingsW
 			objVerifyNewBookingConciergeMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
+			js.executeScript("window.scrollBy(0,400)", "");
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

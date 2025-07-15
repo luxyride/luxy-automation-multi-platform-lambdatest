@@ -257,10 +257,7 @@ public class DEV_TC_1528_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstA
 			objTestBase.defaultWaitTime(2000);
 
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,400)", "");
-			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
+			js.executeScript("window.scrollBy(0,500)", "");
 			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

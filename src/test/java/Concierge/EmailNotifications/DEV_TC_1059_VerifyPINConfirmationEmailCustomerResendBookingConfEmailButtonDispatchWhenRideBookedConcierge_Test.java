@@ -186,10 +186,7 @@ public class DEV_TC_1059_VerifyPINConfirmationEmailCustomerResendBookingConfEmai
 			objVerifyResendEmailMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
+			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyResendEmailMain.enterPaymentInformation();

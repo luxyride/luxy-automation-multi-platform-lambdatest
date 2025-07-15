@@ -232,13 +232,8 @@ public class DEV_TC_1930_VerifyExtraStopIconUnderActionsInConciergeForTheRidesHa
 			objVerifyNewBookingConciergeMain.enterFirstName();
 			objTestBase.defaultWaitTime(1000);
 
-			objTestBase.defaultWaitTime(1000);
-
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,600)", "");
-			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

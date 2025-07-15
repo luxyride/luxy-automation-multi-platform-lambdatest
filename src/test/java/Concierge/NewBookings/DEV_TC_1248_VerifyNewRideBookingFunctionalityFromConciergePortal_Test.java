@@ -271,10 +271,7 @@ public class DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Te
 			objVerifyNewBookingConciergeMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
+			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(2000);
 
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

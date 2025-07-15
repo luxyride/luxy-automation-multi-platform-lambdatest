@@ -388,12 +388,9 @@ public class DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowB
 			objVerifyEditRides_Main.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			
+			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(2000);
 			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
-
 			objVerifyEditRides_Main.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

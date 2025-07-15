@@ -262,16 +262,9 @@ public class DEV_TC_1778_HourlyVerifyBookingARideInHourlyTabConciergeByEnablingS
 			objVerifyNewBookingConciergeMain.enterFlightNumber();
 			objTestBase.defaultWaitTime(1000);
 			objVerifyNewBookingConciergeMain.enterPassengerNotes();
-
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 			
 			js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,-100)", "");
+			js.executeScript("window.scrollBy(0,600)", "");
 			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyNewBookingConciergeMain.enterPaymentInformation();

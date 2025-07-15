@@ -328,7 +328,8 @@ public class DEV_TC_1249_VerifyEDITRideRunctionalityFromConciergePortal_Test ext
 								js.executeScript("window.scrollBy(0,-100)", "");
 								objTestBase.defaultWaitTime(2000);
 								
-								clickOnCardOption();
+								js = (JavascriptExecutor) driver;
+								js.executeScript("window.scrollBy(0,800)", "");
 								objTestBase.defaultWaitTime(2000);
 
 								objVerifyEditDetails_Main.enterPaymentInformation();

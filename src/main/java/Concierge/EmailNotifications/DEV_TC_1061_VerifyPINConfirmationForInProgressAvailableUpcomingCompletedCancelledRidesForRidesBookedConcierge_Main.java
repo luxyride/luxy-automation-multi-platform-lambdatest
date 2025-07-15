@@ -161,7 +161,7 @@ public class DEV_TC_1061_VerifyPINConfirmationForInProgressAvailableUpcomingComp
 	@FindBy(xpath = "//input[@id='date-picker-inline']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[normalize-space()='Get Quote']")
+	@FindBy(xpath = "//span[normalize-space()='Show Vehicles']")
 	WebElement getQuote;
 
 	@FindBy(xpath = "//span[normalize-space()='Choose Vehicle']//following-sibling::div")
@@ -235,6 +235,9 @@ public class DEV_TC_1061_VerifyPINConfirmationForInProgressAvailableUpcomingComp
 
 	@FindBy(xpath = "//input[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//input[@name='credit-card-number']")
 	WebElement cardHolderNumber;
@@ -719,9 +722,7 @@ public class DEV_TC_1061_VerifyPINConfirmationForInProgressAvailableUpcomingComp
 				js = (JavascriptExecutor) driver;
 				js.executeScript("window.scrollBy(0,400)", "");
 				objTestBase.defaultWaitTime(2000);
-				
-				clickOnCardOption();
-				objTestBase.defaultWaitTime(2000);
+			
 
 				enterPaymentInformation();
 				objTestBase.defaultWaitTime(2000);
@@ -1147,6 +1148,9 @@ public class DEV_TC_1061_VerifyPINConfirmationForInProgressAvailableUpcomingComp
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
+
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));

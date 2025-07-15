@@ -75,7 +75,7 @@ public class DEV_TC_1417_VerifyTheFilteringOfTravekAgentRidesinConciergePortalUs
 	@FindBy(xpath = "//input[@id='date-picker-inline']")
 	WebElement dateInput;
 
-	@FindBy(xpath = "//button[normalize-space()='Get Quote']")
+	@FindBy(xpath = "//span[normalize-space()='Show Vehicles']")
 	WebElement getQuote;
 
 	@FindBy(xpath = "//span[normalize-space()='Choose Vehicle']//following-sibling::div")
@@ -116,6 +116,10 @@ public class DEV_TC_1417_VerifyTheFilteringOfTravekAgentRidesinConciergePortalUs
 
 	@FindBy(xpath = "//input[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
+	
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//input[@name='credit-card-number']")
 	WebElement cardHolderNumber;

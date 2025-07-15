@@ -223,13 +223,6 @@ public class DEV_TC_306_VerifyTheRideBookingFunctionalityForLessThan12hrsDuratio
 			objTestBase.defaultWaitTime(1000);
 			objVerifyLessThan12hrsMain.enterPassengerNotes();
 
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
-
 			objVerifyLessThan12hrsMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

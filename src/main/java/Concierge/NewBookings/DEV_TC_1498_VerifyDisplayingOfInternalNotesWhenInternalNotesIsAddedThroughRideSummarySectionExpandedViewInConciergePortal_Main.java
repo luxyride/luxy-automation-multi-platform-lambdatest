@@ -99,6 +99,10 @@ public class DEV_TC_1498_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAdded
 
 	@FindBy(xpath = "//*[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
+	
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//*[@name='credit-card-number']")
 	WebElement cardHolderNumber;
@@ -576,6 +580,9 @@ public class DEV_TC_1498_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAdded
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
+			
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));
 			objTestBase.defaultWaitTime(1000);

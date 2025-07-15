@@ -119,7 +119,7 @@ public class DEV_TC_1426_VerifyFilteringOfExternalSourceInConciergePortalUsingOr
 	@FindBy(xpath = "//button[normalize-space()='Update Ride']")
 	List<WebElement> updateRideBtn;
 
-	@FindBy(xpath = "//button[normalize-space()='Get Quote']")
+	@FindBy(xpath = "//span[normalize-space()='Show Vehicles']")
 	WebElement getQuote;
 
 	@FindBy(xpath = "//div[(@role='alert')]")
@@ -185,6 +185,10 @@ public class DEV_TC_1426_VerifyFilteringOfExternalSourceInConciergePortalUsingOr
 	@FindBy(xpath = "//input[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
 
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+	
 	@FindBy(xpath = "//input[@name='credit-card-number']")
 	WebElement cardHolderNumber;
 
@@ -805,6 +809,9 @@ public class DEV_TC_1426_VerifyFilteringOfExternalSourceInConciergePortalUsingOr
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
+			
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderNameEdit"));
 			objTestBase.defaultWaitTime(1000);

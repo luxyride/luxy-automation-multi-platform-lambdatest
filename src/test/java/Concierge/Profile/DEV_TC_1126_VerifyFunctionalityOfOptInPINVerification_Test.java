@@ -244,9 +244,6 @@ public class DEV_TC_1126_VerifyFunctionalityOfOptInPINVerification_Test extends 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,400)", "");
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 
 			objOptinPIN_Main.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
