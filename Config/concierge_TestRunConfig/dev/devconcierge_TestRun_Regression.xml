@@ -61,76 +61,6 @@
 			<class
 				name="Concierge.NewBookings.DEV_TC_1352_VerifyTheDisplayingOfArrivalMeetAndGreetOptionUnderExtrasBasedOnPickupAirportsFlagTrueFalseforAddressSwappingfromConciergePortal_Test" />
 			<class
-				name="Concierge.NewBookings.DEV_TC_1314_VerifyAvailabilityFunctionalityOfNotificationsSettingsWhenPassengerCreatedThroughConciergeWhileCreatingRide_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1362_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1375_VerifyRideBookingWhenZoneTypeAsAirportConcierge_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1362_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExistingCardsWhileBookingARideInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1376_VerifyRideBookingWhenZoneTypeAsCityConcierge_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1377_VerifyRideBookingWhenZoneTypeAsZipcodeConcierge_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1378_VerifyRideBookingWhenZoneTypeAsStateConcierge_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1498_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAddedThroughRideSummarySectionExpandedViewInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1499_VerifyTheDisplayingOfInternalNotesInEditRideModeAfterBookingARideInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1410_VerifyTheFilteringOfDispatchRidesinConciergePortalUsingOriginatorType_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1416_VerifyTheFilteringOfConciergeRidesinConciergePortalUsingOriginatorType_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1417_VerifyTheFilteringOfTravekAgentRidesinConciergePortalUsingOriginatorType_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1519_VerifyTheFilteringOfExternalSourceRidesinConciergePortalUsingOriginatorType_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1522_VerifyFilteringOfConciergeRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1523_VerifyFilteringOfTravelAgentRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1524_VerifyFilteringOfDispatchRidesInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1426_VerifyFilteringOfExternalSourceInConciergePortalUsingOriginatorTypeAfterRidesEditFromDispatch_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1528_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressInConciergeportal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1530_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstAndPickupAddressLaterEDITRideInConciergeportal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInPickupOffExtraStopAddressFieldsConcierge_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1643_VerifyTheAvailabilityOfSpecialEventsTabInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1645_VerifyFunctionalityOfCreatingQuoteInSpecialEventsInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1646_VerifyTheAvailabilityOfCreateQuoteButtonInManageSpecialEventQoutesPageInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1649_VerifyTheFunctionalityOfHomeRequestNewQuoteCancelQuoteInEventAndSpecialServiceQuoteRequestPageInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1680_VerifyDisplayingOfCorporateNameInDispatchPortalRideExpandViewWhenRideBookedFromConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1693_VerifyThePhoneNumberValidationWhileBookingARideInConciergePortals_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1727_VerifyTheAvailabilityOfEmployeeIdInConciergePortalWhenIsEmployeeIdRequiredInDBIsTrue_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1729_VerifyTheFunctionalityOfEmployeeIdInConciergePortalWhenIsEmployeeIdRequiredInDBIsTrue_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1730_VerifyTheAvailabilityOfClientMatterNumberInConciergePortalWhenIsClientMatterRequiredInDBIsTrueorFalse_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1732_VerifyFunctionalityOfClientMatterNumberInConciergePortalWhenIsClientMatterRequiredInDBIsTrue_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1733_VerifyTheClientMatterNumberInViewAuditLogForEditModeInConciergePortal_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1775_HourlyVerifyTheAvailabilityOfHourlyTabInConciergeUnderNEWBOOKING_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1778_HourlyVerifyBookingARideInHourlyTabConciergeByEnablingSameAsPickUpAddressCheckBox_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1781_HourlyVerifyBookingARideinHourlyTabConciergeByDisablingSameAsPickupAddressCheckBox_Test" />
-			<class
-				name="Concierge.NewBookings.DEV_TC_1811_VerifyRemoveOrderIdFromConciergePortal_Test" />
-			<class
 				name="Concierge.NewBookings.DEV_TC_1901_VerifyNewBookingFunctionalityWithGOOGLEPAYUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
 			<class
 				name="Concierge.NewBookings.DEV_TC_1902_VerifyNewBookingFunctionalityWithPayPalUnderAvailaiblePaymentMethodsForConciergePortal_Test" />
@@ -158,14 +88,6 @@
 				name="Concierge.EditRideFunctionality.DEV_TC_1249_VerifyEDITRideRunctionalityFromConciergePortal_Test" />
 			<class
 				name="Concierge.EditRideFunctionality.DEV_TC_1250_VerifyEDITRideFunctionalityFromDispatchWhenRidehasBookedFromConciergePortal_Test" />
-			<class
-				name="Concierge.EditRideFunctionality.DEV_TC_803_VerifyRideEditWhenZoneTypeAsAirport_Test" />
-			<class
-				name="Concierge.EditRideFunctionality.DEV_TC_808_VerifyRideEditWhenZoneTypeAsZipcode_Test" />
-			<class
-				name="Concierge.EditRideFunctionality.DEV_TC_809_VerifyRideEditWhenZoneTypeAsCity_Test" />
-			<class
-				name="Concierge.EditRideFunctionality.DEV_TC_810_VerifyRideEditWhenZoneTypeAsState_Test" />
 			<class
 				name="Concierge.EditRideFunctionality.DEV_TC_1237_VerifyEditRideFunctionalityShouldNotAcceptUpdatesBelowBufferTime_Test" />
 			<!--
