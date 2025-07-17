@@ -354,9 +354,6 @@ public class DEV_TC_1445_VerifyAllowedVehiclesForTravelArrangersWhenEnrolledAsNe
 				js = (JavascriptExecutor) driver;
 				
 				objTestBase.defaultWaitTime(2000);
-				
-				clickOnCardOption();
-				objTestBase.defaultWaitTime(2000);
 
 				objVerifyLogout_Main.enterPaymentInformationTA();
 				objTestBase.defaultWaitTime(2000);

@@ -197,9 +197,6 @@ public class DEV_TC_1229_VerifyRideBookedThroughTAListedintheDispatchSiteUnderRi
 			js = (JavascriptExecutor) driver;
 			
 			objTestBase.defaultWaitTime(3000);
-
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 			
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

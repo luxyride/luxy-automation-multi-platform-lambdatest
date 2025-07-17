@@ -118,10 +118,10 @@ public class DEV_TC_1319_VerifyRideBookingWhenZoneTypeAsState_TravelAgent_Main e
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement taTripID;
 
 	@FindBy(xpath = "//td[@tabindex='11']")

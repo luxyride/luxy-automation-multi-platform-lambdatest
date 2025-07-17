@@ -198,9 +198,6 @@ public class DEV_TC_1510_VerifyDisplayingOfInternalNotesWhenInternalNotesIsAdded
 			js = (JavascriptExecutor) driver;
 			
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

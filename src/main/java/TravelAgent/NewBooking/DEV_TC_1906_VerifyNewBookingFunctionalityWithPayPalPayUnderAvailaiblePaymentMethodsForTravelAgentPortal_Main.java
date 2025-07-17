@@ -51,6 +51,9 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 	@FindBy(xpath = "//i[@class='fa fa-eye']")
 	WebElement eyeIcon;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signInBtn;
 
@@ -132,10 +135,10 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']")
@@ -189,7 +192,7 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 
 	@FindBy(xpath = "//button[normalize-space()='Log In']")
 	List<WebElement> paypalSignInBtn;
-	
+
 	@FindBy(xpath = "//div[normalize-space()='Continue to Review Order']")
 	List<WebElement> continueReviewOrder;
 
@@ -617,6 +620,8 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOption.click();
+			objTestBase.defaultWaitTime(2000);
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.click();
@@ -789,6 +794,8 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 
 	public Boolean verifyPayPalPayOptionVisibility(Boolean visibilityStatus) {
 		try {
+			cardOption.click();
+			defaultWaitTime(2000);
 			if (payingWithPayPalPayOption.isDisplayed())
 				visibilityStatus = true;
 			else
@@ -860,7 +867,7 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Boolean verifyPayPalLoginAccountOptionDisplayed(Boolean visibilityStatus) {
 		try {
 			if (paypalSignInBtn.size() != 0) {
@@ -893,6 +900,5 @@ public class DEV_TC_1906_VerifyNewBookingFunctionalityWithPayPalPayUnderAvailaib
 		}
 		return visibilityStatus;
 	}
-	
 
 }

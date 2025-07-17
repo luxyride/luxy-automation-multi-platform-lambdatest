@@ -229,9 +229,6 @@ public class DEV_TC_1931_VerifyExtraStopIconUnderActionsInTravelAgentForTheRides
 			js.executeScript("window.scrollBy(0,600)", "");
 			objTestBase.defaultWaitTime(3000);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
-
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

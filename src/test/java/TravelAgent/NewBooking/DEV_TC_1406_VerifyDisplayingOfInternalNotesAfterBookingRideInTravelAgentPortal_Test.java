@@ -193,9 +193,6 @@ public class DEV_TC_1406_VerifyDisplayingOfInternalNotesAfterBookingRideInTravel
 			js = (JavascriptExecutor) driver;
 			
 			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 			
 			objVerifyBookedRideCorporateMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

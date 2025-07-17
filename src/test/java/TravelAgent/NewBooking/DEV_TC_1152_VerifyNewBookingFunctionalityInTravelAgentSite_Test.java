@@ -186,15 +186,7 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Test ext
 			objVerifySighninMain.enterPassengerNotes();
 
 			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
-			
-			js = (JavascriptExecutor) driver;
-			
-			objTestBase.defaultWaitTime(2000);
+			objTestBase.defaultWaitTime(2000);			
 
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

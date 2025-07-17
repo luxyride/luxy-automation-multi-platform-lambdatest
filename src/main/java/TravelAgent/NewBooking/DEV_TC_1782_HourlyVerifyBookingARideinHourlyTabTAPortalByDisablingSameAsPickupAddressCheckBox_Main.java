@@ -80,6 +80,9 @@ public class DEV_TC_1782_HourlyVerifyBookingARideinHourlyTabTAPortalByDisablingS
 
 	@FindBy(xpath = "//*[normalize-space()='Get Quote']")
 	WebElement getQuote;
+	
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//*[normalize-space()='Choose Vehicle']//following-sibling::div")
 	List<WebElement> vechileAvailableSection;
@@ -129,10 +132,10 @@ public class DEV_TC_1782_HourlyVerifyBookingARideinHourlyTabTAPortalByDisablingS
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']")
@@ -575,6 +578,9 @@ public class DEV_TC_1782_HourlyVerifyBookingARideinHourlyTabTAPortalByDisablingS
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
+			
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));
 			objTestBase.defaultWaitTime(1000);

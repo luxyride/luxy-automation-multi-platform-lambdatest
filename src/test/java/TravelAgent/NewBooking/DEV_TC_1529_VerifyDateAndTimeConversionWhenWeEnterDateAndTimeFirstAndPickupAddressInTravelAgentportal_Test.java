@@ -241,9 +241,6 @@ public class DEV_TC_1529_VerifyDateAndTimeConversionWhenWeEnterDateAndTimeFirstA
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,400)", "");
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(2000);
 
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

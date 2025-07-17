@@ -46,6 +46,9 @@ public class DEV_TC_1812_VerifyRemoveOrderIdFromTAPortal_Main extends TestBase {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signInBtn;
+	
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//button[contains(text(),'Welcome')]")
 	WebElement signinUser;
@@ -125,10 +128,10 @@ public class DEV_TC_1812_VerifyRemoveOrderIdFromTAPortal_Main extends TestBase {
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']")
@@ -206,10 +209,10 @@ public class DEV_TC_1812_VerifyRemoveOrderIdFromTAPortal_Main extends TestBase {
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatusDispatch;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTimeDispatch;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripIdDispatch;
 
 	@FindBy(xpath = "//td[@tabindex='12']//a")
@@ -618,6 +621,9 @@ public class DEV_TC_1812_VerifyRemoveOrderIdFromTAPortal_Main extends TestBase {
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
+			
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));

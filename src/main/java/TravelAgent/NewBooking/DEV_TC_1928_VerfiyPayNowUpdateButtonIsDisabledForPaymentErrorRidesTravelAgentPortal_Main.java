@@ -48,6 +48,9 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 	@FindBy(xpath = "//i[@class='fa fa-eye']")
 	WebElement eyeIcon;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+	
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signInBtn;
 
@@ -129,10 +132,10 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']")
@@ -586,6 +589,8 @@ public class DEV_TC_1928_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesT
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.click();

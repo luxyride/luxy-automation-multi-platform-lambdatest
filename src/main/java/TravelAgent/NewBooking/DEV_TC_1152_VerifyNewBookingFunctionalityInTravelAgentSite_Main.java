@@ -99,6 +99,9 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Main ext
 	@FindBy(xpath = "//*[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+
 	@FindBy(xpath = "//*[@name='credit-card-number']")
 	WebElement cardHolderNumber;
 
@@ -129,10 +132,10 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Main ext
 	@FindBy(xpath = "//td[@tabindex='4']")
 	WebElement rideStatus;
 
-	@FindBy(xpath = "//td[@tabindex='6']")
+	@FindBy(xpath = "//td[@tabindex='5']")
 	WebElement ridePlaceDateTime;
 
-	@FindBy(xpath = "//td[@tabindex='7']")
+	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
 	@FindBy(xpath = "//td[@tabindex='11']")
@@ -563,6 +566,9 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Main ext
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
+			
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));
 			objTestBase.defaultWaitTime(1000);
