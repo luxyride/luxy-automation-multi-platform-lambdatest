@@ -138,10 +138,10 @@ public class DEV_TC_1152_VerifyNewBookingFunctionalityInTravelAgentSite_Main ext
 	@FindBy(xpath = "//td[@tabindex='6']")
 	WebElement bookingRideTripId;
 
-	@FindBy(xpath = "//td[@tabindex='11']")
+	@FindBy(xpath = "//td[@tabindex='10']")
 	WebElement bookedPassengerName;
 
-	@FindBy(xpath = "//td[@tabindex='13']")
+	@FindBy(xpath = "//td[@tabindex='12']")
 	WebElement vehicleType;
 
 	@FindBy(xpath = "//input[@id='login']")

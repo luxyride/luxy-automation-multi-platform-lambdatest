@@ -76,7 +76,6 @@ public class DEV_TC_1228_VerifyRideBookedThroughTravelAgentIsListedInTravelAgent
 				testStatus = "FAILED";
 			}
 
-			tripID = "3DAN-HZ66";
 			// tripID should capture from TC:
 			// DEV_TC_1228_VerifyRideBookedThroughTravelAgentIsListedInTravelAgentSiteUnderRIDEAllTab_Test
 			if (testStatus == "PASSED" && tripID != null) {
