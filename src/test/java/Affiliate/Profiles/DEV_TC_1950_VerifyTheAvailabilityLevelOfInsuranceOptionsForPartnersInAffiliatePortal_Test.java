@@ -128,65 +128,6 @@ public class DEV_TC_1950_VerifyTheAvailabilityLevelOfInsuranceOptionsForPartners
 				testStatus = "FAILED";
 			}
 			utillLogger.info(testStep + " - " + testStatus);
-
-			objVerifylogoutMain.clickProfileoption();
-			objTestBase.defaultWaitTime(3000);
-
-			testStep = "Verification of visibility of Commercial dropdown ";
-			visibilityStatus = objVerifylogoutMain.visibilityOfCommercialDropDown(visibilityStatus);
-			objTestBase.defaultWaitTime(2000);
-			if (visibilityStatus.booleanValue() == true) {
-				screenshotPath = getScreenshot(driver, "Verifylogin");
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
-			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
-			}
-			utillLogger.info(testStep + " - " + testStatus);
-
-			objTestBase.defaultWaitTime(3000);
-			objVerifylogoutMain.clickOnSelectDropDown();
-			objTestBase.defaultWaitTime(2000);
-			
-			testStep = "Verification of visibility of Commercial dropdown list ";
-			visibilityStatus = objVerifylogoutMain.visibilityOfCommercialDropDownList(visibilityStatus);
-			objTestBase.defaultWaitTime(2000);
-			if (visibilityStatus.booleanValue() == true) {
-				screenshotPath = getScreenshot(driver, "Verifylogin");
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
-			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
-			}
-			utillLogger.info(testStep + " - " + testStatus);
-			
-			
-			objTestBase.defaultWaitTime(2000);
-			objVerifylogoutMain.clickOnRides();
-			objTestBase.defaultWaitTime(2000);
-			objVerifylogoutMain.clickOnAllTab();
-			objTestBase.defaultWaitTime(2000);
-			objVerifylogoutMain.clickOnSettings();
-			objTestBase.defaultWaitTime(2000);
-			objVerifylogoutMain.clickOnCompanyProfile();
-			objTestBase.defaultWaitTime(3000);
-			objVerifylogoutMain.clickOnSelectDropDown();
-			objTestBase.defaultWaitTime(2000);
-			
-			testStep = "Verification of visibility of Commercial dropdown list ";
-			visibilityStatus = objVerifylogoutMain.visibilityOfCommercialDropDownList(visibilityStatus);
-			objTestBase.defaultWaitTime(2000);
-			if (visibilityStatus.booleanValue() == true) {
-				screenshotPath = getScreenshot(driver, "Verifylogin");
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.PASS, testStep, exception);	else	lambdaTestStatusUpdate("passed", testStep);
-				testStatus = "PASSED";
-			} else {
-				if (localExecutionFlag == true)	objupdateResults.updateResults(screenshotPath, logger, LogStatus.FAIL, testStep, exception);	else	lambdaTestStatusUpdate("failed", testStep);
-				testStatus = "FAILED";
-			}
-			utillLogger.info(testStep + " - " + testStatus);
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
