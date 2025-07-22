@@ -95,7 +95,7 @@
 			<!-- ################################### UserPortal.NewBookings
 			################################### -->
 			<class
-				name="UserPortal.NewBookings.DEV_TC_1845_VerifyTheAdditionOf10$ForNewRideBookingForLessThanOrMoreThan24hrsFromPickUpTime_Test" />
+				name="UserPortal.NewBookings.DEV_TC_2369_VerifyTheAvailabilityAndFunctionalityOfBusinessReferenceFieldInWebUserPortal_Test" />
 			<class
 				name="UserPortal.NewBookings.DEV_TC_1867_VerifyTheRideBookingWhenZoneTypeAsZipcodeAndSetTheConfigurationBufferTimeAndMiles_Test" />
 			<class
@@ -110,7 +110,8 @@
 				name="UserPortal.NewBookings.DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingInRideBookingFlowInWebUserPortal_Test" />
 			<class
 				name="UserPortal.NewBookings.DEV_TC_955_VerifyGrandTotalFormatShouldShowTwoDigitsAffterDecimal_Test" />
-
+			<class
+				name="UserPortal.NewBookings.DEV_TC_2369_VerifyTheAvailabilityAndFunctionalityOfBusinessReferenceFieldInWebUserPortal_Test" />
 
 			<!--
 			############################################################################################## -->

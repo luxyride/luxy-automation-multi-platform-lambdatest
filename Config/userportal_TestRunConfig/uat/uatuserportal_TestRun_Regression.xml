@@ -110,6 +110,8 @@
 				name="UserPortal.NewBookings.DEV_TC_2221_VerifyTheDisplayingOfErrorMessagesAndErrorHighlightingInRideBookingFlowInWebUserPortal_Test" />
 			<class
 				name="UserPortal.NewBookings.DEV_TC_955_VerifyGrandTotalFormatShouldShowTwoDigitsAffterDecimal_Test" />
+			<class
+				name="UserPortal.NewBookings.DEV_TC_2369_VerifyTheAvailabilityAndFunctionalityOfBusinessReferenceFieldInWebUserPortal_Test" />
 
 
 			<!--
