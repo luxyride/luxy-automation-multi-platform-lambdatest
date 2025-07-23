@@ -808,10 +808,10 @@ public class DEV_TC_1900_VerifyNewBookingFunctionalityWithCreditOrDebitCardsUnde
 			action.moveToElement(signInBtnDispatch).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
 			// Validate Dispatch 2fa Authentication:
-			Boolean visibilityStatus = false;
-			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
-			utillLogger.info(
-					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
+//			Boolean visibilityStatus = false;
+//			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
+//			utillLogger.info(
+//					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

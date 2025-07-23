@@ -134,9 +134,9 @@ public class DEV_TC_2177_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUn
 			signInBtn.click();
 			// Validate Dispatch 2fa Authentication:
 			Boolean visibilityStatus = false;
-			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
-			utillLogger.info(
-					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
+//			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
+//			utillLogger.info(
+//					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

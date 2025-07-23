@@ -276,10 +276,10 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 			action = new Actions(driver);
 			action.moveToElement(signInBtn_Login).click().build().perform();
 			// Validate Dispatch 2fa Authentication:
-			Boolean visibilityStatus = false;
-			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
-			utillLogger.info(
-					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
+//	Boolean visibilityStatus = false;
+//			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
+//			utillLogger.info(
+//					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -584,7 +584,8 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 	public void searchBookingUserName() {
 		try {
 			action = new Actions(driver);
-			action.moveToElement(searchBookingUser).click().sendKeys(prop.getProperty("dispatchadminMail")).build().perform();
+			action.moveToElement(searchBookingUser).click().sendKeys(prop.getProperty("dispatchadminMail")).build()
+					.perform();
 			objTestBase.defaultWaitTime(6000);
 			action.sendKeys(Keys.TAB).build().perform();
 			objTestBase.defaultWaitTime(2000);
@@ -603,7 +604,7 @@ public class DEV_TC_1020_VerificationOfNewBookingFromDispatchSite_Main extends T
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void clickOnAddSecondaryPassengerDetails() {

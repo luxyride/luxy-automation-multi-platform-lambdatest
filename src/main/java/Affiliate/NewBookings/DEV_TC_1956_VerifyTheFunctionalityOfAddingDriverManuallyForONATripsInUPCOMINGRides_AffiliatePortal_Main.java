@@ -322,9 +322,9 @@ public class DEV_TC_1956_VerifyTheFunctionalityOfAddingDriverManuallyForONATrips
 			action.moveToElement(dispatchsignInBtn_Login).click().build().perform();
 			// Validate Dispatch 2fa Authentication:
 			Boolean visibilityStatus = false;
-			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
-			utillLogger.info(
-					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
+//			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
+//			utillLogger.info(
+//					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

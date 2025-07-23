@@ -136,10 +136,10 @@ public class DEV_TC_88_VerifyTheGetQouteFunctionality_Main extends TestBase {
 			action = new Actions(driver);
 			action.moveToElement(signInBtn_Login).click().build().perform();
 			// Validate Dispatch 2fa Authentication:
-			Boolean visibilityStatus = false;
-			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
-			utillLogger.info(
-					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
+//			Boolean visibilityStatus = false;
+//			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
+//			utillLogger.info(
+//					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
