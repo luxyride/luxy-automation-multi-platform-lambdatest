@@ -223,9 +223,6 @@ public class DEV_TC_1770_VerifyRemoveOrderIdFromDispatchPortal_Test extends Test
 			js.executeScript("window.scrollBy(0,700)", "");
 			objTestBase.defaultWaitTime(2000);
 			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
-
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 
