@@ -230,9 +230,7 @@ public class DEV_TC_1361_VerifyDisplayingOfPaymentEntryFieldsAfterDeletingTheExi
 				objTestBase.defaultWaitTime(4000);
 				deleteFlag = true;
 				
-				clickOnCardOption();
 				objTestBase.defaultWaitTime(3000);
-
 				objVerifyNewBookingDispatchMain.enterPaymentInformation();
 				objTestBase.defaultWaitTime(4000);
 				js = (JavascriptExecutor) driver;

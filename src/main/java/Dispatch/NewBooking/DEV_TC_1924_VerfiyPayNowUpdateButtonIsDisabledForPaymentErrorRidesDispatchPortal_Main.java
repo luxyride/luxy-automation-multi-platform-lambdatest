@@ -786,6 +786,7 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 
 			cardOptions.click();
 			objTestBase.defaultWaitTime(2000);
+			
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));
 			objTestBase.defaultWaitTime(1000);
