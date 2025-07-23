@@ -253,8 +253,7 @@ public class DEV_TC_1908_VerifyEditRideFunctionalityWithAnyOneAvailablePaymentMe
 							}
 							utillLogger.info(testStep + " - " + testStatus);
 
-							clickOnCardOption();
-							objTestBase.defaultWaitTime(3000);
+
 
 							objVerifyEditDetails_Main.enterPaymentInformation();
 							objTestBase.defaultWaitTime(2000);

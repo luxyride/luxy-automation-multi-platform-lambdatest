@@ -294,8 +294,6 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 						}
 					} else {
 						
-						clickOnCardOption();
-						objTestBase.defaultWaitTime(3000);
 						
 						objVerifyEditDetails_Main.enterPaymentInformation();
 						objTestBase.defaultWaitTime(2000);

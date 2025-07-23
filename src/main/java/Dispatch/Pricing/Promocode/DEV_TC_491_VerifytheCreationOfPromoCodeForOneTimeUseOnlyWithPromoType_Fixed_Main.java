@@ -250,6 +250,9 @@ public class DEV_TC_491_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 	@FindBy(id = "cardholder-name")
 	WebElement cardHolderName;
 
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+	
 	@FindBy(id = "credit-card-number")
 	WebElement cardHolderNumber;
 

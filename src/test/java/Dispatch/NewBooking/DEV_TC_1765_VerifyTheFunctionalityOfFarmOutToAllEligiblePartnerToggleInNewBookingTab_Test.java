@@ -332,9 +332,6 @@ public class DEV_TC_1765_VerifyTheFunctionalityOfFarmOutToAllEligiblePartnerTogg
 			js.executeScript("window.scrollBy(0,-200)", "");
 			objTestBase.defaultWaitTime(2000);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
-
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

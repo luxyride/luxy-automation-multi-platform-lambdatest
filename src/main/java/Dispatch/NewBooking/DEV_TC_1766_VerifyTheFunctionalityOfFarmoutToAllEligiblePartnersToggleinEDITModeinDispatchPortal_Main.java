@@ -136,6 +136,9 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 
 	@FindBy(xpath = "//input[@placeholder='Cardholder Name']")
 	WebElement cardHolderName;
+	
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(xpath = "//input[@name='credit-card-number']")
 	WebElement cardHolderNumber;
@@ -727,10 +730,9 @@ public class DEV_TC_1766_VerifyTheFunctionalityOfFarmoutToAllEligiblePartnersTog
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", cardHolderName);
-			defaultWaitTime(2000);
-			js.executeScript("window.scrollBy(0,-200)", "");
+			
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderNameEdit"));

@@ -212,9 +212,6 @@ public class DEV_TC_1777_HourlyVerifyBookingARideInHourlyTabDispatchByEnablingSa
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,700)", "");
 			objTestBase.defaultWaitTime(2000);
-
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
 			
 			objVerifySighninMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

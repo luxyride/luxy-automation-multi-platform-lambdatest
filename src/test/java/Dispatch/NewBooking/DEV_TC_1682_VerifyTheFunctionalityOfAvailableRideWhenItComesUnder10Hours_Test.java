@@ -224,9 +224,7 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,600)", "");
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
+		
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
@@ -345,9 +343,6 @@ public class DEV_TC_1682_VerifyTheFunctionalityOfAvailableRideWhenItComesUnder10
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

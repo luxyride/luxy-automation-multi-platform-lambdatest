@@ -303,9 +303,7 @@ public class DEV_TC_1371_VerifyRideBookingWhenZoneTypeAsAirportDispatch_Test ext
 				js = (JavascriptExecutor) driver;
 				
 				objTestBase.defaultWaitTime(2000);
-				
-				clickOnCardOption();
-				objTestBase.defaultWaitTime(3000);
+
 
 				objVerifyEditRidesZone_Main.enterPaymentInformation();
 				objTestBase.defaultWaitTime(2000);

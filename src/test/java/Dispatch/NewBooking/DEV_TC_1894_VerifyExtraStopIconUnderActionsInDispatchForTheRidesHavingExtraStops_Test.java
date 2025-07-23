@@ -224,9 +224,6 @@ public class DEV_TC_1894_VerifyExtraStopIconUnderActionsInDispatchForTheRidesHav
 			js.executeScript("window.scrollBy(0,700)", "");
 			objTestBase.defaultWaitTime(3000);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
-
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

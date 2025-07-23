@@ -302,9 +302,7 @@ public class DEV_TC_1373_VerifyRideBookingWhenZoneTypeAsZipcodeDispatch_Test ext
 				
 				objTestBase.defaultWaitTime(2000);
 				
-				clickOnCardOption();
-				objTestBase.defaultWaitTime(3000);
-
+				
 				objVerifyBufferTime_Main.enterPaymentInformation();
 				objTestBase.defaultWaitTime(2000);
 

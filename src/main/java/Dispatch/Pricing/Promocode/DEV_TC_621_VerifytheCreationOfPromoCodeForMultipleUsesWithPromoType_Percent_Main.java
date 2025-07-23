@@ -249,6 +249,10 @@ public class DEV_TC_621_VerifytheCreationOfPromoCodeForMultipleUsesWithPromoType
 
 	@FindBy(id = "cardholder-name")
 	WebElement cardHolderName;
+	
+
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
 
 	@FindBy(id = "credit-card-number")
 	WebElement cardHolderNumber;
@@ -1137,6 +1141,8 @@ public class DEV_TC_621_VerifytheCreationOfPromoCodeForMultipleUsesWithPromoType
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
 
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 			// SwitchTo CardHolder Frame
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.click();

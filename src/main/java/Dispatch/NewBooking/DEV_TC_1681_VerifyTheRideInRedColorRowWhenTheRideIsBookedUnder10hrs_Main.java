@@ -154,6 +154,10 @@ public class DEV_TC_1681_VerifyTheRideInRedColorRowWhenTheRideIsBookedUnder10hrs
 
 	@FindBy(xpath = "//input[@id='credit-card-number']")
 	WebElement cardHolderNumber;
+	
+	@FindBy(xpath = "//div[@aria-label='Paying with Card']")
+	WebElement cardOptions;
+	
 
 	@FindBy(xpath = "//input[@name='expiration']")
 	WebElement cardExpiryDate;
@@ -832,6 +836,9 @@ public class DEV_TC_1681_VerifyTheRideInRedColorRowWhenTheRideIsBookedUnder10hrs
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
+			
+			cardOptions.click();
+			objTestBase.defaultWaitTime(2000);
 
 			driver.switchTo().frame("braintree-hosted-field-cardholderName");
 			cardHolderName.sendKeys(prop.getProperty("walletcardHolderName"));

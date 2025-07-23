@@ -220,9 +220,6 @@ public class DEV_TC_1924_VerfiyPayNowUpdateButtonIsDisabledForPaymentErrorRidesD
 			js.executeScript("window.scrollBy(0,700)", "");
 			objTestBase.defaultWaitTime(3000);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
-
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
 

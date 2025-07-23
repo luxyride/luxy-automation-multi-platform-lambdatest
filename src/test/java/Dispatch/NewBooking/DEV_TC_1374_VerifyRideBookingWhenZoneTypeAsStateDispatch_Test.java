@@ -301,9 +301,6 @@ public class DEV_TC_1374_VerifyRideBookingWhenZoneTypeAsStateDispatch_Test exten
 				js = (JavascriptExecutor) driver;
 				
 				objTestBase.defaultWaitTime(2000);
-				
-				clickOnCardOption();
-				objTestBase.defaultWaitTime(3000);
 
 				objVerifyBufferTime_Main.enterPaymentInformation();
 				objTestBase.defaultWaitTime(2000);

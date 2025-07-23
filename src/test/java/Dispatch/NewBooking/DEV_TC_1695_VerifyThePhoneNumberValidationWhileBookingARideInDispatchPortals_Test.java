@@ -204,8 +204,6 @@ public class DEV_TC_1695_VerifyThePhoneNumberValidationWhileBookingARideInDispat
 			js.executeScript("window.scrollBy(0,800)", "");
 			objTestBase.defaultWaitTime(2000);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
 			
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

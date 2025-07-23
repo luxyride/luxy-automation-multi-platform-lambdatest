@@ -387,7 +387,6 @@ public class DEV_TC_620_VerifytheCreationOfPromoCodeForOneTimeUseOnlyWithPromoTy
 				objVerifyPromocodePercentMain.enablePaymentInfo();
 				objTestBase.defaultWaitTime(2000);
 			} else {
-				clickOnCardOption();
 				objTestBase.defaultWaitTime(3000);
 				objVerifyPromocodePercentMain.enterPaymentInformation();
 				objTestBase.defaultWaitTime(2000);

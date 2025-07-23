@@ -255,8 +255,7 @@ public class DEV_TC_1891_VerifyNewBookingFunctionalityWithCreditOrDebitCardsUnde
 			}
 			utillLogger.info(testStep + " - " + testStatus);
 
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
+		
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);

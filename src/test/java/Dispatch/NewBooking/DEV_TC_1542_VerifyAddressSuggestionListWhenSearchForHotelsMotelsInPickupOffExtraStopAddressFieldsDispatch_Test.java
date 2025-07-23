@@ -256,9 +256,6 @@ public class DEV_TC_1542_VerifyAddressSuggestionListWhenSearchForHotelsMotelsInP
 
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,400)", "");
-			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
 			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();

@@ -225,9 +225,6 @@ public class DEV_TC_1681_VerifyTheRideInRedColorRowWhenTheRideIsBookedUnder10hrs
 			js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,600)", "");
 			objTestBase.defaultWaitTime(2000);
-			
-			clickOnCardOption();
-			objTestBase.defaultWaitTime(3000);
 
 			objVerifyNewBookingDispatchMain.enterPaymentInformation();
 			objTestBase.defaultWaitTime(2000);
