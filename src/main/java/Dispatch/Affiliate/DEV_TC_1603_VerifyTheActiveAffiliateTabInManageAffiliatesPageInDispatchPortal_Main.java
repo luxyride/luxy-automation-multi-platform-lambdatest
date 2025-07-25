@@ -47,6 +47,12 @@ public class DEV_TC_1603_VerifyTheActiveAffiliateTabInManageAffiliatesPageInDisp
 	@FindBy(xpath = "//th[@title='Status']")
 	WebElement activeStatus;
 
+	@FindBy(xpath = "(//span[normalize-space()='Affiliates'])[1]")
+	WebElement affiliatesTab;
+
+	@FindBy(xpath = "(//span[normalize-space()='Affiliate Details'])[1]")
+	WebElement affiliateLeadsTab;
+	
 	@FindBy(xpath = "(//a[normalize-space()='Inactive Affiliates'])[1]")
 	WebElement inActiveAffiliate;
 
@@ -160,7 +166,9 @@ public class DEV_TC_1603_VerifyTheActiveAffiliateTabInManageAffiliatesPageInDisp
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			action.moveToElement(affiliateTab).click().build().perform();
+			action.moveToElement(affiliateLeadsTab).click().build().perform();
+			objTestBase.defaultWaitTime(1000);
+			action.moveToElement(affiliatesTab).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();

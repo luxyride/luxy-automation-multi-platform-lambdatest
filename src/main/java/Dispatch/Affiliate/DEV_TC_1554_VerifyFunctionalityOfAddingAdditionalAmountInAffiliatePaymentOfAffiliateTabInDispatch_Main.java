@@ -39,6 +39,9 @@ public class DEV_TC_1554_VerifyFunctionalityOfAddingAdditionalAmountInAffiliateP
 	@FindBy(xpath = "(//span[normalize-space()='New Booking'])[1]")
 	WebElement newbooking;
 
+	@FindBy(xpath = "(//span[normalize-space()='Affiliate Details'])[1]")
+	WebElement affiliateLeadsTab;
+	
 	@FindBy(xpath = "(//span[normalize-space()='Affiliates'])[1]")
 	WebElement affiliatesTab;
 
@@ -180,8 +183,10 @@ public class DEV_TC_1554_VerifyFunctionalityOfAddingAdditionalAmountInAffiliateP
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			action.moveToElement(affiliatesTab).click().build().perform();
+			action.moveToElement(affiliateLeadsTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
+			action.moveToElement(affiliatesTab).click().build().perform();
+			objTestBase.defaultWaitTime(2000);
 
 			expected = driver.getCurrentUrl();
 			objTestBase.defaultWaitTime(1000);

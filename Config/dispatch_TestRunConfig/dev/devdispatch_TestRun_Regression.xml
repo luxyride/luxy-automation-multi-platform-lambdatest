@@ -29,14 +29,17 @@
 				name="Dispatch.Login.DEV_TC_27_VerifyAvailablityOfButtons_NavigationLinksInHomePage_Test" />
 			<class
 				name="Dispatch.Login.DEV_TC_649_VerifyUserShouldNotLogoutAutomaticallyWhenReloadsTheDispatchPage_Test" />
-			<class
+			<!--<class
 				name="Dispatch.Login.DEV_TC_1132_VerifyTheAvailabilityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
 			<class
 				name="Dispatch.Login.DEV_TC_1133_VerifyTheFunctionalityOfDownloadButtonInMonthlyInvoiceInDispatch_Test" />
 			<class
-				name="Dispatch.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInDispatch_Test" />
+				name="Dispatch.Login.DEV_TC_1395_VerifyTheAvailabilityOfMONTHLYINVOICEOptionInMenuInDispatch_Test" />-->
 			<class
 				name="Dispatch.Login.DEV_TC_2176_VerifyAvailabilityAndFunctionalityOfProfileNotesFieldUnderPassengersTabInDispatchPortal_Test" />
+			<class
+				name="Dispatch.Login.DEV_TC_2350_VerifyTheAvailabilityAndFunctionalityOfNewlyCreatedDropdownMenusWithSubTabs_Test" />
+
 
 			<!--
 			############################################################################################# -->

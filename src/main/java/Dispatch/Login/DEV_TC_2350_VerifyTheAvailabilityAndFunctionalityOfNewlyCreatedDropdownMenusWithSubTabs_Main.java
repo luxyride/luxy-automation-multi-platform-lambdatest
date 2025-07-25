@@ -1,9 +1,6 @@
-package Dispatch.Affiliate;
+package Dispatch.Login;
 
 import common.TestBase;
-
-import java.util.List;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,8 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.interactions.Actions;
 
-public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsInAffiliatesTabOfDispatch_Main
-		extends TestBase {
+public class DEV_TC_2350_VerifyTheAvailabilityAndFunctionalityOfNewlyCreatedDropdownMenusWithSubTabs_Main extends TestBase {
 
 	WebDriver driver;
 	Actions action;
@@ -35,41 +31,34 @@ public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsI
 
 	@FindBy(xpath = "(//span[normalize-space()='New Booking'])[1]")
 	WebElement newbooking;
-
+	
+	@FindBy(xpath = "(//span[normalize-space()='Rides'])[1]")
+	WebElement ridesMenu;
+	
+	@FindBy(xpath = "(//span[normalize-space()='Passengers'])[1]")
+	WebElement passengers;
+	
+	@FindBy(xpath = "(//span[normalize-space()='Corporate Details'])[1]")
+	WebElement corporateMenu;
+	
+	@FindBy(xpath = "(//span[normalize-space()='Travel Agency'])[1]")
+	WebElement travelAgencyMenu;
+	
 	@FindBy(xpath = "(//span[normalize-space()='Affiliate Details'])[1]")
-	WebElement affiliateLeadsTab;
+	WebElement affiliateMenu;
 	
-	@FindBy(xpath = "(//span[normalize-space()='Affiliates'])[1]")
-	WebElement affiliatesTab;
-
-	@FindBy(xpath = "(//input[@placeholder='Search'])[1]")
-	WebElement searchAffiliate;
-
-	@FindBy(xpath = "//td[normalize-space()='There is no data to display']")
-	List<WebElement> noDataMsg;
-
-	@FindBy(xpath = "//a[normalize-space()='Inactive Affiliates']")
-	WebElement inActiveTab;
-
-	@FindBy(xpath = "(//span[normalize-space()='Affiliate Payments'])[1]")
-	WebElement affiliatePaymentBtn;
+	@FindBy(xpath = "(//span[normalize-space()='Special Events'])[1]")
+	WebElement specialEvents;
 	
-	@FindBy(xpath = "(//i[@title='Edit Affiliate User'])[1]")
-	WebElement editBtn;
+	@FindBy(xpath = "(//span[normalize-space()='Pricing'])[1]")
+	WebElement pricingMenu;
 	
-	@FindBy(xpath = "(//img[@title='Reset Password'])[1]")
-	WebElement resetPasswordBtn;
-	
-	@FindBy(xpath = "(//button[@type='button'])[2]")
-	WebElement deleteBtn;
-	
-	@FindBy(xpath = "(//i[@title='Affiliate Profile'])[1]")
-	WebElement profileBtn;
+	@FindBy(xpath = "(//span[normalize-space()='Settings'])[1]")
+	WebElement settingsMenu;
 
 	TestBase objTestBase;
 
-	public DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsInAffiliatesTabOfDispatch_Main(
-			WebDriver driver) {
+	public DEV_TC_2350_VerifyTheAvailabilityAndFunctionalityOfNewlyCreatedDropdownMenusWithSubTabs_Main(WebDriver driver) {
 		try {
 			this.driver = driver;
 			PageFactory.initElements(driver, this);
@@ -77,7 +66,7 @@ public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsI
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	public void eMailInput() {
@@ -132,10 +121,9 @@ public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsI
 //			visibilityStatus = validateDispatchBypassCode(visibilityStatus);
 //			utillLogger.info(
 //					"2FA Validation Status for Script - " + getClass().getSimpleName() + " = " + visibilityStatus);
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-
 	}
 
 	public void clickNewBooking() {
@@ -153,8 +141,8 @@ public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsI
 		try {
 			waitTimeForElement(signinUser);
 			if (signinUser.isDisplayed()) {
-				expected = signinUser.getText();
-				if (expected.toLowerCase().contains("welcome")) {
+				objTestBase.defaultWaitTime(1000);
+				if (signinUser.getText().toLowerCase().contains("welcome")) {
 					visibilityStatus = true;
 				} else {
 					visibilityStatus = false;
@@ -168,32 +156,9 @@ public class DEV_TC_1552_VerifyAvailabilityOfAffiliatePaymentButtonUnderActionsI
 		return visibilityStatus;
 	}
 
-	public Boolean verifyAffiliatesPageNavigationTab(Boolean visibilityStatus) {
+	public Boolean visibilityOfDispatchMenu(Boolean visibilityStatus) {
 		try {
-			action = new Actions(driver);
-			objTestBase.defaultWaitTime(1000);
-			action.moveToElement(affiliateLeadsTab).click().build().perform();
-			objTestBase.defaultWaitTime(3000);
-			action.moveToElement(affiliatesTab).click().build().perform();
-			objTestBase.defaultWaitTime(2000);
-
-			expected = driver.getCurrentUrl();
-			objTestBase.defaultWaitTime(1000);
-			if (expected.toLowerCase().contains("affiliate"))
-				visibilityStatus = true;
-			else
-				visibilityStatus = false;
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			visibilityStatus = false;
-		}
-		return visibilityStatus;
-	}
-
-	public Boolean verifyPaymentsButtonVisibilityUnderActions(Boolean visibilityStatus) {
-		try {
-			if (affiliatePaymentBtn.isDisplayed())
+			if (newbooking.isDisplayed() && ridesMenu.isDisplayed() && passengers.isDisplayed()&& corporateMenu.isDisplayed() && travelAgencyMenu.isDisplayed()&& affiliateMenu.isDisplayed()&& pricingMenu.isDisplayed() && settingsMenu.isDisplayed())
 				visibilityStatus = true;
 			else
 				visibilityStatus = false;

@@ -42,9 +42,12 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 	@FindBy(xpath = "(//span[normalize-space()='New Booking'])[1]")
 	WebElement newbooking;
 
-	@FindBy(xpath = "(//span[normalize-space()='Affiliate Leads'])[1]")
-	WebElement affiliatesleadsTab;
+	@FindBy(xpath = "(//span[normalize-space()='Affiliates'])[1]")
+	WebElement affiliatesTab;
 
+	@FindBy(xpath = "(//span[normalize-space()='Affiliate Leads'])[1]")
+	WebElement affiliateLeadsTab;
+	
 	@FindBy(xpath = "(//input[@placeholder='Search'])[1]")
 	WebElement searchAffiliate;
 
@@ -239,8 +242,10 @@ public class DEV_TC_1874_VerifyTheFunctionalityOfApplicantStatusInDispatchAffili
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			action.moveToElement(affiliatesleadsTab).click().build().perform();
+			action.moveToElement(affiliateLeadsTab).click().build().perform();
 			objTestBase.defaultWaitTime(3000);
+			action.moveToElement(affiliatesTab).click().build().perform();
+			objTestBase.defaultWaitTime(2000);
 
 			expected = driver.getCurrentUrl();
 			objTestBase.defaultWaitTime(1000);

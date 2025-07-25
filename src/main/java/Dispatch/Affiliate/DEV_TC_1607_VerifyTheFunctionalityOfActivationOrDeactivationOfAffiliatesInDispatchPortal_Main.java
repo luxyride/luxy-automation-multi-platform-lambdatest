@@ -40,8 +40,11 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 	WebElement newbooking;
 
 	@FindBy(xpath = "(//span[normalize-space()='Affiliates'])[1]")
-	WebElement affiliateTab;
+	WebElement affiliatesTab;
 
+	@FindBy(xpath = "(//span[normalize-space()='Affiliate Details'])[1]")
+	WebElement affiliateLeadsTab;
+	
 	@FindBy(xpath = "(//a[normalize-space()='Add Affiliate'])[1]")
 	WebElement addAffiliateBtn;
 
@@ -187,7 +190,9 @@ public class DEV_TC_1607_VerifyTheFunctionalityOfActivationOrDeactivationOfAffil
 		try {
 			action = new Actions(driver);
 			objTestBase.defaultWaitTime(1000);
-			action.moveToElement(affiliateTab).click().build().perform();
+			action.moveToElement(affiliateLeadsTab).click().build().perform();
+			objTestBase.defaultWaitTime(1000);
+			action.moveToElement(affiliatesTab).click().build().perform();
 			objTestBase.defaultWaitTime(1000);
 		} catch (Exception ex) {
 			ex.printStackTrace();
