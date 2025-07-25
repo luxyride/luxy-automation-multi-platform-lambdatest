@@ -93,10 +93,7 @@ public class DEV_TC_1884_VerifyTheNewUserSignUpFlowInUserPortal_Main extends Tes
 	public void clickSignIn() {
 		try {
 			action = new Actions(driver);
-			js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].scrollIntoView(true);", loginAndContinue);
-			js.executeScript("window.scrollBy(0,-100)", "");
-			action.moveToElement(loginAndContinue).click().build().perform();
+			action.moveToElement(loginBtn).click().build().perform();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
