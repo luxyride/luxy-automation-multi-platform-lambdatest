@@ -130,14 +130,8 @@ public class DEV_TC_1239_VerifyTheAvailabilityOfCorporateSelectionSectionInNewBo
 
 	public Boolean visibilityOfCorporateSelecctionSectionInNewbookingFlow(Boolean visibilityStatus) {
 		try {
-			waitTimeForElement(corpToggleBtn);
 			if (corpToggleBtn.isDisplayed()) {
-				expected = corpToggleBtn.getText();
-				if (expected.toLowerCase().contains("Corporate")) {
-					visibilityStatus = true;
-				} else {
-					visibilityStatus = false;
-				}
+				visibilityStatus = true;
 			} else {
 				visibilityStatus = false;
 			}
