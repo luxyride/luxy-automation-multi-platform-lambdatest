@@ -106,10 +106,9 @@ public class DEV_TC_2344_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 					else
 						lambdaTestStatusUpdate("passed", testStep);
 					objVerifyNewBookingDispatchMain.clickSigninButton();
-					/*
-					 * objTestBase.defaultWaitTime(3000); driver.navigate().refresh();
-					 * objTestBase.defaultWaitTime(1000);
-					 */
+					objTestBase.defaultWaitTime(3000);
+					driver.navigate().refresh();
+					objTestBase.defaultWaitTime(1000);
 					testStatus = "PASSED";
 				} else {
 					if (localExecutionFlag == true)
@@ -220,6 +219,8 @@ public class DEV_TC_2344_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 			objVerifyNewBookingDispatchMain.searchBookingUserName();
 			objTestBase.defaultWaitTime(1000);
 
+			objVerifyNewBookingDispatchMain.enterFirstName();
+			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingDispatchMain.enterLastName();
 			objTestBase.defaultWaitTime(2000);
 

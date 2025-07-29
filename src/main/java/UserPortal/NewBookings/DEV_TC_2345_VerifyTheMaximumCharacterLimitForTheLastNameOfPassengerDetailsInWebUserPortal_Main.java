@@ -102,7 +102,7 @@ public class DEV_TC_2345_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 	@FindBy(xpath = "//button[contains(@aria-label,'Add Secondary Passenger')]")
 	WebElement secondaryPassenger;
 
-	@FindBy(xpath = "(//input[@id='fname'])[1]")
+	@FindBy(xpath = "//input[@id='p_first_name_input']")
 	WebElement firstName;
 
 	@FindBy(xpath = "//input[@id='p_last_name_input']")
@@ -925,6 +925,26 @@ public class DEV_TC_2345_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 			e.printStackTrace();
 		}
 		return visibilityStatus;
+	}
+	
+	public void enterFirstName() {
+		try {
+			action = new Actions(driver);
+			firstName.clear();
+			defaultWaitTime(1000);
+			firstName.sendKeys(prop.getProperty("longCharecters"));
+			String actualValue = firstName.getAttribute("value");
+			// Validation
+			if (actualValue.length() <= 24) {
+				System.out.println(
+						"✅ PASS: Last Name is limited to 24 characters. Actual length: " + actualValue.length());
+			} else {
+				System.out.println(
+						"❌ FAIL: Last Name accepted more than 24 characters. Actual length: " + actualValue.length());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	public void enterLastname() {

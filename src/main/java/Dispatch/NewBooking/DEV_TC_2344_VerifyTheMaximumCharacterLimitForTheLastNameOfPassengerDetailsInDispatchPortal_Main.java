@@ -866,4 +866,24 @@ public class DEV_TC_2344_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 			ex.printStackTrace();
 		}
 	}
+	
+	public void enterFirstName() {
+		try {
+			action = new Actions(driver);
+			primaryFirstName.clear();
+			defaultWaitTime(1000);
+			primaryFirstName.sendKeys(prop.getProperty("longCharecters"));
+			String actualValue = primaryFirstName.getAttribute("value");
+			// Validation
+			if (actualValue.length() <= 24) {
+				System.out.println(
+						"✅ PASS: Last Name is limited to 24 characters. Actual length: " + actualValue.length());
+			} else {
+				System.out.println(
+						"❌ FAIL: Last Name accepted more than 24 characters. Actual length: " + actualValue.length());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 }

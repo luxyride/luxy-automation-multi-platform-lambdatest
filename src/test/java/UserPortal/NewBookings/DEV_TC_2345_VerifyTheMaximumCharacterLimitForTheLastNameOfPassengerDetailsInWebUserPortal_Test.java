@@ -245,6 +245,8 @@ public class DEV_TC_2345_VerifyTheMaximumCharacterLimitForTheLastNameOfPassenger
 			utillLogger.info(testStep + " - " + testStatus);
 		
 			objTestBase.defaultWaitTime(2000);
+			objVerifyNewBookingMain.enterFirstName();
+			objTestBase.defaultWaitTime(2000);
 			objVerifyNewBookingMain.enterLastname();
 			objTestBase.defaultWaitTime(2000);
 			
