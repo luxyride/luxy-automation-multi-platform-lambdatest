@@ -84,6 +84,8 @@
 				name="Concierge.NewBookings.DEV_TC_1781_HourlyVerifyBookingARideinHourlyTabConciergeByDisablingSameAsPickupAddressCheckBox_Test" />
 			<class
 				name="Concierge.NewBookings.DEV_TC_1811_VerifyRemoveOrderIdFromConciergePortal_Test" />
+			<class
+				name="Concierge.NewBookings.DEV_TC_2360_VerifyTheMaximumCharacterLimitForTheLastNameOfPassengerDetailsInConciergePortal_Test">
 			<!--
 			############################################################################################## -->
 
