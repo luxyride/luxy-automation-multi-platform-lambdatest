@@ -3,7 +3,8 @@
 <suite name="LuxyNewUserPortal_Sanity" thread-count="4"
 	preserve-order="true">
 	<parameter name="environment" value="devuserportal" />
-	<parameter name="browser" value="chromeLocalMobileView" />	<!-- chromeLocal or chromeLocalMobileView -->
+	<parameter name="browser" value="chromeLocal" />	<!-- chromeLocal
+	or chromeLocalMobileView -->
 	<listeners>
 		<listener class-name="Common.LuxyAuto_ITestListener" />
 	</listeners>
@@ -17,25 +18,47 @@
 		</groups>
 
 		<classes>
-			<!-- ######################################## UserPortal.Login #################################### -->
-			<class name="UserPortal.Login.DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test" />
-			<class name="UserPortal.Login.DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test" />  
-			<class name="UserPortal.Login.DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test" /> 
-			<class name="UserPortal.Login.DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test" /> 
-			<class name="UserPortal.Login.DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test" />
-			<!-- ############################################################################################## -->
-			
-			<!-- ##################################### UserPortal.DriversAndPartners ########################## -->
-			<class name="UserPortal.DriversAndPartners.DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
-			<class name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />			
-			<!-- ############################################################################################## -->
+			<!-- ######################################## UserPortal.Login
+			#################################### -->
+			<class
+				name="UserPortal.Login.DEV_TC_1825_VerifyAvailabilityOfSignInButtonInNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_1826_VerifyCustomerLoginOptionOnNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_1856_VerifyAvailabilityAndFunctionalityOfLogOutButton_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_1951_VerifyAvailabilityOfProfileOptionInWebUserPortal_Test" />
+			<class
+				name="UserPortal.Login.DEV_TC_1952_VerifyFunctionalityOfProfileOptionInWebUserPortal_Test" />
+			<!--
+			############################################################################################## -->
 
-			<!-- ######################################### UserPortal.NewBookings ############################## -->
-			<class name="UserPortal.NewBookings.DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUserPortal_Test" />
-			<class name="UserPortal.NewBookings.DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPortal_Test" />
-			<class name="UserPortal.NewBookings.DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWebUserPortal_Test" />
-			<class name="UserPortal.NewBookings.DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUserPortal_Test" />
-			<!-- ############################################################################################## -->	
+			<!-- #####################################
+			UserPortal.DriversAndPartners ########################## -->
+			<class
+				name="UserPortal.DriversAndPartners.DEV_TC_1849_VerifyTheAvailabilityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<class
+				name="UserPortal.DriversAndPartners.DEV_TC_1854_VerifyTheFunctionalityOfAPSACheckBoxAndDocumentDownloadLinkInAffiliateRegistrationFormInWebUserPortal_Test" />
+			<!--
+			############################################################################################## -->
+
+			<!-- #########################################
+			UserPortal.NewBookings ############################## -->
+			<class
+				name="UserPortal.NewBookings.DEV_TC_1827_VerifyNewBookingForIndividualRidesAsGuestUserInNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.NewBookings.DEV_TC_1828_VerifyNewBookingForHourlyRidesAsGuestUserInNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.NewBookings.DEV_TC_1829_VerifyNewBookingForIndividualRidesASignedInUserInNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.NewBookings.DEV_TC_1830_VerifyNewBookingForHourlyRidesASignedInUserInNewWebUserPortal_Test" />
+			<class
+				name="UserPortal.NewBookings.DEV_TC_2345_VerifyTheMaximumCharacterLimitForTheLastNameOfPassengerDetailsInWebUserPortal_Test" />
+
+
+			<!--
+			############################################################################################## -->
 		</classes>
 	</test>
-</suite> <!-- Suite -->
+</suite> <!--
+Suite -->

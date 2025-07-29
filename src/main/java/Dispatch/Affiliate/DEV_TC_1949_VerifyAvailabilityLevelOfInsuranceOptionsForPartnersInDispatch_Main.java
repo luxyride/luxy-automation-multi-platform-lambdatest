@@ -54,10 +54,10 @@ public class DEV_TC_1949_VerifyAvailabilityLevelOfInsuranceOptionsForPartnersInD
 
 	@FindBy(xpath = "(//span[normalize-space()='Affiliate Details'])[1]")
 	WebElement affiliateLeadsTab;
-
+	
 	@FindBy(xpath = "//th[@title='Status']")
 	WebElement activeStatus;
-
+	
 	@FindBy(xpath = "(//a[normalize-space()='Inactive Affiliates'])[1]")
 	WebElement inActiveAffiliate;
 

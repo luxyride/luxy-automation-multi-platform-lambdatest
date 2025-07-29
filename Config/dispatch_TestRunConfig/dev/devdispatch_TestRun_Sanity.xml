@@ -104,7 +104,8 @@
 				name="Dispatch.NewBooking.DEV_TC_1942_VerifyFilteringOutDriversAssociatedWithInactiveDriversUnderSettingsInNotificationTab_Test" />
 			<class
 				name="Dispatch.NewBooking.DEV_TC_2091_verifyTheAvailabilityOfDriverRatingColumnInPassengerProfileOfDispatchPortal_Test" />
-
+			<class
+				name="Dispatch.NewBooking.DEV_TC_2344_VerifyTheMaximumCharacterLimitForTheLastNameOfPassengerDetailsInDispatchPortal_Main" />
 
 			<!--
 			############################################################################################# -->

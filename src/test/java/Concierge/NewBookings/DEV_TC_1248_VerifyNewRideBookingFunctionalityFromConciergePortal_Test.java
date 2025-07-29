@@ -268,7 +268,11 @@ public class DEV_TC_1248_VerifyNewRideBookingFunctionalityFromConciergePortal_Te
 
 			// Prod Restriction:
 			if (!environmentCode.equalsIgnoreCase("prod")) {
+				
+				js = (JavascriptExecutor) driver;
+				js.executeScript("window.scrollBy(0,300)", "");
 				objTestBase.defaultWaitTime(2000);
+				
 				objVerifyNewBookingConciergeMain.clickonConfirmBooking();
 				objTestBase.defaultWaitTime(2000);
 
